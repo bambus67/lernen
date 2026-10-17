@@ -10,7 +10,7 @@ for (const f of files) {
   let K;
   try { K = JSON.parse(fs.readFileSync(path.join(dir, f), "utf8")); } catch (e) { err(f, "kein gültiges JSON: " + e.message); continue; }
   if (K.id + ".json" !== f) err(f, "id passt nicht zum Dateinamen");
-  if (["klausuren", "kalender", "updates"].includes(K.id)) err(f, "id ist für eine Seite reserviert");
+  if (["klausuren", "probeklausur", "kalender", "updates"].includes(K.id)) err(f, "id ist für eine Seite reserviert");
   if (!index.some((e) => e.id === K.id)) err(f, "fehlt in index.json");
   for (const k of ["fach", "titel"]) if (!K[k]) err(f, "Feld fehlt: " + k);
   if (K.datum && !/^\d{4}-\d{2}-\d{2}$/.test(K.datum)) err(f, "datum muss YYYY-MM-DD sein");
@@ -39,6 +39,7 @@ for (const f of files) {
     (q.mc || []).forEach((m, j) => { if (!m.a || !Array.isArray(m.falsch)) err(f, "quellen[" + i + "].mc[" + j + "] unvollständig"); });
     (q.aufgaben || []).forEach((a, j) => { if (!a.q || !Array.isArray(a.eh)) err(f, "quellen[" + i + "].aufgaben[" + j + "] unvollständig"); });
   });
+  if (K.probe && K.probe.pflicht && !tids.has(K.probe.pflicht)) err(f, "probe.pflicht ist kein bekanntes Thema");
   (K.klausur || []).forEach((k, i) => { if (!k.q || !Array.isArray(k.punkte)) err(f, "klausur[" + i + "] unvollständig"); });
   console.log("geprüft: " + f);
 }

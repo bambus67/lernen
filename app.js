@@ -63,6 +63,7 @@ function go(v, p) {
   if (location.hash === h) route(); else location.hash = h;
 }
 async function route() {
+  stopProbeTimer();
   const parts = parseHash();
   if (!parts.length) { K = null; window.scrollTo(0, 0); return renderLanding(); }
   if (SITE_PAGES.includes(parts[0])) { K = null; window.scrollTo(0, 0); return renderSite(parts[0]); }
@@ -86,7 +87,7 @@ window.addEventListener("hashchange", route);
 
 /* ---------- Startseite und Übersichtsseiten ---------- */
 // "#/" = Startseite mit "Los geht's", "#/klausuren", "#/kalender", "#/updates" = eigene Seiten (diese ids sind für Klausuren gesperrt)
-const SITE_PAGES = ["klausuren", "kalender", "updates"];
+const SITE_PAGES = ["klausuren", "probeklausur", "kalender", "updates"];
 let UPDATES = null, cal = null;
 const MONTHS = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
 const pad2 = (n) => String(n).padStart(2, "0");
@@ -111,7 +112,7 @@ function navHTML(active) {
     SITE_PAGES.map((p) => '<a href="#/' + p + '"' + (p === active ? ' aria-current="page"' : "") + ">" + TITLES_SITE[p] + "</a>").join("") +
     '</div><a class="btn primary small cta-nav" href="#/klausuren">Los geht\'s →</a></div></nav>';
 }
-const TITLES_SITE = { klausuren: "Klausuren", kalender: "Kalender", updates: "Updates" };
+const TITLES_SITE = { klausuren: "Klausuren", probeklausur: "Probeklausur", kalender: "Kalender", updates: "Updates" };
 const siteFoot = '<footer class="foot wrap">Inhalte nach Tafelbildern und Unterrichtsmaterial, aufbereitet mit Claude. Fehler entdeckt? Sag Bescheid.</footer>';
 
 async function renderLanding() {
@@ -174,6 +175,19 @@ async function renderSite(page, msg) {
       (msg ? '<p class="fb bad"><b>' + esc(msg) + "</b>Hier sind alle verfügbaren Klausuren.</p>" : "") +
       (up.length ? '<div class="exams">' + up.map((k, i) => examCard(k, false, i === 0)).join("") + "</div>" : '<div class="empty-big">Gerade steht keine Klausur an.</div>') +
       (old.length ? '<header class="page-head sub-head"><h2>Archiv</h2><p>Zum Wiederholen vor dem Abi.</p></header><div class="exams">' + old.map((k) => examCard(k, true, false)).join("") + "</div>" : "");
+  } else if (page === "probeklausur") {
+    // nur Klausuren mit Quellen; dafür müssen die Klausurdateien geladen werden
+    const full = await Promise.all(list.map((k) => getJSON("klausuren/" + encodeURIComponent(k.id) + ".json").catch(() => null)));
+    const withSrc = list.filter((k, i) => full[i] && (full[i].quellen || []).length).sort((a, b) => (a.datum || "").localeCompare(b.datum || ""));
+    body = '<header class="page-head"><h1>Probeklausur</h1><p>Wähl das Fach. Du bekommst eine komplette Klausur mit Quelle, Aufgaben und Timer.</p></header>' +
+      (withSrc.length ? '<div class="exams">' + withSrc.map((k) => {
+        const st = loadState(k.id), h = st.probeHist || [], d = daysUntil(k.datum);
+        const status = st.probe && st.probe.state === "run" ? "Läuft gerade" : st.probe && st.probe.state === "korrektur" ? "Korrektur offen" : h.length ? h.length + (h.length === 1 ? " geschrieben" : " geschrieben") + ", zuletzt ≈ " + h[h.length - 1].np + " Punkte" : "Noch keine geschrieben";
+        return '<article class="exam"><div class="exam-top"><span class="kicker"><i class="dot" style="background:' + esc(examColor(k)) + '"></i>' + esc(k.fach) + (k.kurs ? " · " + esc(k.kurs) : "") + "</span></div><h3>" + esc(k.titel) + "</h3><p>" + esc(status) + "</p>" +
+          (k.datum ? '<div class="when-row"><span class="when">' + fmtDate(k.datum) + "</span>" + (d !== null && d >= 0 ? '<span class="cd">' + countdown(k.datum) + "</span>" : "") + "</div>" : "") +
+          '<div class="exam-actions"><a class="btn small primary" href="#/' + encodeURIComponent(k.id) + '/probe">' + (st.probe && st.probe.state !== "fertig" ? "Weiterschreiben" : "Probeklausur starten") + "</a></div></article>";
+      }).join("") + "</div>" : '<div class="empty-big">Gerade hat keine Klausur Quellen.</div>') +
+      '<p class="hint" style="margin-top:28px">Probeklausuren gibt es für Klausuren mit Quellen. Weitere Fächer kommen dazu, sobald es Material gibt.</p>';
   } else if (page === "kalender") {
     body = '<header class="page-head"><h1>Kalender</h1><p>Alle Klausurtermine. Tipp auf einen Termin, um die Klausur zu öffnen.</p></header><div id="cal"></div>';
   } else {
@@ -276,7 +290,7 @@ function renderInstall() {
 }
 
 /* ---------- Seiten einer Klausur ---------- */
-const TITLES = { lernplan: "Lernplan", lernen: "Lernen", quiz: "Quiz", kette: "Ursache → Folge", karten: "Karteikarten", quellen: "Quellen", quelle: "Quellen", klausur: "Klausurfragen" };
+const TITLES = { lernplan: "Lernplan", lernen: "Lernen", quiz: "Quiz", kette: "Ursache → Folge", karten: "Karteikarten", quellen: "Quellen", quelle: "Quellen", klausur: "Klausurfragen", probe: "Probeklausur" };
 function render() {
   document.body.classList.toggle("on-home", view === "home");
   if (view === "home" || !TITLES[view]) { view = "home"; return renderHome(); }
@@ -284,10 +298,10 @@ function render() {
     '<div class="topbar"><div class="wrap">' +
     '<button class="back" id="back" type="button">← ' + (fromPlan ? "Lernplan" : view === "quelle" ? "Alle Quellen" : "Übersicht") + "</button>" +
     '<div class="mtitle">' + TITLES[view] + "</div>" +
-    "</div></div>" +
+    '<span id="tb-right"></span></div></div>' +
     '<main class="stage" id="stage"></main>';
   $("#back").onclick = () => (fromPlan ? go("lernplan") : view === "quelle" ? go("quellen") : go("home"));
-  ({ lernplan: renderPlan, lernen: renderLernen, quiz: renderQuiz, kette: renderKette, karten: renderKarten, quellen: renderQuellen, quelle: renderQuelle, klausur: renderKlausur })[view]();
+  ({ lernplan: renderPlan, lernen: renderLernen, quiz: renderQuiz, kette: renderKette, karten: renderKarten, quellen: renderQuellen, quelle: renderQuelle, klausur: renderKlausur, probe: renderProbe })[view]();
 }
 const stage = () => $("#stage");
 
@@ -303,6 +317,7 @@ function renderHome() {
   if (planReady()) { const pi = planCardInfo(); train.push(card("lernplan", "plan", "Dein Fahrplan bis zur Klausur", "Lernplan", S.plan ? "Deine Aufgaben für heute und die nächsten Tage. Jede Aufgabe führt direkt in den passenden Modus." : "Sag, an welchen Tagen und wie lange du lernst, und du bekommst einen Plan bis zur Klausur.", pi[0], pi[1])); }
   if (has("lernen")) train.push(card("lernen", "learn", "Erst verstehen", "Lernen", "Alle Inhalte als Lernkarten zum Durchblättern, ohne Druck. Danach direkt testen.", K.lernen.length + " Themen", learnedCount + " gelesen"));
   if (has("quellen")) train.push(card("quellen", "train", "Quellenarbeit", "Quellen-Training", "Quellenauszüge mit Einordnungsfragen, Klausuraufgaben und Erwartungshorizont zum Abhaken.", n(K.quellen, (q) => inTopic(q.t)) + " Quellen", done + " bearbeitet"));
+  const probeCard = has("quellen") ? (() => { const pi = probeCardInfo(); return card("probe", "probe", "Wie in der echten Klausur", "Probeklausur", "Quelle, Aufgaben mit Operatoren und Timer auf einem Klausurblatt. Danach selbst korrigieren und eine grobe Note bekommen.", pi[0], pi[1]); })() : "";
   if (has("klausur")) train.push(card("klausur", "train", "Offene Fragen", "Klausurfragen", "Mögliche Aufgaben mit Operatoren. Erst selbst antworten, dann mit der Musterlösung vergleichen.", n(K.klausur, (q) => inTopic(q.t)) + " Fragen", "mit Musterlösung"));
   const games = [];
   if (has("quiz")) games.push(["quiz", "Wissen", "Quiz", "Zehn Fragen mit Erklärung nach jeder Antwort.", n(K.quiz, (q) => inTopic(q.t)) + " Fragen im Pool", "10 pro Runde"]);
@@ -328,7 +343,7 @@ function renderHome() {
     '<div class="wrap home">' +
     (chips ? '<section><div class="sec-head"><h2>Thema</h2><p>Filtert alle Modi auf ein Thema.</p></div><div class="chips">' + chips + "</div></section>" : "") +
     (!train.length && !games.length ? '<section><div class="empty-big">Für diese Klausur gibt es noch keinen Lernstoff. Er kommt dazu, sobald das Material aus dem Unterricht da ist.</div></section>' : "") +
-    (train.length ? '<section><div class="sec-head"><h2>Lernen und Klausurtraining</h2><p>Erst verstehen, dann so üben, wie es in der Klausur drankommt.</p></div><div class="grid-train">' + train.join("") + "</div></section>" : "") +
+    (train.length ? '<section><div class="sec-head"><h2>Lernen und Klausurtraining</h2><p>Erst verstehen, dann so üben, wie es in der Klausur drankommt.</p></div><div class="grid-train">' + train.join("") + probeCard + "</div></section>" : "") +
     (games.length ? '<section><div class="sec-head"><h2>Spielmodi</h2><p>Zum Wiederholen zwischendurch.</p></div><div class="games">' + gamesHTML + "</div></section>" : "") +
     (topics().length ? '<section class="duo"><div class="panel"><h3>Dein Stand</h3>' + progressHTML() + '</div><div class="panel"><h3>Gespeichert</h3><p class="hint" style="margin:0">Dein Fortschritt liegt nur in diesem Browser auf diesem Gerät. Niemand sonst sieht ihn.</p><div class="btn-row"><button class="btn small" id="reset" type="button">Fortschritt zurücksetzen</button></div><p class="hint" id="reset-q" hidden>Wirklich alles für diese Klausur löschen? <button class="btn small" id="reset-yes" type="button">Ja, löschen</button></p></div></section>' : "") +
     "</div>";
@@ -852,6 +867,215 @@ function planCardInfo() {
   const { today, overdue } = planToday(), done = S.planDone || {};
   const open = today.filter((x) => !done[x.id]).length + overdue.length;
   return [open ? "Heute: " + open + " offen" : today.length ? "Heute erledigt ✓" : "Heute frei", planTasks().filter((x) => done[x.id]).length + " von " + planTasks().length + " erledigt"];
+}
+
+/* ---------- Probeklausur ---------- */
+// Teil A: 1 Quelle mit allen Aufgaben, oder ein Quellenpaar desselben Themas (M2 nur mit seiner Vergleichsaufgabe).
+// Teil B: 1 bis 2 Fragen zu einem anderen Thema plus eine Frage zum Pflichtthema (K.probe.pflicht), falls die Quellen es nicht schon abdecken.
+// Umfang 65 bis 85 Minuten, geschätzt nach Anforderungsbereich.
+const AFB_COST = { "I": { min: 10, be: 6 }, "I–II": { min: 10, be: 8 }, "II": { min: 15, be: 10 }, "III": { min: 20, be: 14 } };
+const PROBE_READ = 5, PROBE_RANGE = [65, 85];
+let probeTimer = null, probeSaveT = null, probeConfirm = false;
+function stopProbeTimer() { if (probeTimer) { clearInterval(probeTimer); probeTimer = null; } }
+function opInfo(op) {
+  const o = (K.operatoren || []).find((x) => x.name.split("/").map((s) => s.trim()).includes(op));
+  const afb = o ? o.afb : "II";
+  return Object.assign({ afb: afb }, AFB_COST[afb] || AFB_COST.II);
+}
+function probeCandidates() {
+  const pflicht = K.probe && K.probe.pflicht;
+  const srcs = K.quellen.filter((q) => (q.aufgaben || []).length);
+  const qs = (K.klausur || []).map((k, i) => ({ k: k, i: i }));
+  const teilA = [];
+  // Vergleichsaufgaben beziehen sich auf eine zweite Quelle, deshalb nur im Quellenpaar
+  srcs.forEach((q) => teilA.push({ t: q.t, mats: [q.id], tasks: q.aufgaben.map((a, j) => ({ src: q.id, j: j, op: a.op })).filter((x) => x.op !== "Vergleichen") }));
+  srcs.forEach((b) => {
+    const vj = b.aufgaben.findIndex((a) => a.op === "Vergleichen");
+    if (vj < 0) return;
+    srcs.filter((a) => a !== b && a.t === b.t).forEach((a) => teilA.push({ t: a.t, mats: [a.id, b.id], tasks: a.aufgaben.map((x, j) => ({ src: a.id, j: j, op: x.op })).filter((x) => x.op !== "Vergleichen").concat([{ src: b.id, j: vj }]) }));
+  });
+  const out = [];
+  teilA.forEach((A) => {
+    const srcTexts = new Set(A.tasks.map((x) => K.quellen.find((q) => q.id === x.src).aufgaben[x.j].q));
+    const free = (o) => !srcTexts.has(o.k.q);
+    const pf = pflicht && A.t !== pflicht ? qs.filter((o) => o.k.t === pflicht && free(o)) : [];
+    const themes = [...new Set(qs.map((o) => o.k.t))].filter((t) => t !== A.t && t !== pflicht && t !== "all");
+    themes.forEach((t) => {
+      const tq = qs.filter((o) => o.k.t === t && free(o));
+      const sets = tq.map((o) => [o]);
+      if (pf.length) sets.push([]);
+      for (let x = 0; x < tq.length; x++) for (let y = x + 1; y < tq.length; y++) sets.push([tq[x], tq[y]]);
+      sets.forEach((set) => {
+        const variants = pf.length ? pf.map((p) => [p].concat(set)) : [set];
+        variants.forEach((B) => { if (B.length) out.push({ A: A, B: B, theme: t }); });
+      });
+    });
+  });
+  return out.map((c) => {
+    const tasks = c.A.tasks.map((x) => { const a = K.quellen.find((q) => q.id === x.src).aufgaben[x.j]; return Object.assign({ kind: "src", src: x.src, op: a.op, q: a.q, eh: a.eh }, opInfo(a.op)); })
+      .concat(c.B.map((o) => Object.assign({ kind: "frage", t: o.k.t, op: o.k.op, q: o.k.q, eh: o.k.punkte }, opInfo(o.k.op))));
+    const min = tasks.reduce((s, x) => s + x.min, 0) + c.A.mats.length * PROBE_READ;
+    return { mats: c.A.mats, tasks: tasks, min: min, theme: c.theme };
+  }).filter((c) => c.min >= PROBE_RANGE[0] && c.min <= PROBE_RANGE[1]);
+}
+function newProbe(dauer) {
+  let cands = probeCandidates();
+  if (!cands.length) return null;
+  // erst zufällig 1 oder 2 Quellen, dann eine Variante; Umfang nah an 75 Minuten leicht bevorzugt
+  const groups = [1, 2].map((n) => cands.filter((c) => c.mats.length === n)).filter((g) => g.length);
+  cands = groups[Math.floor(Math.random() * groups.length)];
+  const w = cands.map((c) => 1 / (1 + Math.abs(c.min - 75) / 10));
+  let r = Math.random() * w.reduce((a, b) => a + b, 0), pick = cands[0];
+  for (let i = 0; i < cands.length; i++) { r -= w[i]; if (r <= 0) { pick = cands[i]; break; } }
+  return { state: "run", dauer: dauer, start: Date.now(), mats: pick.mats, tasks: pick.tasks, min: pick.min, answers: {}, checks: {} };
+}
+const probeMax = (P) => P.tasks.reduce((s, x) => s + x.be, 0);
+function probeScore(P) {
+  return P.tasks.map((x, i) => { const c = P.checks[i] || {}; const n = x.eh.filter((_, j) => c[j]).length; return Math.round((x.be * n / x.eh.length) * 2) / 2; });
+}
+function notenpunkte(pct) {
+  // üblicher Abi-Schlüssel; die Lehrkraft kann einen anderen verwenden
+  const t = [[95, 15], [90, 14], [85, 13], [80, 12], [75, 11], [70, 10], [65, 9], [60, 8], [55, 7], [50, 6], [45, 5], [40, 4], [33, 3], [27, 2], [20, 1]];
+  for (const [p, np] of t) if (pct >= p) return np;
+  return 0;
+}
+const npNote = (np) => (np >= 13 ? 1 : np >= 10 ? 2 : np >= 7 ? 3 : np >= 4 ? 4 : np >= 1 ? 5 : 6);
+const fmtClock = (ms) => { const s = Math.max(0, Math.ceil(ms / 1000)); return Math.floor(s / 60) + ":" + pad2(s % 60); };
+function probeSave() { clearTimeout(probeSaveT); probeSaveT = setTimeout(save, 300); }
+const firstWordBold = (q) => esc(q).replace(/^(\S+)/, "<b>$1</b>");
+
+function renderProbe() {
+  stopProbeTimer();
+  const tb = $("#tb-right"); if (tb) tb.innerHTML = "";
+  const el = stage();
+  if (!has("quellen")) { el.innerHTML = '<div class="empty-big">Für diese Klausur gibt es noch keine Quellen. Eine Probeklausur kommt, sobald das Material da ist.</div>'; return; }
+  const P = S.probe;
+  if (!P) return renderProbeStart();
+  if (P.state === "run") return renderProbeRun();
+  if (P.state === "korrektur") return renderProbeKorrektur();
+  return renderProbeResult();
+}
+let probeDauer = 90;
+function renderProbeStart(err) {
+  const el = stage();
+  const hist = S.probeHist || [];
+  const pfName = K.probe && K.probe.pflicht ? topicName(K.probe.pflicht) : "";
+  el.innerHTML =
+    '<div class="kicker">' + esc(K.fach) + " · " + esc(K.titel) + '</div><h2 class="q" style="margin-top:6px">Probeklausur</h2>' +
+    '<p class="hint" style="margin-top:-8px">Eine komplette Klausur: 1 bis 2 Quellen mit Aufgaben, dazu Fragen zu einem Thema' + (pfName ? " und zu „" + esc(pfName) + "“" : "") + '. Umfang etwa 75 Minuten. Jedes Mal neu zusammengestellt.</p>' +
+    '<div class="step-h">Bearbeitungszeit</div><div class="seg" role="group">' +
+    [60, 75, 90, 120].map((m) => '<button type="button" data-pd="' + m + '" aria-pressed="' + (probeDauer === m) + '">' + m + " Min.</button>").join("") + "</div>" +
+    '<label class="own-min">oder eigene Zeit: <input type="number" id="pdown" min="10" max="300" step="5" inputmode="numeric" placeholder="z. B. 100" value="' + ([60, 75, 90, 120].includes(probeDauer) ? "" : probeDauer) + '"> Minuten</label>' +
+    (err ? '<div class="fb bad"><b>So geht es nicht.</b>' + esc(err) + "</div>" : "") +
+    '<div class="btn-row"><button class="btn primary" id="pstart" type="button">Probeklausur starten</button></div>' +
+    '<p class="hint">Der Timer läuft weiter, auch wenn du das Fenster schließt. Deine Antworten werden auf diesem Gerät zwischengespeichert.</p>' +
+    probeHistHTML(hist);
+  $$("[data-pd]", el).forEach((b) => (b.onclick = () => { probeDauer = +b.dataset.pd; renderProbeStart(); }));
+  $("#pdown").oninput = () => { if ($("#pdown").value !== "") $$("[data-pd]", el).forEach((b) => b.setAttribute("aria-pressed", "false")); };
+  $("#pstart").onclick = () => {
+    const own = $("#pdown").value.trim();
+    if (own !== "") { const v = Math.round(Number(own)); if (!(v >= 10 && v <= 300)) return renderProbeStart("Gib bei der eigenen Zeit eine Zahl zwischen 10 und 300 Minuten ein."); probeDauer = v; }
+    const P = newProbe(probeDauer);
+    if (!P) return renderProbeStart("Aus den Quellen und Fragen dieser Klausur lässt sich keine Probeklausur mit 65 bis 85 Minuten bauen.");
+    S.probe = P; probeConfirm = false; save(); renderProbe(); window.scrollTo(0, 0);
+  };
+}
+function probeHistHTML(hist) {
+  if (!hist.length) return "";
+  return '<div class="step-h">Verlauf</div><div class="phist">' + hist.slice().reverse().slice(0, 10).map((h) =>
+    '<div class="phrow"><span class="ph-d">' + fmtDate(h.datum) + '</span><span class="ph-t">' + esc(h.titel) + '</span><span class="ph-s">' + String(h.be).replace(".", ",") + " / " + h.max + ' BE</span><span class="ph-np"><b>≈ ' + h.np + "</b> P.</span></div>").join("") + "</div>";
+}
+function sheetHead(P) {
+  return '<header class="sheet-head"><div class="sh-row"><b>Probeklausur ' + esc(K.fach) + "</b><span>" + esc(K.kurs || "") + "</span></div>" +
+    '<div class="sh-row"><span>Thema: ' + esc(K.titel) + "</span><span>" + fmtDate(ymd(new Date(P.start))) + "</span></div>" +
+    '<div class="sh-row"><span>Bearbeitungszeit: ' + P.dauer + " Minuten</span><span>" + probeMax(P) + " BE</span></div>" +
+    '<div class="sh-row sh-small"><span>Hilfsmittel: keine</span><span>Umfang ca. ' + P.min + " Minuten</span></div></header>";
+}
+function sheetMats(P) {
+  return P.mats.map((id, i) => {
+    const q = K.quellen.find((x) => x.id === id);
+    return '<section class="sheet-mat"><h3>M' + (i + 1) + "</h3>" +
+      '<p class="sm-title">' + esc(q.titel) + "</p>" +
+      '<p class="sm-meta">' + esc(q.autor) + " · " + esc(q.art) + " · " + esc(q.datum) + (q.adressat ? "<br>Adressat: " + esc(q.adressat) : "") + "</p>" +
+      (q.kontext ? '<p class="sm-ctx">' + esc(q.kontext) + "</p>" : "") +
+      '<div class="sm-text">' + q.text.map((t) => "<p>" + esc(t) + "</p>").join("") + "</div>" +
+      (q.hinweis ? '<p class="sm-note">' + esc(q.hinweis) + "</p>" : "") + "</section>";
+  }).join("");
+}
+function taskHead(P, x, i) {
+  const ref = x.kind === "src" && P.mats.length > 1 ? " <span class=\"st-ref\">(M" + (P.mats.indexOf(x.src) + 1) + ")</span>" : "";
+  return '<div class="st-h"><span class="st-nr">' + (i + 1) + '</span><span class="st-q">' + firstWordBold(x.q) + ref + '<span class="st-op">' + esc(x.op) + " · AFB " + esc(x.afb) + '</span></span><span class="st-be">' + x.be + " BE</span></div>";
+}
+function renderProbeRun() {
+  const P = S.probe, el = stage();
+  const partB = P.tasks.findIndex((x) => x.kind === "frage");
+  el.innerHTML = '<div class="pwarn" id="pwarn" hidden></div><article class="sheet">' + sheetHead(P) + sheetMats(P) +
+    '<section class="sheet-tasks"><h3>Aufgaben</h3>' + P.tasks.map((x, i) =>
+      (i === partB && partB > 0 ? '<h4 class="st-part">Teil B: ohne Material</h4>' : "") +
+      '<div class="stask">' + taskHead(P, x, i) + '<textarea class="st-ans" data-pa="' + i + '" placeholder="Deine Antwort">' + esc(P.answers[i] || "") + "</textarea></div>").join("") +
+    "</section></article>" +
+    '<div class="btn-row" id="psubmit-row">' + (probeConfirm
+      ? '<p class="hint" style="margin:0;flex-basis:100%">Wirklich abgeben? Danach kannst du nichts mehr ändern.</p><button class="btn primary" id="pyes" type="button">Ja, abgeben</button><button class="btn" id="pno" type="button">Weiterschreiben</button>'
+      : '<button class="btn primary" id="psubmit" type="button">Abgeben</button><button class="btn" id="pcancel" type="button">Probeklausur abbrechen</button>') + "</div>";
+  $$("[data-pa]", el).forEach((t) => (t.oninput = () => { P.answers[t.dataset.pa] = t.value; probeSave(); }));
+  const sb = $("#psubmit"); if (sb) sb.onclick = () => { probeConfirm = true; keepScroll(renderProbeRun); };
+  const no = $("#pno"); if (no) no.onclick = () => { probeConfirm = false; keepScroll(renderProbeRun); };
+  const yes = $("#pyes"); if (yes) yes.onclick = () => { stopProbeTimer(); P.state = "korrektur"; P.end = Date.now(); probeConfirm = false; save(); renderProbe(); window.scrollTo(0, 0); };
+  const cc = $("#pcancel"); if (cc) cc.onclick = () => { if (confirm("Probeklausur abbrechen? Deine Antworten werden gelöscht.")) { stopProbeTimer(); S.probe = null; save(); renderProbe(); } };
+  const tick = () => {
+    const rem = P.start + P.dauer * 60000 - Date.now();
+    const t = $("#ptimer"), w = $("#pwarn"); if (!t) return stopProbeTimer();
+    t.textContent = rem > 0 ? fmtClock(rem) : "0:00";
+    t.classList.toggle("warn", rem <= 600000 && rem > 0); t.classList.toggle("over", rem <= 0);
+    if (rem <= 0) { w.hidden = false; w.className = "pwarn over"; w.innerHTML = "<b>Die Zeit ist um.</b> Schreib deinen Satz zu Ende und gib ab."; }
+    else if (rem <= 600000) { w.hidden = false; w.className = "pwarn"; w.innerHTML = "<b>Noch " + Math.ceil(rem / 60000) + " Minuten.</b> Zeit, zum Ende zu kommen."; }
+  };
+  $("#tb-right").innerHTML = '<span class="pill ptimer" id="ptimer" aria-live="off"></span>';
+  tick(); probeTimer = setInterval(tick, 1000);
+}
+function renderProbeKorrektur() {
+  const P = S.probe, el = stage();
+  const pts = probeScore(P), max = probeMax(P), sum = pts.reduce((a, b) => a + b, 0);
+  const used = Math.round(((P.end || Date.now()) - P.start) / 60000);
+  el.innerHTML = '<div class="kicker">Abgegeben nach ' + used + " von " + P.dauer + ' Minuten</div><h2 class="q" style="margin-top:6px">Selbstkorrektur</h2>' +
+    '<p class="hint" style="margin-top:-8px">Vergleich deine Antworten mit dem Erwartungshorizont und hak ab, was wirklich drin ist. Sei streng mit dir, sonst bringt die Schätzung nichts.</p>' +
+    P.tasks.map((x, i) => {
+      const c = P.checks[i] || {};
+      return '<div class="task ktask">' + taskHead(P, x, i) +
+        '<div class="k-ans">' + (P.answers[i] && P.answers[i].trim() ? esc(P.answers[i]) : '<span class="hint">Keine Antwort</span>') + "</div>" +
+        '<div class="eh-head">Erwartungshorizont</div><ul class="eh">' + x.eh.map((p, j) => '<li><label><input type="checkbox" data-pk="' + i + '" data-j="' + j + '"' + (c[j] ? " checked" : "") + "><span>" + esc(p) + "</span></label></li>").join("") + "</ul>" +
+        '<span class="awarded">' + String(pts[i]).replace(".", ",") + " von " + x.be + " BE</span></div>";
+    }).join("") +
+    '<div class="psum"><span>Zusammen</span><b>' + String(sum).replace(".", ",") + " / " + max + ' BE</b></div>' +
+    '<div class="btn-row"><button class="btn primary" id="peval" type="button">Auswerten</button></div>';
+  $$("[data-pk]", el).forEach((cb) => (cb.onchange = () => { const i = cb.dataset.pk; (P.checks[i] = P.checks[i] || {})[cb.dataset.j] = cb.checked; save(); keepScroll(renderProbeKorrektur); }));
+  $("#peval").onclick = () => {
+    const s2 = probeScore(P).reduce((a, b) => a + b, 0), pct = (s2 / max) * 100, np = notenpunkte(pct);
+    P.result = { be: s2, max: max, pct: pct, np: np };
+    P.state = "fertig";
+    (S.probeHist = S.probeHist || []).push({ datum: todayStr(), titel: P.mats.map((id) => K.quellen.find((q) => q.id === id).titel).join(" / "), be: s2, max: max, np: np, dauer: P.dauer, used: used });
+    if (S.probeHist.length > 30) S.probeHist = S.probeHist.slice(-30);
+    save(); renderProbe(); window.scrollTo(0, 0);
+  };
+}
+function renderProbeResult() {
+  const P = S.probe, R = P.result, el = stage();
+  const pts = probeScore(P);
+  el.innerHTML = '<div class="result"><div class="kicker">Probeklausur ausgewertet</div>' +
+    '<div class="big">≈ ' + R.np + ' <span class="big-sub">Punkte</span></div>' +
+    "<p><b>" + String(R.be).replace(".", ",") + " von " + R.max + " BE (" + Math.round(R.pct) + " %), das entspricht etwa Note " + npNote(R.np) + ".</b></p>" +
+    '<div class="fb warn"><b>Nur eine Selbsteinschätzung.</b>Du hast deine Antworten selbst mit dem Erwartungshorizont verglichen. In der echten Klausur zählen auch Aufbau, Sprache, Belege und Tiefe der Argumentation, und deine Lehrkraft kann einen anderen Notenschlüssel verwenden. Die Zahl ist ein grober Anhaltspunkt, keine Note.</div>' +
+    '<div class="pbreak">' + P.tasks.map((x, i) => '<div><span>' + (i + 1) + ". " + esc(x.op) + '</span><span>' + String(pts[i]).replace(".", ",") + " / " + x.be + " BE</span></div>").join("") + "</div>" +
+    '<div class="btn-row"><button class="btn primary" id="pnew" type="button">Neue Probeklausur</button><button class="btn" id="pback" type="button">Korrektur ansehen</button></div></div>' +
+    probeHistHTML(S.probeHist || []);
+  $("#pnew").onclick = () => { S.probe = null; save(); renderProbe(); window.scrollTo(0, 0); };
+  $("#pback").onclick = () => { P.state = "korrektur"; save(); renderProbe(); };
+}
+function probeCardInfo() {
+  const P = S.probe, h = S.probeHist || [];
+  if (P && P.state === "run") { const rem = P.start + P.dauer * 60000 - Date.now(); return [rem > 0 ? "Läuft: noch " + Math.ceil(rem / 60000) + " Min." : "Zeit ist um, jetzt abgeben", "Weiter →"]; }
+  if (P && P.state === "korrektur") return ["Abgegeben, Korrektur offen", "Weiter →"];
+  return [h.length ? "Zuletzt: ≈ " + h[h.length - 1].np + " Punkte" : "Noch keine geschrieben", "ca. 75 Min."];
 }
 
 /* ---------- Tastatur ---------- */

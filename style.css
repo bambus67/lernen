@@ -394,3 +394,57 @@ a.cday.has:hover{border-color:var(--ink)}
 .own-min input:focus{outline:none;border-color:var(--ink)}
 .plan-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .plan-top .btn{flex:none}
+
+/* Probeklausur: Klausurblatt im Papier-Look */
+.grid-train .mode.probe{grid-column:1/-1}
+.mode.probe .kicker{color:var(--muted)}
+#tb-right{margin-left:auto}
+.ptimer{font-size:1rem;font-weight:700;font-variant-numeric:tabular-nums;padding:6px 14px;background:var(--soft);border-color:var(--line)}
+.ptimer.warn{color:#000;background:#F2B84B;border-color:#F2B84B}
+.ptimer.over{color:#fff;background:var(--bad);border-color:var(--bad)}
+.pwarn{position:sticky;top:calc(env(safe-area-inset-top,0px) + 60px);z-index:4;margin-bottom:14px;padding:12px 16px;border-radius:var(--r);background:#2A2110;border:1px solid #F2B84B;color:var(--ink)}
+.pwarn.over{background:var(--bad-soft);border-color:var(--bad)}
+.sheet{--s-ink:#141414;--s-muted:#5C5C5C;--s-line:#D6D3CA;background:#F7F5EF;color:var(--s-ink);border-radius:14px;padding:clamp(18px,4vw,40px);box-shadow:0 20px 60px rgba(0,0,0,.5);color-scheme:light}
+.sheet-head{border-bottom:2px solid var(--s-ink);padding-bottom:12px;margin-bottom:22px;display:grid;gap:4px}
+.sh-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.sh-row b{font-size:1.15rem}
+.sh-small{font-size:.85rem;color:var(--s-muted)}
+.sheet h3{font-size:1rem;letter-spacing:.06em;text-transform:uppercase;margin:0 0 8px}
+.sheet-mat{margin-bottom:26px}
+.sm-title{margin:0 0 2px;font-weight:700;font-size:1.05rem}
+.sm-meta{margin:0 0 8px;font-size:.9rem;color:var(--s-muted)}
+.sm-ctx{margin:0 0 10px;color:var(--s-muted);font-size:.92rem}
+.sm-text{font-family:var(--f-doc);font-size:1.05rem;line-height:1.65;border-left:3px solid var(--s-line);padding-left:16px;display:grid;gap:10px}
+.sm-text p{margin:0}
+.sm-note{margin:8px 0 0;font-size:.8rem;color:var(--s-muted)}
+.sheet-tasks{border-top:1px solid var(--s-line);padding-top:18px}
+.st-part{margin:24px 0 10px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted)}
+.stask{margin-bottom:22px}
+.st-h{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:10px;align-items:start;margin-bottom:8px}
+.st-nr{font-weight:700}
+.st-q{line-height:1.45}
+.st-ref{color:var(--s-muted)}
+.st-op{display:block;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted);margin-top:2px}
+.st-be{font-weight:600;white-space:nowrap;font-size:.9rem}
+.sheet .st-ans{min-height:180px;background:#fff;color:var(--s-ink);border:1px solid var(--s-line);border-radius:8px;font-size:1rem;line-height:1.55}
+.sheet .st-ans:focus{outline:none;border-color:var(--s-ink)}
+.ktask .st-h{margin-bottom:4px}
+.ktask .st-ref,.ktask .st-op{color:var(--muted)}
+.k-ans{white-space:pre-wrap;background:var(--soft);border-radius:8px;padding:12px 14px;font-size:.95rem;line-height:1.55}
+.psum{display:flex;justify-content:space-between;align-items:baseline;padding:16px 4px;border-top:1px solid var(--line);margin-top:8px}
+.psum b{font-size:1.4rem}
+.big-sub{font-size:.35em;font-weight:500;color:var(--muted);letter-spacing:0}
+.pbreak{display:grid;gap:6px;margin-top:16px}
+.pbreak div{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.phist{display:grid;gap:6px}
+.phrow{display:grid;grid-template-columns:8rem minmax(0,1fr) auto auto;gap:12px;align-items:baseline;padding:10px 14px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);font-size:.9rem}
+.ph-d,.ph-s{color:var(--muted);white-space:nowrap}
+.ph-t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ph-np{white-space:nowrap}
+@media (max-width:560px){.phrow{grid-template-columns:auto minmax(0,1fr) auto}.ph-t{grid-column:1/-1;grid-row:1}.ph-s{justify-self:end}.st-h{grid-template-columns:22px minmax(0,1fr) auto}}
+/* Leiste mit vier Reitern: auf dem Handy zweite Zeile */
+@media (max-width:640px){
+  .topnav .wrap{flex-wrap:wrap;min-height:0;padding-top:8px;gap:0}
+  .topnav .brand{padding:6px 0}
+  .topnav .links{order:3;width:100%;margin:0 -8px;padding-bottom:6px;overflow-x:auto;scrollbar-width:none}
+}

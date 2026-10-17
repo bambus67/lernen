@@ -3316,5 +3316,8 @@
    "afb": "III",
    "text": "Pro und Contra abwägen und zu einem begründeten Urteil kommen."
   }
- ]
+ ],
+ "probe": {
+  "pflicht": "bipolar"
+ }
 }
