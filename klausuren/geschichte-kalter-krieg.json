@@ -15,6 +15,10 @@
    "name": "Bipolare Welt"
   },
   {
+   "id": "anfaenge",
+   "name": "Merkmale und Anfänge"
+  },
+  {
    "id": "mad",
    "name": "Abschreckung"
   },
@@ -150,6 +154,51 @@
    ]
   },
   {
+   "t": "anfaenge",
+   "name": "Merkmale und Anfänge",
+   "cards": [
+    {
+     "h": "Merksatz",
+     "p": [
+      "Der Kalte Krieg ist eine Konfrontation ohne direkten Krieg der Supermächte: Weil ein Atomkrieg jedes Leben auf der Erde hätte auslöschen können, kämpfen beide Seiten auf allen anderen Feldern."
+     ],
+     "big": true
+    },
+    {
+     "h": "Merkmale und Austragungsfelder",
+     "p": [
+      "Kalter Krieg: nichtmilitärische Konfrontationspolitik verfeindeter Staaten. Der bekannteste wird zwischen den USA und der Sowjetunion mit ihren Verbündeten geführt (Ost-West-Konflikt).",
+      "Ständige Gefahr, dass er zu einem Atomkrieg eskaliert. Deshalb vermeiden beide Seiten die direkte Konfrontation.",
+      "Militärbündnisse: NATO im Westen, Warschauer Pakt im Osten",
+      "„Heiße“ Stellvertreterkriege und Wettrüsten, um den Gegner zu übertrumpfen",
+      "Wirtschaftliche Embargos sollen die andere Supermacht und ihre Verbündeten schwächen.",
+      "Politisch-diplomatischer Druck, ideologische Kriegsführung, Propaganda und weltweit inszenierte Staatsstreiche, Putsche und Rebellionen"
+     ]
+    },
+    {
+     "h": "Berlin-Blockade",
+     "p": [
+      "Erster Höhepunkt des Kalten Krieges",
+      "Auslöser: Die Westalliierten führen in den Westsektoren Berlins eine Währungsreform durch.",
+      "Die sowjetische Besatzungsmacht riegelt für mehrere Monate alle Land- und Wasserwege nach West-Berlin ab.",
+      "Antwort der Westmächte: Luftbrücke und Gegenblockade gegen die Sowjetische Besatzungszone",
+      "Nach knapp einem Jahr beendet ein Abkommen der Besatzungsmächte Blockade und Gegenblockade."
+     ]
+    },
+    {
+     "h": "Aufstände und Mauer",
+     "p": [
+      "Nach Stalins Tod übernimmt Chruschtschow die Macht, man hofft auf Entspannung. Der erste Gipfel in Genf (USA, Großbritannien, Frankreich, UdSSR) bringt aber keine Einigung über Abrüstung und Sicherheit.",
+      "Moskau lässt nicht zu, dass Satellitenstaaten sich seinem Einfluss entziehen.",
+      "Volksaufstände in der DDR und in Ungarn werden militärisch niedergeschlagen. In Ungarn wird die Regierung danach im Sinne Moskaus neu besetzt.",
+      "Bau der Berliner Mauer: Der Ost-West-Gegensatz wird besonders sichtbar.",
+      "Die Westmächte protestieren nur mit Worten und wagen nicht, militärisch vorzugehen.",
+      "Die Mauer wird zum vielleicht bekanntesten Symbol des Kalten Krieges."
+     ]
+    }
+   ]
+  },
+  {
    "t": "mad",
    "name": "Abschreckung",
    "cards": [
@@ -206,7 +255,9 @@
      "p": [
       "Die UN verurteilt den Angriff, die USA (Truman) führen UN-Truppen unter General MacArthur an.",
       "Als sie weit nach Norden vorstoßen, greift China ein.",
-      "Die Front erstarrt am 38. Breitengrad, es gibt nur einen Waffenstillstand."
+      "Die Front erstarrt am 38. Breitengrad, es gibt nur einen Waffenstillstand.",
+      "Der UN-Sicherheitsrat nutzt die vorübergehende Abwesenheit des sowjetischen Delegierten und beschließt eine UN-Streitmacht gegen Nordkorea.",
+      "Die USA kämpfen mit 15 weiteren UN-Staaten auf südkoreanischer Seite. Nordkorea bekommt diplomatische Unterstützung der UdSSR und militärische Hilfe der Volksrepublik China."
      ]
     },
     {
@@ -214,7 +265,8 @@
      "p": [
       "Kurzfristig: rund drei Jahre Krieg, massive Zerstörung, mehr als 4 Mio. Tote, Verletzte und Flüchtlinge, Streit um Kriegsgefangene",
       "Mittelfristig: mehr Konfrontation, mehr US-Militär in Asien, Stärkung der NATO, Militarisierung, China wird Macht in Ostasien",
-      "Langfristig: Korea bis heute geteilt, Süden Demokratie, Norden isolierte Diktatur mit Atomprogramm, Waffenstillstand als Dauerzustand"
+      "Langfristig: Korea bis heute geteilt, Süden Demokratie, Norden isolierte Diktatur mit Atomprogramm, Waffenstillstand als Dauerzustand",
+      "Nordkorea ist bis heute kommunistisch-diktatorisch regiert und ein Unruheherd."
      ]
     },
     {
@@ -255,7 +307,10 @@
      "p": [
       "Die USA entdecken die Raketen rund 150 km vor ihrer Küste.",
       "Kennedy verhängt eine Seeblockade.",
-      "Chruschtschow zieht die Raketen ab, die USA versprechen, Kuba nicht anzugreifen, und ziehen später ihre Raketen aus der Türkei ab."
+      "Chruschtschow zieht die Raketen ab, die USA versprechen, Kuba nicht anzugreifen, und ziehen später ihre Raketen aus der Türkei ab.",
+      "Hätten sowjetische Schiffe versucht, die Seeblockade zu durchbrechen, hätte das einen Krieg auslösen können.",
+      "Der Kompromiss kommt quasi in letzter Sekunde unter Vermittlung der UN zustande.",
+      "Der Abzug der US-Raketen aus der Türkei wird geheim gehalten."
      ]
     },
     {
@@ -264,7 +319,8 @@
       "Kurzfristig: Rotes Telefon zwischen Washington und Moskau",
       "Kurzfristig: Atomteststoppvertrag, keine oberirdischen und Unterwasser-Tests mehr",
       "Kurzfristig: Kuba bleibt kommunistisch, Castro behält die Macht",
-      "Mittel- und langfristig: Entspannungspolitik, KSZE, SALT, Grundstein für das Ende des Kalten Krieges"
+      "Mittel- und langfristig: Entspannungspolitik, KSZE, SALT, Grundstein für das Ende des Kalten Krieges",
+      "Das rote Telefon soll als „heißer Draht“ Kommunikationsprobleme und einen Atomkrieg „aus Versehen“ verhindern."
      ]
     },
     {
@@ -317,14 +373,18 @@
       "Anwendung der Domino-Theorie",
       "Verschiebung der globalen Machtverhältnisse",
       "Prestigeverlust der USA, „Vietnam-Syndrom“",
-      "Förderung der Entspannungspolitik"
+      "Förderung der Entspannungspolitik",
+      "Entkolonialisierung: Der Rückzug der Kolonialmächte hinterlässt oft ein Machtvakuum, in das die Supermächte eindringen wollen. Dort, wo keine direkte Konfrontation droht, beteiligen sie sich an Kämpfen, vor allem in der Dritten Welt.",
+      "Als der Vietcong (Guerilla) gegen die Regierung in Saigon kämpft, wird aus dem nationalen ein internationaler Konflikt."
      ]
     },
     {
      "h": "Vergleich mit Korea",
      "p": [
       "Beide Länder geteilt, in beiden greifen die USA nach Containment- bzw. Domino-Logik ein.",
-      "Korea endet im Patt, Vietnam mit einer Niederlage der USA."
+      "Korea endet im Patt, Vietnam mit einer Niederlage der USA.",
+      "Die USA sind waffentechnisch weit überlegen, können den Vietcong aber nicht besiegen.",
+      "Weil der Krieg nicht zu gewinnen ist, die US-Wirtschaft belastet und von der Bevölkerung abgelehnt wird, ziehen sich die USA nach und nach zurück."
      ]
     }
    ]
@@ -381,7 +441,9 @@
      "p": [
       "Kurzfristig: Normalisierung unter Husák, Zensur, Säuberungen, Massenflucht",
       "Mittelfristig: Breschnew-Doktrin, Eurokommunismus im Westen",
-      "Langfristig: Niemand glaubt mehr an einen guten Kommunismus, Charta 77, Gorbatschow hebt die Doktrin auf"
+      "Langfristig: Niemand glaubt mehr an einen guten Kommunismus, Charta 77, Gorbatschow hebt die Doktrin auf",
+      "Breschnew-Doktrin (begründet den Einmarsch im Nachhinein): Sozialistische Staaten haben nur eine „beschränkte Souveränität“. Ist der Sozialismus in einem Land bedroht, darf die Sowjetunion eingreifen.",
+      "Gorbatschow ersetzt sie später durch die „Sinatra-Doktrin“."
      ]
     },
     {
@@ -413,7 +475,10 @@
       "Wettrüsten: extrem teuer für beide Seiten.",
       "Vietnam: Die USA sind geschwächt.",
       "Prager Frühling: Die Fronten sind zementiert, man kann die Grenzen auch vertraglich anerkennen.",
-      "Geteiltes Deutschland: Die Bundesrepublik will Erleichterungen für die Menschen."
+      "Geteiltes Deutschland: Die Bundesrepublik will Erleichterungen für die Menschen.",
+      "Die USA erkennen in Vietnam, dass ihre Eindämmungspolitik (Containment) gescheitert ist.",
+      "Die Sowjetunion betont die Notwendigkeit der „friedlichen Koexistenz“ beider Systeme im Atomzeitalter.",
+      "Abrüstung: Viele Versuche im 20. Jahrhundert bleiben ohne Durchbruch. Erst die Furcht vor einem Atomkrieg und das atomare Patt („Gleichgewicht des Schreckens“) führen zum Wandel."
      ]
     },
     {
@@ -471,7 +536,8 @@
      "p": [
       "Perestroika (Umbau): mehr Eigenverantwortung für Betriebe, erste Marktelemente",
       "Glasnost (Offenheit): weniger Zensur, offene Kritik, Aufarbeitung der Stalinzeit",
-      "Neues Denken: Abrüstung, Abzug aus Afghanistan, Aufhebung der Breschnew-Doktrin"
+      "Neues Denken: Abrüstung, Abzug aus Afghanistan, Aufhebung der Breschnew-Doktrin",
+      "Sinatra-Doktrin statt Breschnew-Doktrin: Die Staaten des Warschauer Pakts dürfen ihren eigenen Weg gehen, frei nach dem Song „My Way“."
      ]
     },
     {
@@ -604,6 +670,72 @@
     "Europa und Asien bilden zwei Pole"
    ],
    "e": "USA (Demokratie, Kapitalismus) gegen UdSSR (Diktatur, Kommunismus)."
+  },
+  {
+   "t": "anfaenge",
+   "q": "Was bezeichnet der Begriff „Kalter Krieg“?",
+   "a": "Eine nichtmilitärische Konfrontationspolitik verfeindeter Staaten",
+   "falsch": [
+    "Einen offenen Atomkrieg zwischen den Supermächten",
+    "Ein Bündnis von USA und UdSSR gegen China",
+    "Einen Krieg, der nur in Europa geführt wurde"
+   ],
+   "e": "Der bekannteste Kalte Krieg ist der Ost-West-Konflikt zwischen den USA und der Sowjetunion mit ihren Verbündeten."
+  },
+  {
+   "t": "anfaenge",
+   "q": "Warum vermieden die USA und die Sowjetunion die direkte Konfrontation?",
+   "a": "Weil sie jederzeit zu einem Atomkrieg hätte eskalieren können",
+   "falsch": [
+    "Weil beide Seiten militärisch zu schwach waren",
+    "Weil die UN direkte Kriege verboten hatte",
+    "Weil beide Seiten dieselben Ziele verfolgten"
+   ],
+   "e": "Ein Atomkrieg der Supermächte hätte jedes Leben auf der Erde auslöschen können."
+  },
+  {
+   "t": "anfaenge",
+   "q": "Worauf reagierte die Sowjetunion mit der Berlin-Blockade?",
+   "a": "Auf die westalliierte Währungsreform in den Westsektoren Berlins",
+   "falsch": [
+    "Auf den Bau der Berliner Mauer",
+    "Auf den Volksaufstand in der DDR",
+    "Auf die Gründung des Warschauer Pakts"
+   ],
+   "e": "Die Berlin-Blockade war der erste Höhepunkt des Kalten Krieges."
+  },
+  {
+   "t": "anfaenge",
+   "q": "Wie antworteten die Westmächte auf die Berlin-Blockade?",
+   "a": "Mit einer Luftbrücke und einer Gegenblockade gegen die Sowjetische Besatzungszone",
+   "falsch": [
+    "Mit einem militärischen Angriff auf die Sowjetzone",
+    "Mit dem Rückzug aus West-Berlin",
+    "Mit einer Mauer um die Westsektoren"
+   ],
+   "e": "Nach knapp einem Jahr wurden Blockade und Gegenblockade durch ein Abkommen der Besatzungsmächte beendet."
+  },
+  {
+   "t": "anfaenge",
+   "q": "Was geschah mit den Volksaufständen in der DDR und in Ungarn?",
+   "a": "Sie wurden militärisch niedergeschlagen",
+   "falsch": [
+    "Sie führten zur Unabhängigkeit beider Länder",
+    "Die NATO unterstützte sie mit Truppen",
+    "Moskau erfüllte die Forderungen der Aufständischen"
+   ],
+   "e": "Die sowjetische Führung ließ nicht zu, dass sich Satellitenstaaten ihrem Einfluss entzogen. In Ungarn wurde die Regierung danach im Sinne Moskaus neu besetzt."
+  },
+  {
+   "t": "anfaenge",
+   "q": "Wie reagierten die Westmächte auf den Bau der Berliner Mauer?",
+   "a": "Sie protestierten nur mit Worten und gingen nicht militärisch vor",
+   "falsch": [
+    "Sie rissen die Mauer mit Panzern wieder ein",
+    "Sie riegelten ihrerseits Ost-Berlin ab",
+    "Sie erklärten der DDR den Krieg"
+   ],
+   "e": "Die Mauer wurde zum vielleicht bekanntesten Symbol des Kalten Krieges."
   },
   {
    "t": "mad",
@@ -815,6 +947,28 @@
    "e": "China wurde zur maßgeblichen Macht in Ostasien."
   },
   {
+   "t": "korea",
+   "q": "Welchen Umstand nutzte der UN-Sicherheitsrat, um eine UN-Streitmacht gegen Nordkorea zu beschließen?",
+   "a": "Die vorübergehende Abwesenheit des sowjetischen Delegierten",
+   "falsch": [
+    "Die Zustimmung Chinas im Sicherheitsrat",
+    "Einen Hilferuf Nordkoreas",
+    "Den Austritt der Sowjetunion aus der UN"
+   ],
+   "e": "So konnte die UN eingreifen. Die USA kämpften mit 15 weiteren UN-Staaten auf südkoreanischer Seite."
+  },
+  {
+   "t": "korea",
+   "q": "Wie wird Nordkorea bis heute regiert?",
+   "a": "Kommunistisch-diktatorisch, es gilt als Unruheherd",
+   "falsch": [
+    "Als Demokratie nach südkoreanischem Vorbild",
+    "Als Teil der Volksrepublik China",
+    "Unter Aufsicht der UN"
+   ],
+   "e": "Einen Friedensvertrag gibt es bis heute nicht, nur den Waffenstillstand."
+  },
+  {
    "t": "kuba",
    "q": "Wer übernahm in Kuba die Macht?",
    "a": "Fidel Castro, nach dem Sturz des Diktators Batista",
@@ -912,6 +1066,28 @@
     "Ronald Reagan"
    ],
    "e": "Kennedy verantwortete die gescheiterte Invasion und meisterte die Kubakrise."
+  },
+  {
+   "t": "kuba",
+   "q": "Warum war Kennedys Seeblockade um Kuba so gefährlich?",
+   "a": "Hätten sowjetische Schiffe sie durchbrochen, hätte das einen Krieg auslösen können",
+   "falsch": [
+    "Weil sie Kuba von jeder Lebensmittelversorgung abschnitt",
+    "Weil die UN sie ausdrücklich verboten hatte",
+    "Weil sie auch die Türkei betraf"
+   ],
+   "e": "In der Kubakrise stand die Welt kurz am Rand des Atomkriegs."
+  },
+  {
+   "t": "kuba",
+   "q": "Unter wessen Vermittlung wurde der Kompromiss in der Kubakrise gefunden?",
+   "a": "Der UN",
+   "falsch": [
+    "Der NATO",
+    "Chinas",
+    "Großbritanniens"
+   ],
+   "e": "Chruschtschow ließ die Schiffe umkehren und die Rampen abbauen, die USA verzichteten auf eine Invasion und bauten geheim ihre Raketen in der Türkei ab."
   },
   {
    "t": "vietnam",
@@ -1033,6 +1209,28 @@
     "Weil es keine ausländische Beteiligung gab"
    ],
    "e": "Machtkampf um Asien unter Anwendung der Domino-Theorie."
+  },
+  {
+   "t": "vietnam",
+   "q": "Warum zogen sich die USA aus Vietnam zurück?",
+   "a": "Der Krieg war nicht zu gewinnen, belastete die US-Wirtschaft und wurde von der Bevölkerung abgelehnt",
+   "falsch": [
+    "Nordvietnam bot einen Frieden nach US-Bedingungen an",
+    "Die UN verbot den USA weitere Einsätze",
+    "Südvietnam hatte den Vietcong bereits besiegt"
+   ],
+   "e": "Obwohl die USA waffentechnisch weit überlegen waren, konnten sie den Vietcong nicht besiegen."
+  },
+  {
+   "t": "vietnam",
+   "q": "Warum wurde die Entkolonialisierung für den Kalten Krieg wichtig?",
+   "a": "Der Rückzug der Kolonialmächte hinterließ oft ein Machtvakuum, in das die Supermächte eindringen wollten",
+   "falsch": [
+    "Die ehemaligen Kolonien traten alle der NATO bei",
+    "Die Kolonialmächte wechselten in den Ostblock",
+    "Sie beendete die Stellvertreterkriege in der Dritten Welt"
+   ],
+   "e": "Bekanntestes Beispiel ist der Vietnamkrieg."
   },
   {
    "t": "prag",
@@ -1178,6 +1376,17 @@
    "e": "Die Fronten in Europa wurden „zementiert“, gerade das machte diplomatische Annäherung möglich."
   },
   {
+   "t": "prag",
+   "q": "Welche Rolle spielte die Breschnew-Doktrin beim Einmarsch in die ČSSR?",
+   "a": "Sie begründete den Einmarsch im Nachhinein",
+   "falsch": [
+    "Sie kündigte den Einmarsch Monate vorher an",
+    "Sie verbot der Sowjetunion den Einmarsch",
+    "Sie war eine Forderung des Westens"
+   ],
+   "e": "Sozialistische Staaten hätten nur eine „beschränkte Souveränität“, die Sowjetunion dürfe eingreifen, wenn der Sozialismus bedroht sei."
+  },
+  {
    "t": "detente",
    "q": "Was bedeutet Détente?",
    "a": "Entspannung: Abbau von Spannungen durch Verträge und Gespräche bei Anerkennung des Status quo",
@@ -1299,6 +1508,28 @@
    "e": "SALT I ist das Symbol der Détente-Phase."
   },
   {
+   "t": "detente",
+   "q": "Was erkannten die USA im Vietnamkrieg?",
+   "a": "Dass ihre Eindämmungspolitik (Containment) gescheitert war",
+   "falsch": [
+    "Dass die Domino-Theorie bewiesen war",
+    "Dass sie den Kommunismus militärisch besiegen konnten",
+    "Dass die NATO überflüssig geworden war"
+   ],
+   "e": "Das trug dazu bei, dass sich der Ost-West-Konflikt Anfang der 1970er-Jahre abschwächte."
+  },
+  {
+   "t": "detente",
+   "q": "Was meinte die Sowjetunion mit „friedlicher Koexistenz“?",
+   "a": "Beide Systeme sollen im Atomzeitalter friedlich nebeneinander bestehen",
+   "falsch": [
+    "Der Westen soll den Sozialismus übernehmen",
+    "Beide Blöcke schließen sich zu einem Bündnis zusammen",
+    "Die Sowjetunion verzichtet auf alle Atomwaffen"
+   ],
+   "e": "Auch deshalb schwächte sich der Ost-West-Konflikt Anfang der 1970er-Jahre ab."
+  },
+  {
    "t": "ende",
    "q": "Was bedeutet Glasnost?",
    "a": "Offenheit und Transparenz: Lockerung der Zensur, offene Kritik",
@@ -1418,6 +1649,17 @@
     "Sie blieb unverändert bestehen"
    ],
    "e": "Damit endete der Kalte Krieg."
+  },
+  {
+   "t": "ende",
+   "q": "Wodurch ersetzte Gorbatschow die Breschnew-Doktrin?",
+   "a": "Durch die Sinatra-Doktrin: Die Staaten des Warschauer Pakts durften ihren eigenen Weg gehen",
+   "falsch": [
+    "Durch die Domino-Theorie",
+    "Durch die Truman-Doktrin",
+    "Durch die Zwei-Lager-Theorie"
+   ],
+   "e": "Der Name spielt auf den Song „My Way“ an."
   }
  ],
  "zuordnen": {
@@ -1521,6 +1763,10 @@
     "a"
    ],
    [
+    "Luftbrücke",
+    "a"
+   ],
+   [
     "Zwei-Lager-Theorie",
     "b"
    ],
@@ -1611,6 +1857,14 @@
    [
     "Kim Il-sung",
     "b"
+   ],
+   [
+    "Berlin-Blockade",
+    "b"
+   ],
+   [
+    "Niederschlagung des Ungarn-Aufstands",
+    "b"
    ]
   ]
  },
@@ -1626,6 +1880,11 @@
    "t": "bipolar"
   },
   {
+   "text": "Beginn der Berlin-Blockade",
+   "jahr": 1948,
+   "t": "anfaenge"
+  },
+  {
    "text": "Gründung der NATO",
    "jahr": 1949,
    "t": "bipolar"
@@ -1639,6 +1898,11 @@
    "text": "Waffenstillstand in Korea",
    "jahr": 1953,
    "t": "korea"
+  },
+  {
+   "text": "Volksaufstand in der DDR",
+   "jahr": 1953,
+   "t": "anfaenge"
   },
   {
    "text": "Genfer Indochina-Konferenz",
@@ -1664,6 +1928,11 @@
    "text": "Invasion in der Schweinebucht",
    "jahr": 1961,
    "t": "kuba"
+  },
+  {
+   "text": "Bau der Berliner Mauer",
+   "jahr": 1961,
+   "t": "anfaenge"
   },
   {
    "text": "Kubakrise",
@@ -1903,6 +2172,36 @@
    "typ": "begriff"
   },
   {
+   "begriff": "Ost-West-Konflikt",
+   "erklaerung": "Anderer Name für den Kalten Krieg zwischen den USA und der Sowjetunion mit ihren Verbündeten. Er barg ständig die Gefahr eines Atomkriegs, deshalb wurde die direkte Konfrontation vermieden.",
+   "t": "anfaenge",
+   "typ": "begriff"
+  },
+  {
+   "begriff": "Berlin-Blockade",
+   "erklaerung": "Erster Höhepunkt des Kalten Krieges: Als Antwort auf die westalliierte Währungsreform riegelt die Sowjetunion alle Land- und Wasserwege nach West-Berlin ab. Nach knapp einem Jahr durch ein Abkommen beendet.",
+   "t": "anfaenge",
+   "typ": "begriff"
+  },
+  {
+   "begriff": "Luftbrücke",
+   "erklaerung": "Antwort der Westmächte auf die Berlin-Blockade: West-Berlin wird über die Luft versorgt. Dazu verhängen sie eine Gegenblockade gegen die Sowjetische Besatzungszone.",
+   "t": "anfaenge",
+   "typ": "begriff"
+  },
+  {
+   "begriff": "Volksaufstände in der DDR und in Ungarn",
+   "erklaerung": "Aufstände in Satellitenstaaten der Sowjetunion, die militärisch niedergeschlagen werden. Moskau lässt nicht zu, dass sie sich seinem Einfluss entziehen. In Ungarn wird danach die Regierung im Sinne Moskaus neu besetzt.",
+   "t": "anfaenge",
+   "typ": "begriff"
+  },
+  {
+   "begriff": "Berliner Mauer",
+   "erklaerung": "Macht den Ost-West-Gegensatz besonders sichtbar. Die Westmächte protestieren beim Bau nur mit Worten. Die Mauer wird zum vielleicht bekanntesten Symbol des Kalten Krieges.",
+   "t": "anfaenge",
+   "typ": "begriff"
+  },
+  {
    "begriff": "MAD",
    "erklaerung": "Mutually assured destruction, gegenseitig zugesicherte Vernichtung: Wer zuerst angreift, wird durch den Gegenschlag selbst vernichtet.",
    "t": "mad",
@@ -1917,6 +2216,12 @@
   {
    "begriff": "Stellvertreterkrieg",
    "erklaerung": "Die Supermächte kämpfen nicht direkt, sondern unterstützen Kriegsparteien in anderen Ländern (Korea, Vietnam).",
+   "t": "mad",
+   "typ": "begriff"
+  },
+  {
+   "begriff": "Gleichgewicht des Schreckens",
+   "erklaerung": "Atomares Patt zwischen den USA und der Sowjetunion. Zusammen mit der Furcht vor einem Atomkrieg führt es nach vielen gescheiterten Versuchen zum Wandel bei Abrüstung und Rüstungskontrolle.",
    "t": "mad",
    "typ": "begriff"
   },
@@ -1977,6 +2282,18 @@
   {
    "begriff": "Agent Orange",
    "erklaerung": "Chemisches Entlaubungsmittel der USA in Vietnam. Langfristige Umwelt- und Gesundheitsschäden.",
+   "t": "vietnam",
+   "typ": "begriff"
+  },
+  {
+   "begriff": "Guerilla",
+   "erklaerung": "Irreguläre Einheit der einheimischen Bevölkerung, die einen Kleinkrieg gegen eine Besatzungsmacht oder in einem Bürgerkrieg führt, z. B. der Vietcong.",
+   "t": "vietnam",
+   "typ": "begriff"
+  },
+  {
+   "begriff": "Entkolonialisierung",
+   "erklaerung": "Rückzug der Kolonialmächte. Hinterlässt oft ein Machtvakuum, in das die Supermächte eindringen wollen. Bekanntestes Beispiel: Vietnam.",
    "t": "vietnam",
    "typ": "begriff"
   },
@@ -2071,6 +2388,12 @@
    "typ": "begriff"
   },
   {
+   "begriff": "Friedliche Koexistenz",
+   "erklaerung": "Von der Sowjetunion zunehmend betont: Beide Systeme müssen im Atomzeitalter friedlich nebeneinander bestehen. Wichtig für den Beginn der Entspannungspolitik.",
+   "t": "detente",
+   "typ": "begriff"
+  },
+  {
    "begriff": "Glasnost",
    "erklaerung": "Offenheit: Gorbatschows Lockerung der Zensur, offene Kritik, Aufarbeitung der Stalinzeit.",
    "t": "ende",
@@ -2091,6 +2414,12 @@
   {
    "begriff": "Samtene Revolution",
    "erklaerung": "Friedlicher Sturz der kommunistischen Regierung in der ČSSR.",
+   "t": "ende",
+   "typ": "begriff"
+  },
+  {
+   "begriff": "Sinatra-Doktrin",
+   "erklaerung": "Gorbatschows Ersatz für die Breschnew-Doktrin: Die Staaten des Warschauer Pakts dürfen ihren eigenen Weg gehen, frei nach dem Song „My Way“.",
    "t": "ende",
    "typ": "begriff"
   },
@@ -3101,6 +3430,20 @@
     "Truman-Doktrin und Marshall-Plan gelten in Moskau als Angriff auf die eigene Sphäre",
     "Die Sowjetisierung Osteuropas gilt in Washington als kommunistische Expansion",
     "Ergebnis: NATO und Warschauer Pakt, geteiltes Europa"
+   ]
+  },
+  {
+   "t": "anfaenge",
+   "op": "Erläutern",
+   "q": "Erläutern Sie die Merkmale des Kalten Krieges.",
+   "punkte": [
+    "Begriff: nichtmilitärische Konfrontationspolitik verfeindeter Staaten, hier USA und Sowjetunion mit Verbündeten (Ost-West-Konflikt)",
+    "Ständige Gefahr eines Atomkriegs, deshalb vermeiden beide Seiten die direkte Konfrontation",
+    "Militärbündnisse: NATO und Warschauer Pakt",
+    "Heiße Stellvertreterkriege und Wettrüsten",
+    "Wirtschaftliche Embargos gegen die Gegenseite",
+    "Politisch-diplomatischer Druck, ideologische Kriegsführung, Propaganda, inszenierte Putsche und Rebellionen",
+    "Beispiele: Berlin-Blockade als erster Höhepunkt, Berliner Mauer als Symbol"
    ]
   },
   {
