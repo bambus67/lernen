@@ -410,3 +410,5 @@ a.cday.has:hover{border-color:var(--ink)}
 .own-min{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:14px;color:var(--muted);font-size:.92rem}
 .own-min input{width:7rem;min-height:40px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);font:inherit;padding:6px 14px}
 .own-min input:focus{outline:none;border-color:var(--ink)}
+.plan-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.plan-top .btn{flex:none}

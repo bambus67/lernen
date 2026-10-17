@@ -33,14 +33,13 @@ function countdown(d) {
 
 /* ---------- Speicher ---------- */
 function loadState(id) {
-  const base = { xp: 0, blitzBest: 0, topic: "all", stats: {}, quellen: {}, klausur: {}, learned: {} };
+  const base = { blitzBest: 0, topic: "all", stats: {}, quellen: {}, klausur: {}, learned: {} };
   try { const raw = localStorage.getItem("kt:" + id); if (raw) return Object.assign(base, JSON.parse(raw)); } catch (e) {}
   // Übernahme aus der ersten Version der Kalter-Krieg-App
   try { if (id === "geschichte-kalter-krieg") { const old = localStorage.getItem("kk-trainer-v1"); if (old) return Object.assign(base, JSON.parse(old)); } } catch (e) {}
   return base;
 }
 function save() { if (!K || !S) return; try { localStorage.setItem("kt:" + K.id, JSON.stringify(S)); } catch (e) {} }
-function addXP(n) { if (!n) return; S.xp += n; save(); const p = $("#xp-pill"); if (p) p.textContent = S.xp + " Punkte"; }
 function stat(t, ok) { if (!t || t === "all") return; const s = S.stats[t] || (S.stats[t] = { r: 0, n: 0 }); s.n++; if (ok) s.r++; save(); }
 
 /* ---------- Laden und Routing ---------- */
@@ -89,7 +88,7 @@ function ymd(d) { return d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-" + 
 const todayStr = () => ymd(new Date());
 function addDays(ds, n) { const d = parseDate(ds); d.setDate(d.getDate() + n); return ymd(d); }
 const examTitle = (k) => k.fach + (k.titel && k.titel !== "Thema folgt" ? ", " + k.titel : "");
-// für Punkte auf Schwarz die hellere der beiden Fächerfarben
+// für Farbpunkte auf Schwarz die hellere der beiden Fächerfarben
 const lum = (h) => { const m = /^#?([0-9a-f]{6})$/i.exec(h || ""); if (!m) return 0; const n = parseInt(m[1], 16); return 0.2126 * (n >> 16) + 0.7152 * ((n >> 8) & 255) + 0.0722 * (n & 255); };
 const examColor = (k) => { const f = k.farben || []; if (!f.length) return "var(--muted)"; return f.length > 1 && lum(f[1]) > lum(f[0]) ? f[1] : f[0]; };
 async function loadUpdates() { if (!UPDATES) { try { UPDATES = await getJSON("updates.json"); } catch (e) { UPDATES = []; } } return UPDATES; }
@@ -279,7 +278,7 @@ function render() {
     '<div class="topbar"><div class="wrap">' +
     '<button class="back" id="back" type="button">← ' + (fromPlan ? "Lernplan" : view === "quelle" ? "Alle Quellen" : "Übersicht") + "</button>" +
     '<div class="mtitle">' + (view === "blitz" && K.zuordnen ? esc(K.zuordnen.titel || "Zuordnen") : TITLES[view]) + "</div>" +
-    '<span class="pill" id="xp-pill">' + S.xp + " Punkte</span></div></div>" +
+    "</div></div>" +
     '<main class="stage" id="stage"></main>';
   $("#back").onclick = () => (fromPlan ? go("lernplan") : view === "quelle" ? go("quellen") : go("home"));
   ({ lernplan: renderPlan, lernen: renderLernen, quiz: renderQuiz, blitz: renderBlitz, zeit: renderZeit, kette: renderKette, karten: renderKarten, quellen: renderQuellen, quelle: renderQuelle, klausur: renderKlausur })[view]();
@@ -296,15 +295,15 @@ function renderHome() {
     '<button class="mode ' + cls + '" type="button" data-go="' + id + '"><span class="kicker">' + kicker + "</span><h3>" + title + "</h3><p>" + text + '</p><span class="meta"><span>' + left + "</span><span>" + right + "</span></span></button>";
   const train = [];
   if (planReady()) { const pi = planCardInfo(); train.push(card("lernplan", "plan", "Dein Fahrplan bis zur Klausur", "Lernplan", S.plan ? "Deine Aufgaben für heute und die nächsten Tage. Jede Aufgabe führt direkt in den passenden Modus." : "Sag, an welchen Tagen und wie lange du lernst, und du bekommst einen Plan bis zur Klausur.", pi[0], pi[1])); }
-  if (has("lernen")) train.push(card("lernen", "learn", "Erst verstehen", "Lernen", "Alle Inhalte als Lernkarten zum Durchblättern, ohne Punkte und ohne Druck. Danach direkt testen.", K.lernen.length + " Themen", learnedCount + " gelesen"));
+  if (has("lernen")) train.push(card("lernen", "learn", "Erst verstehen", "Lernen", "Alle Inhalte als Lernkarten zum Durchblättern, ohne Druck. Danach direkt testen.", K.lernen.length + " Themen", learnedCount + " gelesen"));
   if (has("quellen")) train.push(card("quellen", "train", "Quellenarbeit", "Quellen-Training", "Quellenauszüge mit Einordnungsfragen, Klausuraufgaben und Erwartungshorizont zum Abhaken.", n(K.quellen, (q) => inTopic(q.t)) + " Quellen", done + " bearbeitet"));
   if (has("klausur")) train.push(card("klausur", "train", "Offene Fragen", "Klausurfragen", "Mögliche Aufgaben mit Operatoren. Erst selbst antworten, dann mit der Musterlösung vergleichen.", n(K.klausur, (q) => inTopic(q.t)) + " Fragen", "mit Musterlösung"));
   const games = [];
-  if (has("quiz")) games.push(["quiz", "Wissen", "Quiz", "Zehn Fragen mit Erklärung nach jeder Antwort.", n(K.quiz, (q) => inTopic(q.t)) + " Fragen im Pool", "+10 pro Treffer"]);
+  if (has("quiz")) games.push(["quiz", "Wissen", "Quiz", "Zehn Fragen mit Erklärung nach jeder Antwort.", n(K.quiz, (q) => inTopic(q.t)) + " Fragen im Pool", "10 pro Runde"]);
   if (has("zuordnen")) games.push(["blitz", "Tempo", esc(K.zuordnen.titel || "Zuordnen"), "60 Sekunden: Begriffe so schnell wie möglich der richtigen Seite zuordnen.", "Fehler kosten 3 s", "Rekord " + S.blitzBest]);
-  if (has("zeitstrahl")) games.push(["zeit", "Reihenfolge", "Zeitstrahl", "Fünf Ereignisse in die richtige Reihenfolge bringen. Die Jahre siehst du erst danach.", K.zeitstrahl.length + " Ereignisse", "+4 pro Platz"]);
-  if (has("ketten")) games.push(["kette", "Zusammenhänge", "Ursache und Folge", "Ursache-Folge-Ketten in die richtige Reihenfolge bringen.", n(K.ketten, (k) => inTopic(k.t)) + " Ketten", "+4 pro Glied"]);
-  if (has("karten")) games.push(["karten", "Begriffe und Personen", "Karteikarten", "Umdrehen, prüfen, aussortieren, bis alle sitzen.", n(K.karten, (k) => inTopic(k.t)) + " Karten", "+2 pro Karte"]);
+  if (has("zeitstrahl")) games.push(["zeit", "Reihenfolge", "Zeitstrahl", "Fünf Ereignisse in die richtige Reihenfolge bringen. Die Jahre siehst du erst danach.", K.zeitstrahl.length + " Ereignisse", "5 pro Runde"]);
+  if (has("ketten")) games.push(["kette", "Zusammenhänge", "Ursache und Folge", "Ursache-Folge-Ketten in die richtige Reihenfolge bringen.", n(K.ketten, (k) => inTopic(k.t)) + " Ketten", "mit Merksatz"]);
+  if (has("karten")) games.push(["karten", "Begriffe und Personen", "Karteikarten", "Umdrehen, prüfen, aussortieren, bis alle sitzen.", n(K.karten, (k) => inTopic(k.t)) + " Karten", "bis alle sitzen"]);
   // Raster: 3 pro Reihe, eine angefangene Reihe wird auf ganze Breite verteilt
   const rem = games.length % 3;
   const gamesHTML = games.map((g, i) => {
@@ -313,7 +312,7 @@ function renderHome() {
     if (rem === 1 && i === games.length - 1) cls = "full";
     return card(g[0], cls, g[1], g[2], g[3], g[4], g[5]);
   }).join("");
-  const stats = '<div class="stats"><div><b>' + S.xp + "</b><span>Lernpunkte</span></div>" +
+  const stats = '<div class="stats">' +
     (has("zuordnen") ? "<div><b>" + S.blitzBest + "</b><span>Zuordnen-Rekord</span></div>" : "") +
     (has("quellen") ? "<div><b>" + done + "/" + K.quellen.length + "</b><span>Quellen bearbeitet</span></div>" : "") + "</div>";
   app.innerHTML = navHTML("klausuren") +
@@ -418,7 +417,7 @@ function lernStep(d) {
   const total = L.cards.length + ((K.karten || []).some((k) => k.t === L.t) ? 1 : 0);
   const ni = lern.ci + d;
   if (ni < 0) return;
-  if (ni >= total) { lern.done = true; if (!S.learned[L.t]) { S.learned[L.t] = true; save(); addXP(5); } }
+  if (ni >= total) { lern.done = true; if (!S.learned[L.t]) { S.learned[L.t] = true; save(); } }
   else lern.ci = ni;
   renderLernen();
 }
@@ -454,14 +453,14 @@ function pickQuiz(k) {
   quiz.picked = k;
   const ok = it.o[k] === it.c;
   stat(it.t, ok);
-  if (ok) { quiz.right++; addXP(10); } else quiz.missed.push(it);
+  if (ok) { quiz.right++; } else quiz.missed.push(it);
   renderQuiz();
 }
 function renderQuizEnd() {
   const n = quiz.items.length;
   const verdict = quiz.right === n ? "Fehlerfrei." : quiz.right >= n * 0.7 ? "Sitzt schon gut." : "Da geht noch was.";
   stage().innerHTML =
-    '<div class="result"><div class="kicker">' + esc(topicName(S.topic)) + '</div><div class="big">' + quiz.right + " / " + n + "</div><p><b>" + verdict + "</b> " + quiz.right * 10 + " Lernpunkte für diese Runde.</p>" +
+    '<div class="result"><div class="kicker">' + esc(topicName(S.topic)) + '</div><div class="big">' + quiz.right + " / " + n + "</div><p><b>" + verdict + "</b></p>" +
     (quiz.missed.length ? '<h3 class="step-h">Nochmal anschauen</h3><ul class="review">' + quiz.missed.map((m) => "<li><b>" + esc(m.q) + '</b><span class="ans">' + esc(m.c) + "</span><br>" + esc(m.e) + "</li>").join("") + "</ul>" : "") +
     '<div class="btn-row"><button class="btn primary" id="again" type="button">Neue Runde</button><button class="btn" id="home" type="button">Zur Übersicht</button></div></div>';
   $("#again").onclick = () => { newQuiz(); renderQuiz(); window.scrollTo(0, 0); };
@@ -480,13 +479,13 @@ function renderBlitz() {
       "<p>Ordne die Begriffe so schnell wie möglich " + esc(Z.a.label) + " oder " + esc(Z.b.label) + " zu. Jede richtige Antwort ist ein Punkt, jeder Fehler kostet drei Sekunden.</p>" +
       '<p class="hint">Am Laptop: Pfeiltaste links = ' + esc(Z.a.label) + ", rechts = " + esc(Z.b.label) + ".</p>" +
       '<div class="btn-row"><button class="btn signal" id="go" type="button">Start</button></div>' +
-      (S.blitzBest ? '<p class="hint">Dein Rekord: ' + S.blitzBest + " Punkte</p>" : "") + "</div>";
+      (S.blitzBest ? '<p class="hint">Dein Rekord: ' + S.blitzBest + " Treffer</p>" : "") + "</div>";
     $("#go").onclick = runBlitz;
     return;
   }
   if (blitz.state === "run") {
     stage().innerHTML =
-      '<div class="blitz-head"><div><div class="kicker">Zeit</div><div class="blitz-time" id="bl-time">60.0</div></div><div class="blitz-score"><div class="kicker">Punkte</div><b id="bl-score">' + blitz.score + "</b></div></div>" +
+      '<div class="blitz-head"><div><div class="kicker">Zeit</div><div class="blitz-time" id="bl-time">60.0</div></div><div class="blitz-score"><div class="kicker">Treffer</div><b id="bl-score">' + blitz.score + "</b></div></div>" +
       '<div class="progress" style="margin:12px 0 0"><i id="bl-bar" style="width:100%"></i></div>' +
       '<div class="blitz-card" id="bl-card" aria-live="polite"></div>' +
       '<div class="sides"><button class="side w" type="button" data-s="a">' + esc(Z.a.label) + "<small>" + esc(Z.a.sub || "") + '</small></button><button class="side o" type="button" data-s="b">' + esc(Z.b.label) + "<small>" + esc(Z.b.sub || "") + "</small></button></div>" +
@@ -498,7 +497,7 @@ function renderBlitz() {
   const uniq = [];
   blitz.wrong.forEach((w) => { if (!uniq.some((u) => u[0] === w[0])) uniq.push(w); });
   stage().innerHTML =
-    '<div class="result"><div class="kicker">Zeit abgelaufen</div><div class="big">' + blitz.score + "</div><p>" + (blitz.newBest ? "<b>Neuer Rekord.</b> " : "Rekord: " + S.blitzBest + ". ") + blitz.score * 2 + " Lernpunkte.</p>" +
+    '<div class="result"><div class="kicker">Zeit abgelaufen</div><div class="big">' + blitz.score + "</div><p>" + (blitz.newBest ? "<b>Neuer Rekord.</b>" : "Rekord: " + S.blitzBest + " Treffer.") + "</p>" +
     (uniq.length ? '<h3 class="step-h">Verwechselt</h3><ul class="review">' + uniq.map((w) => "<li><b>" + esc(w[0]) + '</b><span class="ans">gehört zu ' + esc(w[1] === "a" ? Z.a.label : Z.b.label) + "</span></li>").join("") + "</ul>" : "") +
     '<div class="btn-row"><button class="btn signal" id="again" type="button">Nochmal</button><button class="btn" id="home" type="button">Zur Übersicht</button></div></div>';
   $("#again").onclick = runBlitz; $("#home").onclick = () => go("home");
@@ -533,7 +532,7 @@ function finishBlitz() {
   blitz.state = "end";
   blitz.newBest = blitz.score > S.blitzBest;
   if (blitz.newBest) { S.blitzBest = blitz.score; save(); }
-  addXP(blitz.score * 2);
+ 
   renderBlitz();
 }
 
@@ -575,7 +574,7 @@ function renderZeit() {
       '<div class="btn-row"><button class="btn primary" id="nextz" type="button">Nächste Runde</button><button class="btn" id="home" type="button">Zur Übersicht</button></div>';
   }
   stage().innerHTML =
-    '<div class="qmeta"><span class="tag">Runde ' + z.round + "</span><span>" + z.total + " Punkte in dieser Sitzung</span></div>" +
+    '<div class="qmeta"><span class="tag">Runde ' + z.round + "</span></div>" +
     '<h2 class="q">Bring die Ereignisse in die richtige Reihenfolge, vom frühesten zum spätesten.</h2>' +
     '<p class="hint" style="margin-top:-8px">Antippen zum Einordnen, nochmal antippen zum Zurücklegen.</p>' +
     orderHTML(z, ["Ereignisse", "Deine Reihenfolge"]) +
@@ -585,7 +584,7 @@ function renderZeit() {
     z.checked = true;
     const hits = z.placed.filter((id, i) => z.correct[i] === id).length;
     const pts = hits * 4 + (hits === n ? 5 : 0);
-    z.total += pts; addXP(pts); renderZeit();
+    z.total += pts; renderZeit();
   };
   const nz = $("#nextz"); if (nz) nz.onclick = () => { newZeit(); renderZeit(); window.scrollTo(0, 0); };
   const h = $("#home"); if (h) h.onclick = () => go("home");
@@ -622,7 +621,7 @@ function renderKette() {
   const ch = $("#check"); if (ch) ch.onclick = () => {
     st.checked = true;
     const hits = st.placed.filter((id, i) => st.correct[i] === id).length;
-    addXP(hits * 4 + (hits === st.items.length ? 10 : 0));
+   
     renderKette();
   };
   const r = $("#retry"); if (r) r.onclick = () => { newKette(st.idx); renderKette(); };
@@ -661,7 +660,7 @@ function renderKarten() {
   $("#card").onkeydown = (e) => { if (e.key === "Enter") flip(); };
   const f = $("#flip"); if (f) f.onclick = flip;
   const a = $("#again"); if (a) a.onclick = () => { kt.deck.push(kt.deck.shift()); kt.flipped = false; renderKarten(); };
-  const kn = $("#known"); if (kn) kn.onclick = () => { kt.deck.shift(); kt.known++; kt.flipped = false; addXP(2); renderKarten(); };
+  const kn = $("#known"); if (kn) kn.onclick = () => { kt.deck.shift(); kt.known++; kt.flipped = false; renderKarten(); };
 }
 function bindSeg() { $$(".seg [data-type]", stage()).forEach((b) => (b.onclick = () => { newKarten(b.dataset.type); renderKarten(); })); }
 
@@ -716,7 +715,7 @@ function renderQuelle() {
     const i = +b.dataset.mc, k = +b.dataset.k, s = st.mc[i];
     if (s.p !== null) return;
     s.p = k; const ok = s.o[k] === q.mc[i].a;
-    stat(q.t, ok); if (ok) addXP(10);
+    stat(q.t, ok);
     const r = S.quellen[q.id] || (S.quellen[q.id] = { tasks: {} }); r.mc = (r.mc || 0) + (ok ? 1 : 0); save();
     keepScroll(renderQuelle);
   }));
@@ -727,7 +726,7 @@ function renderQuelle() {
     const i = +b.dataset.eval;
     const count = q.aufgaben[i].eh.filter((_, j) => st.checks[i + "-" + j]).length;
     const r = S.quellen[q.id] || (S.quellen[q.id] = { tasks: {} }); if (!r.tasks) r.tasks = {};
-    r.tasks[i] = count; save(); addXP(count * 5);
+    r.tasks[i] = count; save();
     keepScroll(renderQuelle);
   }));
   $("#tolist").onclick = () => go("quellen");
@@ -751,7 +750,7 @@ function renderKlausur() {
   $$("[data-eval]", stage()).forEach((b) => (b.onclick = () => {
     const i = +b.dataset.eval, st = ks(i);
     const count = K.klausur[i].punkte.filter((_, j) => st.checks[j]).length;
-    S.klausur[i] = count; save(); addXP(count * 5);
+    S.klausur[i] = count; save();
     keepScroll(renderKlausur);
   }));
 }
@@ -906,15 +905,15 @@ function renderPlan() {
   if (todayDay && today.every((x) => done[x.id]) && !overdue.length) todayHTML += '<p class="fb ok"><b>Für heute alles erledigt.</b>Stark. Morgen geht\'s weiter.</p>';
   todayHTML += "</section>";
   el.innerHTML =
-    '<div class="kicker">Klausur ' + fmtDate(K.datum) + " · " + countdown(K.datum) + '</div><h2 class="q" style="margin-top:6px">Dein Lernplan</h2>' +
-    '<p class="hint" style="margin-top:-8px">' + nDone + " von " + all.length + " Aufgaben erledigt · " + esc(wdText) + ", ca. " + P.min + " Minuten pro Tag</p>" +
+    '<div class="kicker">Klausur ' + fmtDate(K.datum) + " · " + countdown(K.datum) + '</div><div class="plan-top"><h2 class="q" style="margin:6px 0 0">Dein Lernplan</h2>' +
+    '<button class="btn small" id="replan" type="button">Plan neu erstellen</button></div>' +
+    '<p class="hint" style="margin-top:8px">' + nDone + " von " + all.length + " Aufgaben erledigt · " + esc(wdText) + ", ca. " + P.min + " Minuten pro Tag</p>" +
     '<div class="progress" style="margin-top:12px"><i style="width:' + (all.length ? Math.round((nDone / all.length) * 100) : 0) + '%"></i></div>' +
     (P.exam !== K.datum ? '<div class="fb bad"><b>Der Klausurtermin hat sich geändert.</b>Erstell den Plan neu, damit er wieder passt.</div>' : "") +
     (P.warn ? '<div class="fb bad warn"><b>Es wird knapp.</b>' + esc(P.warn) + "</div>" : "") +
     todayHTML +
     (future.length ? '<div class="step-h">Als Nächstes</div>' + future.map((d) => '<section class="pday">' + dayHead(d) + d.tasks.map((x) => row(x)).join("") + "</section>").join("") : "") +
     (past.length ? "<details><summary>Vergangene Tage (" + past.length + ")</summary>" + past.map((d) => '<section class="pday">' + dayHead(d) + d.tasks.map((x) => row(x)).join("") + "</section>").join("") + "</details>" : "") +
-    '<div class="btn-row"><button class="btn" id="replan" type="button">Plan neu erstellen</button></div>' +
     '<p class="hint">Tipp auf eine Aufgabe, dann landest du direkt im passenden Modus und Thema. Abhaken musst du selbst, der Plan liegt nur auf diesem Gerät.</p>';
   $$("[data-pt]", el).forEach((c) => (c.onchange = () => { if (c.checked) done[c.dataset.pt] = true; else delete done[c.dataset.pt]; save(); keepScroll(renderPlan); }));
   $$("[data-run]", el).forEach((b) => (b.onclick = () => runTask(b.dataset.run)));
