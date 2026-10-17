@@ -173,7 +173,8 @@ async function renderSite(page, msg) {
     body = '<header class="page-head"><h1>Kalender</h1><p>Alle Klausurtermine. Tipp auf einen Termin, um die Klausur zu öffnen.</p></header><div id="cal"></div>';
   } else {
     const known = new Set(list.map((k) => k.id));
-    const news = (ups || []).slice().sort((a, b) => (b.datum || "").localeCompare(a.datum || "")).slice(0, 5);
+    // neueste zuerst; bei gleichem Datum der später eingetragene
+    const news = (ups || []).map((u, i) => Object.assign({ i: i }, u)).sort((a, b) => (b.datum || "").localeCompare(a.datum || "") || b.i - a.i).slice(0, 5);
     body = '<header class="page-head"><h1>Updates</h1><p>Was zuletzt neu dazugekommen ist.</p></header>' +
       (news.length ? '<ul class="updates">' + news.map((u) => '<li><span class="ud">' + fmtDate(u.datum) + '</span><span class="ut">' + esc(u.text) + "</span>" +
         (u.klausur && known.has(u.klausur) ? '<a href="#/' + encodeURIComponent(u.klausur) + '">Öffnen →</a>' : "") + "</li>").join("") + "</ul>" : '<p class="empty-note">Noch keine Updates.</p>');
@@ -828,10 +829,22 @@ function buildPlan(wd, min) {
     plan.warn = "Bis zur Klausur bleibt dir nur noch ein Lerntag. Alle Themen einzeln schaffst du nicht mehr. Priorität: erst der rote Faden, damit du die Zusammenhänge hast, dann ein gemischtes Quiz, dann die Klausurfragen." + prio;
   } else {
     let di = 0, fits = true;
-    for (const task of flat) {
-      if (usedMin(before[di]) > 0 && usedMin(before[di]) + task.min > min) di++;
-      if (di >= before.length) { fits = false; break; }
-      before[di].tasks.push(Object.assign({}, task, { phase: 1 }));
+    // ein Thema (Lernkarten + Quiz) bleibt am selben Tag, wenn es in die Tageszeit passt;
+    // auch bei viel Zeit verteilen sich die Themen auf mindestens die erste Hälfte der Tage
+    const maxThemes = Math.ceil(units.length / Math.ceil(before.length / 2));
+    const themesOn = (d) => new Set(d.tasks.map((x) => x.t)).size;
+    const place = (tasks) => {
+      const need = tasks.reduce((a, x) => a + x.min, 0);
+      const d = before[di], isNew = !d.tasks.some((x) => x.t === tasks[0].t);
+      if (usedMin(d) > 0 && (usedMin(d) + need > min || (isNew && themesOn(d) >= maxThemes))) di++;
+      if (di >= before.length) return false;
+      tasks.forEach((x) => before[di].tasks.push(Object.assign({}, x, { phase: 1 })));
+      return true;
+    };
+    for (const u of units) {
+      const need = u.tasks.reduce((a, x) => a + x.min, 0);
+      const ok = need <= min ? place(u.tasks) : u.tasks.every((x) => place([x]));
+      if (!ok) { fits = false; break; }
     }
     if (fits) {
       const pool = reviewPool(), st = { p: 0 };
@@ -917,13 +930,22 @@ function renderPlanForm() {
     WD_ORDER.map((i) => '<button class="chip" type="button" data-wd="' + i + '" aria-pressed="' + !!f.wd[i] + '">' + WD[i] + "</button>").join("") + "</div>" +
     '<div class="step-h">Wie viel Zeit pro Tag?</div><div class="seg" role="group">' +
     [15, 30, 45, 60].map((m) => '<button type="button" data-min="' + m + '" aria-pressed="' + (f.min === m) + '">' + m + " Min.</button>").join("") + "</div>" +
+    '<label class="own-min">oder eigene Zeit: <input type="number" id="ownmin" min="5" max="600" step="5" inputmode="numeric" placeholder="z. B. 90" value="' + ([15, 30, 45, 60].includes(f.min) ? "" : f.min) + '"> Minuten</label>' +
     (f.err ? '<div class="fb bad"><b>So geht es nicht.</b>' + esc(f.err) + "</div>" : "") +
     '<div class="btn-row"><button class="btn signal" id="mkplan" type="button">' + (S.plan ? "Neuen Plan erstellen" : "Plan erstellen") + "</button>" + (S.plan ? '<button class="btn" id="cancel" type="button">Abbrechen</button>' : "") + "</div>" +
     (S.plan ? '<p class="hint">Der neue Plan ersetzt den alten, die Haken fangen wieder bei null an.</p>' : "");
   $$("[data-wd]", el).forEach((b) => (b.onclick = () => { f.wd[+b.dataset.wd] = !f.wd[+b.dataset.wd]; f.err = ""; renderPlanForm(); }));
-  $$("[data-min]", el).forEach((b) => (b.onclick = () => { f.min = +b.dataset.min; renderPlanForm(); }));
+  $$("[data-min]", el).forEach((b) => (b.onclick = () => { f.min = +b.dataset.min; f.err = ""; renderPlanForm(); }));
+  // freie Eingabe: nicht neu zeichnen, sonst springt der Cursor raus
+  $("#ownmin").oninput = () => { if ($("#ownmin").value !== "") $$("[data-min]", el).forEach((b) => b.setAttribute("aria-pressed", "false")); };
   $("#mkplan").onclick = () => {
     if (!f.wd.some(Boolean)) { f.err = "Wähl mindestens einen Wochentag aus."; return renderPlanForm(); }
+    const own = $("#ownmin").value.trim();
+    if (own !== "") {
+      const v = Math.round(Number(own));
+      if (!(v >= 5 && v <= 600)) { f.err = "Gib bei der eigenen Zeit eine Zahl zwischen 5 und 600 Minuten ein."; return renderPlanForm(); }
+      f.min = v;
+    }
     const p = buildPlan(f.wd, f.min);
     if (!p.days.length) { f.err = "Bis zur Klausur liegt keiner deiner Lerntage mehr. Wähl mehr Wochentage aus."; return renderPlanForm(); }
     S.plan = p; S.planDone = {}; planForm = null; save(); renderPlan(); window.scrollTo(0, 0);

@@ -407,3 +407,6 @@ a.cday.has:hover{border-color:var(--ink)}
 .exam .when-row + .exam-actions{margin-top:0}
 .title span{font-family:var(--f-ui);font-weight:500;font-size:clamp(1rem,2.4vw,1.2rem);letter-spacing:0;color:var(--muted);margin-top:.6em}
 .band .wrap{padding-block:48px 40px}
+.own-min{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:14px;color:var(--muted);font-size:.92rem}
+.own-min input{width:7rem;min-height:40px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);font:inherit;padding:6px 14px}
+.own-min input:focus{outline:none;border-color:var(--ink)}
