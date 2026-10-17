@@ -10,6 +10,8 @@ Statische Lern-Webseite (GitHub Pages) für Dschibraels Klausuren und seine Klas
 4. Eintrag in `klausuren/index.json` ergänzen (id, fach, titel, kurs, datum, beschreibung, farben).
 5. Prüfen: `node tools/check.js` (validiert alle Klausur-Dateien), dann committen und pushen. GitHub Pages aktualisiert in 1–2 Minuten.
 
+Steht nur der Termin fest, reicht eine Datei mit den Metadaten. Die Klausurseite zeigt dann „noch kein Lernstoff“. Kommt das Material, wird dieselbe Datei gefüllt (id nicht ändern, damit geteilte Links weiter gehen) und `titel`/`beschreibung` in Datei und `index.json` angepasst.
+
 Alte Klausuren bleiben drin, sie landen automatisch im Archiv, sobald ihr Datum vorbei ist.
 
 ## Format einer Klausur-Datei

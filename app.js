@@ -179,10 +179,11 @@ function renderHome() {
     '<div><a class="back" href="#/" style="color:var(--band-muted);text-decoration:none;font-weight:600;font-size:.9rem">← Alle Klausuren</a></div>' +
     '<div class="kicker">' + esc(K.fach) + (K.kurs ? " · " + esc(K.kurs) : "") + "</div>" +
     '<h1 class="title">' + esc(K.titel) + (K.datum ? "<span>Klausur " + fmtDate(K.datum) + " · " + countdown(K.datum) + "</span>" : "") + "</h1>" +
-    (K.beschreibung ? '<p class="lede">' + esc(K.beschreibung) + "</p>" : "") + stats +
+    (K.beschreibung ? '<p class="lede">' + esc(K.beschreibung) + "</p>" : "") + (train.length || games.length ? stats : "") +
     '</div><div class="curtain" aria-hidden="true"><i></i><i></i></div></header>' +
     '<div class="wrap home">' +
     (chips ? '<section><div class="sec-head"><h2>Thema</h2><p>Filtert alle Modi auf ein Thema.</p></div><div class="chips">' + chips + "</div></section>" : "") +
+    (!train.length && !games.length ? '<section><div class="empty-big">Für diese Klausur gibt es noch keinen Lernstoff. Er kommt dazu, sobald das Material aus dem Unterricht da ist.</div></section>' : "") +
     (train.length ? '<section><div class="sec-head"><h2>Lernen und Klausurtraining</h2><p>Erst verstehen, dann so üben, wie es in der Klausur drankommt.</p></div><div class="grid-train">' + train.join("") + "</div></section>" : "") +
     (games.length ? '<section><div class="sec-head"><h2>Spielmodi</h2><p>Zum Wiederholen zwischendurch.</p></div><div class="games">' + gamesHTML + "</div></section>" : "") +
     (topics().length ? '<section class="duo"><div class="panel"><h3>Dein Stand</h3>' + progressHTML() + '</div><div class="panel"><h3>Gespeichert</h3><p class="hint" style="margin:0">Dein Fortschritt liegt nur in diesem Browser auf diesem Gerät. Niemand sonst sieht ihn.</p><div class="btn-row"><button class="btn small" id="reset" type="button">Fortschritt zurücksetzen</button></div><p class="hint" id="reset-q" hidden>Wirklich alles für diese Klausur löschen? <button class="btn small" id="reset-yes" type="button">Ja, löschen</button></p></div></section>' : "") +

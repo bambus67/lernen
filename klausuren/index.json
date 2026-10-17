@@ -10,5 +10,82 @@
    "#1D4F9D",
    "#AE2A1F"
   ]
+ },
+ {
+  "id": "englisch-oral-2026-10",
+  "fach": "Englisch",
+  "titel": "Oral Examination",
+  "kurs": "Q13",
+  "datum": "2026-10-27",
+  "farben": [
+   "#1F3A93",
+   "#B22234"
+  ]
+ },
+ {
+  "id": "politik-wirtschaft-2026-11",
+  "fach": "Politik und Wirtschaft",
+  "titel": "Thema folgt",
+  "kurs": "Q13",
+  "datum": "2026-11-05",
+  "farben": [
+   "#2E6B3F",
+   "#8A5A00"
+  ]
+ },
+ {
+  "id": "physik-2026-11",
+  "fach": "Physik",
+  "titel": "Thema folgt",
+  "kurs": "Q13",
+  "datum": "2026-11-16",
+  "farben": [
+   "#5B2A86",
+   "#0B6E8A"
+  ]
+ },
+ {
+  "id": "ethik-2026-11",
+  "fach": "Ethik",
+  "titel": "Thema folgt",
+  "kurs": "Q13",
+  "datum": "2026-11-25",
+  "farben": [
+   "#7A3E1D",
+   "#3F6B5C"
+  ]
+ },
+ {
+  "id": "deutsch-2026-12",
+  "fach": "Deutsch",
+  "titel": "Thema folgt",
+  "kurs": "Q13",
+  "datum": "2026-12-01",
+  "farben": [
+   "#1A1A1A",
+   "#B3121C"
+  ]
+ },
+ {
+  "id": "englisch-2026-12",
+  "fach": "Englisch",
+  "titel": "Thema folgt",
+  "kurs": "Q13",
+  "datum": "2026-12-09",
+  "farben": [
+   "#1F3A93",
+   "#B22234"
+  ]
+ },
+ {
+  "id": "mathe-2026-12",
+  "fach": "Mathe",
+  "titel": "Thema folgt",
+  "kurs": "Q13",
+  "datum": "2026-12-15",
+  "farben": [
+   "#0B5CAD",
+   "#C2410C"
+  ]
  }
 ]
