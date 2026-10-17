@@ -8,7 +8,8 @@ Statische Lern-Webseite (GitHub Pages) für Dschibraels Klausuren und seine Klas
 2. **Nur Stoff aus diesem Material verwenden.** Was aus eigenem Wissen ergänzt wird (weil er es ausdrücklich will), im Text kennzeichnen. Der Lehrer will Zusammenhänge, keine Jahreszahlen, falls nicht anders gesagt.
 3. Neue Datei `klausuren/<fach>-<thema>.json` im Format unten anlegen (id = Dateiname ohne `.json`, nur a–z, 0–9, `-`).
 4. Eintrag in `klausuren/index.json` ergänzen (id, fach, titel, kurs, datum, beschreibung, farben).
-5. Prüfen: `node tools/check.js` (validiert alle Klausur-Dateien), dann committen und pushen. GitHub Pages aktualisiert in 1–2 Minuten.
+5. **Eintrag in `updates.json` ergänzen** (immer, bei jeder neuen oder deutlich erweiterten Klausur): `{ "datum": "YYYY-MM-DD", "text": "Kalter Krieg ist online", "klausur": "<id>" }`. `klausur` ist optional und wird zum Link. Die Startseite zeigt die neuesten fünf.
+6. Prüfen: `node tools/check.js` (validiert alle Klausur-Dateien und `updates.json`), dann committen und pushen. GitHub Pages aktualisiert in 1–2 Minuten.
 
 Steht nur der Termin fest, reicht eine Datei mit den Metadaten. Die Klausurseite zeigt dann „noch kein Lernstoff“. Kommt das Material, wird dieselbe Datei gefüllt (id nicht ändern, damit geteilte Links weiter gehen) und `titel`/`beschreibung` in Datei und `index.json` angepasst.
 
@@ -62,6 +63,12 @@ Alle Abschnitte außer den Metadaten sind optional. Ein Modus erscheint nur, wen
 - Quellen: nur Texte, deren Wortlaut gesichert ist. Eigene Übersetzungen als solche kennzeichnen, unsichere als „sinngemäß“. Keine erfundenen Zitate.
 - Sprache: Deutsch, klar, Schülerniveau Oberstufe. Keine Gedankenstriche als Satzzeichen.
 - Ketten: 5–7 Glieder, jedes Glied folgt eindeutig aus dem vorherigen.
+
+## Startseite und Lernplan
+
+- Startseite: Intro, anstehende Klausuren (nächste hervorgehoben, Buttons „Lernen“ und „Lernplan“), Archiv, Kalender (Monatsansicht aus `klausuren/index.json`, „In meinen Kalender“ erzeugt eine .ics-Datei), Updates aus `updates.json`. Die Navigationsleiste erscheint, sobald das Intro weggescrollt ist.
+- Lernplan (`#/<id>/lernplan`): erscheint, sobald die Klausur `themen` und Lernkarten oder Quiz hat. Phase 1 pro Thema Lernkarten + Quiz, Phase 2 gemischte Wiederholung aus dem, was die Klausur hat, letzter Tag roter Faden (Lernkarten-Eintrag mit `"t": "all"`) + Klausurfragen. Minuten pro Aufgabe stehen in `PLAN_MIN` in `app.js`. Plan und Haken liegen in `kt:<id>` (`plan`, `planDone`).
+- Design: schwarzer Hintergrund, weiße Schrift, kleine Akzente in Grün (`--green`) und Rot (`--red`). Fächerfarben (`farben`) nur auf den Streifen und Markierungen der jeweiligen Klausur.
 
 ## Technik
 

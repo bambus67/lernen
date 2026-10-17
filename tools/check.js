@@ -41,5 +41,16 @@ for (const f of files) {
   (K.klausur || []).forEach((k, i) => { if (!k.q || !Array.isArray(k.punkte)) err(f, "klausur[" + i + "] unvollständig"); });
   console.log("geprüft: " + f);
 }
+// Updates auf der Startseite
+try {
+  const ups = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "updates.json"), "utf8"));
+  if (!Array.isArray(ups)) err("updates.json", "muss eine Liste sein");
+  else ups.forEach((u, i) => {
+    if (!u.datum || !/^\d{4}-\d{2}-\d{2}$/.test(u.datum)) err("updates.json", "[" + i + "] datum muss YYYY-MM-DD sein");
+    if (!u.text) err("updates.json", "[" + i + "] text fehlt");
+    if (u.klausur && !index.some((e) => e.id === u.klausur)) err("updates.json", "[" + i + "] unbekannte Klausur " + u.klausur);
+  });
+  console.log("geprüft: updates.json");
+} catch (e) { err("updates.json", "fehlt oder kein gültiges JSON: " + e.message); }
 console.log(errors ? errors + " Fehler" : "Alles in Ordnung.");
 process.exit(errors ? 1 : 0);

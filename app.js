@@ -58,6 +58,7 @@ function go(v, p) {
 }
 async function route() {
   stopBlitz();
+  if (navObs) { navObs.disconnect(); navObs = null; }
   const parts = parseHash();
   if (!parts.length) { K = null; return renderIndex(); }
   const id = parts[0];
@@ -73,42 +74,134 @@ async function route() {
     document.title = K.titel + " · Klausurtrainer";
   }
   view = parts[1] || "home"; param = parts[2] || null;
+  if (view === "home" || view === "lernplan") fromPlan = false;
   render(); window.scrollTo(0, 0);
 }
 window.addEventListener("hashchange", route);
 
 /* ---------- Übersicht aller Klausuren ---------- */
+let UPDATES = null, cal = null, navObs = null;
+const MONTHS = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+const pad2 = (n) => String(n).padStart(2, "0");
+function ymd(d) { return d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-" + pad2(d.getDate()); }
+const todayStr = () => ymd(new Date());
+function addDays(ds, n) { const d = parseDate(ds); d.setDate(d.getDate() + n); return ymd(d); }
+const examTitle = (k) => k.fach + (k.titel && k.titel !== "Thema folgt" ? ", " + k.titel : "");
+const examColor = (k) => (k.farben && k.farben[0]) || "var(--green)";
+async function loadUpdates() { if (!UPDATES) { try { UPDATES = await getJSON("updates.json"); } catch (e) { UPDATES = []; } } return UPDATES; }
+
 async function renderIndex(msg) {
   document.title = "Klausurtrainer";
   document.body.classList.add("on-home");
   document.documentElement.style.removeProperty("--ca"); document.documentElement.style.removeProperty("--cb");
-  const list = await loadIndex();
+  const [list, ups] = await Promise.all([loadIndex(), loadUpdates()]);
   const up = list.filter((k) => (daysUntil(k.datum) ?? 1) >= 0).sort((a, b) => (a.datum || "").localeCompare(b.datum || ""));
   const old = list.filter((k) => (daysUntil(k.datum) ?? 1) < 0).sort((a, b) => (b.datum || "").localeCompare(a.datum || ""));
-  const card = (k, isOld) => {
+  const card = (k, isOld, isNext) => {
     const f = k.farben || [];
     const d = daysUntil(k.datum);
-    return '<a class="exam' + (isOld ? " old" : "") + '" href="#/' + encodeURIComponent(k.id) + '">' +
+    const id = encodeURIComponent(k.id);
+    const cd = d === null || d < 0 ? "" : '<span class="cd">' + (d === 0 ? "<b>Heute</b>" : d === 1 ? "<b>Morgen</b>" : "<b>" + d + "</b> Tage") + "</span>";
+    return '<article class="exam' + (isOld ? " old" : "") + (isNext ? " next" : "") + '">' +
       '<span class="stripe"><i style="background:' + esc(f[0] || "var(--signal)") + '"></i><i style="background:' + esc(f[1] || f[0] || "var(--signal)") + '"></i></span>' +
-      '<span class="in"><span class="kicker">' + esc(k.fach) + (k.kurs ? " · " + esc(k.kurs) : "") + "</span><h3>" + esc(k.titel) + "</h3>" +
+      '<div class="in"><div class="exam-top"><span class="kicker">' + esc(k.fach) + (k.kurs ? " · " + esc(k.kurs) : "") + "</span>" + (isNext ? '<span class="next-tag">Als Nächstes</span>' : "") + "</div>" +
+      "<h3>" + esc(k.titel) + "</h3>" +
       (k.beschreibung ? "<p>" + esc(k.beschreibung) + "</p>" : "") +
-      (k.datum ? '<span class="when' + (d !== null && d >= 0 && d <= 3 ? " soon" : "") + '">' + fmtDate(k.datum) + " · " + countdown(k.datum) + "</span>" : "") +
-      "</span></a>";
+      (k.datum ? '<div class="when-row"><span class="when' + (d !== null && d >= 0 && d <= 3 ? " soon" : "") + '">' + fmtDate(k.datum) + "</span>" + cd + "</div>" : "") +
+      '<div class="exam-actions"><a class="btn small primary" href="#/' + id + '">Lernen</a><a class="btn small" href="#/' + id + '/lernplan">Lernplan</a></div>' +
+      "</div></article>";
   };
+  const known = new Set(list.map((k) => k.id));
+  const news = (ups || []).slice().sort((a, b) => (b.datum || "").localeCompare(a.datum || "")).slice(0, 5);
   app.innerHTML =
-    '<header class="band"><div class="wrap"><div class="kicker">Lernen für die nächste Klausur</div>' +
+    '<nav class="snav" id="snav" aria-label="Abschnitte"><div class="wrap"><button class="brand" type="button" data-to="intro">Klausurtrainer</button><span class="snav-links">' +
+    '<button type="button" data-to="s-klausuren">Klausuren</button><button type="button" data-to="s-kalender">Kalender</button><button type="button" data-to="s-updates">Updates</button></span></div></nav>' +
+    '<header class="band intro" id="intro"><div class="wrap intro-in"><div class="kicker">Lernen für die nächste Klausur</div>' +
     '<h1 class="title">Klausur&shy;trainer</h1>' +
-    '<p class="lede">Für jede Klausur: Lernkarten, Quiz, Karteikarten, Zusammenhänge und Klausurfragen. Nur mit dem Stoff aus dem Unterricht. Dein Fortschritt bleibt auf deinem Gerät.</p>' +
+    '<p class="by">von Dschibrael</p>' +
+    '<p class="lede">Lernkarten, Quiz, Lernpläne und Klausurfragen für unsere Klausuren. Nur mit dem Stoff aus dem Unterricht, dein Fortschritt bleibt auf deinem Gerät.</p>' +
     '<div class="install" id="install"></div>' +
-    '</div><div class="curtain" aria-hidden="true"><i></i><i></i></div></header>' +
+    '</div><button class="down" type="button" data-to="s-klausuren" aria-label="Zu den Klausuren">↓</button>' +
+    '<div class="curtain flag" aria-hidden="true"><i></i><i></i></div></header>' +
     '<div class="wrap home">' +
     (msg ? '<p class="fb bad"><b>' + esc(msg) + "</b>Hier sind alle verfügbaren Klausuren.</p>" : "") +
-    '<section><div class="sec-head"><h2>Anstehende Klausuren</h2></div>' +
-    (up.length ? '<div class="exams">' + up.map((k) => card(k, false)).join("") + "</div>" : '<div class="empty-big">Gerade steht keine Klausur an.</div>') + "</section>" +
-    (old.length ? '<section><div class="sec-head"><h2>Archiv</h2><p>Zum Wiederholen vor dem Abi.</p></div><div class="exams">' + old.map((k) => card(k, true)).join("") + "</div></section>" : "") +
+    '<section id="s-klausuren"><div class="sec-head"><h2>Anstehende Klausuren</h2></div>' +
+    (up.length ? '<div class="exams">' + up.map((k, i) => card(k, false, i === 0)).join("") + "</div>" : '<div class="empty-big">Gerade steht keine Klausur an.</div>') + "</section>" +
+    (old.length ? '<section><div class="sec-head"><h2>Archiv</h2><p>Zum Wiederholen vor dem Abi.</p></div><div class="exams">' + old.map((k) => card(k, true, false)).join("") + "</div></section>" : "") +
+    '<section id="s-kalender"><div class="sec-head"><h2>Kalender</h2><p>Tipp auf einen Termin, um die Klausur zu öffnen.</p></div><div id="cal"></div></section>' +
+    '<section id="s-updates"><div class="sec-head"><h2>Updates</h2><p>Was neu dazugekommen ist.</p></div>' +
+    (news.length ? '<ul class="updates">' + news.map((u) => '<li><span class="ud">' + fmtDate(u.datum) + '</span><span class="ut">' + esc(u.text) + "</span>" +
+      (u.klausur && known.has(u.klausur) ? '<a href="#/' + encodeURIComponent(u.klausur) + '">Öffnen →</a>' : "") + "</li>").join("") + "</ul>" : '<p class="empty-note">Noch keine Updates.</p>') + "</section>" +
     '<p class="foot">Inhalte nach Tafelbildern und Unterrichtsmaterial, aufbereitet mit Claude. Fehler entdeckt? Sag Bescheid.</p>' +
     "</div>";
+  if (!cal) { const n = new Date(); cal = { y: n.getFullYear(), m: n.getMonth() }; }
+  renderCal();
+  $$("[data-to]").forEach((b) => (b.onclick = () => { const el = document.getElementById(b.dataset.to); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }));
+  const nav = $("#snav");
+  if (navObs) navObs.disconnect();
+  if ("IntersectionObserver" in window) {
+    navObs = new IntersectionObserver((es) => es.forEach((e) => nav.classList.toggle("show", !e.isIntersecting)), { rootMargin: "-56px 0px 0px 0px" });
+    navObs.observe($("#intro"));
+  } else nav.classList.add("show");
   renderInstall();
+}
+
+/* ---------- Kalender ---------- */
+function renderCal() {
+  const el = $("#cal"); if (!el) return;
+  const list = INDEX || [];
+  const y = cal.y, m = cal.m, t = todayStr();
+  const startOff = (new Date(y, m, 1).getDay() + 6) % 7, nd = new Date(y, m + 1, 0).getDate();
+  const byDay = {};
+  list.forEach((k) => { if (k.datum) (byDay[k.datum] = byDay[k.datum] || []).push(k); });
+  let cells = "";
+  for (let i = 0; i < startOff; i++) cells += '<div class="cday pad"></div>';
+  for (let d = 1; d <= nd; d++) {
+    const ds = y + "-" + pad2(m + 1) + "-" + pad2(d), ex = byDay[ds] || [];
+    const cls = "cday" + (ds === t ? " today" : "") + (ds < t ? " past" : "") + (ex.length ? " has" : "");
+    const inner = '<span class="dn">' + d + "</span>" + ex.map((k) => '<span class="cev" style="--c:' + esc(examColor(k)) + '">' + esc(k.fach) + "</span>").join("");
+    cells += ex.length
+      ? '<a class="' + cls + '" href="#/' + encodeURIComponent(ex[0].id) + '" title="' + esc(ex.map(examTitle).join(" / ")) + '">' + inner + "</a>"
+      : '<div class="' + cls + '">' + inner + "</div>";
+  }
+  const pre = y + "-" + pad2(m + 1) + "-";
+  const inMonth = list.filter((k) => k.datum && k.datum.startsWith(pre)).sort((a, b) => a.datum.localeCompare(b.datum));
+  const n = new Date(), isNow = n.getFullYear() === y && n.getMonth() === m;
+  el.innerHTML =
+    '<div class="cal-head"><button class="btn small" type="button" data-cal="-1" aria-label="Voriger Monat">‹</button>' +
+    "<h3>" + MONTHS[m] + " " + y + "</h3>" +
+    '<button class="btn small" type="button" data-cal="1" aria-label="Nächster Monat">›</button>' +
+    '<button class="btn small" type="button" data-cal="0"' + (isNow ? " disabled" : "") + ">Heute</button></div>" +
+    '<div class="cal-grid">' + ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"].map((w) => '<div class="wd">' + w + "</div>").join("") + cells + "</div>" +
+    '<div class="cal-list">' + (inMonth.length ? inMonth.map((k) =>
+      '<div class="cal-row' + (k.datum < t ? " past" : "") + '"><a class="cal-what" href="#/' + encodeURIComponent(k.id) + '"><span class="dot" style="background:' + esc(examColor(k)) + '"></span><span><b>' + fmtDate(k.datum) + "</b> " + esc(examTitle(k)) + "</span></a>" +
+      '<button class="btn small" type="button" data-ics="' + esc(k.id) + '">In meinen Kalender</button></div>').join("")
+      : '<p class="empty-note">In diesem Monat steht keine Klausur an.</p>') + "</div>";
+  $$("[data-cal]", el).forEach((b) => (b.onclick = () => {
+    const s = +b.dataset.cal;
+    if (s === 0) { const d = new Date(); cal = { y: d.getFullYear(), m: d.getMonth() }; }
+    else { const d = new Date(cal.y, cal.m + s, 1); cal = { y: d.getFullYear(), m: d.getMonth() }; }
+    renderCal();
+  }));
+  $$("[data-ics]", el).forEach((b) => (b.onclick = () => downloadICS(list.find((k) => k.id === b.dataset.ics))));
+}
+function downloadICS(k) {
+  if (!k || !k.datum) return;
+  const icsEsc = (s) => String(s).replace(/\\/g, "\\\\").replace(/;/g, "\;").replace(/,/g, "\\,").replace(/\n/g, "\\n");
+  const now = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d+/, "");
+  const url = location.href.split("#")[0] + "#/" + encodeURIComponent(k.id);
+  const ics = [
+    "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Klausurtrainer//DE", "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
+    "BEGIN:VEVENT", "UID:" + k.id + "@klausurtrainer", "DTSTAMP:" + now,
+    "DTSTART;VALUE=DATE:" + k.datum.replace(/-/g, ""), "DTEND;VALUE=DATE:" + addDays(k.datum, 1).replace(/-/g, ""),
+    "SUMMARY:" + icsEsc("Klausur: " + examTitle(k)), "DESCRIPTION:" + icsEsc("Lernen: " + url), "URL:" + url, "TRANSP:TRANSPARENT",
+    "END:VEVENT", "END:VCALENDAR", ""
+  ].join("\r\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" }));
+  a.download = "klausur-" + k.id + ".ics";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 10000);
 }
 
 /* ---------- Als App installieren ---------- */
@@ -130,18 +223,18 @@ function renderInstall() {
 }
 
 /* ---------- Seiten einer Klausur ---------- */
-const TITLES = { lernen: "Lernen", quiz: "Quiz", blitz: "Zuordnen", zeit: "Zeitstrahl", kette: "Ursache → Folge", karten: "Karteikarten", quellen: "Quellen", quelle: "Quellen", klausur: "Klausurfragen" };
+const TITLES = { lernplan: "Lernplan", lernen: "Lernen", quiz: "Quiz", blitz: "Zuordnen", zeit: "Zeitstrahl", kette: "Ursache → Folge", karten: "Karteikarten", quellen: "Quellen", quelle: "Quellen", klausur: "Klausurfragen" };
 function render() {
   document.body.classList.toggle("on-home", view === "home");
   if (view === "home" || !TITLES[view]) { view = "home"; return renderHome(); }
   app.innerHTML =
     '<div class="topbar"><div class="wrap">' +
-    '<button class="back" id="back" type="button">← ' + (view === "quelle" ? "Alle Quellen" : "Übersicht") + "</button>" +
+    '<button class="back" id="back" type="button">← ' + (fromPlan ? "Lernplan" : view === "quelle" ? "Alle Quellen" : "Übersicht") + "</button>" +
     '<div class="mtitle">' + (view === "blitz" && K.zuordnen ? esc(K.zuordnen.titel || "Zuordnen") : TITLES[view]) + "</div>" +
     '<span class="pill" id="xp-pill">' + S.xp + " Punkte</span></div></div>" +
     '<main class="stage" id="stage"></main>';
-  $("#back").onclick = () => (view === "quelle" ? go("quellen") : go("home"));
-  ({ lernen: renderLernen, quiz: renderQuiz, blitz: renderBlitz, zeit: renderZeit, kette: renderKette, karten: renderKarten, quellen: renderQuellen, quelle: renderQuelle, klausur: renderKlausur })[view]();
+  $("#back").onclick = () => (fromPlan ? go("lernplan") : view === "quelle" ? go("quellen") : go("home"));
+  ({ lernplan: renderPlan, lernen: renderLernen, quiz: renderQuiz, blitz: renderBlitz, zeit: renderZeit, kette: renderKette, karten: renderKarten, quellen: renderQuellen, quelle: renderQuelle, klausur: renderKlausur })[view]();
 }
 const stage = () => $("#stage");
 
@@ -154,6 +247,7 @@ function renderHome() {
   const card = (id, cls, kicker, title, text, left, right) =>
     '<button class="mode ' + cls + '" type="button" data-go="' + id + '"><span class="kicker">' + kicker + "</span><h3>" + title + "</h3><p>" + text + '</p><span class="meta"><span>' + left + "</span><span>" + right + "</span></span></button>";
   const train = [];
+  if (planReady()) { const pi = planCardInfo(); train.push(card("lernplan", "plan", "Dein Fahrplan bis zur Klausur", "Lernplan", S.plan ? "Deine Aufgaben für heute und die nächsten Tage. Jede Aufgabe führt direkt in den passenden Modus." : "Sag, an welchen Tagen und wie lange du lernst, und du bekommst einen Plan bis zur Klausur.", pi[0], pi[1])); }
   if (has("lernen")) train.push(card("lernen", "learn", "Erst verstehen", "Lernen", "Alle Inhalte als Lernkarten zum Durchblättern, ohne Punkte und ohne Druck. Danach direkt testen.", K.lernen.length + " Themen", learnedCount + " gelesen"));
   if (has("quellen")) train.push(card("quellen", "train", "Quellenarbeit", "Quellen-Training", "Quellenauszüge mit Einordnungsfragen, Klausuraufgaben und Erwartungshorizont zum Abhaken.", n(K.quellen, (q) => inTopic(q.t)) + " Quellen", done + " bearbeitet"));
   if (has("klausur")) train.push(card("klausur", "train", "Offene Fragen", "Klausurfragen", "Mögliche Aufgaben mit Operatoren. Erst selbst antworten, dann mit der Musterlösung vergleichen.", n(K.klausur, (q) => inTopic(q.t)) + " Fragen", "mit Musterlösung"));
@@ -210,6 +304,7 @@ function progressHTML() {
   return '<div class="bars">' + rows + "</div>" + foot;
 }
 function start(mode) {
+  if (mode === "lernplan") planForm = null;
   if (mode === "lernen") lern = null;
   if (mode === "quiz") { newQuiz(); }
   if (mode === "blitz") blitz = { state: "intro" };
@@ -622,6 +717,177 @@ function klausurCard(k, i) {
   } else body = '<div><button class="btn small" type="button" data-open="' + i + '">Musterlösung zeigen</button></div>';
   return '<div class="task"><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="tag op">' + esc(k.op) + '</span><span class="tag">' + esc(topicName(k.t)) + '</span></div><p class="qq">' + esc(k.q) + "</p>" +
     '<textarea id="kn-' + i + '" data-note="' + i + '" placeholder="Deine Stichpunkte (werden nicht gespeichert)">' + esc(st.note || "") + "</textarea>" + body + "</div>";
+}
+
+/* ---------- Lernplan ---------- */
+// Geschätzte Minuten pro Aufgabe. Phase 1: jedes Thema mit Lernkarten + Quiz, Phase 2: gemischte Wiederholung, letzter Tag: roter Faden + Klausurfragen.
+const PLAN_MIN = { lernen: 15, quiz: 10, karten: 10, kette: 10, blitz: 5, zeit: 5, quelle: 15, klausur: 20 };
+const WD_ORDER = [1, 2, 3, 4, 5, 6, 0];
+let planForm = null, fromPlan = false;
+const fadenLabel = (l) => "Roter Faden lesen" + (/roter faden/i.test(l.name) ? "" : ": " + l.name);
+const planReady = () => topics().length > 0 && (has("lernen") || has("quiz"));
+function planUnits() {
+  return topics().map((t) => {
+    const tasks = [];
+    if ((K.lernen || []).some((l) => l.t === t.id)) tasks.push({ mode: "lernen", t: t.id, label: "Lernkarten: " + t.name, min: PLAN_MIN.lernen });
+    if ((K.quiz || []).some((q) => q.t === t.id)) tasks.push({ mode: "quiz", t: t.id, label: "Quiz: " + t.name, min: PLAN_MIN.quiz });
+    return { t: t, tasks: tasks };
+  }).filter((u) => u.tasks.length);
+}
+function reviewPool() {
+  const pool = [];
+  if (has("quiz")) pool.push({ min: PLAN_MIN.quiz, next: () => ({ mode: "quiz", t: "all", label: "Quiz gemischt, alle Themen" }) });
+  if (has("karten")) pool.push({ min: PLAN_MIN.karten, next: () => ({ mode: "karten", t: "all", label: "Karteikarten: alle Begriffe" }) });
+  const ks = (K.ketten || []).map((k, i) => ({ k: k, i: i })).filter((o) => o.k.t !== "all");
+  if (ks.length) { let i = 0; pool.push({ min: PLAN_MIN.kette, next: () => { const o = ks[i++ % ks.length]; return { mode: "kette", t: o.k.t, k: o.i, label: "Kette ordnen: " + o.k.titel }; } }); }
+  if (has("zuordnen")) pool.push({ min: PLAN_MIN.blitz, next: () => ({ mode: "blitz", t: "all", label: (K.zuordnen.titel || "Zuordnen") + " (60 Sekunden)" }) });
+  if (has("quellen")) {
+    const qs = K.quellen.slice().sort((a, b) => (S.quellen[a.id] ? 1 : 0) - (S.quellen[b.id] ? 1 : 0)); let i = 0;
+    pool.push({ min: PLAN_MIN.quelle, next: () => { const q = qs[i++ % qs.length]; return { mode: "quelle", t: q.t, q: q.id, label: "Quelle: " + q.titel }; } });
+  }
+  if (has("zeitstrahl")) pool.push({ min: PLAN_MIN.zeit, next: () => ({ mode: "zeit", t: "all", label: "Zeitstrahl" }) });
+  return pool;
+}
+const usedMin = (day) => day.tasks.reduce((s, x) => s + x.min, 0);
+function fillDay(day, cap, pool, st) {
+  // jede Art höchstens einmal pro Tag, der Startpunkt wandert, damit die Tage abwechseln
+  let used = usedMin(day), placed = 0;
+  for (let j = 0; j < pool.length; j++) {
+    const it = pool[(st.p + j) % pool.length];
+    if (used + it.min > cap && !(used === 0 && placed === 0)) continue;
+    day.tasks.push(Object.assign(it.next(), { min: it.min, phase: 2 })); used += it.min; placed++;
+  }
+  st.p += 1;
+}
+function weakTopics() {
+  return topics().map((t) => ({ t: t, s: S.stats[t.id] })).filter((o) => o.s && o.s.n >= 3)
+    .map((o) => ({ name: o.t.name, p: o.s.r / o.s.n })).filter((o) => o.p < 0.75).sort((a, b) => a.p - b.p).slice(0, 2).map((o) => o.name);
+}
+function buildPlan(wd, min) {
+  const t0 = todayStr(), days = [];
+  for (let d = t0; d < K.datum; d = addDays(d, 1)) if (wd[parseDate(d).getDay()]) days.push({ date: d, tasks: [] });
+  const plan = { created: t0, exam: K.datum, wd: wd, min: min, warn: "", days: days };
+  if (!days.length) return plan;
+  const last = days[days.length - 1], before = days.slice(0, -1);
+  const units = planUnits(), flat = [].concat.apply([], units.map((u) => u.tasks));
+  const faden = (K.lernen || []).find((l) => l.t === "all");
+  const weak = weakTopics();
+  const prio = weak.length ? " Bisher am schwächsten: " + weak.join(" und ") + ", die zuerst wiederholen." : "";
+  if (!before.length) {
+    // nur noch ein Lerntag: nur das Wichtigste
+    if (faden) last.tasks.push({ mode: "lernen", t: "all", label: fadenLabel(faden), min: PLAN_MIN.lernen, phase: 3 });
+    if (has("quiz")) last.tasks.push({ mode: "quiz", t: "all", label: "Quiz gemischt, alle Themen", min: PLAN_MIN.quiz, phase: 3 });
+    if (has("klausur")) last.tasks.push({ mode: "klausur", t: "all", label: "Klausurfragen durchgehen", min: PLAN_MIN.klausur, phase: 3 });
+    plan.warn = "Bis zur Klausur bleibt dir nur noch ein Lerntag. Alle Themen einzeln schaffst du nicht mehr. Priorität: erst der rote Faden, damit du die Zusammenhänge hast, dann ein gemischtes Quiz, dann die Klausurfragen." + prio;
+  } else {
+    let di = 0, fits = true;
+    for (const task of flat) {
+      if (usedMin(before[di]) > 0 && usedMin(before[di]) + task.min > min) di++;
+      if (di >= before.length) { fits = false; break; }
+      before[di].tasks.push(Object.assign({}, task, { phase: 1 }));
+    }
+    if (fits) {
+      const pool = reviewPool(), st = { p: 0 };
+      before.forEach((d) => fillDay(d, min, pool, st));
+    } else {
+      // zu wenig Tage: mehrere Themen pro Tag zusammenfassen
+      before.forEach((d) => (d.tasks = []));
+      const per = Math.ceil(units.length / before.length);
+      units.forEach((u, i) => u.tasks.forEach((x) => before[Math.floor(i / per)].tasks.push(Object.assign({}, x, { phase: 1, note: x.mode === "quiz" ? "wichtig" : "zur Not überfliegen" }))));
+      const perDay = Math.round(Math.max.apply(null, before.map(usedMin)) / 5) * 5;
+      plan.warn = "Für " + units.length + " Themen hast du vor dem letzten Tag nur " + before.length + (before.length === 1 ? " Lerntag" : " Lerntage") + ". Deshalb sind mehrere Themen pro Tag zusammengefasst, das sind bis zu " + perDay + " Minuten am Tag statt " + min + ". " +
+        "Priorität: Mach auf jeden Fall die Quizze und am letzten Tag den roten Faden mit den Klausurfragen. Die Lernkarten kannst du überfliegen, wenn die Zeit nicht reicht." + prio + " Mehr Lerntage oder mehr Zeit pro Tag machen den Plan entspannter.";
+    }
+    if (faden) last.tasks.push({ mode: "lernen", t: "all", label: fadenLabel(faden), min: PLAN_MIN.lernen, phase: 3 });
+    else if (has("quiz")) last.tasks.push({ mode: "quiz", t: "all", label: "Quiz gemischt, alle Themen", min: PLAN_MIN.quiz, phase: 3 });
+    if (has("klausur")) last.tasks.push({ mode: "klausur", t: "all", label: "Klausurfragen durchgehen", min: PLAN_MIN.klausur, phase: 3 });
+  }
+  days.forEach((d) => d.tasks.forEach((x, j) => (x.id = d.date + ":" + j)));
+  return plan;
+}
+function planTasks() { return S.plan ? [].concat.apply([], S.plan.days.map((d) => d.tasks.map((x) => Object.assign({ date: d.date }, x)))) : []; }
+function planToday() {
+  const t = todayStr(), done = S.planDone || {};
+  const all = planTasks();
+  return { all: all, today: all.filter((x) => x.date === t), overdue: all.filter((x) => x.date < t && !done[x.id]) };
+}
+function runTask(id) {
+  const x = planTasks().find((o) => o.id === id); if (!x) return;
+  S.topic = x.t || "all"; save(); fromPlan = true;
+  if (x.mode === "quelle") return go("quelle", x.q);
+  if (x.mode === "kette") { kette = null; newKette(x.k); return go("kette"); }
+  start(x.mode);
+}
+function renderPlan() {
+  const el = stage();
+  if (!planReady()) { el.innerHTML = '<div class="empty-big">Für diese Klausur gibt es noch keinen Lernstoff. Sobald er da ist, kannst du dir hier einen Lernplan bis zur Klausur erstellen.</div>'; return; }
+  const dl = daysUntil(K.datum);
+  if (dl === null) { el.innerHTML = '<p class="empty-note">Für diese Klausur ist kein Termin eingetragen, deshalb gibt es keinen Lernplan.</p>'; return; }
+  if (dl < 0) { el.innerHTML = '<div class="empty-big">Die Klausur ist vorbei. Zum Wiederholen kannst du alle Modi weiter nutzen.</div>'; return; }
+  if (dl === 0) { el.innerHTML = '<div class="result"><div class="kicker">' + esc(K.fach) + '</div><div class="big">Heute ist die Klausur</div><p>Kein neuer Stoff mehr. Wenn du noch Zeit hast, lies einmal den roten Faden. Viel Erfolg!</p></div>'; return; }
+  if (!S.plan || planForm) return renderPlanForm();
+  const P = S.plan, done = S.planDone || (S.planDone = {}), t = todayStr();
+  const { all, today, overdue } = planToday();
+  const nDone = all.filter((x) => done[x.id]).length;
+  const row = (x, from) => '<div class="ptask' + (done[x.id] ? " done" : "") + '"><label class="pcheck"><input type="checkbox" data-pt="' + esc(x.id) + '"' + (done[x.id] ? " checked" : "") + ' aria-label="Erledigt"></label>' +
+    '<button class="plink" type="button" data-run="' + esc(x.id) + '"><span class="pl">' + esc(x.label) + '</span><span class="pm">' +
+    (from ? '<span class="late">nachgerutscht von ' + fmtDate(from) + "</span> · " : "") + "ca. " + x.min + " Min." + (x.note ? " · " + esc(x.note) : "") + '</span></button><span class="pgo" aria-hidden="true">→</span></div>';
+  const dayHead = (d, extra) => "<h3>" + (extra || fmtDate(d.date)) + (d.date === P.days[P.days.length - 1].date ? ' <em class="lastday">Letzter Tag</em>' : "") + "<span>ca. " + usedMin(d) + " Min.</span></h3>";
+  const wdText = WD_ORDER.filter((i) => P.wd[i]).length === 7 ? "jeden Tag" : WD_ORDER.filter((i) => P.wd[i]).map((i) => WD[i]).join(", ");
+  const todayDay = P.days.find((d) => d.date === t);
+  const nextDay = P.days.find((d) => d.date > t);
+  const future = P.days.filter((d) => d.date > t), past = P.days.filter((d) => d.date < t);
+  const extraMin = overdue.reduce((s, x) => s + x.min, 0);
+  let todayHTML = '<section class="pday today">' + (todayDay ? dayHead(todayDay, "Heute · " + fmtDate(t)) : "<h3>Heute · " + fmtDate(t) + "</h3>");
+  if (!todayDay && !overdue.length) todayHTML += '<p class="hint" style="margin:0">Heute ist kein Lerntag.' + (nextDay ? " Weiter geht's am " + fmtDate(nextDay.date) + "." : "") + "</p>";
+  if (!todayDay && overdue.length) todayHTML += '<p class="hint" style="margin:0 0 8px">Heute ist eigentlich kein Lerntag, aber es ist noch etwas offen.</p>';
+  todayHTML += overdue.map((x) => row(x, x.date)).join("") + (todayDay ? today.map((x) => row(x)).join("") : "");
+  if (overdue.length) todayHTML += '<p class="hint">' + overdue.length + (overdue.length === 1 ? " Aufgabe ist" : " Aufgaben sind") + " von vorher nachgerutscht, heute also etwa " + extraMin + " Minuten mehr als geplant.</p>";
+  if (todayDay && today.every((x) => done[x.id]) && !overdue.length) todayHTML += '<p class="fb ok"><b>Für heute alles erledigt.</b>Stark. Morgen geht\'s weiter.</p>';
+  todayHTML += "</section>";
+  el.innerHTML =
+    '<div class="kicker">Klausur ' + fmtDate(K.datum) + " · " + countdown(K.datum) + '</div><h2 class="q" style="margin-top:6px">Dein Lernplan</h2>' +
+    '<p class="hint" style="margin-top:-8px">' + nDone + " von " + all.length + " Aufgaben erledigt · " + esc(wdText) + ", ca. " + P.min + " Minuten pro Tag</p>" +
+    '<div class="progress" style="margin-top:12px"><i style="width:' + (all.length ? Math.round((nDone / all.length) * 100) : 0) + '%"></i></div>' +
+    (P.exam !== K.datum ? '<div class="fb bad"><b>Der Klausurtermin hat sich geändert.</b>Erstell den Plan neu, damit er wieder passt.</div>' : "") +
+    (P.warn ? '<div class="fb bad warn"><b>Es wird knapp.</b>' + esc(P.warn) + "</div>" : "") +
+    todayHTML +
+    (future.length ? '<div class="step-h">Als Nächstes</div>' + future.map((d) => '<section class="pday">' + dayHead(d) + d.tasks.map((x) => row(x)).join("") + "</section>").join("") : "") +
+    (past.length ? "<details><summary>Vergangene Tage (" + past.length + ")</summary>" + past.map((d) => '<section class="pday">' + dayHead(d) + d.tasks.map((x) => row(x)).join("") + "</section>").join("") + "</details>" : "") +
+    '<div class="btn-row"><button class="btn" id="replan" type="button">Plan neu erstellen</button></div>' +
+    '<p class="hint">Tipp auf eine Aufgabe, dann landest du direkt im passenden Modus und Thema. Abhaken musst du selbst, der Plan liegt nur auf diesem Gerät.</p>';
+  $$("[data-pt]", el).forEach((c) => (c.onchange = () => { if (c.checked) done[c.dataset.pt] = true; else delete done[c.dataset.pt]; save(); keepScroll(renderPlan); }));
+  $$("[data-run]", el).forEach((b) => (b.onclick = () => runTask(b.dataset.run)));
+  $("#replan").onclick = () => { planForm = { wd: P.wd.slice(), min: P.min }; renderPlan(); window.scrollTo(0, 0); };
+}
+function renderPlanForm() {
+  const f = planForm || (planForm = { wd: [true, true, true, true, true, true, true], min: 30 });
+  const el = stage();
+  el.innerHTML =
+    '<div class="kicker">Klausur ' + fmtDate(K.datum) + " · " + countdown(K.datum) + '</div><h2 class="q" style="margin-top:6px">Lernplan erstellen</h2>' +
+    '<p class="hint" style="margin-top:-8px">Der Plan läuft von heute bis zum Tag vor der Klausur. Erst kommt jedes Thema einmal dran, dann gemischte Wiederholung, am letzten Tag der rote Faden und die Klausurfragen.</p>' +
+    '<div class="step-h">An welchen Tagen lernst du?</div><div class="chips">' +
+    WD_ORDER.map((i) => '<button class="chip" type="button" data-wd="' + i + '" aria-pressed="' + !!f.wd[i] + '">' + WD[i] + "</button>").join("") + "</div>" +
+    '<div class="step-h">Wie viel Zeit pro Tag?</div><div class="seg" role="group">' +
+    [15, 30, 45, 60].map((m) => '<button type="button" data-min="' + m + '" aria-pressed="' + (f.min === m) + '">' + m + " Min.</button>").join("") + "</div>" +
+    (f.err ? '<div class="fb bad"><b>So geht es nicht.</b>' + esc(f.err) + "</div>" : "") +
+    '<div class="btn-row"><button class="btn signal" id="mkplan" type="button">' + (S.plan ? "Neuen Plan erstellen" : "Plan erstellen") + "</button>" + (S.plan ? '<button class="btn" id="cancel" type="button">Abbrechen</button>' : "") + "</div>" +
+    (S.plan ? '<p class="hint">Der neue Plan ersetzt den alten, die Haken fangen wieder bei null an.</p>' : "");
+  $$("[data-wd]", el).forEach((b) => (b.onclick = () => { f.wd[+b.dataset.wd] = !f.wd[+b.dataset.wd]; f.err = ""; renderPlanForm(); }));
+  $$("[data-min]", el).forEach((b) => (b.onclick = () => { f.min = +b.dataset.min; renderPlanForm(); }));
+  $("#mkplan").onclick = () => {
+    if (!f.wd.some(Boolean)) { f.err = "Wähl mindestens einen Wochentag aus."; return renderPlanForm(); }
+    const p = buildPlan(f.wd, f.min);
+    if (!p.days.length) { f.err = "Bis zur Klausur liegt keiner deiner Lerntage mehr. Wähl mehr Wochentage aus."; return renderPlanForm(); }
+    S.plan = p; S.planDone = {}; planForm = null; save(); renderPlan(); window.scrollTo(0, 0);
+  };
+  const c = $("#cancel"); if (c) c.onclick = () => { planForm = null; renderPlan(); };
+}
+function planCardInfo() {
+  if (!S.plan) return ["Noch kein Plan", "in 1 Minute erstellt"];
+  const { today, overdue } = planToday(), done = S.planDone || {};
+  const open = today.filter((x) => !done[x.id]).length + overdue.length;
+  return [open ? "Heute: " + open + " offen" : today.length ? "Heute erledigt ✓" : "Heute frei", planTasks().filter((x) => done[x.id]).length + " von " + planTasks().length + " erledigt"];
 }
 
 /* ---------- Tastatur ---------- */
