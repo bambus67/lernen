@@ -58,14 +58,14 @@ function go(v, p) {
 }
 async function route() {
   stopBlitz();
-  if (navObs) { navObs.disconnect(); navObs = null; }
   const parts = parseHash();
-  if (!parts.length) { K = null; return renderIndex(); }
+  if (!parts.length) { K = null; window.scrollTo(0, 0); return renderLanding(); }
+  if (SITE_PAGES.includes(parts[0])) { K = null; window.scrollTo(0, 0); return renderSite(parts[0]); }
   const id = parts[0];
   if (!K || K.id !== id) {
     app.innerHTML = '<div class="wrap" style="padding-block:40px"><p class="empty-note">Lade Klausur …</p></div>';
     try { K = await getJSON("klausuren/" + encodeURIComponent(id) + ".json"); }
-    catch (e) { K = null; return renderIndex("Diese Klausur gibt es nicht (mehr)."); }
+    catch (e) { K = null; return renderSite("klausuren", "Diese Klausur gibt es nicht (mehr)."); }
     S = loadState(K.id);
     quiz = blitz = zeit = kette = karten = lern = null; qstate = {}; kstate = {};
     const f = K.farben || [];
@@ -79,71 +79,120 @@ async function route() {
 }
 window.addEventListener("hashchange", route);
 
-/* ---------- Übersicht aller Klausuren ---------- */
-let UPDATES = null, cal = null, navObs = null;
+/* ---------- Startseite und Übersichtsseiten ---------- */
+// "#/" = Startseite mit "Los geht's", "#/klausuren", "#/kalender", "#/updates" = eigene Seiten (diese ids sind für Klausuren gesperrt)
+const SITE_PAGES = ["klausuren", "kalender", "updates"];
+let UPDATES = null, cal = null;
 const MONTHS = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
 const pad2 = (n) => String(n).padStart(2, "0");
 function ymd(d) { return d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-" + pad2(d.getDate()); }
 const todayStr = () => ymd(new Date());
 function addDays(ds, n) { const d = parseDate(ds); d.setDate(d.getDate() + n); return ymd(d); }
 const examTitle = (k) => k.fach + (k.titel && k.titel !== "Thema folgt" ? ", " + k.titel : "");
-const examColor = (k) => (k.farben && k.farben[0]) || "var(--green)";
+// für Punkte auf Schwarz die hellere der beiden Fächerfarben
+const lum = (h) => { const m = /^#?([0-9a-f]{6})$/i.exec(h || ""); if (!m) return 0; const n = parseInt(m[1], 16); return 0.2126 * (n >> 16) + 0.7152 * ((n >> 8) & 255) + 0.0722 * (n & 255); };
+const examColor = (k) => { const f = k.farben || []; if (!f.length) return "var(--muted)"; return f.length > 1 && lum(f[1]) > lum(f[0]) ? f[1] : f[0]; };
 async function loadUpdates() { if (!UPDATES) { try { UPDATES = await getJSON("updates.json"); } catch (e) { UPDATES = []; } } return UPDATES; }
+const upcoming = (list) => list.filter((k) => (daysUntil(k.datum) ?? 1) >= 0).sort((a, b) => (a.datum || "").localeCompare(b.datum || ""));
 
-async function renderIndex(msg) {
-  document.title = "Klausurtrainer";
+function siteShell(active) {
+  document.title = active === "start" ? "Klausurtrainer" : TITLES_SITE[active] + " · Klausurtrainer";
   document.body.classList.add("on-home");
   document.documentElement.style.removeProperty("--ca"); document.documentElement.style.removeProperty("--cb");
-  const [list, ups] = await Promise.all([loadIndex(), loadUpdates()]);
-  const up = list.filter((k) => (daysUntil(k.datum) ?? 1) >= 0).sort((a, b) => (a.datum || "").localeCompare(b.datum || ""));
-  const old = list.filter((k) => (daysUntil(k.datum) ?? 1) < 0).sort((a, b) => (b.datum || "").localeCompare(a.datum || ""));
-  const card = (k, isOld, isNext) => {
-    const f = k.farben || [];
-    const d = daysUntil(k.datum);
-    const id = encodeURIComponent(k.id);
-    const cd = d === null || d < 0 ? "" : '<span class="cd">' + (d === 0 ? "<b>Heute</b>" : d === 1 ? "<b>Morgen</b>" : "<b>" + d + "</b> Tage") + "</span>";
-    return '<article class="exam' + (isOld ? " old" : "") + (isNext ? " next" : "") + '">' +
-      '<span class="stripe"><i style="background:' + esc(f[0] || "var(--signal)") + '"></i><i style="background:' + esc(f[1] || f[0] || "var(--signal)") + '"></i></span>' +
-      '<div class="in"><div class="exam-top"><span class="kicker">' + esc(k.fach) + (k.kurs ? " · " + esc(k.kurs) : "") + "</span>" + (isNext ? '<span class="next-tag">Als Nächstes</span>' : "") + "</div>" +
-      "<h3>" + esc(k.titel) + "</h3>" +
-      (k.beschreibung ? "<p>" + esc(k.beschreibung) + "</p>" : "") +
-      (k.datum ? '<div class="when-row"><span class="when' + (d !== null && d >= 0 && d <= 3 ? " soon" : "") + '">' + fmtDate(k.datum) + "</span>" + cd + "</div>" : "") +
-      '<div class="exam-actions"><a class="btn small primary" href="#/' + id + '">Lernen</a><a class="btn small" href="#/' + id + '/lernplan">Lernplan</a></div>' +
-      "</div></article>";
-  };
-  const known = new Set(list.map((k) => k.id));
-  const news = (ups || []).slice().sort((a, b) => (b.datum || "").localeCompare(a.datum || "")).slice(0, 5);
-  app.innerHTML =
-    '<nav class="snav" id="snav" aria-label="Abschnitte"><div class="wrap"><button class="brand" type="button" data-to="intro">Klausurtrainer</button><span class="snav-links">' +
-    '<button type="button" data-to="s-klausuren">Klausuren</button><button type="button" data-to="s-kalender">Kalender</button><button type="button" data-to="s-updates">Updates</button></span></div></nav>' +
-    '<header class="band intro" id="intro"><div class="wrap intro-in"><div class="kicker">Lernen für die nächste Klausur</div>' +
-    '<h1 class="title">Klausur&shy;trainer</h1>' +
-    '<p class="by">von Dschibrael</p>' +
-    '<p class="lede">Lernkarten, Quiz, Lernpläne und Klausurfragen für unsere Klausuren. Nur mit dem Stoff aus dem Unterricht, dein Fortschritt bleibt auf deinem Gerät.</p>' +
-    '<div class="install" id="install"></div>' +
-    '</div><button class="down" type="button" data-to="s-klausuren" aria-label="Zu den Klausuren">↓</button>' +
-    '<div class="curtain flag" aria-hidden="true"><i></i><i></i></div></header>' +
-    '<div class="wrap home">' +
-    (msg ? '<p class="fb bad"><b>' + esc(msg) + "</b>Hier sind alle verfügbaren Klausuren.</p>" : "") +
-    '<section id="s-klausuren"><div class="sec-head"><h2>Anstehende Klausuren</h2></div>' +
-    (up.length ? '<div class="exams">' + up.map((k, i) => card(k, false, i === 0)).join("") + "</div>" : '<div class="empty-big">Gerade steht keine Klausur an.</div>') + "</section>" +
-    (old.length ? '<section><div class="sec-head"><h2>Archiv</h2><p>Zum Wiederholen vor dem Abi.</p></div><div class="exams">' + old.map((k) => card(k, true, false)).join("") + "</div></section>" : "") +
-    '<section id="s-kalender"><div class="sec-head"><h2>Kalender</h2><p>Tipp auf einen Termin, um die Klausur zu öffnen.</p></div><div id="cal"></div></section>' +
-    '<section id="s-updates"><div class="sec-head"><h2>Updates</h2><p>Was neu dazugekommen ist.</p></div>' +
-    (news.length ? '<ul class="updates">' + news.map((u) => '<li><span class="ud">' + fmtDate(u.datum) + '</span><span class="ut">' + esc(u.text) + "</span>" +
-      (u.klausur && known.has(u.klausur) ? '<a href="#/' + encodeURIComponent(u.klausur) + '">Öffnen →</a>' : "") + "</li>").join("") + "</ul>" : '<p class="empty-note">Noch keine Updates.</p>') + "</section>" +
-    '<p class="foot">Inhalte nach Tafelbildern und Unterrichtsmaterial, aufbereitet mit Claude. Fehler entdeckt? Sag Bescheid.</p>' +
-    "</div>";
-  if (!cal) { const n = new Date(); cal = { y: n.getFullYear(), m: n.getMonth() }; }
-  renderCal();
-  $$("[data-to]").forEach((b) => (b.onclick = () => { const el = document.getElementById(b.dataset.to); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }));
-  const nav = $("#snav");
-  if (navObs) navObs.disconnect();
-  if ("IntersectionObserver" in window) {
-    navObs = new IntersectionObserver((es) => es.forEach((e) => nav.classList.toggle("show", !e.isIntersecting)), { rootMargin: "-56px 0px 0px 0px" });
-    navObs.observe($("#intro"));
-  } else nav.classList.add("show");
+  return navHTML(active);
+}
+function navHTML(active) {
+  return '<nav class="topnav"><div class="wrap"><a class="brand" href="#/">Klausurtrainer</a><div class="links">' +
+    SITE_PAGES.map((p) => '<a href="#/' + p + '"' + (p === active ? ' aria-current="page"' : "") + ">" + TITLES_SITE[p] + "</a>").join("") +
+    '</div><a class="btn primary small cta-nav" href="#/klausuren">Los geht\'s →</a></div></nav>';
+}
+const TITLES_SITE = { klausuren: "Klausuren", kalender: "Kalender", updates: "Updates" };
+const siteFoot = '<footer class="foot wrap">Inhalte nach Tafelbildern und Unterrichtsmaterial, aufbereitet mit Claude. Fehler entdeckt? Sag Bescheid.</footer>';
+
+async function renderLanding() {
+  const head = siteShell("start");
+  const list = await loadIndex();
+  const up = upcoming(list), next = up[0];
+  app.innerHTML = head +
+    '<main class="landing"><section class="hero wrap">' +
+    "<h1>Lern für deine<br>nächste Klausur.</h1>" +
+    '<p class="sub">Lernkarten, Quiz, Lernpläne und Klausurfragen für unsere Klausuren. Nur mit dem Stoff aus dem Unterricht.</p>' +
+    '<div class="cta"><a class="btn primary lg" href="#/klausuren">Los geht\'s →</a><a class="btn lg" href="#/kalender">Zum Kalender</a></div>' +
+    '<p class="meta">Kostenlos · ' + list.length + (list.length === 1 ? " Klausur" : " Klausuren") + " · kein Konto nötig · von Dschibrael</p>" +
+    '<div class="install" id="install"></div></section>' +
+    '<section class="wrap"><div class="device" id="device">' +
+    (next ? '<div class="dev-bar"><span>' + esc(examTitle(next)) + "</span><span>Klausur " + countdown(next.datum) + "</span></div>" : "") +
+    '<div class="dev-body" id="dev-body"><p class="empty-note">Lade …</p></div></div>' +
+    '<p class="dev-note" id="dev-note"></p></section>' +
+    '<section class="wrap features">' +
+    "<div><h3>Lernplan</h3><p>Sag, wann du Zeit hast. Du bekommst einen Plan bis zur Klausur, Tag für Tag.</p></div>" +
+    "<div><h3>Üben wie in der Klausur</h3><p>Quiz, Karteikarten, Ursache-Folge-Ketten, Quellen und Klausurfragen mit Musterlösung.</p></div>" +
+    "<div><h3>Bleibt bei dir</h3><p>Kein Konto, kein Tracking. Dein Fortschritt liegt nur auf deinem Gerät.</p></div>" +
+    "</section></main>" + siteFoot;
   renderInstall();
+  renderPreview(up);
+}
+async function renderPreview(up) {
+  // echte Frage aus der nächsten Klausur, die schon ein Quiz hat
+  const body = $("#dev-body"), note = $("#dev-note");
+  let ex = null;
+  for (const k of up.slice(0, 4)) {
+    try { const full = await getJSON("klausuren/" + encodeURIComponent(k.id) + ".json"); if (full.quiz && full.quiz.length) { ex = full; break; } } catch (e) {}
+  }
+  if (!body) return;
+  if (!ex) {
+    body.innerHTML = up.length ? '<div class="dev-list">' + up.slice(0, 4).map((k) => '<a href="#/' + encodeURIComponent(k.id) + '"><span>' + esc(examTitle(k)) + "</span><span>" + fmtDate(k.datum) + "</span></a>").join("") + "</div>" : '<p class="empty-note">Gerade steht keine Klausur an.</p>';
+    return;
+  }
+  const bar = $(".dev-bar span", $("#device")); if (bar) bar.textContent = examTitle(ex);
+  const q = ex.quiz[Math.floor(Math.random() * ex.quiz.length)];
+  const opts = shuffle([q.a].concat(q.falsch));
+  const draw = (picked) => {
+    body.innerHTML = '<p class="dev-q">' + esc(q.q) + '</p><div class="dev-opts">' + opts.map((o, i) => {
+      let cls = ""; if (picked !== null) { if (o === q.a) cls = " right"; else if (i === picked) cls = " wrong"; }
+      return '<button type="button" class="dev-opt' + cls + '" data-i="' + i + '"' + (picked !== null ? " disabled" : "") + '><span class="radio"></span><span>' + esc(o) + "</span></button>";
+    }).join("") + "</div>" +
+      (picked !== null ? '<div class="dev-fb"><b>' + (opts[picked] === q.a ? "Richtig." : "Nicht ganz.") + "</b> " + esc(q.e || "") + '</div><div class="btn-row" style="margin-top:14px"><a class="btn primary small" href="#/' + encodeURIComponent(ex.id) + '">Weiter lernen →</a><button class="btn small" type="button" id="dev-again">Andere Frage</button></div>' : "");
+    $$(".dev-opt", body).forEach((b) => (b.onclick = () => draw(+b.dataset.i)));
+    const again = $("#dev-again"); if (again) again.onclick = () => renderPreview(up);
+  };
+  draw(null);
+  if (note) note.textContent = "Probier's aus: eine echte Frage aus dem Quiz.";
+}
+
+async function renderSite(page, msg) {
+  const head = siteShell(page);
+  const [list, ups] = await Promise.all([loadIndex(), loadUpdates()]);
+  let body = "";
+  if (page === "klausuren") {
+    const up = upcoming(list);
+    const old = list.filter((k) => (daysUntil(k.datum) ?? 1) < 0).sort((a, b) => (b.datum || "").localeCompare(a.datum || ""));
+    body = '<header class="page-head"><h1>Anstehende Klausuren</h1><p>Wähl eine Klausur zum Lernen oder lass dir einen Lernplan machen.</p></header>' +
+      (msg ? '<p class="fb bad"><b>' + esc(msg) + "</b>Hier sind alle verfügbaren Klausuren.</p>" : "") +
+      (up.length ? '<div class="exams">' + up.map((k, i) => examCard(k, false, i === 0)).join("") + "</div>" : '<div class="empty-big">Gerade steht keine Klausur an.</div>') +
+      (old.length ? '<header class="page-head sub-head"><h2>Archiv</h2><p>Zum Wiederholen vor dem Abi.</p></header><div class="exams">' + old.map((k) => examCard(k, true, false)).join("") + "</div>" : "");
+  } else if (page === "kalender") {
+    body = '<header class="page-head"><h1>Kalender</h1><p>Alle Klausurtermine. Tipp auf einen Termin, um die Klausur zu öffnen.</p></header><div id="cal"></div>';
+  } else {
+    const known = new Set(list.map((k) => k.id));
+    const news = (ups || []).slice().sort((a, b) => (b.datum || "").localeCompare(a.datum || "")).slice(0, 5);
+    body = '<header class="page-head"><h1>Updates</h1><p>Was zuletzt neu dazugekommen ist.</p></header>' +
+      (news.length ? '<ul class="updates">' + news.map((u) => '<li><span class="ud">' + fmtDate(u.datum) + '</span><span class="ut">' + esc(u.text) + "</span>" +
+        (u.klausur && known.has(u.klausur) ? '<a href="#/' + encodeURIComponent(u.klausur) + '">Öffnen →</a>' : "") + "</li>").join("") + "</ul>" : '<p class="empty-note">Noch keine Updates.</p>');
+  }
+  app.innerHTML = head + '<main class="wrap site">' + body + "</main>" + siteFoot;
+  if (page === "kalender") { if (!cal) { const n = new Date(); cal = { y: n.getFullYear(), m: n.getMonth() }; } renderCal(); }
+}
+function examCard(k, isOld, isNext) {
+  const d = daysUntil(k.datum), id = encodeURIComponent(k.id);
+  const cd = d === null || d < 0 ? "" : '<span class="cd">' + (d === 0 ? "<b>Heute</b>" : d === 1 ? "<b>Morgen</b>" : "<b>" + d + "</b> Tage") + "</span>";
+  return '<article class="exam' + (isOld ? " old" : "") + (isNext ? " next" : "") + '">' +
+    '<div class="exam-top"><span class="kicker"><i class="dot" style="background:' + esc(examColor(k)) + '"></i>' + esc(k.fach) + (k.kurs ? " · " + esc(k.kurs) : "") + "</span>" + (isNext ? '<span class="next-tag">Als Nächstes</span>' : "") + "</div>" +
+    "<h3>" + esc(k.titel) + "</h3>" +
+    (k.beschreibung ? "<p>" + esc(k.beschreibung) + "</p>" : "") +
+    (k.datum ? '<div class="when-row"><span class="when' + (d !== null && d >= 0 && d <= 3 ? " soon" : "") + '">' + fmtDate(k.datum) + "</span>" + cd + "</div>" : "") +
+    '<div class="exam-actions"><a class="btn small primary" href="#/' + id + '">Lernen</a><a class="btn small" href="#/' + id + '/lernplan">Lernplan</a></div>' +
+    "</article>";
 }
 
 /* ---------- Kalender ---------- */
@@ -268,9 +317,9 @@ function renderHome() {
   const stats = '<div class="stats"><div><b>' + S.xp + "</b><span>Lernpunkte</span></div>" +
     (has("zuordnen") ? "<div><b>" + S.blitzBest + "</b><span>Zuordnen-Rekord</span></div>" : "") +
     (has("quellen") ? "<div><b>" + done + "/" + K.quellen.length + "</b><span>Quellen bearbeitet</span></div>" : "") + "</div>";
-  app.innerHTML =
+  app.innerHTML = navHTML("klausuren") +
     '<header class="band"><div class="wrap">' +
-    '<div><a class="back" href="#/" style="color:var(--band-muted);text-decoration:none;font-weight:600;font-size:.9rem">← Alle Klausuren</a></div>' +
+    '<div><a class="back" href="#/klausuren" style="color:var(--band-muted);text-decoration:none;font-weight:500;font-size:.9rem">← Alle Klausuren</a></div>' +
     '<div class="kicker">' + esc(K.fach) + (K.kurs ? " · " + esc(K.kurs) : "") + "</div>" +
     '<h1 class="title">' + esc(K.titel) + (K.datum ? "<span>Klausur " + fmtDate(K.datum) + " · " + countdown(K.datum) + "</span>" : "") + "</h1>" +
     (K.beschreibung ? '<p class="lede">' + esc(K.beschreibung) + "</p>" : "") + (train.length || games.length ? stats : "") +

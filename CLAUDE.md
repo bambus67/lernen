@@ -66,13 +66,13 @@ Alle Abschnitte außer den Metadaten sind optional. Ein Modus erscheint nur, wen
 
 ## Startseite und Lernplan
 
-- Startseite: Intro, anstehende Klausuren (nächste hervorgehoben, Buttons „Lernen“ und „Lernplan“), Archiv, Kalender (Monatsansicht aus `klausuren/index.json`, „In meinen Kalender“ erzeugt eine .ics-Datei), Updates aus `updates.json`. Die Navigationsleiste erscheint, sobald das Intro weggescrollt ist.
+- Seiten: `#/` Startseite (großer Satz, „Los geht's“, echte Quizfrage aus der nächsten Klausur mit Quiz als Vorschau), `#/klausuren` (Karten mit Countdown, Buttons „Lernen“/„Lernplan“, Archiv), `#/kalender` (Monatsansicht aus `klausuren/index.json`, „In meinen Kalender“ erzeugt eine .ics-Datei), `#/updates` (neueste fünf aus `updates.json`). Diese drei Namen dürfen keine Klausur-id sein. Die Leiste oben verlinkt die Seiten. Die Handy-App startet direkt bei `#/klausuren`.
 - Lernplan (`#/<id>/lernplan`): erscheint, sobald die Klausur `themen` und Lernkarten oder Quiz hat. Phase 1 pro Thema Lernkarten + Quiz, Phase 2 gemischte Wiederholung aus dem, was die Klausur hat, letzter Tag roter Faden (Lernkarten-Eintrag mit `"t": "all"`) + Klausurfragen. Minuten pro Aufgabe stehen in `PLAN_MIN` in `app.js`. Plan und Haken liegen in `kt:<id>` (`plan`, `planDone`).
-- Design: schwarzer Hintergrund, weiße Schrift, kleine Akzente in Grün (`--green`) und Rot (`--red`). Fächerfarben (`farben`) nur auf den Streifen und Markierungen der jeweiligen Klausur.
+- Design: an tmua.io angelehnt, aber schwarz. Weiße Schrift, Grautöne, Schrift Inter, runde Knöpfe, viel Abstand. Keine grünen Deko-Akzente; Grün/Rot nur für richtig/falsch und Warnungen. Fächerfarben (`farben`) nur auf Streifen und Punkten der jeweiligen Klausur.
 
 ## Technik
 
 - Fortschritt liegt in `localStorage` unter `kt:<id>`, pro Gerät. Kein Server, keine Konten.
-- Routing per Hash: `#/` Übersicht, `#/<id>` Klausur, `#/<id>/<modus>[/<quelle-id>]`.
+- Routing per Hash: `#/` Startseite, `#/klausuren` | `#/kalender` | `#/updates` Unterseiten, `#/<id>` Klausur, `#/<id>/<modus>[/<quelle-id>]`.
 - `sw.js` macht die Seite offline nutzbar (Netz zuerst, Cache als Rückfall). Bei Änderungen an `sw.js` den Cache-Namen hochzählen.
 - Lokal testen: `python3 -m http.server` im Repo-Ordner, dann http://localhost:8000 (fetch geht nicht über file://).
