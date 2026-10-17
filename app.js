@@ -666,7 +666,7 @@ function klausurCard(k, i) {
 
 /* ---------- Lernplan ---------- */
 // Geschätzte Minuten pro Aufgabe. Phase 1: jedes Thema mit Lernkarten + Quiz, Phase 2: gemischte Wiederholung, letzter Tag: roter Faden + Klausurfragen.
-const PLAN_MIN = { lernen: 15, quiz: 10, karten: 10, kette: 10, quelle: 30, klausur: 20 };
+const PLAN_MIN = { lernen: 15, quiz: 10, karten: 10, kette: 10, quelle: 20, klausur: 20 };
 const WD_ORDER = [1, 2, 3, 4, 5, 6, 0];
 let planForm = null, fromPlan = false;
 const fadenLabel = (l) => "Roter Faden lesen" + (/roter faden/i.test(l.name) ? "" : ": " + l.name);
