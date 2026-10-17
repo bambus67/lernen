@@ -124,7 +124,7 @@ async function renderLanding() {
     "<h1>Lern für deine<br>nächste Klausur.</h1>" +
     '<p class="sub">Lernkarten, Quiz, Lernpläne und Klausurfragen für unsere Klausuren. Nur mit dem Stoff aus dem Unterricht.</p>' +
     '<div class="cta"><a class="btn primary lg" href="#/klausuren">Los geht\'s →</a><a class="btn lg" href="#/kalender">Zum Kalender</a></div>' +
-    '<p class="meta">Powered by Dschibrael</p>' +
+    '<p class="meta">Powered by Discipline</p>' +
     '<div class="install" id="install"></div></section>' +
     '<section class="wrap"><div class="device" id="device">' +
     (next ? '<div class="dev-bar"><span>' + esc(examTitle(next)) + "</span><span>Klausur " + countdown(next.datum) + "</span></div>" : "") +
