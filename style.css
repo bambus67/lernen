@@ -359,7 +359,6 @@ a.cday.has:hover{border-color:var(--ink)}
 .dev-opt.wrong .radio{border-color:var(--bad)}
 .dev-fb{margin-top:16px;color:var(--muted)}
 .dev-fb b{color:var(--ink)}
-.dev-note{text-align:center;color:var(--muted);font-size:.88rem;margin:14px 0 0}
 .dev-list{display:grid;gap:8px}
 .dev-list a{display:flex;justify-content:space-between;gap:10px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;color:var(--ink);text-decoration:none}
 .features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;padding-block:96px 24px}

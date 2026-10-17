@@ -118,12 +118,11 @@ async function renderLanding() {
     "<h1>Lern für deine<br>nächste Klausur.</h1>" +
     '<p class="sub">Lernkarten, Quiz, Lernpläne und Klausurfragen für unsere Klausuren. Nur mit dem Stoff aus dem Unterricht.</p>' +
     '<div class="cta"><a class="btn primary lg" href="#/klausuren">Los geht\'s →</a><a class="btn lg" href="#/kalender">Zum Kalender</a></div>' +
-    '<p class="meta">Kostenlos · ' + list.length + (list.length === 1 ? " Klausur" : " Klausuren") + " · kein Konto nötig · von Dschibrael</p>" +
+    '<p class="meta">Powered by Dschibrael</p>' +
     '<div class="install" id="install"></div></section>' +
     '<section class="wrap"><div class="device" id="device">' +
     (next ? '<div class="dev-bar"><span>' + esc(examTitle(next)) + "</span><span>Klausur " + countdown(next.datum) + "</span></div>" : "") +
-    '<div class="dev-body" id="dev-body"><p class="empty-note">Lade …</p></div></div>' +
-    '<p class="dev-note" id="dev-note"></p></section>' +
+    '<div class="dev-body" id="dev-body"><p class="empty-note">Lade …</p></div></div></section>' +
     '<section class="wrap features">' +
     "<div><h3>Lernplan</h3><p>Sag, wann du Zeit hast. Du bekommst einen Plan bis zur Klausur, Tag für Tag.</p></div>" +
     "<div><h3>Üben wie in der Klausur</h3><p>Quiz, Karteikarten, Ursache-Folge-Ketten, Quellen und Klausurfragen mit Musterlösung.</p></div>" +
@@ -134,7 +133,7 @@ async function renderLanding() {
 }
 async function renderPreview(up) {
   // echte Frage aus der nächsten Klausur, die schon ein Quiz hat
-  const body = $("#dev-body"), note = $("#dev-note");
+  const body = $("#dev-body");
   let ex = null;
   for (const k of up.slice(0, 4)) {
     try { const full = await getJSON("klausuren/" + encodeURIComponent(k.id) + ".json"); if (full.quiz && full.quiz.length) { ex = full; break; } } catch (e) {}
@@ -157,7 +156,6 @@ async function renderPreview(up) {
     const again = $("#dev-again"); if (again) again.onclick = () => renderPreview(up);
   };
   draw(null);
-  if (note) note.textContent = "Probier's aus: eine echte Frage aus dem Quiz.";
 }
 
 async function renderSite(page, msg) {
