@@ -17,7 +17,7 @@ Alte Klausuren bleiben drin, sie landen automatisch im Archiv, sobald ihr Datum 
 
 ## Format einer Klausur-Datei
 
-Alle Abschnitte außer den Metadaten sind optional. Ein Modus erscheint nur, wenn sein Abschnitt Inhalt hat.
+Alle Abschnitte außer den Metadaten sind optional. Ein Modus erscheint nur, wenn sein Abschnitt Inhalt hat. Spielmodi sind nur Quiz, Ursache-Folge-Ketten und Karteikarten (Zuordnen und Zeitstrahl wurden auf Wunsch entfernt; alte Dateien dürfen `zuordnen`/`zeitstrahl` noch enthalten, sie werden ignoriert, für neue Klausuren nicht mehr anlegen).
 
 ```jsonc
 {
@@ -38,12 +38,6 @@ Alle Abschnitte außer den Metadaten sind optional. Ein Modus erscheint nur, wen
     ] }
   ],
   "quiz": [{ "t": "korea", "q": "Frage?", "a": "richtige Antwort", "falsch": ["f1", "f2", "f3"], "e": "Erklärung" }],
-  "zuordnen": {                           // Blitzrunde: zwei Gruppen
-    "titel": "USA oder UdSSR?", "frage": "Gehört das zum Westen oder zum Osten?",
-    "a": { "label": "USA", "sub": "Westen" }, "b": { "label": "UdSSR", "sub": "Osten" },
-    "items": [["Marshall-Plan", "a"], ["Kominform", "b"]]
-  },
-  "zeitstrahl": [{ "text": "Ereignis", "jahr": 1950, "t": "korea" }],   // jahr = Zahl; mindestens 5 verschiedene Jahre
   "ketten": [{ "t": "korea", "titel": "Koreakrieg", "merk": "Merksatz nach dem Prüfen", "schritte": ["Ursache", "…", "Folge"] }],
   "karten": [{ "begriff": "DMZ", "erklaerung": "…", "t": "korea", "typ": "begriff" }],   // typ: "begriff" | "person"
   "quellen": [{
@@ -67,7 +61,7 @@ Alle Abschnitte außer den Metadaten sind optional. Ein Modus erscheint nur, wen
 ## Startseite und Lernplan
 
 - Seiten: `#/` Startseite (großer Satz, „Los geht's“, „Powered by Dschibrael“, echte Quizfrage aus der nächsten Klausur mit Quiz als Vorschau), `#/klausuren` (Karten mit Countdown, Buttons „Lernen“/„Lernplan“, Archiv), `#/kalender` (Monatsansicht aus `klausuren/index.json`, „In meinen Kalender“ erzeugt eine .ics-Datei), `#/updates` (neueste fünf aus `updates.json`). Diese drei Namen dürfen keine Klausur-id sein. Die Leiste oben verlinkt die Seiten. Die Handy-App startet direkt bei `#/klausuren`.
-- Lernplan (`#/<id>/lernplan`): erscheint, sobald die Klausur `themen` und Lernkarten oder Quiz hat. Phase 1 pro Thema Lernkarten + Quiz, Phase 2 gemischte Wiederholung aus dem, was die Klausur hat, letzter Tag roter Faden (Lernkarten-Eintrag mit `"t": "all"`) + Klausurfragen. Minuten pro Aufgabe stehen in `PLAN_MIN` in `app.js`. Plan und Haken liegen in `kt:<id>` (`plan`, `planDone`).
+- Lernplan (`#/<id>/lernplan`): erscheint, sobald die Klausur `themen` und Lernkarten oder Quiz hat. Phase 1 pro Thema Lernkarten + Quiz, Phase 2 gemischte Wiederholung (Quiz gemischt, Karteikarten, Ketten, Quellen mit je 30 Minuten), letzter Tag roter Faden (Lernkarten-Eintrag mit `"t": "all"`) + Klausurfragen. Minuten pro Aufgabe stehen in `PLAN_MIN` in `app.js`. Plan und Haken liegen in `kt:<id>` (`plan`, `planDone`).
 - Design: an tmua.io angelehnt, aber schwarz. Weiße Schrift, Grautöne, Schrift Inter, runde Knöpfe, viel Abstand. Keine grünen Deko-Akzente; Grün/Rot nur für richtig/falsch und Warnungen. Fächerfarben (`farben`) nur auf Streifen und Punkten der jeweiligen Klausur.
 
 ## Technik

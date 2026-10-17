@@ -14,7 +14,6 @@ let view = "home", param = null;
 
 const has = (key) => {
   if (!K) return false;
-  if (key === "zuordnen") return !!(K.zuordnen && K.zuordnen.items && K.zuordnen.items.length);
   return Array.isArray(K[key]) && K[key].length > 0;
 };
 const topics = () => K.themen || [];
@@ -33,8 +32,16 @@ function countdown(d) {
 
 /* ---------- Speicher ---------- */
 function loadState(id) {
-  const base = { blitzBest: 0, topic: "all", stats: {}, quellen: {}, klausur: {}, learned: {} };
-  try { const raw = localStorage.getItem("kt:" + id); if (raw) return Object.assign(base, JSON.parse(raw)); } catch (e) {}
+  const base = { topic: "all", stats: {}, quellen: {}, klausur: {}, learned: {} };
+  try {
+    const raw = localStorage.getItem("kt:" + id);
+    if (raw) {
+      const st = Object.assign(base, JSON.parse(raw));
+      // Aufgaben aus Modi, die es nicht mehr gibt (Zuordnen, Zeitstrahl), aus alten Plänen entfernen
+      if (st.plan && st.plan.days) st.plan.days.forEach((d) => (d.tasks = d.tasks.filter((x) => TITLES[x.mode])));
+      return st;
+    }
+  } catch (e) {}
   // Übernahme aus der ersten Version der Kalter-Krieg-App
   try { if (id === "geschichte-kalter-krieg") { const old = localStorage.getItem("kk-trainer-v1"); if (old) return Object.assign(base, JSON.parse(old)); } } catch (e) {}
   return base;
@@ -56,7 +63,6 @@ function go(v, p) {
   if (location.hash === h) route(); else location.hash = h;
 }
 async function route() {
-  stopBlitz();
   const parts = parseHash();
   if (!parts.length) { K = null; window.scrollTo(0, 0); return renderLanding(); }
   if (SITE_PAGES.includes(parts[0])) { K = null; window.scrollTo(0, 0); return renderSite(parts[0]); }
@@ -66,7 +72,7 @@ async function route() {
     try { K = await getJSON("klausuren/" + encodeURIComponent(id) + ".json"); }
     catch (e) { K = null; return renderSite("klausuren", "Diese Klausur gibt es nicht (mehr)."); }
     S = loadState(K.id);
-    quiz = blitz = zeit = kette = karten = lern = null; qstate = {}; kstate = {};
+    quiz = kette = karten = lern = null; qstate = {}; kstate = {};
     const f = K.farben || [];
     document.documentElement.style.setProperty("--ca", f[0] || "var(--signal)");
     document.documentElement.style.setProperty("--cb", f[1] || f[0] || "var(--signal)");
@@ -270,18 +276,18 @@ function renderInstall() {
 }
 
 /* ---------- Seiten einer Klausur ---------- */
-const TITLES = { lernplan: "Lernplan", lernen: "Lernen", quiz: "Quiz", blitz: "Zuordnen", zeit: "Zeitstrahl", kette: "Ursache → Folge", karten: "Karteikarten", quellen: "Quellen", quelle: "Quellen", klausur: "Klausurfragen" };
+const TITLES = { lernplan: "Lernplan", lernen: "Lernen", quiz: "Quiz", kette: "Ursache → Folge", karten: "Karteikarten", quellen: "Quellen", quelle: "Quellen", klausur: "Klausurfragen" };
 function render() {
   document.body.classList.toggle("on-home", view === "home");
   if (view === "home" || !TITLES[view]) { view = "home"; return renderHome(); }
   app.innerHTML =
     '<div class="topbar"><div class="wrap">' +
     '<button class="back" id="back" type="button">← ' + (fromPlan ? "Lernplan" : view === "quelle" ? "Alle Quellen" : "Übersicht") + "</button>" +
-    '<div class="mtitle">' + (view === "blitz" && K.zuordnen ? esc(K.zuordnen.titel || "Zuordnen") : TITLES[view]) + "</div>" +
+    '<div class="mtitle">' + TITLES[view] + "</div>" +
     "</div></div>" +
     '<main class="stage" id="stage"></main>';
   $("#back").onclick = () => (fromPlan ? go("lernplan") : view === "quelle" ? go("quellen") : go("home"));
-  ({ lernplan: renderPlan, lernen: renderLernen, quiz: renderQuiz, blitz: renderBlitz, zeit: renderZeit, kette: renderKette, karten: renderKarten, quellen: renderQuellen, quelle: renderQuelle, klausur: renderKlausur })[view]();
+  ({ lernplan: renderPlan, lernen: renderLernen, quiz: renderQuiz, kette: renderKette, karten: renderKarten, quellen: renderQuellen, quelle: renderQuelle, klausur: renderKlausur })[view]();
 }
 const stage = () => $("#stage");
 
@@ -300,8 +306,6 @@ function renderHome() {
   if (has("klausur")) train.push(card("klausur", "train", "Offene Fragen", "Klausurfragen", "Mögliche Aufgaben mit Operatoren. Erst selbst antworten, dann mit der Musterlösung vergleichen.", n(K.klausur, (q) => inTopic(q.t)) + " Fragen", "mit Musterlösung"));
   const games = [];
   if (has("quiz")) games.push(["quiz", "Wissen", "Quiz", "Zehn Fragen mit Erklärung nach jeder Antwort.", n(K.quiz, (q) => inTopic(q.t)) + " Fragen im Pool", "10 pro Runde"]);
-  if (has("zuordnen")) games.push(["blitz", "Tempo", esc(K.zuordnen.titel || "Zuordnen"), "60 Sekunden: Begriffe so schnell wie möglich der richtigen Seite zuordnen.", "Fehler kosten 3 s", "Rekord " + S.blitzBest]);
-  if (has("zeitstrahl")) games.push(["zeit", "Reihenfolge", "Zeitstrahl", "Fünf Ereignisse in die richtige Reihenfolge bringen. Die Jahre siehst du erst danach.", K.zeitstrahl.length + " Ereignisse", "5 pro Runde"]);
   if (has("ketten")) games.push(["kette", "Zusammenhänge", "Ursache und Folge", "Ursache-Folge-Ketten in die richtige Reihenfolge bringen.", n(K.ketten, (k) => inTopic(k.t)) + " Ketten", "mit Merksatz"]);
   if (has("karten")) games.push(["karten", "Begriffe und Personen", "Karteikarten", "Umdrehen, prüfen, aussortieren, bis alle sitzen.", n(K.karten, (k) => inTopic(k.t)) + " Karten", "bis alle sitzen"]);
   // Raster: 3 pro Reihe, eine angefangene Reihe wird auf ganze Breite verteilt
@@ -313,7 +317,6 @@ function renderHome() {
     return card(g[0], cls, g[1], g[2], g[3], g[4], g[5]);
   }).join("");
   const stats = '<div class="stats">' +
-    (has("zuordnen") ? "<div><b>" + S.blitzBest + "</b><span>Zuordnen-Rekord</span></div>" : "") +
     (has("quellen") ? "<div><b>" + done + "/" + K.quellen.length + "</b><span>Quellen bearbeitet</span></div>" : "") + "</div>";
   app.innerHTML = navHTML("klausuren") +
     '<header class="band"><div class="wrap">' +
@@ -354,8 +357,6 @@ function start(mode) {
   if (mode === "lernplan") planForm = null;
   if (mode === "lernen") lern = null;
   if (mode === "quiz") { newQuiz(); }
-  if (mode === "blitz") blitz = { state: "intro" };
-  if (mode === "zeit") { zeit = null; newZeit(); }
   if (mode === "kette") kette = null;
   if (mode === "karten") karten = null;
   go(mode);
@@ -467,75 +468,6 @@ function renderQuizEnd() {
   $("#home").onclick = () => go("home");
 }
 
-/* ---------- Zuordnen (Blitzrunde) ---------- */
-let blitz = null, blitzTimer = null;
-function stopBlitz() { if (blitzTimer) { clearInterval(blitzTimer); blitzTimer = null; } }
-function renderBlitz() {
-  const Z = K.zuordnen;
-  if (!blitz) blitz = { state: "intro" };
-  if (blitz.state === "intro") {
-    stage().innerHTML =
-      '<div class="intro"><div class="kicker">60 Sekunden</div><h2 class="q" style="margin:0">' + esc(Z.frage || "Welche Seite?") + "</h2>" +
-      "<p>Ordne die Begriffe so schnell wie möglich " + esc(Z.a.label) + " oder " + esc(Z.b.label) + " zu. Jede richtige Antwort ist ein Punkt, jeder Fehler kostet drei Sekunden.</p>" +
-      '<p class="hint">Am Laptop: Pfeiltaste links = ' + esc(Z.a.label) + ", rechts = " + esc(Z.b.label) + ".</p>" +
-      '<div class="btn-row"><button class="btn signal" id="go" type="button">Start</button></div>' +
-      (S.blitzBest ? '<p class="hint">Dein Rekord: ' + S.blitzBest + " Treffer</p>" : "") + "</div>";
-    $("#go").onclick = runBlitz;
-    return;
-  }
-  if (blitz.state === "run") {
-    stage().innerHTML =
-      '<div class="blitz-head"><div><div class="kicker">Zeit</div><div class="blitz-time" id="bl-time">60.0</div></div><div class="blitz-score"><div class="kicker">Treffer</div><b id="bl-score">' + blitz.score + "</b></div></div>" +
-      '<div class="progress" style="margin:12px 0 0"><i id="bl-bar" style="width:100%"></i></div>' +
-      '<div class="blitz-card" id="bl-card" aria-live="polite"></div>' +
-      '<div class="sides"><button class="side w" type="button" data-s="a">' + esc(Z.a.label) + "<small>" + esc(Z.a.sub || "") + '</small></button><button class="side o" type="button" data-s="b">' + esc(Z.b.label) + "<small>" + esc(Z.b.sub || "") + "</small></button></div>" +
-      '<p class="keys">← ' + esc(Z.a.label) + " · " + esc(Z.b.label) + " →</p>";
-    $$(".side").forEach((b) => (b.onclick = () => answerBlitz(b.dataset.s)));
-    showBlitzCard();
-    return;
-  }
-  const uniq = [];
-  blitz.wrong.forEach((w) => { if (!uniq.some((u) => u[0] === w[0])) uniq.push(w); });
-  stage().innerHTML =
-    '<div class="result"><div class="kicker">Zeit abgelaufen</div><div class="big">' + blitz.score + "</div><p>" + (blitz.newBest ? "<b>Neuer Rekord.</b>" : "Rekord: " + S.blitzBest + " Treffer.") + "</p>" +
-    (uniq.length ? '<h3 class="step-h">Verwechselt</h3><ul class="review">' + uniq.map((w) => "<li><b>" + esc(w[0]) + '</b><span class="ans">gehört zu ' + esc(w[1] === "a" ? Z.a.label : Z.b.label) + "</span></li>").join("") + "</ul>" : "") +
-    '<div class="btn-row"><button class="btn signal" id="again" type="button">Nochmal</button><button class="btn" id="home" type="button">Zur Übersicht</button></div></div>';
-  $("#again").onclick = runBlitz; $("#home").onclick = () => go("home");
-}
-function runBlitz() {
-  stopBlitz();
-  blitz = { state: "run", deck: shuffle(K.zuordnen.items), i: 0, score: 0, wrong: [], end: Date.now() + 60000 };
-  renderBlitz();
-  blitzTimer = setInterval(tickBlitz, 100);
-}
-function tickBlitz() {
-  const left = blitz.end - Date.now();
-  if (left <= 0) return finishBlitz();
-  const t = $("#bl-time"); if (t) t.textContent = (left / 1000).toFixed(1);
-  const b = $("#bl-bar"); if (b) b.style.width = Math.max(0, left / 600) + "%";
-}
-function showBlitzCard() { const c = $("#bl-card"); if (c) c.textContent = blitz.deck[blitz.i][0]; }
-function answerBlitz(side) {
-  if (!blitz || blitz.state !== "run") return;
-  const cur = blitz.deck[blitz.i];
-  const ok = side === cur[1];
-  if (ok) blitz.score++; else { blitz.wrong.push(cur); blitz.end -= 3000; }
-  blitz.i++;
-  if (blitz.i >= blitz.deck.length) { blitz.deck = shuffle(K.zuordnen.items); blitz.i = 0; }
-  const sc = $("#bl-score"); if (sc) sc.textContent = blitz.score;
-  const card = $("#bl-card");
-  if (card) { card.classList.remove("ok", "bad"); void card.offsetWidth; card.classList.add(ok ? "ok" : "bad"); setTimeout(() => card.classList.remove("ok", "bad"), 220); }
-  showBlitzCard(); tickBlitz();
-}
-function finishBlitz() {
-  stopBlitz();
-  blitz.state = "end";
-  blitz.newBest = blitz.score > S.blitzBest;
-  if (blitz.newBest) { S.blitzBest = blitz.score; save(); }
- 
-  renderBlitz();
-}
-
 /* ---------- Reihenfolge-Spiele ---------- */
 function orderHTML(st, labels) {
   const pool = st.items.filter((x) => st.placed.indexOf(x.id) < 0);
@@ -554,40 +486,6 @@ function orderHTML(st, labels) {
 function bindOrder(st, rerender) {
   $$("[data-add]", stage()).forEach((b) => (b.onclick = () => { st.placed.push(b.dataset.add); rerender(); }));
   $$("[data-rm]", stage()).forEach((b) => (b.onclick = () => { if (st.checked) return; st.placed = st.placed.filter((x) => x !== b.dataset.rm); rerender(); }));
-}
-
-let zeit = null;
-function newZeit() {
-  const picks = [], used = {};
-  shuffle(K.zeitstrahl).forEach((e) => { if (picks.length < 5 && !used[e.jahr]) { used[e.jahr] = 1; picks.push(e); } });
-  const items = picks.map((e, i) => ({ id: "z" + i, text: e.text, year: e.jahr, t: e.t }));
-  zeit = { round: zeit ? zeit.round + 1 : 1, total: zeit ? zeit.total : 0, items: items, placed: [], checked: false, correct: items.slice().sort((a, b) => a.year - b.year).map((x) => x.id) };
-}
-function renderZeit() {
-  if (!zeit) newZeit();
-  const z = zeit, n = z.items.length;
-  let after = "";
-  if (z.checked) {
-    const hits = z.placed.filter((id, i) => z.correct[i] === id).length;
-    after = '<div class="fb ' + (hits === n ? "ok" : "bad") + '"><b>' + hits + " von " + n + " an der richtigen Stelle.</b>" + (hits === n ? "Perfekt, +5 Bonus." : "Richtige Reihenfolge:") + "</div>" +
-      (hits === n ? "" : '<div class="solution"><ol>' + z.correct.map((id) => { const it = z.items.find((x) => x.id === id); return '<li><span class="yr">' + esc(it.year) + "</span>" + esc(it.text) + "</li>"; }).join("") + "</ol></div>") +
-      '<div class="btn-row"><button class="btn primary" id="nextz" type="button">Nächste Runde</button><button class="btn" id="home" type="button">Zur Übersicht</button></div>';
-  }
-  stage().innerHTML =
-    '<div class="qmeta"><span class="tag">Runde ' + z.round + "</span></div>" +
-    '<h2 class="q">Bring die Ereignisse in die richtige Reihenfolge, vom frühesten zum spätesten.</h2>' +
-    '<p class="hint" style="margin-top:-8px">Antippen zum Einordnen, nochmal antippen zum Zurücklegen.</p>' +
-    orderHTML(z, ["Ereignisse", "Deine Reihenfolge"]) +
-    (z.checked ? after : '<div class="btn-row"><button class="btn primary" id="check" type="button"' + (z.placed.length < n ? " disabled" : "") + ">Prüfen</button></div>");
-  bindOrder(z, renderZeit);
-  const ch = $("#check"); if (ch) ch.onclick = () => {
-    z.checked = true;
-    const hits = z.placed.filter((id, i) => z.correct[i] === id).length;
-    const pts = hits * 4 + (hits === n ? 5 : 0);
-    z.total += pts; renderZeit();
-  };
-  const nz = $("#nextz"); if (nz) nz.onclick = () => { newZeit(); renderZeit(); window.scrollTo(0, 0); };
-  const h = $("#home"); if (h) h.onclick = () => go("home");
 }
 
 let kette = null;
@@ -768,7 +666,7 @@ function klausurCard(k, i) {
 
 /* ---------- Lernplan ---------- */
 // Geschätzte Minuten pro Aufgabe. Phase 1: jedes Thema mit Lernkarten + Quiz, Phase 2: gemischte Wiederholung, letzter Tag: roter Faden + Klausurfragen.
-const PLAN_MIN = { lernen: 15, quiz: 10, karten: 10, kette: 10, blitz: 5, zeit: 5, quelle: 15, klausur: 20 };
+const PLAN_MIN = { lernen: 15, quiz: 10, karten: 10, kette: 10, quelle: 30, klausur: 20 };
 const WD_ORDER = [1, 2, 3, 4, 5, 6, 0];
 let planForm = null, fromPlan = false;
 const fadenLabel = (l) => "Roter Faden lesen" + (/roter faden/i.test(l.name) ? "" : ": " + l.name);
@@ -787,12 +685,10 @@ function reviewPool() {
   if (has("karten")) pool.push({ min: PLAN_MIN.karten, next: () => ({ mode: "karten", t: "all", label: "Karteikarten: alle Begriffe" }) });
   const ks = (K.ketten || []).map((k, i) => ({ k: k, i: i })).filter((o) => o.k.t !== "all");
   if (ks.length) { let i = 0; pool.push({ min: PLAN_MIN.kette, next: () => { const o = ks[i++ % ks.length]; return { mode: "kette", t: o.k.t, k: o.i, label: "Kette ordnen: " + o.k.titel }; } }); }
-  if (has("zuordnen")) pool.push({ min: PLAN_MIN.blitz, next: () => ({ mode: "blitz", t: "all", label: (K.zuordnen.titel || "Zuordnen") + " (60 Sekunden)" }) });
   if (has("quellen")) {
     const qs = K.quellen.slice().sort((a, b) => (S.quellen[a.id] ? 1 : 0) - (S.quellen[b.id] ? 1 : 0)); let i = 0;
     pool.push({ min: PLAN_MIN.quelle, next: () => { const q = qs[i++ % qs.length]; return { mode: "quelle", t: q.t, q: q.id, label: "Quelle: " + q.titel }; } });
   }
-  if (has("zeitstrahl")) pool.push({ min: PLAN_MIN.zeit, next: () => ({ mode: "zeit", t: "all", label: "Zeitstrahl" }) });
   return pool;
 }
 const usedMin = (day) => day.tasks.reduce((s, x) => s + x.min, 0);
@@ -965,9 +861,6 @@ document.addEventListener("keydown", (e) => {
   if (view === "lernen" && lern && !lern.done) {
     if (e.key === "ArrowLeft") { e.preventDefault(); lernStep(-1); }
     if (e.key === "ArrowRight") { e.preventDefault(); lernStep(1); }
-  } else if (view === "blitz" && blitz && blitz.state === "run") {
-    if (e.key === "ArrowLeft") { e.preventDefault(); answerBlitz("a"); }
-    if (e.key === "ArrowRight") { e.preventDefault(); answerBlitz("b"); }
   } else if (view === "quiz" && quiz) {
     if (quiz.picked === null && /^[1-4]$/.test(e.key)) pickQuiz(+e.key - 1);
   } else if (view === "karten" && karten && karten.deck.length) {
