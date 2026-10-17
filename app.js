@@ -884,8 +884,9 @@ function opInfo(op) {
 }
 function probeCandidates() {
   const pflicht = K.probe && K.probe.pflicht;
-  const srcs = K.quellen.filter((q) => (q.aufgaben || []).length);
-  const qs = (K.klausur || []).map((k, i) => ({ k: k, i: i }));
+  const ohne = new Set((K.probe && K.probe.ohne) || []);   // Themen, die nur angeschnitten werden
+  const srcs = K.quellen.filter((q) => (q.aufgaben || []).length && !ohne.has(q.t));
+  const qs = (K.klausur || []).map((k, i) => ({ k: k, i: i })).filter((o) => !ohne.has(o.k.t));
   const teilA = [];
   // Vergleichsaufgaben beziehen sich auf eine zweite Quelle, deshalb nur im Quellenpaar
   srcs.forEach((q) => teilA.push({ t: q.t, mats: [q.id], tasks: q.aufgaben.map((a, j) => ({ src: q.id, j: j, op: a.op })).filter((x) => x.op !== "Vergleichen") }));

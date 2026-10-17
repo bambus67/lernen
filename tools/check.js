@@ -40,6 +40,7 @@ for (const f of files) {
     (q.aufgaben || []).forEach((a, j) => { if (!a.q || !Array.isArray(a.eh)) err(f, "quellen[" + i + "].aufgaben[" + j + "] unvollständig"); });
   });
   if (K.probe && K.probe.pflicht && !tids.has(K.probe.pflicht)) err(f, "probe.pflicht ist kein bekanntes Thema");
+  ((K.probe && K.probe.ohne) || []).forEach((t) => { if (!tids.has(t)) err(f, "probe.ohne: unbekanntes Thema " + t); });
   (K.klausur || []).forEach((k, i) => { if (!k.q || !Array.isArray(k.punkte)) err(f, "klausur[" + i + "] unvollständig"); });
   console.log("geprüft: " + f);
 }

@@ -508,37 +508,27 @@
      "big": true
     },
     {
-     "h": "Ausgangslage",
+     "h": "Warum die Sowjetunion in die Krise gerät",
      "p": [
       "Die Planwirtschaft funktioniert nicht: Mangel, Warteschlangen, Rückstand.",
-      "Das Wettrüsten frisst Ressourcen.",
-      "Der Krieg in Afghanistan ist teuer und nicht zu gewinnen.",
+      "Wettrüsten und der Krieg in Afghanistan fressen Ressourcen.",
       "Die Menschen glauben nicht mehr an die Partei."
      ]
     },
     {
-     "h": "Gorbatschows Reformen",
+     "h": "Glasnost und Perestroika",
      "p": [
       "Perestroika (Umbau): mehr Eigenverantwortung für Betriebe, erste Marktelemente",
-      "Glasnost (Offenheit): weniger Zensur, offene Kritik, Aufarbeitung der Stalinzeit",
-      "Neues Denken: Abrüstung, Abzug aus Afghanistan. Die Breschnew-Doktrin wird durch die „Sinatra-Doktrin“ ersetzt: Die Staaten des Warschauer Pakts dürfen ihren eigenen Weg gehen („My Way“)."
+      "Glasnost (Offenheit): weniger Zensur, offene Kritik",
+      "Die Breschnew-Doktrin wird durch die „Sinatra-Doktrin“ ersetzt: Die Staaten des Warschauer Pakts dürfen ihren eigenen Weg gehen („My Way“)."
      ]
     },
     {
-     "h": "Die Reformen entgleiten",
+     "h": "Revolutionen in Osteuropa und Ende",
      "p": [
-      "Glasnost zeigt, wie schlecht es steht, die Kritik wächst.",
-      "Perestroika bleibt halbherzig, die Versorgung wird schlechter.",
-      "Revolutionen in Osteuropa, fast überall friedlich: Polen (Solidarność, Wałęsa), Ungarn öffnet die Grenze, DDR mit Mauerfall, ČSSR mit Samtener Revolution (Havel).",
-      "Teilrepubliken wollen Unabhängigkeit, ein Putsch scheitert, die Sowjetunion löst sich auf."
-     ]
-    },
-    {
-     "h": "Zusammenhänge zum Punkten",
-     "p": [
-      "Prager Frühling → Gorbatschow: Dubček wollte dasselbe. Diesmal kommen die Reformen aus Moskau, und die Panzer bleiben in den Kasernen.",
-      "MAD und Wettrüsten → Zusammenbruch: Die schwächere Wirtschaft hält die Rüstung nicht aus.",
-      "KSZE → Opposition: Die zugesagten Menschenrechte sind die Berufungsgrundlage von Charta 77 und Solidarność."
+      "Glasnost zeigt, wie schlecht es steht, die Reformen entgleiten.",
+      "Revolutionen in Osteuropa, fast überall friedlich, bis zum Fall der Berliner Mauer. Anders als beim Prager Frühling bleiben die Panzer diesmal in den Kasernen.",
+      "Die Sowjetunion löst sich auf, der Kalte Krieg endet."
      ]
     }
    ]
@@ -1482,28 +1472,6 @@
   },
   {
    "t": "ende",
-   "q": "Welche polnische Bewegung forderte das Regime heraus?",
-   "a": "Die Gewerkschaft Solidarność unter Lech Wałęsa",
-   "falsch": [
-    "Die Charta 77",
-    "Der Vietcong",
-    "Das Kominform"
-   ],
-   "e": "Solidarność war die größte Oppositionsbewegung im Ostblock."
-  },
-  {
-   "t": "ende",
-   "q": "Was war die Samtene Revolution?",
-   "a": "Der friedliche Sturz der kommunistischen Regierung in der ČSSR",
-   "falsch": [
-    "Der Einmarsch des Warschauer Pakts",
-    "Eine Revolution in Kuba",
-    "Ein Aufstand in Vietnam"
-   ],
-   "e": "Václav Havel, Bürgerrechtler der Charta 77, wurde danach Präsident."
-  },
-  {
-   "t": "ende",
    "q": "Welche Gründe hatte die Krise der Sowjetunion in den 1980er-Jahren?",
    "a": "Ineffiziente Planwirtschaft, teures Wettrüsten und der Krieg in Afghanistan",
    "falsch": [
@@ -1512,28 +1480,6 @@
     "Der Marshall-Plan"
    ],
    "e": "Die Wirtschaft konnte die Kosten nicht mehr tragen."
-  },
-  {
-   "t": "ende",
-   "q": "Welches Land öffnete als erstes die Grenze nach Österreich?",
-   "a": "Ungarn",
-   "falsch": [
-    "Polen",
-    "Rumänien",
-    "Die Sowjetunion"
-   ],
-   "e": "Damit bekam der Eiserne Vorhang sein erstes Loch."
-  },
-  {
-   "t": "ende",
-   "q": "Welcher US-Präsident fuhr erst eine harte Linie und schloss später Abrüstungsverträge mit Gorbatschow?",
-   "a": "Ronald Reagan",
-   "falsch": [
-    "John F. Kennedy",
-    "Harry S. Truman",
-    "Richard Nixon"
-   ],
-   "e": "Reagan rüstete massiv auf (SDI) und verhandelte später mit Gorbatschow."
   },
   {
    "t": "ende",
@@ -2280,18 +2226,6 @@
    "typ": "begriff"
   },
   {
-   "begriff": "Neues Denken",
-   "erklaerung": "Gorbatschows Außenpolitik: Abrüstung, Abzug aus Afghanistan, Aufhebung der Breschnew-Doktrin.",
-   "t": "ende",
-   "typ": "begriff"
-  },
-  {
-   "begriff": "Samtene Revolution",
-   "erklaerung": "Friedlicher Sturz der kommunistischen Regierung in der ČSSR.",
-   "t": "ende",
-   "typ": "begriff"
-  },
-  {
    "begriff": "Sinatra-Doktrin",
    "erklaerung": "Gorbatschows Ersatz für die Breschnew-Doktrin: Die Staaten des Warschauer Pakts dürfen ihren eigenen Weg gehen, frei nach dem Song „My Way“.",
    "t": "ende",
@@ -2360,24 +2294,6 @@
   {
    "begriff": "Michail Gorbatschow",
    "erklaerung": "Letzter Führer der Sowjetunion: Glasnost, Perestroika, Aufhebung der Breschnew-Doktrin.",
-   "t": "ende",
-   "typ": "person"
-  },
-  {
-   "begriff": "Ronald Reagan",
-   "erklaerung": "US-Präsident. Erst harte Linie und Aufrüstung (SDI), später Abrüstung mit Gorbatschow.",
-   "t": "ende",
-   "typ": "person"
-  },
-  {
-   "begriff": "Václav Havel",
-   "erklaerung": "Bürgerrechtler der Charta 77, nach der Samtenen Revolution Präsident.",
-   "t": "ende",
-   "typ": "person"
-  },
-  {
-   "begriff": "Lech Wałęsa",
-   "erklaerung": "Anführer der polnischen Gewerkschaft Solidarność.",
    "t": "ende",
    "typ": "person"
   }
@@ -3446,19 +3362,6 @@
     "Aufhebung der Breschnew-Doktrin, friedliche Revolutionen in Osteuropa",
     "Auflösung der Sowjetunion"
    ]
-  },
-  {
-   "t": "ende",
-   "op": "Erörtern",
-   "q": "Erörtern Sie die These: „Der Prager Frühling scheiterte 1968, aber er siegte 1989.“",
-   "punkte": [
-    "1968: Dubčeks Reformen werden durch den Einmarsch niedergeschlagen",
-    "Langfristig glaubt niemand mehr an einen guten Kommunismus, Charta 77 entsteht",
-    "Gorbatschow verfolgt ähnliche Ziele wie Dubček (Offenheit, Reformen)",
-    "Ohne Breschnew-Doktrin bleiben die Panzer 1989 in den Kasernen",
-    "Einschränkung: 1989 ging es um das Ende des Sozialismus, nicht um seine Reform",
-    "Begründetes Urteil"
-   ]
   }
  ],
  "operatoren": [
@@ -3499,6 +3402,9 @@
   }
  ],
  "probe": {
-  "pflicht": "bipolar"
+  "pflicht": "bipolar",
+  "ohne": [
+   "ende"
+  ]
  }
 }

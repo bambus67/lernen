@@ -48,7 +48,7 @@ Alle Abschnitte außer den Metadaten sind optional. Ein Modus erscheint nur, wen
   }],
   "klausur": [{ "t": "korea", "op": "Beurteilen", "q": "Aufgabe", "punkte": ["Musterlösung-Punkt", "…"] }],
   "operatoren": [{ "name": "Erläutern", "afb": "II", "text": "Was verlangt wird." }],
-  "probe": { "pflicht": "bipolar" }        // Probeklausur: Thema, zu dem Teil B immer eine Frage stellt (hier Ost-West-Konflikt)
+  "probe": { "pflicht": "bipolar", "ohne": ["ende"] }   // Probeklausur: pflicht = Thema, zu dem Teil B immer eine Frage stellt (Ost-West-Konflikt); ohne = Themen, die nur angeschnitten werden und in der Probeklausur nicht vorkommen
 }
 ```
 
