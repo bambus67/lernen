@@ -460,15 +460,15 @@
       "Heißer Draht und Atomteststoppvertrag (Kennedy, Chruschtschow)",
       "Atomwaffensperrvertrag: keine Weitergabe von Atomwaffen",
       "Neue Ostpolitik (Willy Brandt, Egon Bahr): Wandel durch Annäherung, Ostverträge, Grundlagenvertrag, Kniefall von Warschau",
-      "SALT I mit ABM-Vertrag: Obergrenzen, Begrenzung der Raketenabwehr sichert MAD ab",
-      "KSZE-Schlussakte von Helsinki: Unverletzlichkeit der Grenzen und Menschenrechte",
+      "SALT I und SALT II sollen das Wettrüsten kontrollieren. SALT I mit ABM-Vertrag: Obergrenzen, Begrenzung der Raketenabwehr sichert MAD ab",
+      "KSZE (Konferenz für Sicherheit und Zusammenarbeit in Europa), Schlussakte von Helsinki: Unverletzlichkeit der Grenzen, Achtung der Menschenrechte, Zusammenarbeit und humanitäre Erleichterungen",
       "SALT II: wegen Afghanistan nie ratifiziert"
      ]
     },
     {
      "h": "Ende der Entspannung",
      "p": [
-      "Die UdSSR marschiert in Afghanistan ein und stellt SS-20-Raketen auf.",
+      "Die Rüstungskontrolle scheitert, weil die Sowjetunion weiter aufrüstet (SS-20-Raketen) und in Afghanistan einmarschiert.",
       "NATO-Doppelbeschluss: verhandeln, sonst nachrüsten.",
       "Reagan fährt eine harte Linie und rüstet auf (SDI).",
       "Neue Eiszeit. Dieses Wettrüsten überfordert die UdSSR."
@@ -1302,12 +1302,12 @@
   },
   {
    "t": "detente",
-   "q": "Welche zwei Grundsätze stehen in der KSZE-Schlussakte von Helsinki?",
-   "a": "Unverletzlichkeit der Grenzen und Achtung der Menschenrechte",
+   "q": "Was wurde auf der KSZE in Helsinki beschlossen?",
+   "a": "Unverletzlichkeit der Grenzen, Achtung der Menschenrechte, Zusammenarbeit und humanitäre Erleichterungen",
    "falsch": [
-    "Freihandel und Abrüstung",
-    "Breschnew-Doktrin und Containment",
-    "Wiedervereinigung und NATO-Beitritt"
+    "Freihandel und die Abschaffung aller Atomwaffen",
+    "Breschnew-Doktrin und Containment als gemeinsame Grundsätze",
+    "Wiedervereinigung Deutschlands und Auflösung der Militärbündnisse"
    ],
    "e": "Der Osten bekam seine Grenzen anerkannt, der Westen die Zusage zu Menschenrechten."
   },
@@ -1331,7 +1331,7 @@
     "Die Kubakrise",
     "Der Mauerfall"
    ],
-   "e": "Es folgte eine neue Eiszeit, der „Zweite Kalte Krieg“."
+   "e": "Die Rüstungskontrolle scheiterte, weil die Sowjetunion weiter aufrüstete und in Afghanistan einmarschierte. Es folgte eine neue Eiszeit."
   },
   {
    "t": "detente",
@@ -1376,6 +1376,17 @@
     "Die Sowjetunion verzichtet auf alle Atomwaffen"
    ],
    "e": "Auch deshalb schwächte sich der Ost-West-Konflikt Anfang der 1970er-Jahre ab."
+  },
+  {
+   "t": "detente",
+   "q": "Was sollten die SALT-I- und SALT-II-Verträge erreichen?",
+   "a": "Das Wettrüsten kontrollieren",
+   "falsch": [
+    "Die Grenzen in Europa festschreiben",
+    "Die Menschenrechte im Ostblock sichern",
+    "Den Abzug der Sowjetunion aus Afghanistan"
+   ],
+   "e": "Die Rüstungskontrolle scheiterte jedoch, weil die Sowjetunion weiter aufrüstete und in Afghanistan einmarschierte."
   },
   {
    "t": "prag",
@@ -2029,13 +2040,13 @@
   },
   {
    "begriff": "SALT I / ABM-Vertrag",
-   "erklaerung": "Obergrenzen für Atomraketen und Begrenzung der Raketenabwehr. Sichert die gegenseitige Abschreckung vertraglich ab.",
+   "erklaerung": "SALT I und II sollen das Wettrüsten kontrollieren. SALT I: Obergrenzen für Atomraketen und Begrenzung der Raketenabwehr, sichert die gegenseitige Abschreckung vertraglich ab.",
    "t": "detente",
    "typ": "begriff"
   },
   {
    "begriff": "KSZE-Schlussakte",
-   "erklaerung": "In Helsinki von 35 Staaten unterzeichnet: Unverletzlichkeit der Grenzen und Achtung der Menschenrechte.",
+   "erklaerung": "Konferenz für Sicherheit und Zusammenarbeit in Europa, Schlussakte von Helsinki: Unverletzlichkeit der Grenzen, Achtung der Menschenrechte, Zusammenarbeit und humanitäre Erleichterungen.",
    "t": "detente",
    "typ": "begriff"
   },
