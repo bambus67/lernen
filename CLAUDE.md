@@ -48,7 +48,7 @@ Alle Abschnitte außer den Metadaten sind optional. Ein Modus erscheint nur, wen
   }],
   "klausur": [{ "t": "korea", "op": "Beurteilen", "q": "Aufgabe", "punkte": ["Musterlösung-Punkt", "…"] }],
   "operatoren": [{ "name": "Erläutern", "afb": "II", "text": "Was verlangt wird." }],
-  "probe": { "pflicht": "bipolar", "ohne": ["ende"] }   // Probeklausur: pflicht = Thema, zu dem Teil B immer eine Frage stellt (Ost-West-Konflikt); ohne = Themen, die nur angeschnitten werden und in der Probeklausur nicht vorkommen
+  "probe": { "pflicht": "bipolar", "ohne": [] }   // Probeklausur: pflicht = Thema, zu dem Teil B immer eine Frage stellt (Ost-West-Konflikt); ohne (optional) = Themen, die nur angeschnitten werden und in der Probeklausur nicht vorkommen
 }
 ```
 
@@ -68,7 +68,7 @@ Alle Abschnitte außer den Metadaten sind optional. Ein Modus erscheint nur, wen
 
 ## Technik
 
-- Fortschritt liegt in `localStorage` unter `kt:<id>`, pro Gerät. Kein Server, keine Konten.
+- Fortschritt liegt in `localStorage` unter `kt:<id>`, pro Gerät. Kein Server, keine Konten. Werden Themen oder Quellen entfernt, räumt `pruneState()` gespeicherte Pläne und Probeklausuren beim Öffnen auf.
 - Routing per Hash: `#/` Startseite, `#/klausuren` | `#/probeklausur` | `#/kalender` | `#/updates` Unterseiten, `#/<id>` Klausur, `#/<id>/<modus>[/<quelle-id>]`.
 - `sw.js` macht die Seite offline nutzbar (Netz zuerst, Cache als Rückfall). Bei Änderungen an `sw.js` den Cache-Namen hochzählen.
 - Lokal testen: `python3 -m http.server` im Repo-Ordner, dann http://localhost:8000 (fetch geht nicht über file://).

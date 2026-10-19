@@ -49,6 +49,16 @@ function loadState(id) {
 function save() { if (!K || !S) return; try { localStorage.setItem("kt:" + K.id, JSON.stringify(S)); } catch (e) {} }
 function stat(t, ok) { if (!t || t === "all") return; const s = S.stats[t] || (S.stats[t] = { r: 0, n: 0 }); s.n++; if (ok) s.r++; save(); }
 
+// Gespeicherte Pläne und Probeklausuren können auf Themen oder Quellen zeigen, die inzwischen aus der Klausur entfernt wurden
+function pruneState() {
+  const tids = new Set(topics().map((t) => t.id).concat(["all"]));
+  const qids = new Set((K.quellen || []).map((q) => q.id));
+  const ok = (x) => TITLES[x.mode] && (!x.t || tids.has(x.t)) && (x.mode !== "quelle" || qids.has(x.q));
+  if (S.plan && S.plan.days) S.plan.days.forEach((d) => (d.tasks = d.tasks.filter(ok)));
+  if (S.probe && (S.probe.mats || []).some((id) => !qids.has(id))) S.probe = null;
+  if (S.topic !== "all" && !tids.has(S.topic)) S.topic = "all";
+}
+
 /* ---------- Laden und Routing ---------- */
 async function getJSON(url) {
   const r = await fetch(url, { cache: "no-cache" });
@@ -73,6 +83,7 @@ async function route() {
     try { K = await getJSON("klausuren/" + encodeURIComponent(id) + ".json"); }
     catch (e) { K = null; return renderSite("klausuren", "Diese Klausur gibt es nicht (mehr)."); }
     S = loadState(K.id);
+    pruneState();
     quiz = kette = karten = lern = null; qstate = {}; kstate = {};
     const f = K.farben || [];
     document.documentElement.style.setProperty("--ca", f[0] || "var(--signal)");

@@ -4,7 +4,7 @@
  "titel": "Kalter Krieg",
  "kurs": "Q13",
  "datum": "2026-10-22",
- "beschreibung": "Ursachen, Folgen und Bedeutung, von der bipolaren Welt bis zum Ende der Sowjetunion. Jahreszahlen musst du nicht pauken, Zusammenhänge schon.",
+ "beschreibung": "Ursachen, Folgen und Bedeutung, von der bipolaren Welt bis zur Entspannungspolitik. Jahreszahlen musst du nicht pauken, Zusammenhänge schon.",
  "farben": [
   "#1D4F9D",
   "#AE2A1F"
@@ -41,10 +41,6 @@
   {
    "id": "detente",
    "name": "Entspannung"
-  },
-  {
-   "id": "ende",
-   "name": "Ende"
   }
  ],
  "lernen": [
@@ -96,14 +92,6 @@
       "Vietnam zeigt die Grenzen der USA.",
       "Der Prager Frühling zeigt: Der Westen greift im Ostblock nicht ein, die Fronten sind zementiert.",
       "Daraus folgt die Entspannungspolitik: Status quo akzeptieren, Risiken senken, reden."
-     ]
-    },
-    {
-     "h": "6 · Die Sowjetunion hält nicht durch",
-     "p": [
-      "Wettrüsten und Planwirtschaft ruinieren sie.",
-      "Gorbatschow reformiert mit Glasnost und Perestroika und hebt die Breschnew-Doktrin auf.",
-      "Die Revolutionen in Osteuropa bleiben ungestört, der Ostblock bricht zusammen, der Kalte Krieg endet."
      ]
     }
    ]
@@ -483,7 +471,7 @@
       "Die UdSSR marschiert in Afghanistan ein und stellt SS-20-Raketen auf.",
       "NATO-Doppelbeschluss: verhandeln, sonst nachrüsten.",
       "Reagan fährt eine harte Linie und rüstet auf (SDI).",
-      "Neue Eiszeit. Dieses Wettrüsten überfordert die UdSSR und führt zu Gorbatschow."
+      "Neue Eiszeit. Dieses Wettrüsten überfordert die UdSSR."
      ]
     },
     {
@@ -492,43 +480,6 @@
       "Erfolge: weniger Kriegsgefahr, Rüstungskontrolle, menschliche Erleichterungen, Menschenrechte als Maßstab",
       "Grenzen: Systemkonflikt und Wettrüsten bleiben, Teilung wird festgeschrieben",
       "Langfristig: Die KSZE-Menschenrechte stärken die Opposition im Osten"
-     ]
-    }
-   ]
-  },
-  {
-   "t": "ende",
-   "name": "Ende",
-   "cards": [
-    {
-     "h": "Merksatz",
-     "p": [
-      "Gorbatschow wollte den Sozialismus durch Reformen retten und hat ihn damit beendet."
-     ],
-     "big": true
-    },
-    {
-     "h": "Warum die Sowjetunion in die Krise gerät",
-     "p": [
-      "Die Planwirtschaft funktioniert nicht: Mangel, Warteschlangen, Rückstand.",
-      "Wettrüsten und der Krieg in Afghanistan fressen Ressourcen.",
-      "Die Menschen glauben nicht mehr an die Partei."
-     ]
-    },
-    {
-     "h": "Glasnost und Perestroika",
-     "p": [
-      "Perestroika (Umbau): mehr Eigenverantwortung für Betriebe, erste Marktelemente",
-      "Glasnost (Offenheit): weniger Zensur, offene Kritik",
-      "Die Breschnew-Doktrin wird durch die „Sinatra-Doktrin“ ersetzt: Die Staaten des Warschauer Pakts dürfen ihren eigenen Weg gehen („My Way“)."
-     ]
-    },
-    {
-     "h": "Revolutionen in Osteuropa und Ende",
-     "p": [
-      "Glasnost zeigt, wie schlecht es steht, die Reformen entgleiten.",
-      "Revolutionen in Osteuropa, fast überall friedlich, bis zum Fall der Berliner Mauer. Anders als beim Prager Frühling bleiben die Panzer diesmal in den Kasernen.",
-      "Die Sowjetunion löst sich auf, der Kalte Krieg endet."
      ]
     }
    ]
@@ -1427,73 +1378,7 @@
    "e": "Auch deshalb schwächte sich der Ost-West-Konflikt Anfang der 1970er-Jahre ab."
   },
   {
-   "t": "ende",
-   "q": "Was bedeutet Glasnost?",
-   "a": "Offenheit und Transparenz: Lockerung der Zensur, offene Kritik",
-   "falsch": [
-    "Umbau der Wirtschaft",
-    "Rückkehr zur Planwirtschaft",
-    "Militärische Stärke"
-   ],
-   "e": "Probleme sollten offen benannt werden, damit man sie lösen kann."
-  },
-  {
-   "t": "ende",
-   "q": "Was bedeutet Perestroika?",
-   "a": "Umbau: Wirtschaftsreformen mit mehr Eigenverantwortung und ersten Marktelementen",
-   "falsch": [
-    "Offenheit in den Medien",
-    "Einmarsch in Nachbarstaaten",
-    "Eine neue Verfassung der USA"
-   ],
-   "e": "Die Planwirtschaft sollte effizienter werden."
-  },
-  {
-   "t": "ende",
-   "q": "Was war Gorbatschows eigentliches Ziel?",
-   "a": "Den Sozialismus durch Reformen retten",
-   "falsch": [
-    "Den Kommunismus abschaffen",
-    "Die Sowjetunion auflösen",
-    "Die USA militärisch besiegen"
-   ],
-   "e": "Das Paradox: Seine Reformen beendeten das System, das sie retten sollten."
-  },
-  {
-   "t": "ende",
-   "q": "Warum blieben die Revolutionen in Osteuropa fast überall friedlich?",
-   "a": "Die Sowjetunion griff nicht mehr ein, die Panzer blieben in den Kasernen",
-   "falsch": [
-    "Weil die NATO die Länder schützte",
-    "Weil es keine Proteste gab",
-    "Weil die Armeen aufgelöst waren"
-   ],
-   "e": "Das ist der direkte Gegensatz zum Prager Frühling."
-  },
-  {
-   "t": "ende",
-   "q": "Welche Gründe hatte die Krise der Sowjetunion in den 1980er-Jahren?",
-   "a": "Ineffiziente Planwirtschaft, teures Wettrüsten und der Krieg in Afghanistan",
-   "falsch": [
-    "Zu viel Handel mit dem Westen",
-    "Ein Krieg mit China",
-    "Der Marshall-Plan"
-   ],
-   "e": "Die Wirtschaft konnte die Kosten nicht mehr tragen."
-  },
-  {
-   "t": "ende",
-   "q": "Was wurde aus der Sowjetunion am Ende?",
-   "a": "Sie löste sich nach einem gescheiterten Putsch von Hardlinern auf",
-   "falsch": [
-    "Sie wurde von der NATO besetzt",
-    "Sie wurde Mitglied der EU",
-    "Sie blieb unverändert bestehen"
-   ],
-   "e": "Damit endete der Kalte Krieg."
-  },
-  {
-   "t": "ende",
+   "t": "prag",
    "q": "Wodurch ersetzte Gorbatschow die Breschnew-Doktrin?",
    "a": "Durch die Sinatra-Doktrin: Die Staaten des Warschauer Pakts durften ihren eigenen Weg gehen",
    "falsch": [
@@ -1645,14 +1530,6 @@
     "b"
    ],
    [
-    "Glasnost",
-    "b"
-   ],
-   [
-    "Perestroika",
-    "b"
-   ],
-   [
     "Einmarsch in Afghanistan",
     "b"
    ],
@@ -1674,10 +1551,6 @@
    ],
    [
     "Leonid Breschnew",
-    "b"
-   ],
-   [
-    "Michail Gorbatschow",
     "b"
    ],
    [
@@ -1809,21 +1682,6 @@
    "text": "Sowjetischer Einmarsch in Afghanistan",
    "jahr": 1979,
    "t": "detente"
-  },
-  {
-   "text": "Gorbatschow kommt an die Macht",
-   "jahr": 1985,
-   "t": "ende"
-  },
-  {
-   "text": "Fall der Berliner Mauer",
-   "jahr": 1989,
-   "t": "ende"
-  },
-  {
-   "text": "Auflösung der Sowjetunion",
-   "jahr": 1991,
-   "t": "ende"
   }
  ],
  "ketten": [
@@ -1916,18 +1774,6 @@
    ]
   },
   {
-   "t": "ende",
-   "titel": "Ende des Kalten Krieges",
-   "merk": "Gorbatschow wollte das System retten und hat es beendet.",
-   "schritte": [
-    "Planwirtschaft und Wettrüsten ruinieren die Sowjetunion",
-    "Gorbatschow startet Glasnost und Perestroika",
-    "Die Breschnew-Doktrin wird aufgehoben",
-    "Die Revolutionen in Osteuropa bleiben ungestört",
-    "Die Sowjetunion löst sich auf, der Kalte Krieg endet"
-   ]
-  },
-  {
    "t": "all",
    "titel": "Der rote Faden",
    "merk": "Wer diese Kette erzählen kann, kann jede Quelle einordnen.",
@@ -1936,9 +1782,7 @@
     "Atomwaffen machen einen direkten Krieg unmöglich (MAD)",
     "Der Konflikt wird in Stellvertreterkriegen ausgetragen (Korea, Vietnam)",
     "Die Kubakrise bringt die Welt an den Rand des Atomkriegs",
-    "Entspannungspolitik: Status quo akzeptieren, Risiko senken",
-    "Wettrüsten und Planwirtschaft ruinieren die UdSSR",
-    "Gorbatschows Reformen führen zum Ende des Kalten Krieges"
+    "Entspannungspolitik: Status quo akzeptieren, Risiko senken"
    ]
   }
  ],
@@ -2214,21 +2058,9 @@
    "typ": "begriff"
   },
   {
-   "begriff": "Glasnost",
-   "erklaerung": "Offenheit: Gorbatschows Lockerung der Zensur, offene Kritik, Aufarbeitung der Stalinzeit.",
-   "t": "ende",
-   "typ": "begriff"
-  },
-  {
-   "begriff": "Perestroika",
-   "erklaerung": "Umbau: Gorbatschows Wirtschaftsreformen, mehr Eigenverantwortung für Betriebe, erste Marktelemente.",
-   "t": "ende",
-   "typ": "begriff"
-  },
-  {
    "begriff": "Sinatra-Doktrin",
    "erklaerung": "Gorbatschows Ersatz für die Breschnew-Doktrin: Die Staaten des Warschauer Pakts dürfen ihren eigenen Weg gehen, frei nach dem Song „My Way“.",
-   "t": "ende",
+   "t": "prag",
    "typ": "begriff"
   },
   {
@@ -2293,8 +2125,8 @@
   },
   {
    "begriff": "Michail Gorbatschow",
-   "erklaerung": "Letzter Führer der Sowjetunion: Glasnost, Perestroika, Aufhebung der Breschnew-Doktrin.",
-   "t": "ende",
+   "erklaerung": "Hob die Breschnew-Doktrin auf und ersetzte sie durch die „Sinatra-Doktrin“: Die Staaten des Warschauer Pakts durften ihren eigenen Weg gehen.",
+   "t": "prag",
    "typ": "person"
   }
  ],
@@ -3081,82 +2913,6 @@
      ]
     }
    ]
-  },
-  {
-   "id": "gorbatschow88",
-   "t": "ende",
-   "titel": "Gorbatschow vor den Vereinten Nationen",
-   "autor": "Michail Gorbatschow, Generalsekretär der KPdSU",
-   "datum": "7. Dezember 1988",
-   "art": "Rede vor der UN-Vollversammlung in New York",
-   "adressat": "Weltöffentlichkeit, Regierungen in Ost und West",
-   "kontext": "Gorbatschow ist seit einigen Jahren an der Macht. Glasnost und Perestroika laufen, die Wirtschaft der UdSSR steckt in der Krise.",
-   "text": [
-    "Es ist offensichtlich, dass Gewalt und die Androhung von Gewalt nicht länger Instrumente der Außenpolitik sein können und dürfen. […]",
-    "Die Freiheit der Wahl ist ein allgemeingültiges Prinzip, das keine Ausnahmen kennen darf. […]",
-    "Heute kann ich Ihnen mitteilen, dass die Sowjetunion beschlossen hat, ihre Streitkräfte zu verringern. In den nächsten zwei Jahren wird ihre Zahl um 500.000 Mann reduziert."
-   ],
-   "hinweis": "Gekürzt, eigene Übersetzung.",
-   "mc": [
-    {
-     "q": "Welcher Grundsatz wird mit der „Freiheit der Wahl“ aufgegeben?",
-     "a": "Die Breschnew-Doktrin",
-     "falsch": [
-      "Containment",
-      "Die Domino-Theorie",
-      "One World"
-     ]
-    },
-    {
-     "q": "Wie nennt man Gorbatschows Außenpolitik?",
-     "a": "Neues Denken",
-     "falsch": [
-      "Wandel durch Annäherung",
-      "Normalisierung",
-      "Open Door"
-     ]
-    },
-    {
-     "q": "Was folgt daraus für Osteuropa?",
-     "a": "Revolutionen bleiben ohne sowjetisches Eingreifen",
-     "falsch": [
-      "Ein neuer Einmarsch wie in Prag",
-      "Neue Raketen in Osteuropa",
-      "Die Rückkehr der Zensur"
-     ]
-    }
-   ],
-   "aufgaben": [
-    {
-     "op": "Herausarbeiten",
-     "q": "Arbeiten Sie die Kernaussagen heraus.",
-     "eh": [
-      "Gewalt und Gewaltandrohung sollen keine Mittel der Außenpolitik mehr sein",
-      "Jedes Volk hat die Freiheit der Wahl, ohne Ausnahme",
-      "Die UdSSR verringert einseitig ihre Streitkräfte um 500.000 Mann"
-     ]
-    },
-    {
-     "op": "Erläutern",
-     "q": "Erläutern Sie die Gründe für Gorbatschows neuen Kurs.",
-     "eh": [
-      "Die Planwirtschaft funktioniert nicht, es herrscht Mangel",
-      "Das Wettrüsten frisst Ressourcen, die die Wirtschaft nicht hat",
-      "Der Krieg in Afghanistan ist teuer und nicht zu gewinnen",
-      "Abrüstung soll Mittel für Perestroika frei machen, Glasnost soll Probleme offenlegen"
-     ]
-    },
-    {
-     "op": "Beurteilen",
-     "q": "Beurteilen Sie die Bedeutung der Rede für das Ende des Kalten Krieges.",
-     "eh": [
-      "Abkehr von der Breschnew-Doktrin: Die Ostblockstaaten dürfen eigene Wege gehen",
-      "Die Revolutionen in Osteuropa bleiben deshalb fast überall friedlich",
-      "Paradox: Gorbatschow wollte den Sozialismus retten und beendete ihn",
-      "Gegensatz zum Prager Frühling: Diesmal bleiben die Panzer in den Kasernen"
-     ]
-    }
-   ]
   }
  ],
  "klausur": [
@@ -3349,19 +3105,6 @@
     "Grenze: Systemkonflikt und Wettrüsten bleiben, Teilung wird festgeschrieben",
     "Ende durch Afghanistan und neue Raketen, „Zweiter Kalter Krieg“"
    ]
-  },
-  {
-   "t": "ende",
-   "op": "Erläutern",
-   "q": "Erläutern Sie, wie Gorbatschows Reformen zum Ende des Kalten Krieges führten.",
-   "punkte": [
-    "Krise der UdSSR: Planwirtschaft, Wettrüsten, Afghanistan",
-    "Ziel: das System durch Reformen retten",
-    "Glasnost legt Probleme offen, die Kritik wächst",
-    "Perestroika bleibt halbherzig, die Versorgung wird schlechter",
-    "Aufhebung der Breschnew-Doktrin, friedliche Revolutionen in Osteuropa",
-    "Auflösung der Sowjetunion"
-   ]
   }
  ],
  "operatoren": [
@@ -3402,9 +3145,6 @@
   }
  ],
  "probe": {
-  "pflicht": "bipolar",
-  "ohne": [
-   "ende"
-  ]
+  "pflicht": "bipolar"
  }
 }
