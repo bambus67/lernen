@@ -1,3 +1,11 @@
 [
-  { "datum": "2026-10-22", "text": "Klausurtermine sind eingetragen" }
+  {
+    "datum": "2026-10-22",
+    "text": "Klausurtermine sind eingetragen"
+  },
+  {
+    "datum": "2026-10-22",
+    "text": "Englisch Kommunikationsprüfung ist online",
+    "klausur": "englisch-kommunikationspruefung"
+  }
 ]
