@@ -1,91 +1,57 @@
 [
- {
-  "id": "geschichte-kalter-krieg",
-  "fach": "Geschichte",
-  "titel": "Kalter Krieg",
-  "kurs": "Q13",
-  "datum": "2026-10-22",
-  "beschreibung": "Bipolare Welt, Anfänge, Abschreckung, Korea, Kuba, Vietnam, Prager Frühling, Entspannung",
-  "farben": [
-   "#1D4F9D",
-   "#AE2A1F"
-  ]
- },
- {
-  "id": "englisch-oral-2026-10",
-  "fach": "Englisch",
-  "titel": "Oral Examination",
-  "kurs": "Q13",
-  "datum": "2026-10-27",
-  "farben": [
-   "#1F3A93",
-   "#B22234"
-  ]
- },
- {
-  "id": "politik-wirtschaft-2026-11",
-  "fach": "Politik und Wirtschaft",
-  "titel": "Thema folgt",
-  "kurs": "Q13",
-  "datum": "2026-11-05",
-  "farben": [
-   "#2E6B3F",
-   "#8A5A00"
-  ]
- },
- {
-  "id": "physik-2026-11",
-  "fach": "Physik",
-  "titel": "Thema folgt",
-  "kurs": "Q13",
-  "datum": "2026-11-16",
-  "farben": [
-   "#5B2A86",
-   "#0B6E8A"
-  ]
- },
- {
-  "id": "ethik-2026-11",
-  "fach": "Ethik",
-  "titel": "Thema folgt",
-  "kurs": "Q13",
-  "datum": "2026-11-25",
-  "farben": [
-   "#7A3E1D",
-   "#3F6B5C"
-  ]
- },
- {
-  "id": "deutsch-2026-12",
-  "fach": "Deutsch",
-  "titel": "Thema folgt",
-  "kurs": "Q13",
-  "datum": "2026-12-01",
-  "farben": [
-   "#1A1A1A",
-   "#B3121C"
-  ]
- },
- {
-  "id": "englisch-2026-12",
-  "fach": "Englisch",
-  "titel": "Thema folgt",
-  "kurs": "Q13",
-  "datum": "2026-12-09",
-  "farben": [
-   "#1F3A93",
-   "#B22234"
-  ]
- },
- {
-  "id": "mathe-2026-12",
-  "fach": "Mathe",
-  "titel": "Thema folgt",
-  "kurs": "Q13",
-  "datum": "2026-12-15",
-  "farben": [
-   "#0B5CAD",
-   "#C2410C"
-  ]
- }
+  {
+    "id": "englisch-kommunikationspruefung",
+    "fach": "Englisch",
+    "titel": "Kommunikationsprüfung",
+    "datum": "2026-10-27",
+    "beschreibung": "Thema folgt.",
+    "farben": [
+      "#B3261E",
+      "#7A1A14"
+    ]
+  },
+  {
+    "id": "powi-klausur",
+    "fach": "PoWi",
+    "titel": "Klausur",
+    "datum": "2026-11-05",
+    "beschreibung": "Thema folgt.",
+    "farben": [
+      "#9A6700",
+      "#6B4700"
+    ]
+  },
+  {
+    "id": "chemie-klausur",
+    "fach": "Chemie",
+    "titel": "Klausur",
+    "datum": "2026-11-06",
+    "beschreibung": "Thema folgt.",
+    "farben": [
+      "#1B7F5C",
+      "#0F5139"
+    ]
+  },
+  {
+    "id": "informatik-klausur",
+    "fach": "Informatik",
+    "titel": "Klausur",
+    "datum": "2026-11-18",
+    "beschreibung": "Thema folgt.",
+    "farben": [
+      "#1D4F9D",
+      "#13356A"
+    ]
+  },
+  {
+    "id": "ethik-klausur",
+    "fach": "Ethik",
+    "titel": "Klausur",
+    "datum": "2026-11-25",
+    "beschreibung": "Thema folgt.",
+    "farben": [
+      "#6B3FA0",
+      "#47277A"
+    ]
+  }
 ]
