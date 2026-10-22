@@ -3,9 +3,1195 @@
   "fach": "Englisch",
   "titel": "Kommunikationsprüfung",
   "datum": "2026-10-27",
-  "beschreibung": "Thema folgt.",
+  "beschreibung": "Indian Ocean, Indentured Labour, Colonialism, Postcolonialism und Sprachtraining.",
   "farben": [
     "#B3261E",
     "#7A1A14"
+  ],
+  "themen": [
+    {
+      "id": "ocean",
+      "name": "Indian Ocean Trade"
+    },
+    {
+      "id": "indent",
+      "name": "Indentured Labour"
+    },
+    {
+      "id": "memory",
+      "name": "Indian Ocean Memory"
+    },
+    {
+      "id": "kolonial",
+      "name": "Colonialism"
+    },
+    {
+      "id": "post",
+      "name": "Postcolonialism"
+    },
+    {
+      "id": "sprache",
+      "name": "Sprachtraining"
+    }
+  ],
+  "lernen": [
+    {
+      "t": "ocean",
+      "name": "Indian Ocean Trade",
+      "cards": [
+        {
+          "h": "Merksatz",
+          "p": [
+            "The monsoon winds made the Indian Ocean a huge trade network long before Europeans arrived."
+          ],
+          "big": true,
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
+          "h": "Who traded what",
+          "p": [
+            "Merchants from East Africa, Arabia, Persia, India and Southeast Asia traded across the ocean.",
+            "Goods: spices, cotton and silk textiles, gold, ivory, pearls, porcelain.",
+            "Ships such as dhows used the seasonal winds."
+          ],
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
+          "h": "Why it still matters",
+          "p": [
+            "Trade also spread religions, languages and food between coasts.",
+            "Many port cities are still mixed cultures today.",
+            "Europeans later entered this system, for example with trading companies like the East India Company (Buch S. 116)."
+          ],
+          "tag": "Teils ergänzt"
+        }
+      ]
+    },
+    {
+      "t": "indent",
+      "name": "Indentured Labour",
+      "cards": [
+        {
+          "h": "Merksatz",
+          "p": [
+            "Indentured labour replaced slave labour on many plantations, but conditions were often very hard."
+          ],
+          "big": true,
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
+          "h": "From slavery to indenture",
+          "p": [
+            "The British slave trade was abolished in 1807, slavery in the British Empire in 1834 (Buch S. 116).",
+            "Plantations (sugar, cotton, tobacco, cocoa) still needed cheap workers.",
+            "So workers on contracts took the place of slaves."
+          ],
+          "tag": "Daten aus dem Buch, Verbindung ergänzt"
+        },
+        {
+          "h": "How the system worked",
+          "p": [
+            "A worker signed a contract (indenture) for several years, often five.",
+            "The employer paid the journey, the worker paid it back with work.",
+            "Many were recruited in India and shipped to places like Mauritius, Fiji, South Africa, the Caribbean and Guyana."
+          ],
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
+          "h": "Consequences",
+          "p": [
+            "Descendants stayed and built communities abroad (the Indian diaspora).",
+            "Languages, food, festivals and religion spread to new places.",
+            "The system ended in the early 20th century."
+          ],
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        }
+      ]
+    },
+    {
+      "t": "memory",
+      "name": "Indian Ocean Memory",
+      "cards": [
+        {
+          "h": "Merksatz",
+          "p": [
+            "Memory means how a society remembers and talks about its past, for example trade, slavery and indentured labour."
+          ],
+          "big": true,
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
+          "h": "Where memory lives",
+          "p": [
+            "Museums and memorials, for example Aapravasi Ghat in Mauritius, where indentured labourers arrived.",
+            "Family stories, food, music and festivals.",
+            "Languages, for example Creole languages."
+          ],
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
+          "h": "Questions to ask",
+          "p": [
+            "Whose story is told, and whose is missing?",
+            "Is the past celebrated, ignored or criticised?",
+            "Link: the question is not what British rule did for India, but what it did to them (Boodia-Canoo)."
+          ],
+          "tag": "Teils ergänzt"
+        }
+      ]
+    },
+    {
+      "t": "kolonial",
+      "name": "Colonialism",
+      "cards": [
+        {
+          "h": "Merksatz",
+          "p": [
+            "Colonialism means one country takes control of other lands and peoples, mainly for trade and profit."
+          ],
+          "big": true,
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
+          "h": "Early colonies",
+          "p": [
+            "Modern European colonial history began with the discovery of the Americas in 1492.",
+            "Portuguese, Spanish, British, French, Dutch and Germans raced for claims.",
+            "After beating the Spanish Armada in 1588, British sea power grew.",
+            "Companies like the East India Company and the Hudson's Bay Company made huge profits.",
+            "From 1607 thirteen colonies were founded in North America, later the USA."
+          ],
+          "tag": "Buch S. 116"
+        },
+        {
+          "h": "Slave trade and plantations",
+          "p": [
+            "Slaves captured in West Africa were shipped to the Caribbean and American colonies.",
+            "They worked on sugar, cotton, tobacco and cocoa plantations.",
+            "Slave trade abolished 1807, slavery in the Empire until 1834, in the US until 1865."
+          ],
+          "tag": "Buch S. 116"
+        },
+        {
+          "h": "The Empire",
+          "p": [
+            "1770 Captain Cook 'discovers' Australia, 1776 American Declaration of Independence.",
+            "1857 Indian Mutiny, 1876 Queen Victoria becomes Empress of India.",
+            "In 1920 the Empire covered a quarter of the Earth's land mass.",
+            "English became the official language, systems were shaped after the British model.",
+            "Britain believed in the dominance of Western civilisation and in 'civilising' people."
+          ],
+          "tag": "Buch S. 116"
+        }
+      ]
+    },
+    {
+      "t": "post",
+      "name": "Postcolonialism",
+      "cards": [
+        {
+          "h": "Merksatz",
+          "p": [
+            "Postcolonialism asks how colonial rule still shapes societies today."
+          ],
+          "big": true,
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
+          "h": "Language: Bengaluru",
+          "p": [
+            "In Bengaluru protesters tore down English billboards and demanded Kannada.",
+            "A law should make 60% of each sign Kannada.",
+            "India has more than 300 languages, states were formed along language lines.",
+            "Locals fear becoming a minority and losing jobs, many migrants come from outside."
+          ],
+          "tag": "BBC, 12 Jan 2024 (Buch S. 241)"
+        },
+        {
+          "h": "Caste in India",
+          "p": [
+            "Brahmins (priests), Kshatriyas (warriors), Vaishyas (traders), Shudras (labourers).",
+            "Dalits, once called 'untouchables', are outside the system and face severe discrimination.",
+            "Untouchability is abolished by the constitution, but atrocities still happen daily.",
+            "Over 130,000 anti-Dalit crimes were registered between 2018 and 2020."
+          ],
+          "tag": "Buch S. 242 und 243"
+        },
+        {
+          "h": "Health: diabetes",
+          "p": [
+            "The video links colonial famines to diabetes in south Asians.",
+            "Bodies adapted to starvation and store sugar as fat.",
+            "Risk of diabetes, obesity and heart disease is higher and passes to children and grandchildren."
+          ],
+          "tag": "Buch S. 240, Wortbox"
+        },
+        {
+          "h": "Boodia-Canoo quote",
+          "p": [
+            "The question is not what British rule did for India.",
+            "The question is what British rule did to them.",
+            "She compares colonised people to survivors of abuse: loss is real, but nobody can measure it exactly."
+          ],
+          "tag": "Buch S. 240"
+        }
+      ]
+    },
+    {
+      "t": "sprache",
+      "name": "Sprachtraining",
+      "cards": [
+        {
+          "h": "Oral exam",
+          "p": [
+            "You give a presentation (monologue) on a topic, using a visual such as a photo, cartoon or chart.",
+            "Then you answer questions.",
+            "Don't read from a script. Use prompt cards with key words."
+          ],
+          "big": false,
+          "tag": "Blatt 'Working with images'"
+        },
+        {
+          "h": "10 steps of a presentation",
+          "p": [
+            "1 Greet: Good afternoon, ladies and gentlemen.",
+            "2 Introduce yourself: Let me introduce myself. My name is ...",
+            "3 Topic: The subject of my presentation is ...",
+            "4 Outline: My talk is divided into three parts. Firstly, ... Secondly, ... and thirdly, ...",
+            "5 Part 1: Let me start by telling you about ...",
+            "6 Part 2: Now I'll move on to the second part.",
+            "7 Part 3: This brings me to my final point.",
+            "8 Summarise: So, to summarise, ...",
+            "9 Thank: Thank you all for listening.",
+            "10 Questions: If you have any questions, I'd be happy to answer them now."
+          ],
+          "tag": "Blatt 'Giving a presentation'"
+        },
+        {
+          "h": "Describe a visual",
+          "p": [
+            "State the type (photo, cartoon, ...) and say what you can see in one sentence.",
+            "Give the setting (time and place) in the simple present.",
+            "Describe in detail: people, objects, foreground, background.",
+            "Use the present progressive for actions."
+          ],
+          "tag": "Checkliste, Description"
+        },
+        {
+          "h": "Analyse and evaluate",
+          "p": [
+            "Analyse: look at people, symbols, texts (who speaks to whom?), the source and context.",
+            "State the message and the addressee, give reasons.",
+            "Evaluate: give your opinion with reasons, refer to your own experience.",
+            "Comment on effectiveness: importance, comprehensibility, humour, appeal."
+          ],
+          "tag": "Checkliste, Analysis und Evaluation"
+        },
+        {
+          "h": "Working with charts",
+          "p": [
+            "Type, theme (title), numbers, units, categories, time frame, x- and y-axis, source.",
+            "Focus on maximum and minimum points and trends. You might compare two charts.",
+            "Consider the author's intention and the importance of the data.",
+            "Short conclusion: It can be seen from the chart that ..."
+          ],
+          "tag": "Checkliste, Charts"
+        },
+        {
+          "h": "Asking questions",
+          "p": [
+            "I didn't quite understand why ...",
+            "Would you tell us a little bit more about ...",
+            "What exactly do you mean by ...",
+            "Could you explain how to ...",
+            "Do you happen to know how ...",
+            "I was wondering whether you could tell us ..."
+          ],
+          "tag": "Blatt 'Asking questions'"
+        },
+        {
+          "h": "Dealing with questions",
+          "p": [
+            "Don't know: I'm afraid I don't have the answer to that.",
+            "Repeat: You'll remember I said earlier that ...",
+            "Ask for repetition: Sorry, I didn't catch your question.",
+            "Ask back: That's an interesting question. Could I ask you what you think?",
+            "Other words: To put it another way, ...",
+            "Thinking time: I'm glad you asked me that question."
+          ],
+          "tag": "Blatt 'Dealing with questions'"
+        }
+      ]
+    },
+    {
+      "t": "all",
+      "name": "Roter Faden",
+      "cards": [
+        {
+          "h": "Roter Faden",
+          "p": [
+            "Trade, power and memory connect the Indian Ocean, colonialism and postcolonial societies."
+          ],
+          "big": true,
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
+          "h": "The story in five steps",
+          "p": [
+            "Indian Ocean trade existed before Europeans, driven by the monsoon.",
+            "Europeans entered it with trading companies and colonies.",
+            "Slavery ended and indentured labour supplied cheap workers.",
+            "Colonial rule shaped language, systems and inequality, for example in India.",
+            "Memory and postcolonialism ask how we remember this past and what it did to people."
+          ],
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
+          "h": "In the exam",
+          "p": [
+            "Structure: greet, introduce, topic, outline, three parts, summary, thanks, questions.",
+            "With a visual: describe, analyse, evaluate.",
+            "Always give your opinion with reasons."
+          ]
+        }
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "t": "ocean",
+      "q": "What drove sailing ships across the Indian Ocean?",
+      "a": "The seasonal monsoon winds",
+      "falsch": [
+        "Steam engines",
+        "Canals through Africa",
+        "Strong ocean currents only"
+      ],
+      "e": "Sailors used the monsoon, which changes direction with the seasons."
+    },
+    {
+      "t": "ocean",
+      "q": "Which was a typical Indian Ocean trade good?",
+      "a": "Spices",
+      "falsch": [
+        "Petrol",
+        "Steel",
+        "Cars"
+      ],
+      "e": "Spices, textiles, gold, ivory and pearls were traded."
+    },
+    {
+      "t": "ocean",
+      "q": "Who took part in Indian Ocean trade before the Europeans came?",
+      "a": "Merchants from Africa, Arabia, India and Southeast Asia",
+      "falsch": [
+        "Only Portuguese merchants",
+        "Only British companies",
+        "Only North American colonists"
+      ],
+      "e": "The network existed long before Europeans entered it."
+    },
+    {
+      "t": "ocean",
+      "q": "Which British company is named in the book for trade with India?",
+      "a": "The East India Company",
+      "falsch": [
+        "The Royal African Company",
+        "The Bank of England",
+        "The Virginia Company"
+      ],
+      "e": "The Royal African Company is named for the slave trade."
+    },
+    {
+      "t": "indent",
+      "q": "What is an indentured labourer?",
+      "a": "A worker bound by a contract for a fixed time",
+      "falsch": [
+        "A free worker who picks a new employer every day",
+        "A slave owned for life",
+        "A soldier of a trading company"
+      ],
+      "e": "The contract (indenture) tied the worker to the employer for several years."
+    },
+    {
+      "t": "indent",
+      "q": "Why were indentured labourers needed after slavery ended?",
+      "a": "Plantations still needed cheap workers",
+      "falsch": [
+        "Plantations had been closed",
+        "Machines had replaced all work",
+        "Owners wanted to pay high wages"
+      ],
+      "e": "Sugar, cotton and tobacco plantations still made big profits."
+    },
+    {
+      "t": "indent",
+      "q": "When was the British slave trade abolished?",
+      "a": "1807",
+      "falsch": [
+        "1776",
+        "1857",
+        "1920"
+      ],
+      "e": "Slavery itself continued in the Empire until 1834 and in the US until 1865."
+    },
+    {
+      "t": "indent",
+      "q": "When did slavery itself end in the British Empire?",
+      "a": "1834",
+      "falsch": [
+        "1807",
+        "1865",
+        "1920"
+      ],
+      "e": "1807 ended the trade, 1834 slavery. In the US slavery ended in 1865."
+    },
+    {
+      "t": "indent",
+      "q": "Where were Indian indentured labourers sent?",
+      "a": "To plantations, for example in Mauritius, Fiji or the Caribbean",
+      "falsch": [
+        "Only to factories in Britain",
+        "Only to Canadian fur posts",
+        "Only to Australian prison colonies"
+      ],
+      "e": "They were shipped across the empire where cheap workers were needed."
+    },
+    {
+      "t": "indent",
+      "q": "What is a long-term result of indentured labour?",
+      "a": "Large communities of Indian descent abroad",
+      "falsch": [
+        "The end of all plantations",
+        "A single global language",
+        "The end of trade in the Indian Ocean"
+      ],
+      "e": "This is often called the Indian diaspora."
+    },
+    {
+      "t": "memory",
+      "q": "What does 'memory' mean here?",
+      "a": "How a society remembers and talks about its past",
+      "falsch": [
+        "A computer's storage",
+        "A student's vocabulary list",
+        "Only the official school curriculum"
+      ],
+      "e": "Memory includes museums, stories, food, music and debates."
+    },
+    {
+      "t": "memory",
+      "q": "Which question fits memory analysis best?",
+      "a": "Whose story is told and whose is missing?",
+      "falsch": [
+        "How many ships were built?",
+        "Which currency was used?",
+        "What was the weather like?"
+      ],
+      "e": "Memory is about perspective and about what is left out."
+    },
+    {
+      "t": "memory",
+      "q": "What is Aapravasi Ghat?",
+      "a": "A site in Mauritius where indentured labourers arrived",
+      "falsch": [
+        "A slave fort in Ghana",
+        "A spice port in India",
+        "A museum in London"
+      ],
+      "e": "It is a memorial site for indentured labour."
+    },
+    {
+      "t": "kolonial",
+      "q": "Modern European colonial history began with ...",
+      "a": "the discovery of the Americas in 1492",
+      "falsch": [
+        "the Spanish Armada in 1588",
+        "the Indian Mutiny in 1857",
+        "the British Empire in 1920"
+      ],
+      "e": "Then Europeans raced for claims in the 'New World'."
+    },
+    {
+      "t": "kolonial",
+      "q": "What happened in 1588?",
+      "a": "Britain defeated the Spanish Armada",
+      "falsch": [
+        "The American Declaration of Independence",
+        "Queen Victoria became Empress of India",
+        "Slavery ended in the Empire"
+      ],
+      "e": "After that British power at sea increased steadily."
+    },
+    {
+      "t": "kolonial",
+      "q": "What led to the Declaration of Independence in 1776?",
+      "a": "A rebellion over a tea tax",
+      "falsch": [
+        "The Indian Mutiny",
+        "The end of the slave trade",
+        "The discovery of Australia"
+      ],
+      "e": "The thirteen colonies later became the USA."
+    },
+    {
+      "t": "kolonial",
+      "q": "Who 'discovered' Australia in 1770?",
+      "a": "Captain James Cook",
+      "falsch": [
+        "Christopher Columbus",
+        "Queen Victoria",
+        "Vasco da Gama"
+      ],
+      "e": "The first colonies in Australia were prison colonies."
+    },
+    {
+      "t": "kolonial",
+      "q": "What title did Queen Victoria receive in 1876?",
+      "a": "Empress of India",
+      "falsch": [
+        "Queen of Africa",
+        "Governor of Australia",
+        "Lady of the Empire"
+      ],
+      "e": "The British parliament named her so."
+    },
+    {
+      "t": "kolonial",
+      "q": "How much of the Earth's land did the Empire cover in 1920?",
+      "a": "A quarter",
+      "falsch": [
+        "A tenth",
+        "Half",
+        "Two thirds"
+      ],
+      "e": "It ran from Canada to Australia and from Egypt to South Africa."
+    },
+    {
+      "t": "kolonial",
+      "q": "What was a lasting effect of British rule in its colonies?",
+      "a": "English became the official language and systems followed the British model",
+      "falsch": [
+        "All colonies kept their old systems",
+        "Every colony became a republic at once",
+        "Local languages were made official everywhere"
+      ],
+      "e": "Education, law, politics and transport were shaped by Britain."
+    },
+    {
+      "t": "kolonial",
+      "q": "What did slaves from West Africa do in the colonies?",
+      "a": "Worked on sugar, cotton, tobacco and cocoa plantations",
+      "falsch": [
+        "Ran trading companies",
+        "Served in the British parliament",
+        "Built the Spanish Armada"
+      ],
+      "e": "Their products were brought back to Britain."
+    },
+    {
+      "t": "post",
+      "q": "Who are the Dalits?",
+      "a": "People outside the caste system, once called 'untouchables'",
+      "falsch": [
+        "The top caste of priests",
+        "The warrior caste",
+        "The merchant caste"
+      ],
+      "e": "Brahmins are priests, Kshatriyas warriors, Vaishyas traders, Shudras labourers."
+    },
+    {
+      "t": "post",
+      "q": "Which caste group is at the top of the system?",
+      "a": "Brahmins",
+      "falsch": [
+        "Shudras",
+        "Vaishyas",
+        "Dalits"
+      ],
+      "e": "They are traditionally priests and scholars."
+    },
+    {
+      "t": "post",
+      "q": "Why did protesters tear down English billboards in Bengaluru?",
+      "a": "They wanted signs in the local language, Kannada",
+      "falsch": [
+        "They wanted Hindi signs",
+        "They wanted fewer advertisements",
+        "They wanted Tamil signs"
+      ],
+      "e": "A law should make 60% of each sign Kannada."
+    },
+    {
+      "t": "post",
+      "q": "How many languages does India have according to the BBC article?",
+      "a": "More than 300",
+      "falsch": [
+        "About 20",
+        "About 50",
+        "Exactly 2"
+      ],
+      "e": "States were formed along language lines after independence."
+    },
+    {
+      "t": "post",
+      "q": "What fear lies behind the 'Kannada first' demand?",
+      "a": "Locals fear becoming a minority and losing jobs",
+      "falsch": [
+        "Fear of losing the monsoon",
+        "Fear of a new war",
+        "Fear of higher taxes"
+      ],
+      "e": "Four out of ten people in Bengaluru come from outside the city."
+    },
+    {
+      "t": "post",
+      "q": "What is Boodia-Canoo's key question?",
+      "a": "What did British rule do to them?",
+      "falsch": [
+        "What did British rule do for India?",
+        "Why did Britain leave India?",
+        "How many colonies did Britain have?"
+      ],
+      "e": "She says the benefits question is like asking how abuse survivors benefit from their abusers."
+    },
+    {
+      "t": "post",
+      "q": "How does the video link colonialism and diabetes?",
+      "a": "Famine adaptation raised the risk of diabetes in south Asians",
+      "falsch": [
+        "Colonial food was too sweet",
+        "Doctors spread the disease",
+        "Diabetes came with the railway"
+      ],
+      "e": "Bodies adapted to starvation store sugar as fat, the risk passes to children."
+    },
+    {
+      "t": "post",
+      "q": "How many anti-Dalit crimes were registered between 2018 and 2020?",
+      "a": "Over 130,000",
+      "falsch": [
+        "About 1,300",
+        "About 13,000",
+        "About 3 million"
+      ],
+      "e": "The highest number was reported from Uttar Pradesh."
+    },
+    {
+      "t": "sprache",
+      "q": "Which phrase opens a presentation?",
+      "a": "Good afternoon, ladies and gentlemen.",
+      "falsch": [
+        "So, to summarise, ...",
+        "If you have any questions, ...",
+        "This brings me to my final point."
+      ],
+      "e": "Step 1 is to greet the audience."
+    },
+    {
+      "t": "sprache",
+      "q": "Which phrase outlines the structure?",
+      "a": "My talk is divided into three parts.",
+      "falsch": [
+        "Thank you all for listening.",
+        "Sorry, I didn't catch your question.",
+        "To put it another way, ..."
+      ],
+      "e": "Outline comes after the topic."
+    },
+    {
+      "t": "sprache",
+      "q": "Which phrase starts the ending?",
+      "a": "So, to summarise, ...",
+      "falsch": [
+        "Let me start by telling you about ...",
+        "Now I'll move on to the second part.",
+        "Let me introduce myself."
+      ],
+      "e": "Then thank the audience and invite questions."
+    },
+    {
+      "t": "sprache",
+      "q": "What do you say if you don't know the answer?",
+      "a": "I'm afraid I don't have the answer to that.",
+      "falsch": [
+        "Sorry, I didn't catch your question.",
+        "To put it another way, ...",
+        "I'm glad you asked me that question."
+      ],
+      "e": "The other phrases ask for repetition, rephrase or buy time."
+    },
+    {
+      "t": "sprache",
+      "q": "How do you ask someone to repeat a question?",
+      "a": "Sorry, I didn't catch your question.",
+      "falsch": [
+        "That's an interesting question.",
+        "You'll remember I said earlier that ...",
+        "To put it another way, ..."
+      ],
+      "e": "You can also ask: Did you say 'when' or 'where'?"
+    },
+    {
+      "t": "sprache",
+      "q": "What is the first point when describing a visual?",
+      "a": "State the type of visual and say what you can see in one sentence",
+      "falsch": [
+        "Give your personal opinion",
+        "State the message and the addressee",
+        "Name the source in a footnote"
+      ],
+      "e": "Description comes first, then analysis, then evaluation."
+    },
+    {
+      "t": "sprache",
+      "q": "Which tenses do you use to describe a visual?",
+      "a": "Simple present for the setting, present progressive for actions",
+      "falsch": [
+        "Simple past for everything",
+        "Future tense for actions",
+        "Present perfect for the setting"
+      ],
+      "e": "Example: The photo shows a street. People are walking."
+    },
+    {
+      "t": "sprache",
+      "q": "How can you end a chart description?",
+      "a": "It can be seen from the chart that ...",
+      "falsch": [
+        "Once upon a time ...",
+        "I hope you liked my picture.",
+        "This chart is boring."
+      ],
+      "e": "Add a short conclusion after naming maximum, minimum and trends."
+    },
+    {
+      "t": "sprache",
+      "q": "What is a good tip for the oral exam?",
+      "a": "Use prompt cards with key words instead of reading a script",
+      "falsch": [
+        "Read your whole text aloud",
+        "Speak as fast as possible",
+        "Avoid looking at the audience"
+      ],
+      "e": "Speak slowly, clearly and naturally."
+    }
+  ],
+  "ketten": [
+    {
+      "t": "ocean",
+      "titel": "Indian Ocean Trade",
+      "merk": "Monsoon, trade, mixing of cultures, then Europeans take over routes. Ergänzt, nicht aus deinem Material.",
+      "schritte": [
+        "Seasonal monsoon winds blow",
+        "Sailors use the winds to cross the ocean",
+        "Ports grow along the coasts",
+        "Goods, ideas and religions are exchanged",
+        "Merchants settle and cultures mix",
+        "Europeans arrive and want a share",
+        "Trading companies take control of routes"
+      ]
+    },
+    {
+      "t": "indent",
+      "titel": "Indentured Labour",
+      "merk": "No slaves, but plantations still need cheap workers, so contracts replace chains. Teils ergänzt.",
+      "schritte": [
+        "Slave trade abolished (1807), slavery ends (1834)",
+        "Plantations lose their workers",
+        "Owners look for cheap labour",
+        "Workers in India sign contracts",
+        "They are shipped overseas",
+        "They work on plantations in hard conditions",
+        "Many stay and their descendants build communities"
+      ]
+    },
+    {
+      "t": "kolonial",
+      "titel": "Colonialism",
+      "merk": "Trade profit leads to colonies, plantations, slavery and a worldwide empire with lasting effects.",
+      "schritte": [
+        "Europeans want trade profits",
+        "Companies found trading posts and colonies",
+        "Plantations need workers",
+        "The slave trade supplies workers",
+        "The Empire grows (1920: a quarter of the land)",
+        "English and British systems are imposed",
+        "Postcolonial societies still feel the legacy"
+      ]
+    },
+    {
+      "t": "sprache",
+      "titel": "Presentation structure",
+      "merk": "Greet, introduce, topic and outline, main part, summarise, thank, invite questions.",
+      "schritte": [
+        "Greet the audience",
+        "Introduce yourself",
+        "State the topic and outline the structure",
+        "Give the three parts of the main section",
+        "Summarise",
+        "Thank the audience",
+        "Invite questions"
+      ]
+    }
+  ],
+  "karten": [
+    {
+      "begriff": "Monsoon",
+      "erklaerung": "Seasonal wind that changes direction and drove sailing ships across the Indian Ocean.",
+      "t": "ocean",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Dhow",
+      "erklaerung": "Traditional wooden sailing ship of the Indian Ocean.",
+      "t": "ocean",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "East India Company",
+      "erklaerung": "British private trading company, established trade in India (Buch S. 116).",
+      "t": "kolonial",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Colonialism",
+      "erklaerung": "One country takes control of other lands and peoples, mainly for profit.",
+      "t": "kolonial",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Plantation",
+      "erklaerung": "Large farm for cash crops like sugar, cotton, tobacco and cocoa, worked by slaves or labourers.",
+      "t": "kolonial",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Slave trade",
+      "erklaerung": "Capture and sale of people. British slave trade abolished 1807, slavery in the Empire 1834.",
+      "t": "kolonial",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Indian Mutiny (1857)",
+      "erklaerung": "Rebellion in the north of India, put down with British troops.",
+      "t": "kolonial",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Indentured labourer",
+      "erklaerung": "Worker bound by a contract for a fixed time, often in hard conditions.",
+      "t": "indent",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Indenture contract",
+      "erklaerung": "Agreement to work for years in return for the journey and a small wage.",
+      "t": "indent",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Diaspora",
+      "erklaerung": "People who live outside their original homeland, for example people of Indian descent abroad.",
+      "t": "indent",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Creole",
+      "erklaerung": "Language or culture that grew from a mix of several peoples, often in colonial places.",
+      "t": "memory",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Aapravasi Ghat",
+      "erklaerung": "Site in Mauritius where indentured labourers arrived, today a memorial.",
+      "t": "memory",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Cultural memory",
+      "erklaerung": "How a society remembers its past through museums, stories, food and music.",
+      "t": "memory",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Postcolonialism",
+      "erklaerung": "Looks at how colonial rule still shapes societies after independence.",
+      "t": "post",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Legacy",
+      "erklaerung": "What remains from the past, for example language, laws or inequality.",
+      "t": "post",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Caste system",
+      "erklaerung": "Traditional hierarchy: Brahmins, Kshatriyas, Vaishyas, Shudras. Dalits are outside it.",
+      "t": "post",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Dalit",
+      "erklaerung": "Person outside the caste system, previously called 'untouchable'.",
+      "t": "post",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Atrocity",
+      "erklaerung": "Shockingly or extremely bad act. Caste atrocities against Dalits are a crime in India.",
+      "t": "post",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Kannada",
+      "erklaerung": "Local language of Karnataka, spoken in Bengaluru.",
+      "t": "post",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Could you lend me ten euros?",
+      "erklaerung": "Sorry, I'm afraid I can't.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "What's the matter?",
+      "erklaerung": "Oh, nothing.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Thanks for the invitation.",
+      "erklaerung": "It's a pleasure.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Sorry I'm late.",
+      "erklaerung": "It doesn't matter.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Jane sends her regards.",
+      "erklaerung": "That's kind of her!",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "I failed the History exam.",
+      "erklaerung": "Never mind.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "I came top in Maths this term.",
+      "erklaerung": "Congratulations!",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Right then, I'm off.",
+      "erklaerung": "Okay, bye!",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "I've got a terrible toothache.",
+      "erklaerung": "Poor you!",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "James Cook",
+      "erklaerung": "Captain who 'discovered' Australia in 1770.",
+      "t": "kolonial",
+      "typ": "person"
+    },
+    {
+      "begriff": "Queen Victoria",
+      "erklaerung": "Named 'Empress of India' by the British parliament in 1876.",
+      "t": "kolonial",
+      "typ": "person"
+    },
+    {
+      "begriff": "Vasco da Gama",
+      "erklaerung": "Portuguese sailor who reached India by sea in 1498.",
+      "t": "ocean",
+      "typ": "person"
+    },
+    {
+      "begriff": "Nandini Boodia-Canoo",
+      "erklaerung": "Author of the quote: The question is what British rule did to them.",
+      "t": "post",
+      "typ": "person"
+    }
+  ],
+  "klausur": [
+    {
+      "t": "kolonial",
+      "op": "Describe",
+      "q": "Describe the map 'The British Empire in 1920' (Buch S. 116) as you would at the start of an oral exam.",
+      "punkte": [
+        "Type: a map, theme: the British Empire in 1920",
+        "Green areas show the Empire, the rest is grey",
+        "Large areas: Canada, India, Australia, parts of Africa and the Middle East",
+        "Source: textbook, 'A brief history of (post)colonial times'",
+        "Message: the Empire had a huge reach, a quarter of the Earth's land mass"
+      ]
+    },
+    {
+      "t": "indent",
+      "op": "Explain",
+      "q": "Explain what indentured labour was and why it was introduced.",
+      "punkte": [
+        "Workers signed a contract for a fixed time, often five years",
+        "Slavery had ended (trade 1807, slavery 1834)",
+        "Plantations still needed cheap workers",
+        "Workers were recruited in India and shipped overseas",
+        "Conditions were often hard"
+      ]
+    },
+    {
+      "t": "ocean",
+      "op": "Explain",
+      "q": "Explain why the Indian Ocean was important for trade.",
+      "punkte": [
+        "Monsoon winds allowed regular sailing",
+        "Many regions were connected: Africa, Arabia, India, Southeast Asia",
+        "Spices, textiles, gold, ivory were traded",
+        "Religions, languages and food spread",
+        "Europeans later wanted to control the routes"
+      ]
+    },
+    {
+      "t": "indent",
+      "op": "Compare",
+      "q": "Compare slavery and indentured labour.",
+      "punkte": [
+        "Similarity: cheap labour on plantations, hard conditions",
+        "Difference: indentured labourers signed contracts for a fixed time",
+        "Slaves were owned and had no end date",
+        "Both are linked to colonial profit",
+        "Conclusion with your own judgement"
+      ]
+    },
+    {
+      "t": "memory",
+      "op": "Explain",
+      "q": "Explain what 'Indian Ocean memory' means and give an example.",
+      "punkte": [
+        "Memory means how a society remembers its past",
+        "Topics: trade, slavery, indentured labour",
+        "Example: Aapravasi Ghat memorial in Mauritius, or food, music, Creole languages",
+        "Whose story is told, whose is missing"
+      ]
+    },
+    {
+      "t": "post",
+      "op": "Analyse",
+      "q": "Analyse how the colonial past still shapes India today. Use the language debate in Bengaluru or the caste system.",
+      "punkte": [
+        "English as colonial language still plays a role (jobs, IT, Bengaluru)",
+        "Kannada protesters want local language on signs (60% law)",
+        "Over 300 languages, tension between regions and migrants",
+        "Caste: untouchability is abolished, but atrocities against Dalits continue",
+        "Link to colonial legacy and your own conclusion"
+      ]
+    },
+    {
+      "t": "post",
+      "op": "Evaluate",
+      "q": "'The question is what British rule did to them.' Evaluate this statement by Boodia-Canoo.",
+      "punkte": [
+        "She rejects asking what British rule did for India",
+        "Comparison: survivors of abuse and their abusers",
+        "Harm and loss cannot be measured exactly, but are real",
+        "Argument against: some effects like English or railways had benefits",
+        "Own opinion with reasons"
+      ]
+    },
+    {
+      "t": "kolonial",
+      "op": "Discuss",
+      "q": "Discuss whether former colonial powers should deal more with their colonial past, for example in schools and museums.",
+      "punkte": [
+        "Pro: truth, respect for victims, understanding of today's inequality",
+        "Pro: memory shapes identity",
+        "Contra: guilt of people today, focus on the future",
+        "Contra: complicated history, risk of one-sided views",
+        "Conclusion with your own opinion"
+      ]
+    },
+    {
+      "t": "all",
+      "op": "Describe",
+      "q": "Give a short talk (about two minutes) on colonialism, using the ten-step structure.",
+      "punkte": [
+        "Greeting and introduction",
+        "Topic and outline in three parts",
+        "Part 1: early colonies and trade",
+        "Part 2: slave trade, plantations and indentured labour",
+        "Part 3: legacy today",
+        "Summary, thanks, invite questions"
+      ]
+    },
+    {
+      "t": "kolonial",
+      "op": "Explain",
+      "q": "Explain how English became so important in the former colonies.",
+      "punkte": [
+        "Britain believed in the dominance of Western civilisation",
+        "English was made the official language",
+        "Education, law, politics, economy and transport followed the British model",
+        "Today English still matters for jobs and business"
+      ]
+    },
+    {
+      "t": "sprache",
+      "op": "Evaluate",
+      "q": "You get a cartoon about colonialism. Evaluate how effective it is.",
+      "punkte": [
+        "State type, setting and what you see",
+        "Analyse symbols, text, source and message",
+        "Name the addressee",
+        "Comment on importance, comprehensibility, humour, appeal",
+        "Give your own opinion with reasons"
+      ]
+    }
+  ],
+  "operatoren": [
+    {
+      "name": "Describe",
+      "afb": "I",
+      "text": "Present the facts in an organised way."
+    },
+    {
+      "name": "Explain",
+      "afb": "II",
+      "text": "Make a topic clear with reasons and examples."
+    },
+    {
+      "name": "Analyse",
+      "afb": "II",
+      "text": "Break a topic down and show how the parts connect."
+    },
+    {
+      "name": "Compare",
+      "afb": "II",
+      "text": "Show similarities and differences."
+    },
+    {
+      "name": "Evaluate",
+      "afb": "III",
+      "text": "Weigh arguments and give your own judgement with reasons."
+    },
+    {
+      "name": "Discuss",
+      "afb": "III",
+      "text": "Weigh pro and contra and reach a conclusion."
+    }
   ]
 }
