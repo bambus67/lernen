@@ -3,7 +3,7 @@
   "fach": "Englisch",
   "titel": "Kommunikationsprüfung",
   "datum": "2026-10-27",
-  "beschreibung": "Indian Ocean, Indentured Labour, Colonialism, Postcolonialism und Sprachtraining.",
+  "beschreibung": "Indian Ocean, Kolonialismus, Indentured Labour, Postkolonialismus (England/Indien) und Sprachtraining.",
   "farben": [
     "#B3261E",
     "#7A1A14"
@@ -57,6 +57,25 @@
           "tag": "Ergänzt, steht nicht in deinem Material"
         },
         {
+          "h": "Europe vs Indian Ocean, 500 to 1500",
+          "p": [
+            "Europe: many small kingdoms, land and farming were central, the Church was powerful.",
+            "Indian Ocean: busy trade network with rich port cities and merchant cultures.",
+            "Islam and trade languages spread along the trade routes.",
+            "So the Indian Ocean region was often wealthier and more connected than Europe."
+          ],
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
+          "h": "Reasons and effects",
+          "p": [
+            "Reasons: the monsoon, high demand for goods like spices and textiles, good ports, shared trade languages.",
+            "Effects: wealthy port cities, cultural and religious mixing, new languages like Swahili.",
+            "Later effect: Europeans wanted to control this profitable trade."
+          ],
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
           "h": "Why it still matters",
           "p": [
             "Trade also spread religions, languages and food between coasts.",
@@ -98,11 +117,29 @@
           "tag": "Ergänzt, steht nicht in deinem Material"
         },
         {
+          "h": "Example: Mauritius",
+          "p": [
+            "Mauritius had sugar plantations that needed many workers.",
+            "Indian indentured labourers arrived there, for example at Aapravasi Ghat.",
+            "Many other places also received such workers, you don't need to know which."
+          ],
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
           "h": "Consequences",
           "p": [
             "Descendants stayed and built communities abroad (the Indian diaspora).",
             "Languages, food, festivals and religion spread to new places.",
             "The system ended in the early 20th century."
+          ],
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
+          "h": "The system: reasons and consequences",
+          "p": [
+            "Reasons: slavery was abolished, plantations still needed cheap, controllable workers, poverty in India pushed people to sign.",
+            "Consequences for workers: low pay, hard work, little freedom, often a 'new form of slavery'.",
+            "Consequences for societies: new communities, mixed cultures, diaspora."
           ],
           "tag": "Ergänzt, steht nicht in deinem Material"
         }
@@ -164,6 +201,36 @@
           "tag": "Buch S. 116"
         },
         {
+          "h": "Who colonised what",
+          "p": [
+            "Britain: India, Australia, parts of Africa.",
+            "France: Algeria, West Africa. Belgium: Congo.",
+            "Portugal: Brazil, Angola, Mozambique. Spain: large parts of Latin America.",
+            "Germany: colonies in Africa, for example Namibia and Tanzania."
+          ],
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
+          "h": "Reasons for colonisation",
+          "p": [
+            "Economic: raw materials, new markets, huge trading profits (Buch S. 116).",
+            "Political: power and prestige, competition between European states.",
+            "Ideas: belief in Western superiority and a 'civilising mission' (Buch S. 116).",
+            "Strategic: bases and trade routes."
+          ],
+          "tag": "Teils ergänzt"
+        },
+        {
+          "h": "Effects of colonisation",
+          "p": [
+            "Exploitation of people and resources, slavery and forced labour.",
+            "Colonial languages and systems replaced or shaped local ones.",
+            "Borders drawn by Europeans, local cultures were pushed back.",
+            "Economic dependence on the colonial power."
+          ],
+          "tag": "Teils ergänzt"
+        },
+        {
           "h": "Slave trade and plantations",
           "p": [
             "Slaves captured in West Africa were shipped to the Caribbean and American colonies.",
@@ -182,6 +249,17 @@
             "Britain believed in the dominance of Western civilisation and in 'civilising' people."
           ],
           "tag": "Buch S. 116"
+        },
+        {
+          "h": "Example: India and England",
+          "p": [
+            "The East India Company traded in India and gained power.",
+            "1857: the Indian Mutiny was crushed with British troops.",
+            "1876: Queen Victoria became Empress of India.",
+            "English, law, education and transport followed the British model.",
+            "1947: India became independent."
+          ],
+          "tag": "Buch S. 116, 1947 aus S. 241"
         }
       ]
     },
@@ -234,6 +312,16 @@
             "She compares colonised people to survivors of abuse: loss is real, but nobody can measure it exactly."
           ],
           "tag": "Buch S. 240"
+        },
+        {
+          "h": "England and India after 1947",
+          "p": [
+            "India became independent in 1947.",
+            "English stayed important: official language, education, law, politics, jobs.",
+            "Social problems like caste discrimination remain, even if officially banned.",
+            "Debate: who benefited from colonialism, and what did it do to people?"
+          ],
+          "tag": "Teils ergänzt"
         }
       ]
     },
@@ -775,6 +863,127 @@
         "Avoid looking at the audience"
       ],
       "e": "Speak slowly, clearly and naturally."
+    },
+    {
+      "t": "ocean",
+      "q": "How did the Indian Ocean region compare to Europe between 500 and 1500?",
+      "a": "It was a busy, connected trade network with rich port cities",
+      "falsch": [
+        "It was an isolated region without trade",
+        "It was ruled by one European empire",
+        "It was poorer than Europe in every way"
+      ],
+      "e": "Europe was split into many kingdoms, the Indian Ocean was highly connected."
+    },
+    {
+      "t": "ocean",
+      "q": "Which is a reason for the rise of the Indian Ocean trade system?",
+      "a": "The monsoon and high demand for goods like spices",
+      "falsch": [
+        "The invention of the railway",
+        "Canals dug by Europeans",
+        "A single world government"
+      ],
+      "e": "Regular winds and demand for goods made long trade routes possible."
+    },
+    {
+      "t": "ocean",
+      "q": "Which is an effect of Indian Ocean trade on the region?",
+      "a": "Wealthy port cities and cultural and religious mixing",
+      "falsch": [
+        "The end of all languages but one",
+        "Complete isolation",
+        "A single ruler for the whole ocean"
+      ],
+      "e": "Islam and languages like Swahili spread along the coasts."
+    },
+    {
+      "t": "kolonial",
+      "q": "Which country colonised the Congo?",
+      "a": "Belgium",
+      "falsch": [
+        "Portugal",
+        "Germany",
+        "Spain"
+      ],
+      "e": "France took Algeria, Portugal Brazil and Angola, Spain much of Latin America."
+    },
+    {
+      "t": "kolonial",
+      "q": "Which is an economic reason for colonisation?",
+      "a": "Raw materials and new markets",
+      "falsch": [
+        "Wish to end trade",
+        "Fear of the monsoon",
+        "Desire to stop slavery"
+      ],
+      "e": "Trading profits attracted the European powers."
+    },
+    {
+      "t": "kolonial",
+      "q": "What was the 'civilising mission'?",
+      "a": "The belief that Western civilisation should be brought to 'wild peoples'",
+      "falsch": [
+        "A plan to build schools without any control",
+        "A trade agreement between companies",
+        "A programme to end slavery"
+      ],
+      "e": "It was used to justify colonial rule."
+    },
+    {
+      "t": "kolonial",
+      "q": "Which is an effect of colonisation?",
+      "a": "Exploitation, colonial languages and economic dependence",
+      "falsch": [
+        "Equal trade for all",
+        "Full independence for all colonies at once",
+        "The end of the plantations"
+      ],
+      "e": "Colonised societies were shaped by the colonial power."
+    },
+    {
+      "t": "kolonial",
+      "q": "When did India become independent?",
+      "a": "1947",
+      "falsch": [
+        "1857",
+        "1876",
+        "1920"
+      ],
+      "e": "1857 was the Mutiny, 1876 Victoria became Empress."
+    },
+    {
+      "t": "indent",
+      "q": "Which island is the main example for indentured labour in your class?",
+      "a": "Mauritius",
+      "falsch": [
+        "Iceland",
+        "Cuba",
+        "Ireland"
+      ],
+      "e": "Indian workers arrived there for the sugar plantations."
+    },
+    {
+      "t": "indent",
+      "q": "Why did people in India sign indenture contracts?",
+      "a": "Poverty pushed them to look for work and a better life",
+      "falsch": [
+        "They wanted to rule the plantations",
+        "They were forced by no one at all",
+        "They wanted to join the army"
+      ],
+      "e": "But many did not know how hard conditions would be."
+    },
+    {
+      "t": "post",
+      "q": "How does the English language still shape India?",
+      "a": "It remains important in education, law and jobs",
+      "falsch": [
+        "It is banned everywhere",
+        "It is spoken by nobody",
+        "It is only used on stamps"
+      ],
+      "e": "The Bengaluru debate shows the tension over English and local languages."
     }
   ],
   "ketten": [
@@ -832,6 +1041,20 @@
         "Summarise",
         "Thank the audience",
         "Invite questions"
+      ]
+    },
+    {
+      "t": "kolonial",
+      "titel": "England and India",
+      "merk": "Trade led to power, power to rule, rule to lasting effects.",
+      "schritte": [
+        "The East India Company trades in India",
+        "The company gains political and military power",
+        "The Indian Mutiny (1857) is crushed with British troops",
+        "Britain takes direct rule, Victoria becomes Empress (1876)",
+        "English and British systems are introduced",
+        "India becomes independent (1947)",
+        "English and inequality still shape India today"
       ]
     }
   ],
@@ -1159,6 +1382,42 @@
         "Name the addressee",
         "Comment on importance, comprehensibility, humour, appeal",
         "Give your own opinion with reasons"
+      ]
+    },
+    {
+      "t": "ocean",
+      "op": "Compare",
+      "q": "Compare the situation in Europe and the Indian Ocean region between 500 and 1500.",
+      "punkte": [
+        "Europe: small kingdoms, farming, powerful Church",
+        "Indian Ocean: busy trade, rich port cities",
+        "Trade spread religion and languages in the Indian Ocean",
+        "The Indian Ocean was often wealthier and more connected",
+        "Own conclusion"
+      ]
+    },
+    {
+      "t": "kolonial",
+      "op": "Explain",
+      "q": "Explain reasons for and effects of the colonisation of non-European countries by Europeans.",
+      "punkte": [
+        "Reasons: profit, raw materials, markets",
+        "Reasons: power, prestige, competition, belief in 'civilising'",
+        "Effects: exploitation, slavery, forced labour",
+        "Effects: colonial language and systems, borders, dependence",
+        "Example: India and England"
+      ]
+    },
+    {
+      "t": "indent",
+      "op": "Explain",
+      "q": "Explain the system of indentured labour with its reasons and consequences. Use Mauritius as an example.",
+      "punkte": [
+        "Reason: slavery abolished, plantations need cheap workers",
+        "Workers recruited with contracts, shipped overseas",
+        "Mauritius: sugar plantations, workers from India",
+        "Consequences: hard conditions, little freedom",
+        "Consequences: new communities, mixed cultures, diaspora"
       ]
     }
   ],
