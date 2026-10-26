@@ -469,6 +469,47 @@
             "Thinking time: I'm glad you asked me that question."
           ],
           "tag": "Blatt 'Dealing with questions'"
+        },
+        {
+          "h": "Discussion: add, disagree, agree",
+          "p": [
+            "Add something: Can I throw in my two cents?",
+            "Disagree politely: I beg to differ.",
+            "Show understanding: I see what you're trying to say.",
+            "Challenge: I get your point, but have you tried to view it from the perspective of ...?",
+            "Ask for opinion: What's your opinion on this issue?"
+          ],
+          "tag": "Tipp eines Mitschülers"
+        },
+        {
+          "h": "Make it a real conversation",
+          "p": [
+            "Agree with the other side when their arguments are good.",
+            "Oh, yeah, I haven't thought about it that way, nonetheless I believe it's more important to ...",
+            "Agree with your partner beforehand on how to structure the discussion.",
+            "End with a conclusion or a compromise."
+          ],
+          "tag": "Tipp eines Mitschülers"
+        },
+        {
+          "h": "Idioms for the discussion",
+          "p": [
+            "On the same page: agreeing with each other.",
+            "A double-edged sword: something with pros and cons.",
+            "More ideas: It's a win-win situation. / On the one hand ..., on the other hand ... / At the end of the day, ...",
+            "Use idioms only if you are sure how they work."
+          ],
+          "tag": "Die ersten zwei vom Mitschüler, Rest ergänzt"
+        },
+        {
+          "h": "Useful discussion phrases",
+          "p": [
+            "I'd say that ... / As far as I'm concerned, ...",
+            "That's a valid point, however, ...",
+            "Let's not forget that ...",
+            "To sum up, we both agree that ... / We agree to disagree on ..."
+          ],
+          "tag": "Ergänzt, steht nicht in deinem Material"
         }
       ]
     },
@@ -1155,6 +1196,61 @@
         "The First World War"
       ],
       "e": "It became part of the national psyche."
+    },
+    {
+      "t": "sprache",
+      "q": "Which phrase do you use to add something to the discussion?",
+      "a": "Can I throw in my two cents?",
+      "falsch": [
+        "I beg to differ.",
+        "On the same page.",
+        "Sorry, I didn't catch that."
+      ],
+      "e": "It means adding your opinion to the conversation."
+    },
+    {
+      "t": "sprache",
+      "q": "Which phrase politely shows you disagree?",
+      "a": "I beg to differ.",
+      "falsch": [
+        "I get your point, we are on the same page.",
+        "Can I throw in my two cents?",
+        "To sum up, ..."
+      ],
+      "e": "It sounds polite and formal."
+    },
+    {
+      "t": "sprache",
+      "q": "What does 'a double-edged sword' mean?",
+      "a": "Something with pros and cons",
+      "falsch": [
+        "Something very dangerous only",
+        "Something cheap",
+        "Something old"
+      ],
+      "e": "Example: Social media is a double-edged sword."
+    },
+    {
+      "t": "sprache",
+      "q": "What does 'we are on the same page' mean?",
+      "a": "We agree",
+      "falsch": [
+        "We are reading together",
+        "We are lost",
+        "We disagree"
+      ],
+      "e": "Useful when you want to show agreement."
+    },
+    {
+      "t": "sprache",
+      "q": "What makes a discussion sound like a real conversation?",
+      "a": "Agreeing with good points of your partner",
+      "falsch": [
+        "Never agreeing with anyone",
+        "Reading your notes aloud",
+        "Talking without breaks"
+      ],
+      "e": "Then a conclusion or compromise at the end sounds natural."
     }
   ],
   "ketten": [
@@ -1476,6 +1572,48 @@
       "erklaerung": "British historian, says the loss of the American colonies started nostalgia for the Empire.",
       "t": "empire",
       "typ": "person"
+    },
+    {
+      "begriff": "Can I throw in my two cents?",
+      "erklaerung": "Phrase to add your opinion to a discussion.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "I beg to differ.",
+      "erklaerung": "Polite way to disagree.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "I see what you're trying to say.",
+      "erklaerung": "Shows understanding before you give your own view.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "I get your point, but have you tried to view it from the perspective of ...?",
+      "erklaerung": "Challenge the other view politely.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "What's your opinion on this issue?",
+      "erklaerung": "Asks your partner for their view.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "On the same page",
+      "erklaerung": "Idiom: agreeing with each other.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "A double-edged sword",
+      "erklaerung": "Idiom: something with pros and cons.",
+      "t": "sprache",
+      "typ": "begriff"
     }
   ],
   "klausur": [
@@ -1682,6 +1820,19 @@
         "Perspective of the colonised, for example Boodia-Canoo",
         "Nostalgia versus critical memory",
         "Conclusion with your own opinion"
+      ]
+    },
+    {
+      "t": "sprache",
+      "op": "Discuss",
+      "q": "With a partner, discuss: 'Colonialism had only negative effects.' Aim for a conclusion at the end.",
+      "punkte": [
+        "Structure agreed with your partner",
+        "Own opinion with reasons and examples",
+        "Agree with good arguments of your partner",
+        "Polite disagreement (I beg to differ ...)",
+        "Use of at least one idiom",
+        "Final conclusion or compromise"
       ]
     }
   ],
