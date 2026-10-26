@@ -3,7 +3,7 @@
   "fach": "Englisch",
   "titel": "Kommunikationsprüfung",
   "datum": "2026-10-27",
-  "beschreibung": "Indian Ocean, Kolonialismus, Indentured Labour, Postkolonialismus (England/Indien) und Sprachtraining.",
+  "beschreibung": "Indian Ocean, Kolonialismus, British Empire und Legacy, Indentured Labour, Postkolonialismus und Sprachtraining.",
   "farben": [
     "#B3261E",
     "#7A1A14"
@@ -24,6 +24,10 @@
     {
       "id": "kolonial",
       "name": "Colonialism"
+    },
+    {
+      "id": "empire",
+      "name": "British Empire and Legacy"
     },
     {
       "id": "post",
@@ -260,6 +264,63 @@
             "1947: India became independent."
           ],
           "tag": "Buch S. 116, 1947 aus S. 241"
+        }
+      ]
+    },
+    {
+      "t": "empire",
+      "name": "British Empire and Legacy",
+      "cards": [
+        {
+          "h": "Merksatz",
+          "p": [
+            "The British Empire was seen as unbeatable around 1906, but it changed into the Commonwealth, and its legacy is still debated."
+          ],
+          "big": true,
+          "tag": "Aus deinem Buch, zusammengefasst"
+        },
+        {
+          "h": "Different views on the Empire",
+          "p": [
+            "Churchill: around 1906 Britain's power seemed secure and permanent, protected by the Royal Navy.",
+            "George VI: the Empire became a family of free nations, united by loyalty to the Crown.",
+            "Malcolm X: the huge Empire was challenged even by 13 small colonies tired of taxation without representation.",
+            "Olusoga: losing the American colonies started a nostalgic longing for lost wealth and influence.",
+            "Jamrozik: empire builders justified their actions with a belief in their own superiority."
+          ],
+          "tag": "Buch, Zitate sinngemäß"
+        },
+        {
+          "h": "George V and the changing Empire",
+          "p": [
+            "King and Emperor of India from 1910 to 1936.",
+            "His reign saw the rise of socialism, communism, fascism, Irish republicanism and the Indian independence movement.",
+            "After the First World War the Empire reached its greatest extent.",
+            "1917: the royal house was renamed Windsor because of anti-German feeling."
+          ],
+          "tag": "Buch, Info-Kasten"
+        },
+        {
+          "h": "The Commonwealth",
+          "p": [
+            "An organisation of 53 independent states, almost all former parts of the Empire.",
+            "The British monarch is its ceremonial head.",
+            "Secretariat founded in 1965, based in London (Marlborough House).",
+            "About 2.1 billion people, a third of the world, and about 20% of world trade.",
+            "Largest members: Canada, Australia, India.",
+            "Values: equality, peace, liberty, human rights, free trade (Singapore Declaration 1971, Harare Declaration 1991)."
+          ],
+          "tag": "Buch, Info-Kasten"
+        },
+        {
+          "h": "Legacy: pride or guilt?",
+          "p": [
+            "Some stress order, trade and the Commonwealth.",
+            "Others stress exploitation, slavery and racism.",
+            "Nostalgia for the Empire still plays a role in British debates.",
+            "Your own opinion with reasons is important."
+          ],
+          "tag": "Teils ergänzt, Debatte allgemein"
         }
       ]
     },
@@ -984,6 +1045,116 @@
         "It is only used on stamps"
       ],
       "e": "The Bengaluru debate shows the tension over English and local languages."
+    },
+    {
+      "t": "empire",
+      "q": "How many member states does the Commonwealth have according to your book?",
+      "a": "53",
+      "falsch": [
+        "13",
+        "28",
+        "120"
+      ],
+      "e": "All but three were formerly part of the British Empire."
+    },
+    {
+      "t": "empire",
+      "q": "Who is the ceremonial head of the Commonwealth?",
+      "a": "The British monarch",
+      "falsch": [
+        "The Prime Minister of India",
+        "The UN Secretary General",
+        "The Prime Minister of Canada"
+      ],
+      "e": "The position is ceremonial and representative."
+    },
+    {
+      "t": "empire",
+      "q": "Where is the Commonwealth Secretariat based?",
+      "a": "London, at Marlborough House",
+      "falsch": [
+        "Delhi",
+        "Sydney",
+        "Ottawa"
+      ],
+      "e": "It was established in 1965."
+    },
+    {
+      "t": "empire",
+      "q": "Which are the three largest Commonwealth members?",
+      "a": "Canada, Australia and India",
+      "falsch": [
+        "Nigeria, Kenya and Ghana",
+        "Canada, Jamaica and Fiji",
+        "South Africa, Malta and Cyprus"
+      ],
+      "e": "The Commonwealth covers all six inhabited continents."
+    },
+    {
+      "t": "empire",
+      "q": "About what share of the world's population lives in the Commonwealth?",
+      "a": "About one third",
+      "falsch": [
+        "About one tenth",
+        "About half",
+        "About two thirds"
+      ],
+      "e": "That is roughly 2.1 billion people."
+    },
+    {
+      "t": "empire",
+      "q": "When were the Commonwealth Games first held?",
+      "a": "1939 (since then every four years)",
+      "falsch": [
+        "1776",
+        "1917",
+        "1965"
+      ],
+      "e": "Sports include netball and rugby."
+    },
+    {
+      "t": "empire",
+      "q": "What happened to the British Empire after the First World War?",
+      "a": "It expanded to its greatest extent",
+      "falsch": [
+        "It collapsed immediately",
+        "It lost India",
+        "It became a republic"
+      ],
+      "e": "The empires of Russia and Germany fell, the British Empire grew."
+    },
+    {
+      "t": "empire",
+      "q": "Which royal house name was chosen in 1917?",
+      "a": "Windsor",
+      "falsch": [
+        "Tudor",
+        "Stuart",
+        "Hanover"
+      ],
+      "e": "It replaced Saxe-Coburg and Gotha because of anti-German feeling in WWI."
+    },
+    {
+      "t": "empire",
+      "q": "What does Jamrozik say about empire builders?",
+      "a": "They justified their actions by believing in their own superiority",
+      "falsch": [
+        "They always respected local cultures",
+        "They acted only out of charity",
+        "They wanted to end trade"
+      ],
+      "e": "He says that in the British Empire God was an Englishman."
+    },
+    {
+      "t": "empire",
+      "q": "What started the 'nostalgic yearning' for the Empire, according to Olusoga?",
+      "a": "The loss of the American colonies",
+      "falsch": [
+        "The Indian Mutiny",
+        "The end of the Cold War",
+        "The First World War"
+      ],
+      "e": "It became part of the national psyche."
     }
   ],
   "ketten": [
@@ -1055,6 +1226,19 @@
         "English and British systems are introduced",
         "India becomes independent (1947)",
         "English and inequality still shape India today"
+      ]
+    },
+    {
+      "t": "empire",
+      "titel": "Empire to Commonwealth",
+      "merk": "From unbeatable Empire to a family of free nations, with a debated legacy.",
+      "schritte": [
+        "Britain's Empire seems unbeatable (around 1906)",
+        "The First World War: the Empire reaches its greatest extent",
+        "Independence movements grow, for example in India",
+        "Colonies become independent states",
+        "Many join the Commonwealth",
+        "Debate: pride, nostalgia or guilt about the Empire"
       ]
     }
   ],
@@ -1250,6 +1434,48 @@
       "erklaerung": "Author of the quote: The question is what British rule did to them.",
       "t": "post",
       "typ": "person"
+    },
+    {
+      "begriff": "Commonwealth of Nations",
+      "erklaerung": "Organisation of 53 independent states, almost all former parts of the British Empire.",
+      "t": "empire",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Singapore Declaration (1971)",
+      "erklaerung": "Sets out values and goals of the Commonwealth, together with the Harare Declaration of 1991.",
+      "t": "empire",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Dominion",
+      "erklaerung": "Self-governing part of the Empire, for example Canada or Australia.",
+      "t": "empire",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Winston Churchill",
+      "erklaerung": "British prime minister, described the secure, powerful Empire around 1906.",
+      "t": "empire",
+      "typ": "person"
+    },
+    {
+      "begriff": "George V",
+      "erklaerung": "King and Emperor of India 1910 to 1936, renamed the royal house Windsor in 1917.",
+      "t": "empire",
+      "typ": "person"
+    },
+    {
+      "begriff": "Malcolm X",
+      "erklaerung": "African American activist, pointed out that even small colonies challenged the huge Empire.",
+      "t": "empire",
+      "typ": "person"
+    },
+    {
+      "begriff": "David Olusoga",
+      "erklaerung": "British historian, says the loss of the American colonies started nostalgia for the Empire.",
+      "t": "empire",
+      "typ": "person"
     }
   ],
   "klausur": [
@@ -1418,6 +1644,44 @@
         "Mauritius: sugar plantations, workers from India",
         "Consequences: hard conditions, little freedom",
         "Consequences: new communities, mixed cultures, diaspora"
+      ]
+    },
+    {
+      "t": "empire",
+      "op": "Describe",
+      "q": "Describe the Commonwealth of Nations (Buch, Info-Kasten).",
+      "punkte": [
+        "53 independent member states, almost all former parts of the Empire",
+        "British monarch is ceremonial head",
+        "Secretariat founded 1965, based in London",
+        "2.1 billion people, a third of the world, about 20% of world trade",
+        "Largest members: Canada, Australia, India",
+        "Values: equality, peace, liberty, human rights, free trade"
+      ]
+    },
+    {
+      "t": "empire",
+      "op": "Analyse",
+      "q": "Analyse the different views of the British Empire in the quotations by Churchill, George VI, Malcolm X, Olusoga and Jamrozik.",
+      "punkte": [
+        "Churchill: Empire secure and permanent, pride",
+        "George VI: free nations united by loyalty to the Crown",
+        "Malcolm X: critical view, oppression and resistance",
+        "Olusoga: nostalgia after losing colonies",
+        "Jamrozik: belief in superiority as a justification",
+        "Link the views to the speakers' backgrounds"
+      ]
+    },
+    {
+      "t": "empire",
+      "op": "Discuss",
+      "q": "Discuss whether Britain should be proud of its Empire.",
+      "punkte": [
+        "Pro: trade, Commonwealth, spread of English and institutions",
+        "Contra: slavery, exploitation, racism, violence (for example 1857)",
+        "Perspective of the colonised, for example Boodia-Canoo",
+        "Nostalgia versus critical memory",
+        "Conclusion with your own opinion"
       ]
     }
   ],
