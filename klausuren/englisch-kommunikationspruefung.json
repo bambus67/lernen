@@ -105,7 +105,7 @@
         {
           "h": "From slavery to indenture",
           "p": [
-            "The British slave trade was abolished in 1807, slavery in the British Empire in 1834 (Buch S. 116).",
+            "In 1807 Britain banned the slave trade, so it was no longer allowed to buy and ship enslaved people (Buch S. 116).",
             "Plantations (sugar, cotton, tobacco, cocoa) still needed cheap workers.",
             "So workers on contracts took the place of slaves."
           ],
@@ -239,7 +239,7 @@
           "p": [
             "Slaves captured in West Africa were shipped to the Caribbean and American colonies.",
             "They worked on sugar, cotton, tobacco and cocoa plantations.",
-            "Slave trade abolished 1807, slavery in the Empire until 1834, in the US until 1865."
+            "In 1807 Britain banned the slave trade. But people who were already enslaved stayed enslaved: slavery itself continued in the British Empire until 1834 and in the US until 1865."
           ],
           "tag": "Buch S. 116"
         },
@@ -634,7 +634,7 @@
         "1865",
         "1920"
       ],
-      "e": "1807 ended the trade, 1834 slavery. In the US slavery ended in 1865."
+      "e": "In 1807 the slave trade was banned. In 1834 slavery itself ended in the British Empire. In the US slavery ended in 1865."
     },
     {
       "t": "indent",
@@ -1273,7 +1273,7 @@
       "titel": "Indentured Labour",
       "merk": "No slaves, but plantations still need cheap workers, so contracts replace chains. Teils ergänzt.",
       "schritte": [
-        "Slave trade abolished (1807), slavery ends (1834)",
+        "Britain bans the slave trade (1807) and ends slavery itself (1834)",
         "Plantations lose their workers",
         "Owners look for cheap labour",
         "Workers in India sign contracts",
@@ -1371,7 +1371,7 @@
     },
     {
       "begriff": "Slave trade",
-      "erklaerung": "Capture and sale of people. British slave trade abolished 1807, slavery in the Empire 1834.",
+      "erklaerung": "Capture, sale and transport of people. Britain banned the slave trade in 1807 and ended slavery itself in its Empire in 1834.",
       "t": "kolonial",
       "typ": "begriff"
     },
@@ -1635,7 +1635,7 @@
       "q": "Explain what indentured labour was and why it was introduced.",
       "punkte": [
         "Workers signed a contract for a fixed time, often five years",
-        "Slavery had ended (trade 1807, slavery 1834)",
+        "Slavery had ended (the slave trade was banned in 1807, slavery itself in 1834)",
         "Plantations still needed cheap workers",
         "Workers were recruited in India and shipped overseas",
         "Conditions were often hard"
