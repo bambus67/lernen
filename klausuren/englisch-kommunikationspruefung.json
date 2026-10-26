@@ -264,6 +264,44 @@
             "1947: India became independent."
           ],
           "tag": "Buch S. 116, 1947 aus S. 241"
+        },
+        {
+          "h": "Key terms",
+          "p": [
+            "Colony: land ruled directly by another country.",
+            "Protectorate: land that keeps local rulers but is controlled by a stronger country.",
+            "Dominion: self-governing part of the Empire, for example Canada or Australia.",
+            "Imperialism: building and keeping an empire."
+          ],
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
+          "h": "Triangular trade",
+          "p": [
+            "Ships carried goods from Europe to Africa.",
+            "Enslaved people were shipped from Africa to the Americas.",
+            "Sugar, cotton and tobacco went from the Americas to Europe.",
+            "This made merchants and plantation owners very rich."
+          ],
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
+          "h": "Resistance and independence",
+          "p": [
+            "People resisted colonial rule, for example in the Indian Mutiny of 1857.",
+            "Later independence movements grew, in India led by figures like Gandhi using non-violent protest.",
+            "India became independent in 1947, many other colonies followed in the following decades."
+          ],
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
+          "h": "Arguments about colonialism",
+          "p": [
+            "Said to be positive: infrastructure like railways, trade, English as a shared language.",
+            "Negative: violence, exploitation, slavery, racism, borders drawn without asking locals.",
+            "Always say whose perspective you speak from: the coloniser or the colonised."
+          ],
+          "tag": "Ergänzt, steht nicht in deinem Material"
         }
       ]
     },
@@ -383,6 +421,34 @@
             "Debate: who benefited from colonialism, and what did it do to people?"
           ],
           "tag": "Teils ergänzt"
+        },
+        {
+          "h": "Economic dependence",
+          "p": [
+            "After independence many countries stayed economically dependent on former colonial powers.",
+            "Their economies were built around exports like cotton, tea or sugar.",
+            "Some call this neo-colonialism: influence without direct rule."
+          ],
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
+          "h": "Migration and identity",
+          "p": [
+            "After independence many people from former colonies moved to Britain.",
+            "Britain became a multicultural society.",
+            "People deal with questions of identity, racism and belonging."
+          ],
+          "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
+          "h": "Dealing with the past",
+          "p": [
+            "Debates about statues of colonial figures.",
+            "Museums are asked to return objects taken from colonies.",
+            "Schools teach more about colonial history.",
+            "Key question: how do we remember the past fairly?"
+          ],
+          "tag": "Ergänzt, steht nicht in deinem Material"
         }
       ]
     },
@@ -510,6 +576,18 @@
             "To sum up, we both agree that ... / We agree to disagree on ..."
           ],
           "tag": "Ergänzt, steht nicht in deinem Material"
+        },
+        {
+          "h": "Quick exchanges",
+          "p": [
+            "Hello, how are you? Fine thanks, and you?",
+            "Sorry I'm late. It doesn't matter.",
+            "Could you lend me ten euros? Sorry, I'm afraid I can't.",
+            "Thanks for the invitation. It's a pleasure.",
+            "I failed the exam. Never mind. / I came top. Congratulations!",
+            "Learn them by heart: cover the answers, then the prompts. More on the flashcards."
+          ],
+          "tag": "Blatt 'Making conversation', Antworten teils ergänzt"
         }
       ]
     },
@@ -1251,6 +1329,83 @@
         "Talking without breaks"
       ],
       "e": "Then a conclusion or compromise at the end sounds natural."
+    },
+    {
+      "t": "kolonial",
+      "q": "What is a colony?",
+      "a": "Land ruled directly by another country",
+      "falsch": [
+        "A free trading city",
+        "A group of independent states",
+        "A company's headquarters"
+      ],
+      "e": "A protectorate keeps local rulers, a dominion governs itself."
+    },
+    {
+      "t": "kolonial",
+      "q": "What was the triangular trade?",
+      "a": "Trade between Europe, Africa and the Americas, including enslaved people",
+      "falsch": [
+        "Trade between three European cities",
+        "Trade only in spices",
+        "A trade deal between India, China and Japan"
+      ],
+      "e": "Plantation products went back to Europe."
+    },
+    {
+      "t": "kolonial",
+      "q": "Who is a well-known leader of India's non-violent independence movement?",
+      "a": "Gandhi",
+      "falsch": [
+        "Churchill",
+        "James Cook",
+        "Queen Victoria"
+      ],
+      "e": "India became independent in 1947."
+    },
+    {
+      "t": "kolonial",
+      "q": "Which argument is often used against colonialism?",
+      "a": "Exploitation and violence against local people",
+      "falsch": [
+        "It improved every colony equally",
+        "It only brought peace",
+        "It ended trade"
+      ],
+      "e": "Always say whose perspective you speak from."
+    },
+    {
+      "t": "post",
+      "q": "What is neo-colonialism?",
+      "a": "Influence over a country without direct rule, often economic",
+      "falsch": [
+        "A new empire with new colonies",
+        "A religious movement",
+        "The end of all trade"
+      ],
+      "e": "Dependence on exports and former colonial powers is an example."
+    },
+    {
+      "t": "post",
+      "q": "Why did many people move from former colonies to Britain?",
+      "a": "For work and a better life",
+      "falsch": [
+        "Because Britain ordered them to",
+        "To fight in the Mutiny",
+        "To escape the monsoon"
+      ],
+      "e": "This made Britain more multicultural."
+    },
+    {
+      "t": "post",
+      "q": "What is a modern debate about the colonial past?",
+      "a": "Whether museums should return objects taken from colonies",
+      "falsch": [
+        "Whether to bring back the Empire",
+        "Whether trade is still necessary",
+        "Whether English should be banned"
+      ],
+      "e": "Statues and school lessons are also discussed."
     }
   ],
   "ketten": [
@@ -1454,60 +1609,6 @@
       "typ": "begriff"
     },
     {
-      "begriff": "Could you lend me ten euros?",
-      "erklaerung": "Sorry, I'm afraid I can't.",
-      "t": "sprache",
-      "typ": "begriff"
-    },
-    {
-      "begriff": "What's the matter?",
-      "erklaerung": "Oh, nothing.",
-      "t": "sprache",
-      "typ": "begriff"
-    },
-    {
-      "begriff": "Thanks for the invitation.",
-      "erklaerung": "It's a pleasure.",
-      "t": "sprache",
-      "typ": "begriff"
-    },
-    {
-      "begriff": "Sorry I'm late.",
-      "erklaerung": "It doesn't matter.",
-      "t": "sprache",
-      "typ": "begriff"
-    },
-    {
-      "begriff": "Jane sends her regards.",
-      "erklaerung": "That's kind of her!",
-      "t": "sprache",
-      "typ": "begriff"
-    },
-    {
-      "begriff": "I failed the History exam.",
-      "erklaerung": "Never mind.",
-      "t": "sprache",
-      "typ": "begriff"
-    },
-    {
-      "begriff": "I came top in Maths this term.",
-      "erklaerung": "Congratulations!",
-      "t": "sprache",
-      "typ": "begriff"
-    },
-    {
-      "begriff": "Right then, I'm off.",
-      "erklaerung": "Okay, bye!",
-      "t": "sprache",
-      "typ": "begriff"
-    },
-    {
-      "begriff": "I've got a terrible toothache.",
-      "erklaerung": "Poor you!",
-      "t": "sprache",
-      "typ": "begriff"
-    },
-    {
       "begriff": "James Cook",
       "erklaerung": "Captain who 'discovered' Australia in 1770.",
       "t": "kolonial",
@@ -1612,6 +1713,126 @@
     {
       "begriff": "A double-edged sword",
       "erklaerung": "Idiom: something with pros and cons.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Hello, how are you?",
+      "erklaerung": "Fine thanks, and you? / Not bad, thanks.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Could you lend me ten euros?",
+      "erklaerung": "Sure, here you go. / Sorry, I'm afraid I can't.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "What's the matter?",
+      "erklaerung": "Oh, nothing. / I've just had some bad news.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Thanks for the invitation.",
+      "erklaerung": "It's a pleasure. / You're welcome, glad you could come.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "They've closed my favourite café.",
+      "erklaerung": "That's too bad! / Oh no, what a shame.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Sorry I'm late.",
+      "erklaerung": "It doesn't matter. / That's all right, we've only just started.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Jane sends her regards.",
+      "erklaerung": "That's kind of her! / Thanks, say hello from me too.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Fancy another biscuit?",
+      "erklaerung": "Yes, please. / No, thanks.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Do you mind if I smoke?",
+      "erklaerung": "No, go ahead. / I'd rather you didn't.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Have you got the time?",
+      "erklaerung": "Yes, it's twenty past seven. / Sorry, I don't have a watch.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "A-tish-oo! (sneeze)",
+      "erklaerung": "Bless you! / Gesundheit!",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Right then, I'm off.",
+      "erklaerung": "Okay, bye! / See you tomorrow, take care.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "I've got a terrible toothache.",
+      "erklaerung": "Poor you! / Oh dear, you should see a dentist.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Have you got a minute?",
+      "erklaerung": "Sure, what is it? / Sorry, I have to dash.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Has anyone found a handbag?",
+      "erklaerung": "What does it look like? / No, sorry, I haven't seen one.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "D'you need a hand with that?",
+      "erklaerung": "Yes, please. That's kind of you. / No, thanks, I can manage.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "I failed the History exam.",
+      "erklaerung": "Never mind. / Oh no, I'm sorry. Next time will be better.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "How d'you take your coffee?",
+      "erklaerung": "White, no sugar, please. / Black with one sugar, please.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "Do you speak English?",
+      "erklaerung": "Yes, a little. / Yes, fluently.",
+      "t": "sprache",
+      "typ": "begriff"
+    },
+    {
+      "begriff": "I came top in Maths this term.",
+      "erklaerung": "Congratulations! / Well done, that's great news!",
       "t": "sprache",
       "typ": "begriff"
     }
@@ -1833,6 +2054,30 @@
         "Polite disagreement (I beg to differ ...)",
         "Use of at least one idiom",
         "Final conclusion or compromise"
+      ]
+    },
+    {
+      "t": "post",
+      "op": "Explain",
+      "q": "Explain why postcolonial debates are still important today.",
+      "punkte": [
+        "Effects are still visible: language, inequality, dependence",
+        "Examples: caste and language in India, English in Bengaluru",
+        "Debates about statues, museums and school lessons",
+        "Migration and identity in societies like Britain",
+        "Own opinion with reasons"
+      ]
+    },
+    {
+      "t": "kolonial",
+      "op": "Evaluate",
+      "q": "Evaluate the statement: 'Colonialism also had positive effects.'",
+      "punkte": [
+        "Possible positives: infrastructure, trade, English as shared language",
+        "But these served the colonisers' profit",
+        "Negatives: violence, exploitation, slavery, racism",
+        "Boodia-Canoo: ask what British rule did to the people",
+        "Conclusion with your own opinion"
       ]
     }
   ],
