@@ -1,5 +1,5 @@
 /* Offline-Unterstützung: immer zuerst das Netz (damit Updates sofort ankommen), sonst der letzte Stand aus dem Cache. */
-const CACHE = "klausurtrainer-v8";
+const CACHE = "klausurtrainer-v9";
 self.addEventListener("install", (e) => { self.skipWaiting(); });
 self.addEventListener("activate", (e) => { e.waitUntil(self.clients.claim()); });
 self.addEventListener("fetch", (e) => {

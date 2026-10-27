@@ -72,3 +72,17 @@ Alle Abschnitte außer den Metadaten sind optional. Ein Modus erscheint nur, wen
 - Routing per Hash: `#/` Startseite, `#/klausuren` | `#/probeklausur` | `#/kalender` | `#/updates` Unterseiten, `#/<id>` Klausur, `#/<id>/<modus>[/<quelle-id>]`.
 - `sw.js` macht die Seite offline nutzbar (Netz zuerst, Cache als Rückfall). Bei Änderungen an `sw.js` den Cache-Namen hochzählen.
 - Lokal testen: `python3 -m http.server` im Repo-Ordner, dann http://localhost:8000 (fetch geht nicht über file://).
+
+
+## Fach-Übungen (Chemie und andere Rechenfächer)
+
+Zusätzliche Abschnitte in der Klausur-Datei. Jeder erscheint nur, wenn er Inhalt hat. Der Tab "Probeklausur" in der Leiste ist entfernt, die Seite `#/<id>/probe` gibt es nur noch für Klausuren mit `quellen`.
+
+```jsonc
+"rechnen": [{ "t": "sb", "titel": "pH berechnen", "aufgabe": "Text", "einheit": "mol/L", "antwort": 2.5, "tol": 0.05, "schritte": ["Schritt 1", "Schritt 2"], "e": "Hinweis" }],   // tol optional, sonst 2 %
+"gleichungen": [{ "t": "gg", "titel": "Boudouard", "aufgabe": "Ergänze die Lücken.", "satz": "CO₂ + {0} ⇌ {1}", "luecken": [{ "a": "C", "falsch": ["CO", "O₂"] }, { "a": "2 CO", "falsch": ["CO"] }], "e": "Hinweis" }],
+"verschiebung": [{ "t": "zwang", "kopf": "2 NO₂ ⇌ N₂O₄ (exotherm)", "q": "Die Temperatur wird erhöht.", "optionen": ["Nach links", "Nach rechts", "Keine Verschiebung"], "a": "Nach links", "e": "Begründung" }],
+"einordnen": [{ "t": "kunst", "q": "Weitmaschig vernetzt, elastisch", "optionen": ["Thermoplast", "Duroplast", "Elastomer"], "a": "Elastomer", "e": "Begründung" }]
+```
+
+Karteikarten dürfen `"typ": "frage"` haben: Vorderseite eine Frage zum Inhalt (`begriff`), Rückseite die volle Antwort (`erklaerung`). Bewertung Nochmal / Fast / Gewusst. Fachfremde Modi (Quellen, Probeklausur, Ketten) nur anlegen, wenn das Fach dazu passt. Chemie nutzt sie nicht.

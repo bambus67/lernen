@@ -84,7 +84,7 @@ async function route() {
     catch (e) { K = null; return renderSite("klausuren", "Diese Klausur gibt es nicht (mehr)."); }
     S = loadState(K.id);
     pruneState();
-    quiz = kette = karten = lern = null; qstate = {}; kstate = {};
+    quiz = kette = karten = lern = ueb = null; qstate = {}; kstate = {};
     const f = K.farben || [];
     document.documentElement.style.setProperty("--ca", f[0] || "var(--signal)");
     document.documentElement.style.setProperty("--cb", f[1] || f[0] || "var(--signal)");
@@ -98,7 +98,7 @@ window.addEventListener("hashchange", route);
 
 /* ---------- Startseite und Übersichtsseiten ---------- */
 // "#/" = Startseite mit "Los geht's", "#/klausuren", "#/kalender", "#/updates" = eigene Seiten (diese ids sind für Klausuren gesperrt)
-const SITE_PAGES = ["klausuren", "probeklausur", "kalender", "updates"];
+const SITE_PAGES = ["klausuren", "kalender", "updates"];
 let UPDATES = null, cal = null;
 const MONTHS = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
 const pad2 = (n) => String(n).padStart(2, "0");
@@ -142,7 +142,7 @@ async function renderLanding() {
     '<div class="dev-body" id="dev-body"><p class="empty-note">Lade …</p></div></div></section>' +
     '<section class="wrap features">' +
     "<div><h3>Lernplan</h3><p>Sag, wann du Zeit hast. Du bekommst einen Plan bis zur Klausur, Tag für Tag.</p></div>" +
-    "<div><h3>Üben wie in der Klausur</h3><p>Quiz, Karteikarten, Ursache-Folge-Ketten, Quellen und Klausurfragen mit Musterlösung.</p></div>" +
+    "<div><h3>Üben wie in der Klausur</h3><p>Quiz, Karteikarten, Übungsaufgaben und Klausurfragen mit Musterlösung, passend zum Fach.</p></div>" +
     "<div><h3>Bleibt bei dir</h3><p>Kein Konto, kein Tracking. Dein Fortschritt liegt nur auf deinem Gerät.</p></div>" +
     "</section></main>" + siteFoot;
   renderInstall();
@@ -301,7 +301,7 @@ function renderInstall() {
 }
 
 /* ---------- Seiten einer Klausur ---------- */
-const TITLES = { lernplan: "Lernplan", lernen: "Lernen", quiz: "Quiz", kette: "Ursache → Folge", karten: "Karteikarten", quellen: "Quellen", quelle: "Quellen", klausur: "Klausurfragen", probe: "Probeklausur" };
+const TITLES = { lernplan: "Lernplan", lernen: "Lernen", quiz: "Quiz", kette: "Ursache → Folge", karten: "Karteikarten", quellen: "Quellen", quelle: "Quellen", klausur: "Klausurfragen", probe: "Probeklausur", rechnen: "Rechnen", gleichungen: "Gleichungen ergänzen", verschiebung: "Was verschiebt sich?", einordnen: "Einordnen" };
 function render() {
   document.body.classList.toggle("on-home", view === "home");
   if (view === "home" || !TITLES[view]) { view = "home"; return renderHome(); }
@@ -312,7 +312,7 @@ function render() {
     '<span id="tb-right"></span></div></div>' +
     '<main class="stage" id="stage"></main>';
   $("#back").onclick = () => (fromPlan ? go("lernplan") : view === "quelle" ? go("quellen") : go("home"));
-  ({ lernplan: renderPlan, lernen: renderLernen, quiz: renderQuiz, kette: renderKette, karten: renderKarten, quellen: renderQuellen, quelle: renderQuelle, klausur: renderKlausur, probe: renderProbe })[view]();
+  ({ lernplan: renderPlan, lernen: renderLernen, quiz: renderQuiz, kette: renderKette, karten: renderKarten, quellen: renderQuellen, quelle: renderQuelle, klausur: renderKlausur, probe: renderProbe, rechnen: renderUeb, gleichungen: renderUeb, verschiebung: renderUeb, einordnen: renderUeb })[view]();
 }
 const stage = () => $("#stage");
 
@@ -330,11 +330,15 @@ function renderHome() {
   if (has("quellen")) train.push(card("quellen", "train", "Quellenarbeit", "Quellen-Training", "Quellenauszüge mit Einordnungsfragen, Klausuraufgaben und Erwartungshorizont zum Abhaken.", n(K.quellen, (q) => inTopic(q.t)) + " Quellen", done + " bearbeitet"));
   const probeCard = has("quellen") ? (() => { const pi = probeCardInfo(); return card("probe", "probe", "Wie in der echten Klausur", "Probeklausur", "Quelle, Aufgaben mit Operatoren und Timer auf einem Klausurblatt. Danach selbst korrigieren und eine grobe Note bekommen.", pi[0], pi[1]); })() : "";
   if (has("klausur")) train.push(card("klausur", "train", "Offene Fragen", "Klausurfragen", "Mögliche Aufgaben mit Operatoren. Erst selbst antworten, dann mit der Musterlösung vergleichen.", n(K.klausur, (q) => inTopic(q.t)) + " Fragen", "mit Musterlösung"));
+  if (has("rechnen")) train.push(card("rechnen", "train", "Zahlen und Rechenweg", "Rechnen", "Aufgaben mit Zahlen. Eigenes Ergebnis eintippen, danach den Rechenweg Schritt für Schritt ansehen.", n(K.rechnen, (q) => inTopic(q.t)) + " Aufgaben", "mit Rechenweg"));
+  if (has("gleichungen")) train.push(card("gleichungen", "train", "Reaktionsgleichungen", "Gleichungen ergänzen", "Lücken in Reaktionsgleichungen füllen: Edukte, Produkte, Koeffizienten.", n(K.gleichungen, (q) => inTopic(q.t)) + " Gleichungen", "mit Lösung"));
   const games = [];
   if (has("quiz")) games.push(["quiz", "Wissen", "Quiz", "Zehn Fragen mit Erklärung nach jeder Antwort.", n(K.quiz, (q) => inTopic(q.t)) + " Fragen im Pool", "10 pro Runde"]);
   if (has("ketten")) games.push(["kette", "Zusammenhänge", "Ursache und Folge", "Ursache-Folge-Ketten in die richtige Reihenfolge bringen.", n(K.ketten, (k) => inTopic(k.t)) + " Ketten", "mit Merksatz"]);
-  if (has("karten")) games.push(["karten", "Begriffe und Personen", "Karteikarten", "Umdrehen, prüfen, aussortieren, bis alle sitzen.", n(K.karten, (k) => inTopic(k.t)) + " Karten", "bis alle sitzen"]);
+  if (has("karten")) games.push(["karten", (K.karten.some((c) => c.typ === "frage") ? "Fragen zum Inhalt" : "Begriffe und Personen"), "Karteikarten", "Umdrehen, prüfen, aussortieren, bis alle sitzen.", n(K.karten, (k) => inTopic(k.t)) + " Karten", "bis alle sitzen"]);
   // Raster: 3 pro Reihe, eine angefangene Reihe wird auf ganze Breite verteilt
+  if (has("verschiebung")) games.push(["verschiebung", "Prinzip vom Zwang", "Was verschiebt sich?", "Eine Störung ist vorgegeben. Wohin weicht das Gleichgewicht aus?", n(K.verschiebung, (q) => inTopic(q.t)) + " Aufgaben", "mit Begründung"]);
+  if (has("einordnen")) games.push(["einordnen", "Zuordnen", "Einordnen", "Eigenschaften, Stoffe und Rollen der richtigen Gruppe zuordnen.", n(K.einordnen, (q) => inTopic(q.t)) + " Aufgaben", "mit Erklärung"]);
   const rem = games.length % 3;
   const gamesHTML = games.map((g, i) => {
     let cls = "";
@@ -385,6 +389,7 @@ function start(mode) {
   if (mode === "quiz") { newQuiz(); }
   if (mode === "kette") kette = null;
   if (mode === "karten") karten = null;
+  if (["rechnen", "gleichungen", "verschiebung", "einordnen"].includes(mode)) ueb = null;
   go(mode);
 }
 
@@ -411,7 +416,7 @@ function renderLernen() {
       (c.big ? '<p class="lmerk">' + esc(c.p[0]) + "</p>" : "<ul>" + c.p.map((x) => "<li>" + esc(x) + "</li>").join("") + "</ul>") +
       (c.tag ? '<p class="ltag">' + esc(c.tag) + "</p>" : "") + "</article>";
   } else {
-    main = '<article class="lcard" id="lcard"><div class="kicker">' + esc(L.name) + " · Karte " + total + " von " + total + '</div><h2>Begriffe und Personen</h2><dl class="terms">' + terms.map((k) => "<dt>" + esc(k.begriff) + "</dt><dd>" + esc(k.erklaerung) + "</dd>").join("") + "</dl></article>";
+    main = '<article class="lcard" id="lcard"><div class="kicker">' + esc(L.name) + " · Karte " + total + " von " + total + '</div><h2>' + (terms.some((k) => k.typ === "frage") ? "Fragen und Antworten" : "Begriffe und Personen") + '</h2><dl class="terms">' + terms.map((k) => "<dt>" + esc(k.begriff) + "</dt><dd>" + esc(k.erklaerung) + "</dd>").join("") + "</dl></article>";
   }
   let nav = "";
   if (!lern.done) {
@@ -573,9 +578,9 @@ function renderKarten() {
     '<div class="qmeta" style="margin-top:16px"><span class="tag">' + esc(topicName(c.t)) + "</span><span>" + kt.known + " von " + kt.total + " gewusst</span></div>" +
     '<div class="progress" style="margin-top:10px"><i style="width:' + (kt.known / kt.total) * 100 + '%"></i></div>' +
     '<div class="flash' + (kt.flipped ? " flipped" : "") + '"><div class="flash-inner" id="card" role="button" tabindex="0" aria-label="Karte umdrehen">' +
-    '<div class="face front"><span class="kicker">' + (c.typ === "person" ? "Person" : "Begriff") + '</span><div class="term">' + esc(c.begriff) + '</div><span class="hint" style="margin:0">Erklär es dir selbst, dann umdrehen.</span></div>' +
-    '<div class="face back"><span class="kicker">' + esc(c.begriff) + "</span><p>" + esc(c.erklaerung) + "</p></div></div></div>" +
-    (kt.flipped ? '<div class="btn-row"><button class="btn" id="again" type="button">Nochmal</button><button class="btn primary" id="known" type="button">Gewusst</button></div>'
+    '<div class="face front"><span class="kicker">' + (c.typ === "person" ? "Person" : c.typ === "frage" ? "Frage" : "Begriff") + '</span><div class="term' + (c.begriff.length > 40 ? " long" : "") + '">' + esc(c.begriff) + '</div><span class="hint" style="margin:0">' + (c.typ === "frage" ? "Antworte zuerst selbst, dann umdrehen." : "Erklär es dir selbst, dann umdrehen.") + '</span></div>' +
+    '<div class="face back"><span class="kicker">' + (c.typ === "frage" ? "Antwort" : esc(c.begriff)) + "</span><p>" + esc(c.erklaerung) + "</p></div></div></div>" +
+    (kt.flipped ? '<div class="btn-row"><button class="btn" id="again" type="button">Nochmal</button><button class="btn" id="close" type="button">Fast</button><button class="btn primary" id="known" type="button">Gewusst</button></div>'
       : '<div class="btn-row"><button class="btn primary" id="flip" type="button">Umdrehen</button></div>') +
     '<p class="keys">Leertaste = umdrehen · 1 = nochmal · 2 = gewusst</p>';
   bindSeg();
@@ -584,6 +589,7 @@ function renderKarten() {
   $("#card").onkeydown = (e) => { if (e.key === "Enter") flip(); };
   const f = $("#flip"); if (f) f.onclick = flip;
   const a = $("#again"); if (a) a.onclick = () => { kt.deck.push(kt.deck.shift()); kt.flipped = false; renderKarten(); };
+  const cl = $("#close"); if (cl) cl.onclick = () => { const c0 = kt.deck.shift(); kt.deck.splice(Math.min(3, kt.deck.length), 0, c0); kt.flipped = false; renderKarten(); };
   const kn = $("#known"); if (kn) kn.onclick = () => { kt.deck.shift(); kt.known++; kt.flipped = false; renderKarten(); };
 }
 function bindSeg() { $$(".seg [data-type]", stage()).forEach((b) => (b.onclick = () => { newKarten(b.dataset.type); renderKarten(); })); }
@@ -692,7 +698,7 @@ function klausurCard(k, i) {
 
 /* ---------- Lernplan ---------- */
 // Geschätzte Minuten pro Aufgabe. Phase 1: jedes Thema mit Lernkarten + Quiz, Phase 2: gemischte Wiederholung, letzter Tag: roter Faden + Klausurfragen.
-const PLAN_MIN = { lernen: 15, quiz: 10, karten: 10, kette: 10, quelle: 20, klausur: 20 };
+const PLAN_MIN = { lernen: 15, quiz: 10, karten: 10, kette: 10, quelle: 20, klausur: 20, rechnen: 15, gleichungen: 10, verschiebung: 10, einordnen: 10 };
 const WD_ORDER = [1, 2, 3, 4, 5, 6, 0];
 let planForm = null, fromPlan = false;
 const fadenLabel = (l) => "Roter Faden lesen" + (/roter faden/i.test(l.name) ? "" : ": " + l.name);
@@ -707,6 +713,7 @@ function planUnits() {
 }
 function reviewPool() {
   const pool = [];
+  ["rechnen", "gleichungen", "verschiebung", "einordnen"].forEach((m) => { if (has(m)) pool.push({ min: PLAN_MIN[m], next: () => ({ mode: m, t: "all", label: TITLES[m] + ": alle Themen" }) }); });
   if (has("quiz")) pool.push({ min: PLAN_MIN.quiz, next: () => ({ mode: "quiz", t: "all", label: "Quiz gemischt, alle Themen" }) });
   if (has("karten")) pool.push({ min: PLAN_MIN.karten, next: () => ({ mode: "karten", t: "all", label: "Karteikarten: alle Begriffe" }) });
   const ks = (K.ketten || []).map((k, i) => ({ k: k, i: i })).filter((o) => o.k.t !== "all");
@@ -1088,6 +1095,64 @@ function probeCardInfo() {
   if (P && P.state === "run") { const rem = P.start + P.dauer * 60000 - Date.now(); return [rem > 0 ? "Läuft: noch " + Math.ceil(rem / 60000) + " Min." : "Zeit ist um, jetzt abgeben", "Weiter →"]; }
   if (P && P.state === "korrektur") return ["Abgegeben, Korrektur offen", "Weiter →"];
   return [h.length ? "Zuletzt: ≈ " + h[h.length - 1].np + " Punkte" : "Noch keine geschrieben", "ca. 75 Min."];
+}
+
+/* ---------- Fach-Übungen: Rechnen, Gleichungen, Wahlaufgaben (Chemie u. a.) ---------- */
+let ueb = null;
+function newUeb(mode) {
+  const pool = shuffle(K[mode].map((x, i) => i).filter((i) => inTopic(K[mode][i].t)));
+  ueb = { mode: mode, pool: pool, i: 0, right: 0, st: {} };
+}
+const numFmt = (x) => String(x).replace(".", ",");
+function renderUeb() {
+  if (!ueb || ueb.mode !== view) newUeb(view);
+  const mode = view, el = stage();
+  if (!ueb.pool.length) { el.innerHTML = '<p class="empty-note">Zu diesem Thema gibt es hier keine Aufgabe.</p>'; return; }
+  if (ueb.i >= ueb.pool.length) {
+    const n = ueb.pool.length;
+    el.innerHTML = '<div class="result"><div class="kicker">' + esc(topicName(S.topic)) + '</div><div class="big">' + ueb.right + " / " + n + "</div><p><b>" + (ueb.right === n ? "Fehlerfrei." : ueb.right >= n * 0.7 ? "Sitzt schon gut." : "Da geht noch was.") + '</b></p><div class="btn-row"><button class="btn primary" id="again" type="button">Neue Runde</button><button class="btn" id="home" type="button">Zur Übersicht</button></div></div>';
+    $("#again").onclick = () => { newUeb(mode); renderUeb(); window.scrollTo(0, 0); };
+    $("#home").onclick = () => go("home");
+    return;
+  }
+  const it = K[mode][ueb.pool[ueb.i]], st = ueb.st;
+  const head = '<div class="progress"><i style="width:' + (ueb.i / ueb.pool.length) * 100 + '%"></i></div><div class="qmeta"><span class="tag">' + esc(topicName(it.t)) + "</span><span>Aufgabe " + (ueb.i + 1) + " von " + ueb.pool.length + "</span></div>";
+  const finish = (ok) => { st.done = true; st.ok = ok; if (ok) ueb.right++; stat(it.t, ok); renderUeb(); };
+  const fb = (ok, extra) => '<div class="fb ' + (ok ? "ok" : "bad") + '"><b>' + (ok ? "Richtig." : "Nicht ganz.") + "</b>" + esc(extra || "") + "</div>";
+  const next = '<div class="btn-row"><button class="btn primary" id="next" type="button">' + (ueb.i + 1 < ueb.pool.length ? "Weiter" : "Auswertung") + "</button></div>";
+  if (mode === "rechnen") {
+    const u = it.einheit || "";
+    el.innerHTML = head + '<h2 class="q">' + esc(it.titel || "Rechnen") + '</h2><p class="hint" style="margin-top:-8px">' + esc(it.aufgabe) + "</p>" +
+      '<label class="own-min">Dein Ergebnis: <input type="text" id="rv" inputmode="decimal" autocomplete="off" placeholder="z. B. 2,5" value="' + esc(st.val || "") + '"' + (st.done ? " disabled" : "") + "> " + esc(u) + "</label>" +
+      (st.done ? fb(st.ok, st.ok ? it.e : "Richtig ist " + numFmt(it.antwort) + " " + u + ". " + (it.e || "")) : "") +
+      (st.done || st.steps ? '<div class="solution"><div class="eh-head">Rechenweg</div><ol class="chain">' + it.schritte.map((x) => "<li>" + esc(x) + "</li>").join("") + "</ol></div>" : "") +
+      (st.done ? next : '<div class="btn-row"><button class="btn primary" id="check" type="button">Prüfen</button>' + (st.steps ? "" : '<button class="btn" id="steps" type="button">Rechenweg zeigen</button>') + "</div>");
+    const inp = $("#rv");
+    const check = () => { const x = parseFloat(inp.value.replace(",", ".")); if (!isFinite(x)) return; const tol = it.tol != null ? it.tol : Math.abs(it.antwort) * 0.02; st.val = inp.value; finish(Math.abs(x - it.antwort) <= tol); };
+    const c = $("#check"); if (c) c.onclick = check;
+    if (inp && !st.done) inp.onkeydown = (e) => { if (e.key === "Enter") check(); };
+    const sb = $("#steps"); if (sb) sb.onclick = () => { st.val = inp.value; st.steps = true; renderUeb(); };
+  } else if (mode === "gleichungen") {
+    if (!st.o) { st.o = it.luecken.map((l) => shuffle([l.a].concat(l.falsch))); st.sel = {}; }
+    const sentence = esc(it.satz).replace(/\{(\d+)\}/g, (_, k) => {
+      const i = +k, l = it.luecken[i];
+      if (st.done) return st.sel[i] === l.a ? '<b class="gap right">' + esc(l.a) + "</b>" : '<b class="gap wrong"><s>' + esc(st.sel[i] || "?") + '</s></b><b class="gap right">' + esc(l.a) + "</b>";
+      return '<select class="gap" data-g="' + i + '"><option value="">?</option>' + st.o[i].map((o) => '<option value="' + esc(o) + '"' + (st.sel[i] === o ? " selected" : "") + ">" + esc(o) + "</option>").join("") + "</select>";
+    });
+    const all = () => it.luecken.every((_, i) => st.sel[i]);
+    el.innerHTML = head + '<h2 class="q">' + esc(it.titel) + '</h2><p class="hint" style="margin-top:-8px">' + esc(it.aufgabe || "Ergänze die Lücken.") + '</p><p class="eq">' + sentence + "</p>" +
+      (st.done ? fb(st.ok, it.e) + next : '<div class="btn-row"><button class="btn primary" id="check" type="button"' + (all() ? "" : " disabled") + ">Prüfen</button></div>");
+    $$("select.gap", el).forEach((sel) => (sel.onchange = () => { st.sel[sel.dataset.g] = sel.value; const c = $("#check"); if (c) c.disabled = !all(); }));
+    const c = $("#check"); if (c) c.onclick = () => finish(it.luecken.every((l, i) => st.sel[i] === l.a));
+  } else {
+    el.innerHTML = head + (it.kopf ? '<p class="eq">' + esc(it.kopf) + "</p>" : "") + '<h2 class="q">' + esc(it.q) + '</h2><div class="opts">' +
+      it.optionen.map((o, k) => {
+        let cls = ""; if (st.done) { if (o === it.a) cls = "right"; else if (k === st.pick) cls = "wrong"; }
+        return '<button class="opt ' + cls + '" type="button" data-k="' + k + '"' + (st.done ? " disabled" : "") + '><span class="key">' + (k + 1) + "</span><span>" + esc(o) + "</span></button>";
+      }).join("") + "</div>" + (st.done ? fb(st.ok, it.e) + next : "");
+    $$(".opt", el).forEach((b) => (b.onclick = () => { st.pick = +b.dataset.k; finish(it.optionen[st.pick] === it.a); }));
+  }
+  const nx = $("#next"); if (nx) { nx.onclick = () => { ueb.st = {}; ueb.i++; renderUeb(); window.scrollTo(0, 0); }; nx.focus(); }
 }
 
 /* ---------- Tastatur ---------- */
