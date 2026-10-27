@@ -1,11 +1,717 @@
 {
   "id": "chemie-klausur",
   "fach": "Chemie",
-  "titel": "Klausur",
+  "titel": "Gleichgewicht, Säuren und Basen, Kunststoffe",
+  "kurs": "LK Q3",
   "datum": "2026-11-06",
-  "beschreibung": "Thema folgt.",
+  "beschreibung": "Kursarbeit: chemisches Gleichgewicht, MWG, Prinzip vom Zwang, Säuren und Basen, Kunststoffe.",
   "farben": [
     "#1B7F5C",
     "#0F5139"
+  ],
+  "themen": [
+    {
+      "id": "gg",
+      "name": "Gleichgewicht"
+    },
+    {
+      "id": "mwg",
+      "name": "MWG"
+    },
+    {
+      "id": "zwang",
+      "name": "Prinzip vom Zwang"
+    },
+    {
+      "id": "sb",
+      "name": "Säuren und Basen"
+    },
+    {
+      "id": "kunst",
+      "name": "Kunststoffe"
+    }
+  ],
+  "lernen": [
+    {
+      "t": "gg",
+      "name": "Gleichgewicht",
+      "cards": [
+        {
+          "h": "Dynamisches Gleichgewicht",
+          "p": [
+            "Hin und Rückreaktion laufen gleich schnell, die Konzentrationen bleiben konstant, obwohl ständig Stoffe umgesetzt werden."
+          ],
+          "big": true
+        },
+        {
+          "h": "Statisch oder dynamisch",
+          "p": [
+            "Statisch: Es läuft keine Reaktion mehr.",
+            "Dynamisch: Hin und Rückreaktion laufen weiter, nur die Konzentrationen ändern sich nicht.",
+            "Beispiel: H₂ + I₂ ⇌ 2 HI im geschlossenen System."
+          ],
+          "tag": "aus dem Heft"
+        },
+        {
+          "h": "Lösungsgleichgewicht",
+          "p": [
+            "Ba²⁺(aq) + SO₄²⁻(aq) ⇌ BaSO₄(s)",
+            "Ionen gehen aus dem Kristall in Lösung, gleich viele werden eingebaut. Bodensatz und gesättigte Lösung bilden ein heterogenes System.",
+            "AgCl ⇌ Ag⁺ + Cl⁻ mit K_L = 1,8 · 10⁻¹⁰. Kleiner Wert heißt: wenig Ionen in Lösung, schwerlöslich."
+          ],
+          "tag": "aus Heft und Buch"
+        },
+        {
+          "h": "Nachweise",
+          "p": [
+            "Halogenid: Silbernitratlösung. Ag⁺ + Cl⁻ → AgCl (weiß), AgBr (cremefarben), AgI (gelb).",
+            "CO₂: Kalkwasser wird trüb. Ca(OH)₂ + CO₂ → CaCO₃ + H₂O"
+          ],
+          "tag": "ergänzt, nicht im Heft"
+        }
+      ]
+    },
+    {
+      "t": "mwg",
+      "name": "MWG",
+      "cards": [
+        {
+          "h": "Massenwirkungsgesetz",
+          "p": [
+            "K ist Produkte hoch Koeffizient geteilt durch Edukte hoch Koeffizient. Feststoffe stehen nicht im MWG."
+          ],
+          "big": true
+        },
+        {
+          "h": "MWG aufstellen",
+          "p": [
+            "Boudouard: CO₂ + C ⇌ 2 CO, K_c = c²(CO) / c(CO₂)",
+            "Kontaktverfahren: K_p = p²(SO₃) / (p²(SO₂) · p(O₂))",
+            "Haber Bosch: K_p = p²(NH₃) / (p(N₂) · p³(H₂))"
+          ],
+          "tag": "Heft, Haber Bosch ergänzt"
+        },
+        {
+          "h": "Rechnen mit K",
+          "p": [
+            "1. Reaktionsgleichung",
+            "2. Stoffmengen oder Konzentrationen zu Beginn",
+            "3. Werte im Gleichgewicht bestimmen",
+            "4. MWG aufstellen",
+            "5. Werte einsetzen",
+            "6. Unbekannte berechnen"
+          ],
+          "tag": "aus dem Heft"
+        },
+        {
+          "h": "Quadratische Gleichung",
+          "p": [
+            "Ist n unbekannt, ergibt sich eine quadratische Gleichung. Es zählt nur die Lösung, die möglich ist.",
+            "Beispiel Ester mit K_c = 4: n = 2,427 mol. Die Lösung 8,239 mol scheidet aus, weil nur 3 mol Ethanol da sind."
+          ],
+          "tag": "aus dem Heft"
+        }
+      ]
+    },
+    {
+      "t": "zwang",
+      "name": "Prinzip vom Zwang",
+      "cards": [
+        {
+          "h": "Prinzip vom kleinsten Zwang",
+          "p": [
+            "Wird auf ein System im Gleichgewicht ein Zwang ausgeübt, weicht es so aus, dass die Wirkung des Zwangs kleiner wird."
+          ],
+          "big": true
+        },
+        {
+          "h": "Temperatur",
+          "p": [
+            "Erwärmen: Verschiebung in endotherme Richtung.",
+            "Abkühlen: Verschiebung in exotherme Richtung.",
+            "2 NO₂ ⇌ N₂O₄ ist exotherm. Erwärmen gibt mehr NO₂, das Gemisch wird brauner."
+          ],
+          "tag": "aus dem Heft"
+        },
+        {
+          "h": "Druck, Konzentration, Katalysator",
+          "p": [
+            "Druck höher: Seite mit weniger Gasteilchen.",
+            "Konzentration eines Stoffs höher: Verschiebung weg von diesem Stoff. Stoff entfernen: Verschiebung hin zu ihm.",
+            "Katalysator: Gleichgewicht stellt sich schneller ein, Lage und K bleiben gleich."
+          ],
+          "tag": "Katalysator aus dem Heft, Rest ergänzt"
+        },
+        {
+          "h": "Anwendung",
+          "p": [
+            "Kontaktverfahren: O₂ im Überschuss, SO₃ abtrennen (Zwischenabsorption), 420 bis 440 °C als Kompromiss, Katalysator V₂O₅.",
+            "Haber Bosch: hoher Druck, weil weniger Gasteilchen. Tiefe Temperatur wäre günstig, ist aber zu langsam. Deshalb Kompromiss mit Katalysator."
+          ],
+          "tag": "Kontaktverfahren aus dem Blatt, Haber Bosch ergänzt"
+        }
+      ]
+    },
+    {
+      "t": "sb",
+      "name": "Säuren und Basen",
+      "cards": [
+        {
+          "h": "Säure und Base nach Brönsted",
+          "p": [
+            "Eine Säure gibt Protonen ab, eine Base nimmt Protonen auf."
+          ],
+          "big": true
+        },
+        {
+          "h": "Protolysen",
+          "p": [
+            "HCl + H₂O ⇌ Cl⁻ + H₃O⁺",
+            "NH₃ + H₂O ⇌ NH₄⁺ + OH⁻",
+            "Korrespondierende Paare: HCl/Cl⁻, H₃O⁺/H₂O, NH₄⁺/NH₃, H₂O/OH⁻"
+          ],
+          "tag": "aus dem Heft"
+        },
+        {
+          "h": "Wasser als Ampholyt",
+          "p": [
+            "Wasser kann je nach Partner Protonen aufnehmen oder abgeben.",
+            "Als Base: H₂O + H⁺ ⇌ H₃O⁺",
+            "Als Säure: H₂O ⇌ H⁺ + OH⁻"
+          ],
+          "tag": "aus dem Heft"
+        },
+        {
+          "h": "pH und pOH",
+          "p": [
+            "pH = −lg c(H₃O⁺), pOH = −lg c(OH⁻)",
+            "K_w = c(H₃O⁺) · c(OH⁻) = 10⁻¹⁴ mol²/L²",
+            "pH + pOH = 14, neutral ist pH 7"
+          ],
+          "tag": "aus dem Heft"
+        },
+        {
+          "h": "Formeln, Darstellung, Indikatoren",
+          "p": [
+            "Säuren: HCl, H₂SO₄, HNO₃, CH₃COOH. Laugen: NaOH, KOH, Ca(OH)₂.",
+            "Darstellung: Nichtmetalloxid + Wasser, z. B. SO₃ + H₂O → H₂SO₄. Metalloxid + Wasser, z. B. Na₂O + H₂O → 2 NaOH.",
+            "Indikatoren sind Farbstoffe, die je nach pH die Farbe wechseln. Phenolphthalein: farblos im Sauren, pink im Alkalischen."
+          ],
+          "tag": "ergänzt, nicht im Heft"
+        },
+        {
+          "h": "Titration",
+          "p": [
+            "Eine Maßlösung bekannter Konzentration tropft in die Probe, bis der Indikator umschlägt.",
+            "HCl + NaOH → NaCl + H₂O, Verhältnis 1 : 1",
+            "H₂SO₄ + 2 NaOH → Na₂SO₄ + 2 H₂O, Verhältnis 1 : 2",
+            "n = c · V, dann n(Maßlösung) und n(Probe) über das Verhältnis verknüpfen."
+          ],
+          "tag": "aus dem Heft"
+        }
+      ]
+    },
+    {
+      "t": "kunst",
+      "name": "Kunststoffe",
+      "cards": [
+        {
+          "h": "Aufbau",
+          "p": [
+            "Kunststoffe bestehen aus Makromolekülen (Polymeren), die aus vielen kleinen Monomeren aufgebaut sind."
+          ],
+          "big": true
+        },
+        {
+          "h": "Thermoplast, Duroplast, Elastomer",
+          "p": [
+            "Thermoplast: wenig verzweigte Ketten, schwache Kräfte dazwischen, erweicht beim Erwärmen, verformbar.",
+            "Duroplast: dreidimensional vernetzt durch Elektronenpaarbindungen, hart, zersetzt sich bei starker Wärme.",
+            "Elastomer: weitmaschig vernetzt, elastisch, zieht sich nach Verformung zurück."
+          ],
+          "tag": "Elastomer Struktur ergänzt"
+        },
+        {
+          "h": "Radikalische Polymerisation",
+          "p": [
+            "Voraussetzung: Monomere mit C=C.",
+            "Start: Initiator (Peroxid oder AIBN) zerfällt homolytisch in Radikale, ein Radikal reagiert mit Ethen.",
+            "Wachstum: Das Radikalende reagiert mit weiteren Monomeren.",
+            "Abbruch: z. B. Rekombination zweier Radikale."
+          ],
+          "tag": "aus dem Heft"
+        },
+        {
+          "h": "Beispiele",
+          "p": [
+            "Polyethylen aus Ethen, Polystyrol aus Styrol, Polypropylen aus Propen, Teflon aus Tetrafluorethen, Plexiglas aus Methacrylsäuremethylester.",
+            "Vulkanisation: Schwefel vernetzt die Kautschukketten, dadurch wird Gummi elastisch."
+          ],
+          "tag": "aus dem Heft"
+        }
+      ]
+    },
+    {
+      "t": "all",
+      "name": "Roter Faden",
+      "cards": [
+        {
+          "h": "Roter Faden",
+          "p": [
+            "Im Gleichgewicht laufen Hin und Rückreaktion gleich schnell. Das MWG beschreibt die Lage über K. Ein Zwang verschiebt die Lage, nur Temperatur ändert K."
+          ],
+          "big": true
+        },
+        {
+          "h": "Säuren und Basen",
+          "p": [
+            "Protolysen sind Gleichgewichte. pH = −lg c(H₃O⁺), pH + pOH = 14. Titration verknüpft Stoffmengen über das Reaktionsverhältnis."
+          ]
+        },
+        {
+          "h": "Kunststoffe",
+          "p": [
+            "Struktur bestimmt Eigenschaft: unvernetzt gleich Thermoplast, eng vernetzt gleich Duroplast, weit vernetzt gleich Elastomer. Polymerisation läuft über Start, Wachstum, Abbruch."
+          ]
+        }
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "t": "gg",
+      "q": "Was beschreibt ein dynamisches Gleichgewicht?",
+      "a": "Hin und Rückreaktion laufen gleich schnell weiter",
+      "falsch": [
+        "Es läuft keine Reaktion mehr",
+        "Nur die Hinreaktion läuft weiter",
+        "Alle Stoffe haben dieselbe Konzentration"
+      ],
+      "e": "Es wird ständig umgesetzt, nur die Konzentrationen bleiben konstant."
+    },
+    {
+      "t": "gg",
+      "q": "Womit weist man Chlorid-Ionen nach?",
+      "a": "Silbernitratlösung",
+      "falsch": [
+        "Kalkwasser",
+        "Phenolphthalein",
+        "Salzsäure"
+      ],
+      "e": "Es fällt weißes AgCl aus."
+    },
+    {
+      "t": "gg",
+      "q": "Welche Farbe hat der Niederschlag von AgI?",
+      "a": "gelb",
+      "falsch": [
+        "weiß",
+        "blau",
+        "schwarz"
+      ],
+      "e": "AgCl ist weiß, AgBr cremefarben, AgI gelb."
+    },
+    {
+      "t": "gg",
+      "q": "Was passiert, wenn man CO₂ in Kalkwasser leitet?",
+      "a": "Es bildet sich eine weiße Trübung aus CaCO₃",
+      "falsch": [
+        "Die Lösung wird blau",
+        "Die Lösung wird rot",
+        "Es bildet sich ein brennbares Gas"
+      ],
+      "e": "Ca(OH)₂ + CO₂ → CaCO₃ + H₂O"
+    },
+    {
+      "t": "gg",
+      "q": "Was bedeutet ein sehr kleiner K_L-Wert wie bei AgCl?",
+      "a": "Das Salz ist schwerlöslich",
+      "falsch": [
+        "Das Salz ist sehr gut löslich",
+        "Das Salz löst sich nicht endotherm",
+        "Die Lösung ist sauer"
+      ],
+      "e": "Es sind nur wenige Ionen in Lösung."
+    },
+    {
+      "t": "mwg",
+      "q": "Wie lautet K_c für N₂ + 3 H₂ ⇌ 2 NH₃?",
+      "a": "c²(NH₃) / (c(N₂) · c³(H₂))",
+      "falsch": [
+        "c(NH₃) / (c(N₂) · c(H₂))",
+        "c(N₂) · c³(H₂) / c²(NH₃)",
+        "2 c(NH₃) / (c(N₂) + 3 c(H₂))"
+      ],
+      "e": "Koeffizienten werden zu Exponenten, Produkte stehen oben."
+    },
+    {
+      "t": "mwg",
+      "q": "Wie lautet K_c für CO₂ + C ⇌ 2 CO?",
+      "a": "c²(CO) / c(CO₂)",
+      "falsch": [
+        "c²(CO) / (c(CO₂) · c(C))",
+        "c(CO) / c(CO₂)",
+        "c(CO₂) / c²(CO)"
+      ],
+      "e": "Kohlenstoff ist ein Feststoff und steht nicht im MWG."
+    },
+    {
+      "t": "mwg",
+      "q": "Beim Ester-Beispiel ergibt die quadratische Gleichung n = 2,427 mol und n = 8,239 mol. Warum zählt nur 2,427 mol?",
+      "a": "Es sind nur 3 mol Ethanol vorhanden",
+      "falsch": [
+        "Die größere Zahl ist immer falsch",
+        "Der Ester ist ein Feststoff",
+        "K_c wäre sonst negativ"
+      ],
+      "e": "Es kann nicht mehr Ester entstehen, als Ethanol da ist."
+    },
+    {
+      "t": "zwang",
+      "q": "2 NO₂ ⇌ N₂O₄ ist exotherm. Was passiert beim Erwärmen?",
+      "a": "Mehr NO₂, das Gemisch wird brauner",
+      "falsch": [
+        "Mehr N₂O₄, das Gemisch wird heller",
+        "Keine Änderung",
+        "Das Gemisch wird farblos"
+      ],
+      "e": "Erwärmen verschiebt in endotherme Richtung, also zu NO₂."
+    },
+    {
+      "t": "zwang",
+      "q": "Was passiert bei Druckerhöhung bei 2 SO₂ + O₂ ⇌ 2 SO₃?",
+      "a": "Verschiebung nach rechts",
+      "falsch": [
+        "Verschiebung nach links",
+        "Keine Verschiebung",
+        "Die Gleichgewichtskonstante steigt"
+      ],
+      "e": "Rechts sind weniger Gasteilchen. K ändert sich nur mit der Temperatur."
+    },
+    {
+      "t": "zwang",
+      "q": "Was bewirkt ein Katalysator beim Gleichgewicht?",
+      "a": "Es stellt sich schneller ein, K bleibt gleich",
+      "falsch": [
+        "Die Ausbeute steigt",
+        "K wird größer",
+        "Nur die Hinreaktion wird schneller"
+      ],
+      "e": "Er senkt die Aktivierungsenergie für Hin und Rückreaktion."
+    },
+    {
+      "t": "sb",
+      "q": "Was ist die korrespondierende Base zu HCl?",
+      "a": "Cl⁻",
+      "falsch": [
+        "H₃O⁺",
+        "OH⁻",
+        "H₂O"
+      ],
+      "e": "Die Base entsteht durch Abgabe eines Protons."
+    },
+    {
+      "t": "sb",
+      "q": "Welche Rolle hat H₂O in NH₃ + H₂O ⇌ NH₄⁺ + OH⁻?",
+      "a": "Säure, es gibt ein Proton ab",
+      "falsch": [
+        "Base, es nimmt ein Proton auf",
+        "Katalysator",
+        "Es nimmt nicht teil"
+      ],
+      "e": "Wasser ist ein Ampholyt."
+    },
+    {
+      "t": "sb",
+      "q": "Wie groß ist der pH einer Lösung mit c(H₃O⁺) = 0,001 mol/L?",
+      "a": "3",
+      "falsch": [
+        "11",
+        "1",
+        "0,001"
+      ],
+      "e": "pH = −lg 10⁻³ = 3"
+    },
+    {
+      "t": "sb",
+      "q": "Eine Lösung hat pOH = 4. Wie groß ist der pH?",
+      "a": "10",
+      "falsch": [
+        "4",
+        "18",
+        "7"
+      ],
+      "e": "pH + pOH = 14"
+    },
+    {
+      "t": "kunst",
+      "q": "Was zeichnet einen Thermoplasten aus?",
+      "a": "Er erweicht beim Erwärmen und ist verformbar",
+      "falsch": [
+        "Er ist dreidimensional vernetzt",
+        "Er zieht sich nach Dehnung zurück",
+        "Er zersetzt sich bei Wärme, ohne zu schmelzen"
+      ],
+      "e": "Zwischen den wenig verzweigten Ketten wirken nur schwache Kräfte."
+    },
+    {
+      "t": "kunst",
+      "q": "Was muss ein Monomer für die radikalische Polymerisation haben?",
+      "a": "Eine C=C Doppelbindung",
+      "falsch": [
+        "Eine Hydroxygruppe",
+        "Eine Ionenbindung",
+        "Mindestens zwei Sauerstoffatome"
+      ],
+      "e": "Das Radikal greift die Doppelbindung an."
+    },
+    {
+      "t": "kunst",
+      "q": "Was ist ein typischer Kettenabbruch?",
+      "a": "Zwei Radikale verbinden sich",
+      "falsch": [
+        "Das Monomer ist verbraucht, aber Radikale bleiben",
+        "Der Initiator zerfällt",
+        "Ein Radikal reagiert mit Ethen"
+      ],
+      "e": "Dann gibt es keine Radikalenden mehr, die weiterwachsen."
+    },
+    {
+      "t": "kunst",
+      "q": "Was passiert bei der Vulkanisation?",
+      "a": "Schwefel vernetzt die Kautschukketten",
+      "falsch": [
+        "Isopren wird polymerisiert",
+        "Ketten werden gespalten",
+        "Wasser wird abgespalten"
+      ],
+      "e": "Dadurch wird Gummi elastisch."
+    }
+  ],
+  "karten": [
+    {
+      "t": "gg",
+      "typ": "begriff",
+      "begriff": "Wie unterscheiden sich statisches und dynamisches Gleichgewicht?",
+      "erklaerung": "Statisch: Es läuft keine Reaktion mehr. Dynamisch: Hin und Rückreaktion laufen gleich schnell weiter, die Konzentrationen bleiben konstant."
+    },
+    {
+      "t": "gg",
+      "typ": "begriff",
+      "begriff": "Wie weist man Chlorid-Ionen nach? Gleichung?",
+      "erklaerung": "Silbernitratlösung zugeben. Ag⁺(aq) + Cl⁻(aq) → AgCl(s), weißer Niederschlag."
+    },
+    {
+      "t": "gg",
+      "typ": "begriff",
+      "begriff": "Wie weist man CO₂ nach? Gleichung?",
+      "erklaerung": "In Kalkwasser einleiten. Ca(OH)₂ + CO₂ → CaCO₃ + H₂O, weiße Trübung."
+    },
+    {
+      "t": "gg",
+      "typ": "begriff",
+      "begriff": "Was sagt K_L aus? Beispiel AgCl.",
+      "erklaerung": "K_L ist das MWG des Lösungsgleichgewichts. AgCl ⇌ Ag⁺ + Cl⁻, K_L = 1,8 · 10⁻¹⁰. Sehr klein, also schwerlöslich."
+    },
+    {
+      "t": "mwg",
+      "typ": "begriff",
+      "begriff": "Wie stellt man das MWG auf? Was gehört nicht hinein?",
+      "erklaerung": "Produkte im Zähler, Edukte im Nenner, Koeffizienten als Exponenten. Feststoffe stehen nicht drin."
+    },
+    {
+      "t": "mwg",
+      "typ": "begriff",
+      "begriff": "Welche Schritte hat eine MWG Rechnung?",
+      "erklaerung": "Gleichung, Anfangswerte, Gleichgewichtswerte, MWG aufstellen, einsetzen, Unbekannte berechnen."
+    },
+    {
+      "t": "zwang",
+      "typ": "begriff",
+      "begriff": "Formuliere das Prinzip vom kleinsten Zwang.",
+      "erklaerung": "Wird auf ein System im Gleichgewicht ein Zwang ausgeübt, weicht es so aus, dass die Wirkung des Zwangs kleiner wird."
+    },
+    {
+      "t": "zwang",
+      "typ": "begriff",
+      "begriff": "Wie wirkt die Temperatur auf ein Gleichgewicht? Beispiel?",
+      "erklaerung": "Erwärmen verschiebt in endotherme, Abkühlen in exotherme Richtung. 2 NO₂ ⇌ N₂O₄ (exotherm): Erwärmen gibt mehr braunes NO₂."
+    },
+    {
+      "t": "zwang",
+      "typ": "begriff",
+      "begriff": "Wie wirken Druck und Konzentration?",
+      "erklaerung": "Druck höher: Seite mit weniger Gasteilchen. Konzentration höher: Verschiebung weg vom Stoff. Stoff entfernt: Verschiebung hin zu ihm."
+    },
+    {
+      "t": "zwang",
+      "typ": "begriff",
+      "begriff": "Wie wirkt ein Katalysator auf das Gleichgewicht?",
+      "erklaerung": "Er senkt die Aktivierungsenergie für Hin und Rückreaktion. Das Gleichgewicht stellt sich schneller ein, Lage und K bleiben gleich."
+    },
+    {
+      "t": "sb",
+      "typ": "begriff",
+      "begriff": "Was sind Säure und Base nach Brönsted?",
+      "erklaerung": "Säure: Protonendonator. Base: Protonenakzeptor. Eine Protolyse ist der Protonenübergang HA + B ⇌ HB⁺ + A⁻."
+    },
+    {
+      "t": "sb",
+      "typ": "begriff",
+      "begriff": "Wie erklärt man Wasser als Ampholyt?",
+      "erklaerung": "Wasser kann Protonen aufnehmen (H₂O + H⁺ ⇌ H₃O⁺) und abgeben (H₂O ⇌ H⁺ + OH⁻), je nach Reaktionspartner."
+    },
+    {
+      "t": "sb",
+      "typ": "begriff",
+      "begriff": "Definiere pH, pOH und K_w.",
+      "erklaerung": "pH = −lg c(H₃O⁺), pOH = −lg c(OH⁻). K_w = c(H₃O⁺) · c(OH⁻) = 10⁻¹⁴ mol²/L², also pH + pOH = 14."
+    },
+    {
+      "t": "sb",
+      "typ": "begriff",
+      "begriff": "Was ist ein Indikator? Beispiel Phenolphthalein.",
+      "erklaerung": "Ein Farbstoff, der je nach pH die Farbe wechselt. Phenolphthalein ist im Sauren farblos und im Alkalischen pink."
+    },
+    {
+      "t": "kunst",
+      "typ": "begriff",
+      "begriff": "Vergleiche Thermoplast, Duroplast und Elastomer.",
+      "erklaerung": "Thermoplast: wenig verzweigt, erweicht, verformbar. Duroplast: eng vernetzt, hart, zersetzt sich. Elastomer: weitmaschig vernetzt, elastisch."
+    },
+    {
+      "t": "kunst",
+      "typ": "begriff",
+      "begriff": "Wie läuft die radikalische Polymerisation ab?",
+      "erklaerung": "Start: Initiator zerfällt in Radikale, Radikal reagiert mit dem Monomer. Wachstum: Radikalende addiert weitere Monomere. Abbruch: z. B. Rekombination zweier Radikale."
+    },
+    {
+      "t": "kunst",
+      "typ": "begriff",
+      "begriff": "Was bewirkt die Vulkanisation?",
+      "erklaerung": "Schwefel vernetzt die Kautschukketten, dadurch wird Gummi elastisch."
+    }
+  ],
+  "klausur": [
+    {
+      "t": "gg",
+      "op": "Erläutern",
+      "q": "Erläutern Sie den Unterschied zwischen statischem und dynamischem Gleichgewicht am Beispiel H₂ + I₂ ⇌ 2 HI.",
+      "punkte": [
+        "Statisch: keine Reaktion mehr",
+        "Dynamisch: Hin und Rückreaktion laufen weiter",
+        "Beide Reaktionen gleich schnell",
+        "Konzentrationen bleiben konstant",
+        "Geschlossenes System nötig"
+      ]
+    },
+    {
+      "t": "mwg",
+      "op": "Berechnen",
+      "q": "Aus 5 mol Essigsäure und 3 mol Ethanol entstehen bis zum Gleichgewicht 2,43 mol Ester. Berechnen Sie K_c.",
+      "punkte": [
+        "Gleichung: C₂H₅OH + CH₃COOH ⇌ CH₃COOC₂H₅ + H₂O",
+        "Ester und Wasser je 2,43 mol",
+        "Ethanol 0,57 mol, Essigsäure 2,57 mol",
+        "MWG aufstellen",
+        "Einsetzen und K_c ≈ 4"
+      ]
+    },
+    {
+      "t": "mwg",
+      "op": "Berechnen",
+      "q": "K_c = 4 für die Esterbildung. 5 mol Essigsäure und 3 mol Ethanol werden eingesetzt. Berechnen Sie die Stoffmenge Ester.",
+      "punkte": [
+        "Anfangswerte, n(Ester) = n(Wasser) = n",
+        "MWG mit (3 − n) und (5 − n)",
+        "Umformen zur quadratischen Gleichung 3n² − 32n + 60 = 0",
+        "Lösungen 2,427 mol und 8,239 mol",
+        "8,239 mol scheidet aus, Ergebnis 2,43 mol"
+      ]
+    },
+    {
+      "t": "zwang",
+      "op": "Erläutern",
+      "q": "Erläutern Sie, wie die Ausbeute an SO₃ in 2 SO₂ + O₂ ⇌ 2 SO₃ (exotherm) erhöht werden kann.",
+      "punkte": [
+        "O₂ im Überschuss: Verschiebung nach rechts",
+        "SO₃ abtrennen (Zwischenabsorption)",
+        "Druckerhöhung: weniger Gasteilchen rechts",
+        "Tiefe Temperatur günstig, aber Reaktion zu langsam",
+        "Kompromiss mit Katalysator V₂O₅ bei 420 bis 440 °C"
+      ]
+    },
+    {
+      "t": "sb",
+      "op": "Berechnen",
+      "q": "In einer Lösung beträgt c(OH⁻) = 0,001 mol/L. Berechnen Sie den pH-Wert.",
+      "punkte": [
+        "pOH = −lg 0,001 = 3",
+        "pH = 14 − pOH",
+        "pH = 11"
+      ]
+    },
+    {
+      "t": "sb",
+      "op": "Berechnen",
+      "q": "10 mL Natronlauge verbrauchen bis zum Umschlag 13 mL Salzsäure (c = 0,1 mol/L). Berechnen Sie c(NaOH).",
+      "punkte": [
+        "HCl + NaOH → NaCl + H₂O, Verhältnis 1 : 1",
+        "n(HCl) = 0,1 mol/L · 0,013 L = 0,0013 mol",
+        "n(NaOH) = n(HCl)",
+        "c(NaOH) = 0,0013 mol / 0,010 L = 0,13 mol/L"
+      ]
+    },
+    {
+      "t": "kunst",
+      "op": "Beschreiben",
+      "q": "Beschreiben Sie den Ablauf der radikalischen Polymerisation von Ethen mit einem Peroxid.",
+      "punkte": [
+        "Voraussetzung: C=C",
+        "Start: homolytischer Zerfall des Peroxids in Radikale",
+        "Radikal addiert an Ethen",
+        "Wachstum: Radikalende addiert weitere Ethenmoleküle",
+        "Abbruch durch Rekombination",
+        "Produkt Polyethylen"
+      ]
+    },
+    {
+      "t": "kunst",
+      "op": "Vergleichen",
+      "q": "Vergleichen Sie Thermoplast, Duroplast und Elastomer.",
+      "punkte": [
+        "Thermoplast: wenig verzweigt, schwache Kräfte, erweicht",
+        "Duroplast: eng vernetzt, hart, zersetzt sich",
+        "Elastomer: weitmaschig vernetzt, elastisch",
+        "Struktur bestimmt die Eigenschaften"
+      ]
+    }
+  ],
+  "operatoren": [
+    {
+      "name": "Nennen",
+      "afb": "I",
+      "text": "Ohne Erklärung aufzählen."
+    },
+    {
+      "name": "Beschreiben",
+      "afb": "I–II",
+      "text": "Sachverhalt oder Ablauf in eigenen Worten wiedergeben."
+    },
+    {
+      "name": "Berechnen",
+      "afb": "II",
+      "text": "Ergebnis mit Rechenweg ermitteln."
+    },
+    {
+      "name": "Erläutern",
+      "afb": "II",
+      "text": "Mit Beispielen und Begründungen verständlich machen."
+    },
+    {
+      "name": "Vergleichen",
+      "afb": "II",
+      "text": "Gemeinsamkeiten und Unterschiede herausarbeiten."
+    }
   ]
 }
