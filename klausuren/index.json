@@ -24,13 +24,14 @@
   {
     "id": "chemie-klausur",
     "fach": "Chemie",
-    "titel": "Klausur",
+    "titel": "Gleichgewicht, Säuren und Basen, Kunststoffe",
     "datum": "2026-11-06",
-    "beschreibung": "Thema folgt.",
+    "beschreibung": "Kursarbeit: chemisches Gleichgewicht, MWG, Prinzip vom Zwang, Säuren und Basen, Kunststoffe.",
     "farben": [
       "#1B7F5C",
       "#0F5139"
-    ]
+    ],
+    "kurs": "LK Q3"
   },
   {
     "id": "informatik-klausur",
