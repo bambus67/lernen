@@ -456,3 +456,6 @@ b.gap.right{background:var(--ok-soft);border-color:var(--ok)}
 b.gap.wrong{background:var(--bad-soft);border-color:var(--bad)}
 .own-min input[type=text]{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font:inherit;width:8em}
 .face .term.long{font-size:clamp(1.05rem,4.2vw,1.4rem);line-height:1.3;letter-spacing:0}
+
+.lcard .lp{margin:0 0 14px;line-height:1.6;font-size:1.02rem}
+.lcard .lp:last-of-type{margin-bottom:0}

@@ -124,7 +124,7 @@ function navHTML(active) {
     '</div><a class="btn primary small cta-nav" href="#/klausuren">Los geht\'s →</a></div></nav>';
 }
 const TITLES_SITE = { klausuren: "Klausuren", probeklausur: "Probeklausur", kalender: "Kalender", updates: "Updates" };
-const siteFoot = '<footer class="foot wrap">Inhalte nach Tafelbildern und Unterrichtsmaterial, aufbereitet mit Claude. Fehler entdeckt? Sag Bescheid.</footer>';
+const siteFoot = '<footer class="foot wrap">Inhalte nach Tafelbildern und Unterrichtsmaterial, aufbereitet mit Claude. Fehler entdeckt? Sag Bescheid.<br>Version 11, Stand 28.10.2026</footer>';
 
 async function renderLanding() {
   const head = siteShell("start");
@@ -301,7 +301,9 @@ function renderInstall() {
 }
 
 /* ---------- Seiten einer Klausur ---------- */
-const TITLES = { lernplan: "Lernplan", lernen: "Lernen", quiz: "Quiz", kette: "Ursache → Folge", karten: "Karteikarten", quellen: "Quellen", quelle: "Quellen", klausur: "Klausurfragen", probe: "Probeklausur", rechnen: "Rechnen", gleichungen: "Gleichungen ergänzen", verschiebung: "Was verschiebt sich?", einordnen: "Einordnen" };
+const UEB_MODES = ["rechnen", "gleichungen", "verschiebung", "einordnen", "mwgbau", "paare", "ordnen", "reaktionstyp"];
+const GAP = ["gleichungen", "mwgbau", "paare"];
+const TITLES = { lernplan: "Lernplan", lernen: "Lernen", quiz: "Quiz", kette: "Ursache → Folge", karten: "Karteikarten", quellen: "Quellen", quelle: "Quellen", klausur: "Klausurfragen", probe: "Probeklausur", rechnen: "Rechnen", gleichungen: "Gleichungen ergänzen", verschiebung: "Was verschiebt sich?", einordnen: "Einordnen", mwgbau: "MWG bauen", paare: "Säure-Base-Paare", ordnen: "Reihenfolge", reaktionstyp: "Reaktionstyp erkennen", checkliste: "Kompetenz-Check" };
 function render() {
   document.body.classList.toggle("on-home", view === "home");
   if (view === "home" || !TITLES[view]) { view = "home"; return renderHome(); }
@@ -312,7 +314,7 @@ function render() {
     '<span id="tb-right"></span></div></div>' +
     '<main class="stage" id="stage"></main>';
   $("#back").onclick = () => (fromPlan ? go("lernplan") : view === "quelle" ? go("quellen") : go("home"));
-  ({ lernplan: renderPlan, lernen: renderLernen, quiz: renderQuiz, kette: renderKette, karten: renderKarten, quellen: renderQuellen, quelle: renderQuelle, klausur: renderKlausur, probe: renderProbe, rechnen: renderUeb, gleichungen: renderUeb, verschiebung: renderUeb, einordnen: renderUeb })[view]();
+  ({ lernplan: renderPlan, lernen: renderLernen, quiz: renderQuiz, kette: renderKette, karten: renderKarten, quellen: renderQuellen, quelle: renderQuelle, klausur: renderKlausur, probe: renderProbe, rechnen: renderUeb, gleichungen: renderUeb, verschiebung: renderUeb, einordnen: renderUeb, mwgbau: renderUeb, paare: renderUeb, ordnen: renderUeb, reaktionstyp: renderUeb, checkliste: renderCheck })[view]();
 }
 const stage = () => $("#stage");
 
@@ -330,6 +332,9 @@ function renderHome() {
   if (has("quellen")) train.push(card("quellen", "train", "Quellenarbeit", "Quellen-Training", "Quellenauszüge mit Einordnungsfragen, Klausuraufgaben und Erwartungshorizont zum Abhaken.", n(K.quellen, (q) => inTopic(q.t)) + " Quellen", done + " bearbeitet"));
   const probeCard = has("quellen") ? (() => { const pi = probeCardInfo(); return card("probe", "probe", "Wie in der echten Klausur", "Probeklausur", "Quelle, Aufgaben mit Operatoren und Timer auf einem Klausurblatt. Danach selbst korrigieren und eine grobe Note bekommen.", pi[0], pi[1]); })() : "";
   if (has("klausur")) train.push(card("klausur", "train", "Offene Fragen", "Klausurfragen", "Mögliche Aufgaben mit Operatoren. Erst selbst antworten, dann mit der Musterlösung vergleichen.", n(K.klausur, (q) => inTopic(q.t)) + " Fragen", "mit Musterlösung"));
+  if (has("checkliste")) train.push(card("checkliste", "plan", "Deine Checkliste", "Kompetenz-Check", "Jede Kompetenz mit ihrem Operator: so sollst du antworten. Danach bewertest du dich von 1 bis 5.", n(K.checkliste, (q) => inTopic(q.t)) + " Kompetenzen", Object.keys(S.check || {}).length + " bewertet"));
+  if (has("mwgbau")) train.push(card("mwgbau", "train", "Gesetz aufstellen", "MWG bauen", "Das Massenwirkungsgesetz aus Bausteinen mit richtigen Exponenten zusammensetzen.", n(K.mwgbau, (q) => inTopic(q.t)) + " Aufgaben", "mit Erklärung"));
+  if (has("paare")) train.push(card("paare", "train", "Nach Brönsted", "Säure-Base-Paare", "Korrespondierende Paare finden und Protolysen vervollständigen.", n(K.paare, (q) => inTopic(q.t)) + " Aufgaben", "mit Erklärung"));
   if (has("rechnen")) train.push(card("rechnen", "train", "Zahlen und Rechenweg", "Rechnen", "Aufgaben mit Zahlen. Eigenes Ergebnis eintippen, danach den Rechenweg Schritt für Schritt ansehen.", n(K.rechnen, (q) => inTopic(q.t)) + " Aufgaben", "mit Rechenweg"));
   if (has("gleichungen")) train.push(card("gleichungen", "train", "Reaktionsgleichungen", "Gleichungen ergänzen", "Lücken in Reaktionsgleichungen füllen: Edukte, Produkte, Koeffizienten.", n(K.gleichungen, (q) => inTopic(q.t)) + " Gleichungen", "mit Lösung"));
   const games = [];
@@ -337,6 +342,8 @@ function renderHome() {
   if (has("ketten")) games.push(["kette", "Zusammenhänge", "Ursache und Folge", "Ursache-Folge-Ketten in die richtige Reihenfolge bringen.", n(K.ketten, (k) => inTopic(k.t)) + " Ketten", "mit Merksatz"]);
   if (has("karten")) games.push(["karten", (K.karten.some((c) => c.typ === "frage") ? "Fragen zum Inhalt" : "Begriffe und Personen"), "Karteikarten", "Umdrehen, prüfen, aussortieren, bis alle sitzen.", n(K.karten, (k) => inTopic(k.t)) + " Karten", "bis alle sitzen"]);
   // Raster: 3 pro Reihe, eine angefangene Reihe wird auf ganze Breite verteilt
+  if (has("ordnen")) games.push(["ordnen", "Abläufe", "Reihenfolge", "Schritte eines Ablaufs oder Mechanismus in die richtige Reihenfolge bringen.", n(K.ordnen, (q) => inTopic(q.t)) + " Abläufe", "mit Lösung"]);
+  if (has("reaktionstyp")) games.push(["reaktionstyp", "Kunststoffe", "Reaktionstyp erkennen", "Polymerisation, Polykondensation oder Polyaddition? Du entscheidest.", n(K.reaktionstyp, (q) => inTopic(q.t)) + " Aufgaben", "mit Begründung"]);
   if (has("verschiebung")) games.push(["verschiebung", "Prinzip vom Zwang", "Was verschiebt sich?", "Eine Störung ist vorgegeben. Wohin weicht das Gleichgewicht aus?", n(K.verschiebung, (q) => inTopic(q.t)) + " Aufgaben", "mit Begründung"]);
   if (has("einordnen")) games.push(["einordnen", "Zuordnen", "Einordnen", "Eigenschaften, Stoffe und Rollen der richtigen Gruppe zuordnen.", n(K.einordnen, (q) => inTopic(q.t)) + " Aufgaben", "mit Erklärung"]);
   const rem = games.length % 3;
@@ -389,7 +396,7 @@ function start(mode) {
   if (mode === "quiz") { newQuiz(); }
   if (mode === "kette") kette = null;
   if (mode === "karten") karten = null;
-  if (["rechnen", "gleichungen", "verschiebung", "einordnen"].includes(mode)) ueb = null;
+  if (UEB_MODES.includes(mode)) ueb = null;
   go(mode);
 }
 
@@ -412,8 +419,8 @@ function renderLernen() {
       '</div><div class="btn-row" style="margin-top:8px">' + (K.lernen.length > 1 ? '<button class="btn primary" type="button" id="nextTopic">Weiter mit ' + esc(nextL.name) + "</button>" : "") + '<button class="btn" type="button" id="reread">Nochmal lesen</button></div></div>';
   } else if (lern.ci < L.cards.length) {
     const c = L.cards[lern.ci];
-    main = '<article class="lcard' + (c.big ? " big" : "") + '" id="lcard"><div class="kicker">' + esc(L.name) + " · Karte " + (lern.ci + 1) + " von " + total + "</div><h2>" + esc(c.h) + "</h2>" +
-      (c.big ? '<p class="lmerk">' + esc(c.p[0]) + "</p>" : "<ul>" + c.p.map((x) => "<li>" + esc(x) + "</li>").join("") + "</ul>") +
+    main = '<article class="lcard' + (c.big ? " big" : "") + '" id="lcard"><div class="kicker">' + esc(L.name) + " · Karte " + (lern.ci + 1) + " von " + total + (c.op ? " · Operator: " + esc(c.op) : "") + "</div><h2>" + esc(c.h) + "</h2>" +
+      (c.big ? '<p class="lmerk">' + esc(c.p[0]) + "</p>" : c.fliess ? c.p.map((x) => '<p class="lp">' + esc(x) + "</p>").join("") : "<ul>" + c.p.map((x) => "<li>" + esc(x) + "</li>").join("") + "</ul>") +
       (c.tag ? '<p class="ltag">' + esc(c.tag) + "</p>" : "") + "</article>";
   } else {
     main = '<article class="lcard" id="lcard"><div class="kicker">' + esc(L.name) + " · Karte " + total + " von " + total + '</div><h2>' + (terms.some((k) => k.typ === "frage") ? "Fragen und Antworten" : "Begriffe und Personen") + '</h2><dl class="terms">' + terms.map((k) => "<dt>" + esc(k.begriff) + "</dt><dd>" + esc(k.erklaerung) + "</dd>").join("") + "</dl></article>";
@@ -578,7 +585,7 @@ function renderKarten() {
     '<div class="qmeta" style="margin-top:16px"><span class="tag">' + esc(topicName(c.t)) + "</span><span>" + kt.known + " von " + kt.total + " gewusst</span></div>" +
     '<div class="progress" style="margin-top:10px"><i style="width:' + (kt.known / kt.total) * 100 + '%"></i></div>' +
     '<div class="flash' + (kt.flipped ? " flipped" : "") + '"><div class="flash-inner" id="card" role="button" tabindex="0" aria-label="Karte umdrehen">' +
-    '<div class="face front"><span class="kicker">' + (c.typ === "person" ? "Person" : c.typ === "frage" ? "Frage" : "Begriff") + '</span><div class="term' + (c.begriff.length > 40 ? " long" : "") + '">' + esc(c.begriff) + '</div><span class="hint" style="margin:0">' + (c.typ === "frage" ? "Antworte zuerst selbst, dann umdrehen." : "Erklär es dir selbst, dann umdrehen.") + '</span></div>' +
+    '<div class="face front"><span class="kicker">' + (c.op ? esc(c.op) : c.typ === "person" ? "Person" : c.typ === "frage" ? "Frage" : "Begriff") + '</span><div class="term' + (c.begriff.length > 40 ? " long" : "") + '">' + esc(c.begriff) + '</div><span class="hint" style="margin:0">' + (c.typ === "frage" ? "Antworte zuerst selbst, dann umdrehen." : "Erklär es dir selbst, dann umdrehen.") + '</span></div>' +
     '<div class="face back"><span class="kicker">' + (c.typ === "frage" ? "Antwort" : esc(c.begriff)) + "</span><p>" + esc(c.erklaerung) + "</p></div></div></div>" +
     (kt.flipped ? '<div class="btn-row"><button class="btn" id="again" type="button">Nochmal</button><button class="btn" id="close" type="button">Fast</button><button class="btn primary" id="known" type="button">Gewusst</button></div>'
       : '<div class="btn-row"><button class="btn primary" id="flip" type="button">Umdrehen</button></div>') +
@@ -668,7 +675,7 @@ function keepScroll(fn) { const y = window.scrollY; fn(); window.scrollTo(0, y);
 let kstate = {};
 function renderKlausur() {
   const list = K.klausur.map((k, i) => ({ k: k, i: i })).filter((o) => inTopic(o.k.t));
-  const ops = has("operatoren") ? '<details><summary>Operatoren: Was wird verlangt?</summary><div class="ops">' + K.operatoren.map((o) => "<div><b>" + esc(o.name) + "</b><span>AFB " + esc(o.afb) + "</span><span>" + esc(o.text) + "</span></div>").join("") + "</div></details>" : "";
+  const ops = has("operatoren") ? '<details><summary>Operatoren: Was wird verlangt?</summary><div class="ops">' + K.operatoren.map((o) => "<div><b>" + esc(o.name) + "</b><span>AFB " + esc(o.afb) + "</span><span>" + esc(o.text) + "</span>" + (o.so ? "<span>" + esc(o.so) + "</span>" : "") + "</div>").join("") + "</div></details>" : "";
   stage().innerHTML =
     '<div class="kicker">' + esc(topicName(S.topic)) + '</div><h2 class="q" style="margin-top:6px">Mögliche Klausurfragen</h2>' +
     '<p class="hint" style="margin-top:-6px">Antwort in Stichpunkten skizzieren, dann die Musterlösung aufdecken und abhaken, was du hattest.</p>' + ops +
@@ -698,10 +705,10 @@ function klausurCard(k, i) {
 
 /* ---------- Lernplan ---------- */
 // Geschätzte Minuten pro Aufgabe. Phase 1: jedes Thema mit Lernkarten + Quiz, Phase 2: gemischte Wiederholung, letzter Tag: roter Faden + Klausurfragen.
-const PLAN_MIN = { lernen: 15, quiz: 10, karten: 10, kette: 10, quelle: 20, klausur: 20, rechnen: 15, gleichungen: 10, verschiebung: 10, einordnen: 10 };
+const PLAN_MIN = { lernen: 15, quiz: 10, karten: 10, kette: 10, quelle: 20, klausur: 20, rechnen: 15, gleichungen: 10, verschiebung: 10, einordnen: 10, mwgbau: 10, paare: 10, ordnen: 10, reaktionstyp: 10 };
 const WD_ORDER = [1, 2, 3, 4, 5, 6, 0];
 let planForm = null, fromPlan = false;
-const fadenLabel = (l) => "Roter Faden lesen" + (/roter faden/i.test(l.name) ? "" : ": " + l.name);
+const fadenLabel = (l) => (/roter faden/i.test(l.name) ? "Roter Faden lesen" : l.name + " lesen");
 const planReady = () => topics().length > 0 && (has("lernen") || has("quiz"));
 function planUnits() {
   return topics().map((t) => {
@@ -713,7 +720,7 @@ function planUnits() {
 }
 function reviewPool() {
   const pool = [];
-  ["rechnen", "gleichungen", "verschiebung", "einordnen"].forEach((m) => { if (has(m)) pool.push({ min: PLAN_MIN[m], next: () => ({ mode: m, t: "all", label: TITLES[m] + ": alle Themen" }) }); });
+  UEB_MODES.forEach((m) => { if (has(m)) pool.push({ min: PLAN_MIN[m], next: () => ({ mode: m, t: "all", label: TITLES[m] + ": alle Themen" }) }); });
   if (has("quiz")) pool.push({ min: PLAN_MIN.quiz, next: () => ({ mode: "quiz", t: "all", label: "Quiz gemischt, alle Themen" }) });
   if (has("karten")) pool.push({ min: PLAN_MIN.karten, next: () => ({ mode: "karten", t: "all", label: "Karteikarten: alle Begriffe" }) });
   const ks = (K.ketten || []).map((k, i) => ({ k: k, i: i })).filter((o) => o.k.t !== "all");
@@ -1116,7 +1123,7 @@ function renderUeb() {
     return;
   }
   const it = K[mode][ueb.pool[ueb.i]], st = ueb.st;
-  const head = '<div class="progress"><i style="width:' + (ueb.i / ueb.pool.length) * 100 + '%"></i></div><div class="qmeta"><span class="tag">' + esc(topicName(it.t)) + "</span><span>Aufgabe " + (ueb.i + 1) + " von " + ueb.pool.length + "</span></div>";
+  const head = '<div class="progress"><i style="width:' + (ueb.i / ueb.pool.length) * 100 + '%"></i></div><div class="qmeta"><span class="tag">' + esc(topicName(it.t)) + "</span>" + (it.lk ? '<span class="tag op">LK</span>' : "") + "<span>Aufgabe " + (ueb.i + 1) + " von " + ueb.pool.length + "</span></div>";
   const finish = (ok) => { st.done = true; st.ok = ok; if (ok) ueb.right++; stat(it.t, ok); renderUeb(); };
   const fb = (ok, extra) => '<div class="fb ' + (ok ? "ok" : "bad") + '"><b>' + (ok ? "Richtig." : "Nicht ganz.") + "</b>" + esc(extra || "") + "</div>";
   const next = '<div class="btn-row"><button class="btn primary" id="next" type="button">' + (ueb.i + 1 < ueb.pool.length ? "Weiter" : "Auswertung") + "</button></div>";
@@ -1132,7 +1139,7 @@ function renderUeb() {
     const c = $("#check"); if (c) c.onclick = check;
     if (inp && !st.done) inp.onkeydown = (e) => { if (e.key === "Enter") check(); };
     const sb = $("#steps"); if (sb) sb.onclick = () => { st.val = inp.value; st.steps = true; renderUeb(); };
-  } else if (mode === "gleichungen") {
+  } else if (GAP.includes(mode)) {
     if (!st.o) { st.o = it.luecken.map((l) => shuffle([l.a].concat(l.falsch))); st.sel = {}; }
     const sentence = esc(it.satz).replace(/\{(\d+)\}/g, (_, k) => {
       const i = +k, l = it.luecken[i];
@@ -1140,10 +1147,19 @@ function renderUeb() {
       return '<select class="gap" data-g="' + i + '"><option value="">?</option>' + st.o[i].map((o) => '<option value="' + esc(o) + '"' + (st.sel[i] === o ? " selected" : "") + ">" + esc(o) + "</option>").join("") + "</select>";
     });
     const all = () => it.luecken.every((_, i) => st.sel[i]);
-    el.innerHTML = head + '<h2 class="q">' + esc(it.titel) + '</h2><p class="hint" style="margin-top:-8px">' + esc(it.aufgabe || "Ergänze die Lücken.") + '</p><p class="eq">' + sentence + "</p>" +
+    el.innerHTML = head + '<h2 class="q">' + esc(it.titel) + '</h2><p class="hint" style="margin-top:-8px">' + esc(it.aufgabe || "Ergänze die Lücken.") + '</p>' + (it.kopf ? '<p class="hint" style="margin-top:-8px">' + esc(it.kopf) + '</p>' : '') + '<p class="eq">' + sentence + "</p>" +
       (st.done ? fb(st.ok, it.e) + next : '<div class="btn-row"><button class="btn primary" id="check" type="button"' + (all() ? "" : " disabled") + ">Prüfen</button></div>");
     $$("select.gap", el).forEach((sel) => (sel.onchange = () => { st.sel[sel.dataset.g] = sel.value; const c = $("#check"); if (c) c.disabled = !all(); }));
     const c = $("#check"); if (c) c.onclick = () => finish(it.luecken.every((l, i) => st.sel[i] === l.a));
+  } else if (mode === "ordnen") {
+    if (!st.o) { const items = it.schritte.map((x, i) => ({ id: "s" + i, text: x })); st.o = { items: shuffle(items), placed: [], checked: false, correct: items.map((x) => x.id) }; }
+    const o = st.o, hits = o.placed.filter((id, i) => o.correct[i] === id).length;
+    el.innerHTML = head + '<h2 class="q">' + esc(it.titel) + '</h2><p class="hint" style="margin-top:-8px">' + esc(it.aufgabe || "Bring die Schritte in die richtige Reihenfolge.") + "</p>" + orderHTML(o, ["Schritte", "Reihenfolge"]) +
+      (st.done ? fb(st.ok, st.ok ? it.e : hits + " von " + o.items.length + " Schritten stehen richtig. " + (it.e || "")) + (st.ok ? "" : '<div class="solution"><div class="eh-head">So ist es richtig</div><ol class="chain">' + it.schritte.map((x) => "<li>" + esc(x) + "</li>").join("") + "</ol></div>") + next
+        : '<div class="btn-row"><button class="btn primary" id="check" type="button"' + (o.placed.length < o.items.length ? " disabled" : "") + ">Prüfen</button>" + (o.placed.length ? '<button class="btn" id="reset" type="button">Zurücksetzen</button>' : "") + "</div>");
+    bindOrder(o, renderUeb);
+    const c = $("#check"); if (c) c.onclick = () => { o.checked = true; finish(hits === o.items.length); };
+    const rs = $("#reset"); if (rs) rs.onclick = () => { o.placed = []; renderUeb(); };
   } else {
     el.innerHTML = head + (it.kopf ? '<p class="eq">' + esc(it.kopf) + "</p>" : "") + '<h2 class="q">' + esc(it.q) + '</h2><div class="opts">' +
       it.optionen.map((o, k) => {
@@ -1153,6 +1169,26 @@ function renderUeb() {
     $$(".opt", el).forEach((b) => (b.onclick = () => { st.pick = +b.dataset.k; finish(it.optionen[st.pick] === it.a); }));
   }
   const nx = $("#next"); if (nx) { nx.onclick = () => { ueb.st = {}; ueb.i++; renderUeb(); window.scrollTo(0, 0); }; nx.focus(); }
+}
+
+
+/* ---------- Kompetenz-Check: Checkliste mit Operatoren ---------- */
+let chkOpen = {};
+function renderCheck() {
+  const el = stage(); S.check = S.check || {};
+  const list = K.checkliste.map((c, i) => ({ c: c, i: i })).filter((o) => inTopic(o.c.t));
+  const ops = has("operatoren") ? "<details><summary>Was verlangen die Operatoren?</summary><div class=\"ops\">" + K.operatoren.map((o) => "<div><b>" + esc(o.name) + "</b><span>" + esc(o.text) + "</span>" + (o.so ? "<span>" + esc(o.so) + "</span>" : "") + "</div>").join("") + "</div></details>" : "";
+  const rated = list.filter((o) => S.check[o.i]).length;
+  el.innerHTML = '<div class="kicker">' + esc(topicName(S.topic)) + '</div><h2 class="q" style="margin-top:6px">Kompetenz-Check</h2>' +
+    '<p class="hint" style="margin-top:-6px">Zu jeder Kompetenz aus deiner Checkliste: erst selbst antworten, dann die Musterantwort aufdecken. Jeder Operator verlangt etwas anderes, deshalb ist die Antwort pro Operator getrennt. Danach bewertest du dich. ' + rated + " von " + list.length + " bewertet.</p>" + ops +
+    '<div style="margin-top:16px">' + list.map((o) => {
+      const c = o.c, r = S.check[o.i];
+      return '<div class="task"><div style="display:flex;gap:8px;flex-wrap:wrap">' + c.ops.map((p) => '<span class="tag op">' + esc(p) + "</span>").join("") + (c.lk ? '<span class="tag op">LK</span>' : "") + '<span class="tag">' + esc(topicName(c.t)) + "</span></div><p class=\"qq\">" + esc(c.k) + "</p>" +
+        (chkOpen[o.i] ? '<div class="solution">' + c.antwort.map((a) => '<div class="eh-head">' + esc(a.op) + "</div><p>" + esc(a.text) + "</p>").join("") + "</div>" : '<div><button class="btn small" type="button" data-open="' + o.i + '">Musterantwort zeigen</button></div>') +
+        '<div class="step-sub" style="margin:12px 0 6px">Wie sicher bist du? 1 = sicher, 5 = muss noch üben</div><div class="seg" role="group">' + [1, 2, 3, 4, 5].map((n) => '<button type="button" data-r="' + o.i + ":" + n + '" aria-pressed="' + (r === n) + '">' + n + "</button>").join("") + "</div></div>";
+    }).join("") + "</div>";
+  $$("[data-open]", el).forEach((b) => (b.onclick = () => { chkOpen[b.dataset.open] = true; keepScroll(renderCheck); }));
+  $$("[data-r]", el).forEach((b) => (b.onclick = () => { const p = b.dataset.r.split(":"); S.check[p[0]] = +p[1]; save(); keepScroll(renderCheck); }));
 }
 
 /* ---------- Tastatur ---------- */
