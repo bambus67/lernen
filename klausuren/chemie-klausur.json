@@ -37,37 +37,92 @@
       "name": "Gleichgewicht",
       "cards": [
         {
-          "h": "Dynamisches Gleichgewicht",
+          "h": "Umkehrbare Reaktionen",
           "p": [
-            "Hin und Rückreaktion laufen gleich schnell, die Konzentrationen bleiben konstant, obwohl ständig Stoffe umgesetzt werden."
+            "Viele Reaktionen laufen nicht vollständig ab. Aus den Edukten entstehen Produkte, aber die Produkte reagieren gleichzeitig wieder zurück zu den Edukten. Solche Reaktionen heißen umkehrbar, man schreibt sie mit dem Doppelpfeil ⇌. Die Reaktion von links nach rechts ist die Hinreaktion, die von rechts nach links die Rückreaktion.",
+            "Am Anfang gibt es viele Edukte und kaum Produkte, deshalb läuft fast nur die Hinreaktion. Je mehr Produkte entstehen, desto schneller wird die Rückreaktion, und weil die Edukte weniger werden, wird die Hinreaktion langsamer. Irgendwann sind beide Geschwindigkeiten gleich groß. Ab diesem Punkt herrscht chemisches Gleichgewicht.",
+            "Wichtig: Im Gleichgewicht sind die Konzentrationen nicht gleich groß, sondern konstant. Sie ändern sich nicht mehr, obwohl weiter Teilchen reagieren. Das klappt nur in einem geschlossenen System, aus dem nichts entweichen kann."
           ],
-          "big": true
+          "fliess": true,
+          "tag": "aus deinem Heft und den Blättern",
+          "op": "Beschreiben"
         },
         {
-          "h": "Statisch oder dynamisch",
+          "h": "Statisches und dynamisches Gleichgewicht",
           "p": [
-            "Statisch: Es läuft keine Reaktion mehr.",
-            "Dynamisch: Hin und Rückreaktion laufen weiter, nur die Konzentrationen ändern sich nicht.",
-            "Beispiel: H₂ + I₂ ⇌ 2 HI im geschlossenen System."
+            "Bei einem statischen Gleichgewicht passiert gar nichts mehr. Es läuft keine Reaktion und es findet kein Stoffaustausch statt. Ein Beispiel ist eine Waage, bei der beide Seiten gleich schwer sind und alles ruht.",
+            "Das chemische Gleichgewicht ist dynamisch. Hin und Rückreaktion laufen ununterbrochen weiter, und zwar gleich schnell. In jeder Sekunde werden genauso viele Produktteilchen gebildet, wie wieder zerfallen. Nach außen sieht man deshalb keine Änderung, im Inneren ist aber ständig Bewegung.",
+            "Das Heberexperiment zeigt das: Zwei Messzylinder tauschen über Glasrohre immer wieder Wasser aus. Nach einigen Hebevorgängen ändern sich die Wasserstände nicht mehr, obwohl weiter Wasser hin und her transportiert wird. Der Stofftransport bleibt, die Pegel sind konstant.",
+            "Chemisches Beispiel: H₂ + I₂ ⇌ 2 HI. Wasserstoff und Iod reagieren in einem geschlossenen Gefäß teilweise zu Iodwasserstoff. Die Reaktion ist nicht vollständig, weil Iodwasserstoff unter denselben Bedingungen wieder in Iod und Wasserstoff zerfällt. So stellt sich ein Gleichgewicht ein."
           ],
-          "tag": "aus dem Heft"
+          "fliess": true,
+          "tag": "aus deinem Heft und den Blättern",
+          "op": "Unterscheiden, erklären"
         },
         {
-          "h": "Lösungsgleichgewicht",
+          "h": "Drei Arten von Gleichgewichten",
           "p": [
-            "Ba²⁺(aq) + SO₄²⁻(aq) ⇌ BaSO₄(s)",
-            "Ionen gehen aus dem Kristall in Lösung, gleich viele werden eingebaut. Bodensatz und gesättigte Lösung bilden ein heterogenes System.",
-            "AgCl ⇌ Ag⁺ + Cl⁻ mit K_L = 1,8 · 10⁻¹⁰. Kleiner Wert heißt: wenig Ionen in Lösung, schwerlöslich."
+            "Lösungsgleichgewicht: Ein Feststoff steht mit seiner gesättigten Lösung im Gleichgewicht, zum Beispiel BaSO₄(s) ⇌ Ba²⁺(aq) + SO₄²⁻(aq).",
+            "Gasgleichgewicht: Alle Stoffe sind Gase, zum Beispiel 2 NO₂ ⇌ N₂O₄ oder 2 SO₂ + O₂ ⇌ 2 SO₃.",
+            "Protolysegleichgewicht (Säure-Base-Gleichgewicht): Ein Proton wandert von einer Säure zu einer Base und wieder zurück, zum Beispiel NH₃ + H₂O ⇌ NH₄⁺ + OH⁻. Dazu mehr im Thema Säuren und Basen.",
+            "Bei allen drei gilt dasselbe Prinzip: Hin und Rückreaktion laufen gleich schnell, die Konzentrationen bleiben konstant."
           ],
-          "tag": "aus Heft und Buch"
+          "fliess": true,
+          "tag": "aus deinem Heft und den Blättern",
+          "op": "Beschreiben, aufstellen"
         },
         {
-          "h": "Nachweise",
+          "h": "Das Lösungsgleichgewicht",
           "p": [
-            "Halogenid: Silbernitratlösung. Ag⁺ + Cl⁻ → AgCl (weiß), AgBr (cremefarben), AgI (gelb).",
-            "CO₂: Kalkwasser wird trüb. Ca(OH)₂ + CO₂ → CaCO₃ + H₂O"
+            "Tropft man Bariumchloridlösung in eine Sulfatlösung, fällt schwer lösliches Bariumsulfat als Niederschlag aus. Danach ist das System nicht zur Ruhe gekommen. Von der Oberfläche der Kristalle gehen ständig Ba²⁺ und SO₄²⁻ in Lösung, und gleich viele Ionen werden aus der Lösung wieder in die Kristalle eingebaut. Das ist ein dynamisches Gleichgewicht.",
+            "Der Bodensatz (fest) und die gesättigte Lösung (flüssig) bilden zusammen ein heterogenes System. Das Löslichkeitsgleichgewicht hängt von der Temperatur ab.",
+            "Man beschreibt es mit dem MWG, wobei der Feststoff nicht vorkommt. Für AgCl ⇌ Ag⁺ + Cl⁻ gilt K_L = c(Ag⁺) · c(Cl⁻) = 1,8 · 10⁻¹⁰ mol²/L². Dieses Löslichkeitsprodukt K_L ist sehr klein, also sind in der Lösung nur sehr wenige Ionen, und AgCl ist schwerlöslich. Je kleiner K_L, desto schlechter löslich das Salz.",
+            "Beispiel aus der Medizin: Harnsteine bestehen zu über 70 % aus schwerlöslichem Calciumoxalat. Scheidet die Niere zu viel Oxalat und Calcium aus, wird das Löslichkeitsprodukt überschritten, und es bilden sich Kristalle."
           ],
-          "tag": "ergänzt, nicht im Heft"
+          "fliess": true,
+          "tag": "aus Heft und Buch",
+          "op": "Beschreiben, aufstellen"
+        },
+        {
+          "h": "Merkmale des chemischen Gleichgewichts",
+          "p": [
+            "Voraussetzungen sind eine umkehrbare Reaktion und ein geschlossenes oder abgeschlossenes System. Im Gleichgewicht laufen Hin und Rückreaktion gleichzeitig und gleich schnell ab (v_H = v_R ≠ 0). Die Gesamtgeschwindigkeit ist null (v_G = v_H − v_R = 0). Die Ausgangsstoffe und die Produkte liegen nebeneinander vor, ihre Konzentrationen bleiben unverändert (Δc = 0).",
+            "Δc = 0 ist notwendig, aber nicht hinreichend: Auch eine Reaktion, die zum Stillstand gekommen ist, hat konstante Konzentrationen. Erst zusammen mit v_H = v_R ≠ 0 liegt ein Gleichgewicht vor.",
+            "Die Zeit bis zum Gleichgewicht heißt Einstellzeit. Das Gleichgewicht ist von beiden Seiten einstellbar: Aus Ester und Wasser entsteht dieselbe Gleichgewichtsmischung wie aus Essigsäure und Ethanol."
+          ],
+          "fliess": true,
+          "tag": "aus deinem Buch",
+          "op": "Beschreiben"
+        },
+        {
+          "h": "Warum Reaktionen unvollständig ablaufen",
+          "p": [
+            "Zink reagiert mit Salzsäure im offenen Gefäß vollständig, denn der Wasserstoff entweicht. Bei vielen Reaktionen werden aber nicht alle Edukte umgesetzt. Ursache kann eine Reaktionshemmung sein, zum Beispiel eine Oxidschicht auf Zink oder Kupfer. Meist ist es die Umkehrbarkeit: Veresterung und Verseifung, Hydrierung und Dehydrierung oder die Protolyse von Ammoniak laufen in beide Richtungen.",
+            "In einem offenen System kann sich kein Gleichgewicht einstellen, weil Produkte entweichen können. Deshalb entweicht CO₂ beim Öffnen einer Mineralwasserflasche: Der Druck sinkt, und das Gleichgewicht verschiebt sich zum Gas."
+          ],
+          "fliess": true,
+          "tag": "aus deinem Buch",
+          "op": "Erklären"
+        },
+        {
+          "h": "Löslichkeit aus K_L berechnen (LK)",
+          "p": [
+            "Für ein Salz mit einem Kation und einem Anion wie AgCl entstehen beim Lösen gleich viele Ag⁺ und Cl⁻. Es gilt also c(Ag⁺) = c(Cl⁻) = x, und K_L = x².",
+            "Daraus folgt x = √K_L = √(1,8 · 10⁻¹⁰ mol²/L²) ≈ 1,3 · 10⁻⁵ mol/L. Das ist die Löslichkeit von AgCl in reinem Wasser. Man kann also in 1 L Wasser nur etwa 0,000013 mol AgCl lösen."
+          ],
+          "fliess": true,
+          "tag": "ergänzt, steht nicht in deinem Heft",
+          "op": "Berechnen"
+        },
+        {
+          "h": "Nachweise: Halogenide und CO₂",
+          "p": [
+            "Halogenid-Nachweis: Die Probe wird mit verdünnter Salpetersäure angesäuert (so stören andere Ionen wie Carbonat nicht), dann gibt man Silbernitratlösung dazu. Es fällt ein Silberhalogenid aus: Ag⁺(aq) + Cl⁻(aq) → AgCl(s) ist weiß, AgBr ist cremefarben, AgI ist gelb. AgCl löst sich in verdünnter Ammoniaklösung, AgI nicht.",
+            "Kohlenstoffdioxid-Nachweis: Das Gas wird in Kalkwasser geleitet. Es entsteht weißes, schwer lösliches Calciumcarbonat, die Lösung wird trüb: Ca(OH)₂ + CO₂ → CaCO₃ + H₂O. Leitet man weiter CO₂ ein, wird die Lösung wieder klar, weil lösliches Calciumhydrogencarbonat entsteht."
+          ],
+          "fliess": true,
+          "tag": "ergänzt, steht nicht in deinem Heft",
+          "op": "Beschreiben, aufstellen"
         }
       ]
     },
@@ -76,40 +131,100 @@
       "name": "MWG",
       "cards": [
         {
-          "h": "Massenwirkungsgesetz",
+          "h": "Das Massenwirkungsgesetz",
           "p": [
-            "K ist Produkte hoch Koeffizient geteilt durch Edukte hoch Koeffizient. Feststoffe stehen nicht im MWG."
+            "Für jede umkehrbare Reaktion a A + b B ⇌ c C + d D gilt im Gleichgewicht bei einer bestimmten Temperatur: K_c = c^c(C) · c^d(D) / (c^a(A) · c^b(B)). Die Produkte stehen im Zähler, die Edukte im Nenner, und die Koeffizienten der Reaktionsgleichung werden zu Exponenten.",
+            "Das Besondere: Der Wert K_c ist bei gleicher Temperatur immer derselbe, egal wie viel man von den Stoffen am Anfang einsetzt. Die einzelnen Konzentrationen können sich ändern, ihr Quotient im Gleichgewicht nicht.",
+            "Feststoffe und reine Flüssigkeiten schreibt man nicht ins MWG, weil ihre Konzentration praktisch konstant ist. Bei Gasen kann man statt Konzentrationen auch Partialdrücke nehmen, dann heißt die Konstante K_p."
           ],
-          "big": true
+          "fliess": true,
+          "tag": "aus deinem Heft und den Blättern",
+          "op": "Aufstellen"
         },
         {
-          "h": "MWG aufstellen",
+          "h": "Herleitung des MWG",
           "p": [
-            "Boudouard: CO₂ + C ⇌ 2 CO, K_c = c²(CO) / c(CO₂)",
-            "Kontaktverfahren: K_p = p²(SO₃) / (p²(SO₂) · p(O₂))",
-            "Haber Bosch: K_p = p²(NH₃) / (p(N₂) · p³(H₂))"
+            "Für N₂O₄ ⇌ 2 NO₂ gelten die Zeitgesetze v_H = k_H · c(N₂O₄) und v_R = k_R · c²(NO₂). Im Gleichgewicht ist v_H = v_R. Umstellen ergibt k_H / k_R = c²(NO₂) / c(N₂O₄) = K_c. Der Quotient zweier Konstanten ist selbst eine Konstante.",
+            "Guldberg und Waage formulierten 1867 das MWG: Im chemischen Gleichgewicht ist bei einer bestimmten Temperatur der Quotient aus dem Produkt der Konzentrationen der Reaktionsprodukte und dem Produkt der Konzentrationen der Ausgangsstoffe konstant. Die Stöchiometriezahlen werden zu Exponenten, weil ein Teilchen mit Koeffizient 2 so oft an der Reaktion beteiligt ist."
           ],
-          "tag": "Heft, Haber Bosch ergänzt"
+          "fliess": true,
+          "tag": "aus deinem Buch",
+          "op": "Erklären"
         },
         {
-          "h": "Rechnen mit K",
+          "h": "Einheit und Umformen von K",
           "p": [
-            "1. Reaktionsgleichung",
-            "2. Stoffmengen oder Konzentrationen zu Beginn",
-            "3. Werte im Gleichgewicht bestimmen",
-            "4. MWG aufstellen",
-            "5. Werte einsetzen",
-            "6. Unbekannte berechnen"
+            "Die Einheit ist [K_c] = (mol/L)^Δν mit Δν = Summe der Produktkoeffizienten minus Summe der Eduktkoeffizienten. Bei Δν = 0 hat K_c keine Einheit, und man darf Stoffmengen statt Konzentrationen einsetzen, weil sich das Volumen kürzt.",
+            "Die Größe von K hängt von der Schreibweise der Gleichung ab. Halbiert man die Gleichung (½ N₂O₄ ⇌ NO₂), wird K zur Wurzel aus dem alten K. Vertauscht man Edukte und Produkte, wird K zum Kehrwert. Bei Gasen nimmt man Partialdrücke mit K_p, dabei gilt K_p = K_c · (R · T)^Δν. Im MWG stehen nur Stoffe derselben Phase, Feststoffe fehlen (Löslichkeit: K_c = K_L)."
           ],
-          "tag": "aus dem Heft"
+          "fliess": true,
+          "tag": "aus deinem Buch",
+          "op": "Angeben"
         },
         {
-          "h": "Quadratische Gleichung",
+          "h": "MWG aufstellen: Beispiele",
           "p": [
-            "Ist n unbekannt, ergibt sich eine quadratische Gleichung. Es zählt nur die Lösung, die möglich ist.",
-            "Beispiel Ester mit K_c = 4: n = 2,427 mol. Die Lösung 8,239 mol scheidet aus, weil nur 3 mol Ethanol da sind."
+            "Boudouard-Gleichgewicht: CO₂ + C ⇌ 2 CO. Kohlenstoff ist fest und fällt weg, die 2 vor CO wird zum Exponenten: K_c = c²(CO) / c(CO₂).",
+            "Kontaktverfahren: 2 SO₂ + O₂ ⇌ 2 SO₃. Mit Partialdrücken gilt K_p = p²(SO₃) / (p²(SO₂) · p(O₂)). Bei 450 °C ist K_p ein vergleichsweise hoher Wert (66 kPa⁻¹), also liegt das Gleichgewicht stark auf der Produktseite.",
+            "Haber-Bosch-Verfahren: N₂ + 3 H₂ ⇌ 2 NH₃. Hier gilt K_p = p²(NH₃) / (p(N₂) · p³(H₂)).",
+            "So gehst du vor: erst die Reaktionsgleichung ausgleichen, dann Produkte oben und Edukte unten hinschreiben, dann jede Konzentration mit ihrem Koeffizienten potenzieren, Feststoffe weglassen."
           ],
-          "tag": "aus dem Heft"
+          "fliess": true,
+          "tag": "Boudouard und Kontaktverfahren aus deinen Blättern, Haber Bosch ergänzt",
+          "op": "Aufstellen"
+        },
+        {
+          "h": "Was sagt K aus?",
+          "p": [
+            "K ist groß (viel größer als 1): Im Gleichgewicht liegen überwiegend Produkte vor, die Reaktion läuft weitgehend vollständig ab. K ist klein (viel kleiner als 1): Es liegen überwiegend Edukte vor. K etwa 1: Beide Seiten sind in vergleichbaren Mengen da.",
+            "K hängt nur von der Temperatur ab. Eine Änderung von Druck, Konzentration oder ein Katalysator verändert K nicht. Verschiebt sich die Lage durch einen Zwang, passen sich die Konzentrationen so an, dass der Quotient wieder genau K ergibt.",
+            "Die Einheit von K ergibt sich aus der Gleichung. Haben beide Seiten gleich viele gelöste Teilchen, kürzt sich alles heraus und K hat keine Einheit, so wie bei der Esterbildung mit K_c = 4."
+          ],
+          "fliess": true,
+          "tag": "ergänzt, steht nicht in deinem Heft",
+          "op": "Erklären"
+        },
+        {
+          "h": "Rechnen mit dem MWG: die sechs Schritte",
+          "p": [
+            "Schritt 1: Reaktionsgleichung aufstellen. Schritt 2: Anfangswerte aufschreiben (Stoffmengen, Konzentrationen oder Partialdrücke vor der Reaktion). Schritt 3: Die Werte im Gleichgewicht bestimmen. Schritt 4: Das MWG aufstellen. Schritt 5: Die Werte einsetzen. Schritt 6: Die gesuchte Größe berechnen.",
+            "Beispiel aus dem Unterricht: 5 mol Essigsäure und 3 mol Ethanol reagieren bei 25 °C. Bis zum Gleichgewicht entstehen 2,43 mol Ester. Gleichung: C₂H₅OH + CH₃COOH ⇌ CH₃COOC₂H₅ + H₂O. Nach der Reaktion sind 2,43 mol Ester und 2,43 mol Wasser da. Vom Ethanol bleiben 3 − 2,43 = 0,57 mol, von der Essigsäure 5 − 2,43 = 2,57 mol übrig.",
+            "MWG: K_c = n(Ester) · n(Wasser) / (n(Ethanol) · n(Essigsäure)) = 2,43 · 2,43 / (0,57 · 2,57) ≈ 4,03. Hier darf man Stoffmengen statt Konzentrationen einsetzen, weil das Volumen im Zähler und im Nenner gleich oft vorkommt und sich kürzt."
+          ],
+          "fliess": true,
+          "tag": "aus deinem Heft und den Blättern",
+          "op": "Berechnen"
+        },
+        {
+          "h": "Rechnen mit unbekannter Stoffmenge",
+          "p": [
+            "Umgekehrt ist K_c = 4 gegeben, und man sucht die Menge Ester. Man nennt sie n. Dann sind im Gleichgewicht n mol Ester, n mol Wasser, (3 − n) mol Ethanol und (5 − n) mol Essigsäure da.",
+            "Eingesetzt: 4 = n² / ((3 − n) · (5 − n)). Mit dem Nenner multipliziert und ausmultipliziert ergibt sich 4 · (15 − 8n + n²) = n², also 3n² − 32n + 60 = 0. Teilt man durch 3, erhält man n² − (32/3)n + 20 = 0, und die Lösungsformel liefert n₁ ≈ 8,239 und n₂ ≈ 2,427.",
+            "Beide Zahlen lösen die Gleichung, aber nur eine passt zur Chemie: Es sind nur 3 mol Ethanol vorhanden, es können also nie mehr als 3 mol Ester entstehen. Die Lösung 8,239 mol scheidet aus, richtig ist n = 2,43 mol."
+          ],
+          "fliess": true,
+          "tag": "aus deinem Heft und den Blättern",
+          "op": "Berechnen"
+        },
+        {
+          "h": "Rechnen mit Konzentrationen (LK)",
+          "p": [
+            "Ändert sich bei der Reaktion die Teilchenzahl, kürzt sich das Volumen nicht heraus. Dann müssen Konzentrationen eingesetzt werden: c = n / V.",
+            "Beispiel: Im Gleichgewicht 2 SO₂ + O₂ ⇌ 2 SO₃ gilt c(SO₂) = 0,1 mol/L, c(O₂) = 0,05 mol/L und c(SO₃) = 0,2 mol/L. Dann ist K_c = c²(SO₃) / (c²(SO₂) · c(O₂)) = (0,2)² / ((0,1)² · 0,05) = 0,04 / 0,0005 = 80 L/mol. Die Einheit ergibt sich aus dem Bruch von mol²/L² durch mol³/L³."
+          ],
+          "fliess": true,
+          "tag": "ergänzt, steht nicht in deinem Heft",
+          "op": "Berechnen"
+        },
+        {
+          "h": "Beispiel aus dem Buch: Synthesegas",
+          "p": [
+            "Aufgabe: 100 mol CO und 100 mol H₂ liegen vor. Bei 700 K gilt für CO + H₂O ⇌ CO₂ + H₂ der Wert K_p = 10. CO soll zu 90 % entfernt werden. Gesucht ist die Stoffmenge Wasserdampf n.",
+            "Start: CO 100 mol, H₂O n, CO₂ 0 mol, H₂ 100 mol. Im Gleichgewicht sind 10 mol CO übrig, 90 mol CO₂ und 190 mol H₂ entstanden, und es bleiben n − 90 mol H₂O. Δν = 0, also gilt 10 = 90 · 190 / (10 · (n − 90)). Daraus folgt n − 90 = 171 und n = 261 mol."
+          ],
+          "fliess": true,
+          "tag": "aus deinem Buch",
+          "op": "Berechnen"
         }
       ]
     },
@@ -118,37 +233,112 @@
       "name": "Prinzip vom Zwang",
       "cards": [
         {
-          "h": "Prinzip vom kleinsten Zwang",
+          "h": "Das Prinzip von Le Chatelier und Braun",
           "p": [
-            "Wird auf ein System im Gleichgewicht ein Zwang ausgeübt, weicht es so aus, dass die Wirkung des Zwangs kleiner wird."
+            "Wird auf ein chemisches System im Gleichgewicht ein äußerer Zwang ausgeübt, weicht das System dem Zwang so aus, dass dessen Wirkung verringert wird. Man nennt das Prinzip vom kleinsten Zwang.",
+            "Ein Zwang ist eine Änderung von Temperatur, Druck oder Konzentration. Das System hebt den Zwang nie ganz auf, es schwächt ihn nur ab. Dazu läuft die Hin oder die Rückreaktion zeitweise schneller, die Lage des Gleichgewichts verschiebt sich, und danach stellt sich ein neues Gleichgewicht ein."
           ],
-          "big": true
+          "fliess": true,
+          "tag": "aus deinem Heft und den Blättern",
+          "op": "Beschreiben"
         },
         {
-          "h": "Temperatur",
+          "h": "Einfluss der Temperatur",
           "p": [
-            "Erwärmen: Verschiebung in endotherme Richtung.",
-            "Abkühlen: Verschiebung in exotherme Richtung.",
-            "2 NO₂ ⇌ N₂O₄ ist exotherm. Erwärmen gibt mehr NO₂, das Gemisch wird brauner."
+            "Beispiel 2 NO₂ ⇌ N₂O₄ mit ΔH = −59 kJ/mol. NO₂ ist braun, N₂O₄ ist farblos, deshalb zeigt die Farbintensität die NO₂-Konzentration. Die Hinreaktion ist exotherm (ΔH < 0), die Rückreaktion also endotherm.",
+            "Erwärmen: Die Wärmezufuhr ist ein Zwang. Das System weicht in die endotherme Richtung aus, denn die verbraucht Wärme. Es entsteht mehr NO₂, das Gemisch wird brauner.",
+            "Abkühlen: Das System weicht in die exotherme Richtung aus, denn die setzt Wärme frei. Es entsteht mehr N₂O₄, das Gemisch wird heller.",
+            "Merksatz: Erwärmen verschiebt in die endotherme Richtung, Abkühlen in die exotherme Richtung. Die Temperatur ist der einzige Zwang, der auch die Konstante K verändert. Bei einer exothermen Reaktion wird K bei Erwärmung kleiner."
           ],
-          "tag": "aus dem Heft"
+          "fliess": true,
+          "tag": "aus deinem Heft und den Blättern",
+          "op": "Erläutern"
         },
         {
-          "h": "Druck, Konzentration, Katalysator",
+          "h": "Einfluss der Konzentration",
           "p": [
-            "Druck höher: Seite mit weniger Gasteilchen.",
-            "Konzentration eines Stoffs höher: Verschiebung weg von diesem Stoff. Stoff entfernen: Verschiebung hin zu ihm.",
-            "Katalysator: Gleichgewicht stellt sich schneller ein, Lage und K bleiben gleich."
+            "Erhöht man die Konzentration eines Stoffs, weicht das System aus, indem es diesen Stoff verbraucht. Gibt man also ein Edukt dazu, verschiebt sich das Gleichgewicht nach rechts, gibt man ein Produkt dazu, nach links.",
+            "Entfernt man einen Stoff, wird er nachgebildet. Nimmt man ein Produkt laufend weg, verschiebt sich das Gleichgewicht nach rechts, und die Ausbeute steigt. Genau das macht man beim Kontaktverfahren, wo das gebildete SO₃ abgetrennt wird.",
+            "Eine Konzentrationsänderung verändert K nicht. Die Konzentrationen stellen sich nur so ein, dass der Quotient wieder dem alten K entspricht."
           ],
-          "tag": "Katalysator aus dem Heft, Rest ergänzt"
+          "fliess": true,
+          "tag": "ergänzt, steht nicht in deinem Heft",
+          "op": "Erläutern"
         },
         {
-          "h": "Anwendung",
+          "h": "Experimente aus dem Buch: Druck und Temperatur",
           "p": [
-            "Kontaktverfahren: O₂ im Überschuss, SO₃ abtrennen (Zwischenabsorption), 420 bis 440 °C als Kompromiss, Katalysator V₂O₅.",
-            "Haber Bosch: hoher Druck, weil weniger Gasteilchen. Tiefe Temperatur wäre günstig, ist aber zu langsam. Deshalb Kompromiss mit Katalysator."
+            "2 NO₂ ⇌ N₂O₄ verläuft unter Volumenabnahme. Bei Druckerhöhung verschiebt sich das Gleichgewicht zu N₂O₄, bei Druckerniedrigung zu NO₂. Die Tabelle zeigt es: bei 101,3 kPa liegen 28 % NO₂ vor, bei 202,6 kPa 21 % und bei 405,2 kPa 15,4 %. K_p bleibt dabei konstant bei 11,4 kPa.",
+            "Bei Temperaturänderung ändert sich K selbst: Für N₂O₄ ⇌ 2 NO₂ ist K_p = 11,4 kPa bei 298 K (28 % NO₂) und 1380 kPa bei 373 K (93,5 % NO₂)."
           ],
-          "tag": "Kontaktverfahren aus dem Blatt, Haber Bosch ergänzt"
+          "fliess": true,
+          "tag": "aus deinem Buch",
+          "op": "Erläutern"
+        },
+        {
+          "h": "Experiment aus dem Buch: Konzentration",
+          "p": [
+            "Für CO + H₂O ⇌ CO₂ + H₂ gilt: Zufuhr von Ausgangsstoffen (zum Beispiel 8 H₂O) oder Entnahme von Produkten (zum Beispiel 6 H₂) verschiebt das Gleichgewicht nach rechts. Entnahme von Ausgangsstoffen oder Zufuhr von Produkten verschiebt es nach links."
+          ],
+          "fliess": true,
+          "tag": "aus deinem Buch",
+          "op": "Erläutern"
+        },
+        {
+          "h": "Einfluss des Drucks",
+          "p": [
+            "Der Druck spielt nur bei Gasen eine Rolle, und nur wenn sich auf beiden Seiten die Zahl der Gasteilchen unterscheidet. Erhöht man den Druck (zum Beispiel durch kleineres Volumen), weicht das System in die Richtung mit weniger Gasteilchen aus. Sinkt der Druck, verschiebt es sich zur Seite mit mehr Gasteilchen.",
+            "N₂ + 3 H₂ ⇌ 2 NH₃: links 4, rechts 2 Gasteilchen. Hoher Druck verschiebt nach rechts, die Ammoniakausbeute steigt. 2 SO₂ + O₂ ⇌ 2 SO₃: links 3, rechts 2, hoher Druck verschiebt ebenfalls nach rechts. H₂ + I₂ ⇌ 2 HI: links 2, rechts 2, der Druck hat keinen Einfluss.",
+            "Bei CO₂ + C ⇌ 2 CO gibt es links 1 und rechts 2 Gasteilchen (Kohlenstoff ist fest und zählt nicht). Bei höherem Druck wird die CO-Bildung unterdrückt. Darum braucht man bei 10 bar höhere Temperaturen als bei 1 bar, um dieselbe CO-Ausbeute zu erreichen."
+          ],
+          "fliess": true,
+          "tag": "ergänzt, steht nicht in deinem Heft",
+          "op": "Erläutern"
+        },
+        {
+          "h": "Der Katalysator",
+          "p": [
+            "Ein Katalysator (zum Beispiel Vanadiumoxid, Braunstein oder Schwefelsäure) geht unverändert aus der Reaktion hervor. Er beschleunigt eine Reaktion, indem er die Aktivierungsenergie senkt.",
+            "Auf das Gleichgewicht bezogen senkt er die Aktivierungsenergie für die Hin und die Rückreaktion, beide laufen schneller ab. Die Lage des Gleichgewichts bleibt gleich, der Katalysator stellt es nur schneller her. Auch die Gleichgewichtskonstante K ändert sich nicht."
+          ],
+          "fliess": true,
+          "tag": "aus deinem Heft und den Blättern",
+          "op": "Erklären"
+        },
+        {
+          "h": "Kontaktverfahren Schritt für Schritt",
+          "p": [
+            "Schwefelsäure ist in der Industrie ein wichtiger Rohstoff für Düngemittel, Waschmittel und Sulfate. Das Kontaktverfahren wurde von Clemens Winkler und Rudolf Knietsch entwickelt. Ausgangsstoff ist flüssiger Schwefel (etwa 135 °C).",
+            "1. Schritt, Verbrennungsofen: Schwefel verbrennt mit Luftsauerstoff zu Schwefeldioxid, S + O₂ → SO₂. Das Gas wird anschließend auf etwa 420 °C gekühlt.",
+            "2. Schritt, Kontaktofen: 2 SO₂ + O₂ ⇌ 2 SO₃. Das Gasgemisch strömt durch mehrere Horden (Siebböden) mit Katalysator, meist Vanadiumoxid. Die Reaktion ist exotherm, bei steigender Temperatur sinkt nach Le Chatelier der SO₃-Anteil. Bei zu niedriger Temperatur wird die Reaktion aber zu langsam. Deshalb ist eine Arbeitstemperatur von 420 bis 440 °C ein Kompromiss. Wärmetauscher führen die überschüssige Wärme ab, und ein Sauerstoffüberschuss verschiebt das Gleichgewicht nach rechts.",
+            "3. Schritt, Absorber: SO₃ wird in 96 %ige Schwefelsäure geleitet und reagiert mit dem Wasseranteil: SO₃ + H₂O ⇌ H₂SO₄. Die Konzentration steigt dabei bis zu 99 %. Direkt in Wasser leitet man SO₃ nicht, weil sonst ein schwer abscheidbarer Nebel entsteht. Leitet man SO₃ in konzentrierte Säure, entsteht Dischwefelsäure: SO₃ + H₂SO₄ ⇌ H₂S₂O₇ (Oleum, rauchende Schwefelsäure). Mit Wasser ergibt sie wieder Schwefelsäure: H₂S₂O₇ + H₂O ⇌ 2 H₂SO₄.",
+            "4. Schritt, Doppelkontakt: Im ersten Kontaktofen wird nicht alles SO₂ umgesetzt. Beim Doppelkontaktverfahren entfernt man das gebildete SO₃ im Zwischenabsorber. Das ist ein Zwang auf der Produktseite, das Gleichgewicht verschiebt sich wieder nach rechts, wenn das restliche SO₂ über eine weitere Kontaktschicht geleitet wird. Im Endabsorber wird das letzte SO₃ gelöst. So wird fast alles SO₂ umgesetzt, moderne Anlagen erreichen mindestens 99,8 %."
+          ],
+          "fliess": true,
+          "tag": "aus deinem Blatt zum Doppelkontaktverfahren",
+          "op": "Beschreiben"
+        },
+        {
+          "h": "Zusammenfassung zum Kontaktverfahren: Warum macht man was?",
+          "p": [
+            "Sauerstoff im Überschuss: Das ist ein Edukt, seine hohe Konzentration verschiebt das Gleichgewicht nach rechts, mehr SO₃ entsteht.",
+            "Zwischenabsorption: SO₃ wird entfernt, das Gleichgewicht verschiebt sich nach rechts, die Ausbeute steigt.",
+            "Temperaturführung: Tiefe Temperatur wäre für die exotherme Reaktion günstig, ist aber zu langsam. Mit Katalysator und 420 bis 440 °C ist die Reaktion schnell genug und die Lage noch gut. Zwischen den Kontaktschichten wird gekühlt, weil sich das Gemisch sonst weiter aufheizen würde.",
+            "Druck: Eine Druckerhöhung würde die Ausbeute steigern, weil 3 Teilchen zu 2 werden. K ist aber bei den gewählten Temperaturen schon günstig, und Hochdruckanlagen sind teuer, deshalb arbeitet man bei Normaldruck."
+          ],
+          "fliess": true,
+          "tag": "aus deinem Blatt zur Kursarbeit",
+          "op": "Erklären"
+        },
+        {
+          "h": "Haber-Bosch-Verfahren",
+          "p": [
+            "N₂ + 3 H₂ ⇌ 2 NH₃ mit ΔH = −92 kJ/mol. Hoher Druck und niedrige Temperatur erhöhen den Ammoniakanteil. Bei tiefen Temperaturen ist die Reaktion aber zu langsam, deshalb arbeitet man mit einem Eisenkatalysator bei etwa 450 °C. Der Druck beträgt in Deutschland etwa 30 MPa, höher lohnt sich nicht, weil Druckerzeugung und Anlagen teuer werden.",
+            "Bei 450 °C und 30 MPa wären im Gleichgewicht etwa 38 % NH₃ möglich. Das Gas verlässt den Reaktor aber nur mit etwa 17 %, weil die Verweilzeit von 1 bis 2 Minuten für die Einstellung nicht ausreicht. Verluste vermeidet der Kreislauf: Ammoniak wird auskondensiert, das restliche Gas zurückgeführt. Die Reaktionswärme wird über Wärmeaustausch mit frischem Synthesegas abgeführt."
+          ],
+          "fliess": true,
+          "tag": "aus deinem Buch",
+          "op": "Erklären"
         }
       ]
     },
@@ -157,57 +347,91 @@
       "name": "Säuren und Basen",
       "cards": [
         {
-          "h": "Säure und Base nach Brönsted",
+          "h": "Formeln und Eigenschaften",
           "p": [
-            "Eine Säure gibt Protonen ab, eine Base nimmt Protonen auf."
+            "Wichtige Säuren: Salzsäure HCl, Schwefelsäure H₂SO₄, Salpetersäure HNO₃, Phosphorsäure H₃PO₄, Essigsäure CH₃COOH, Kohlensäure H₂CO₃. Wichtige Laugen: Natronlauge NaOH, Kalilauge KOH, Kalkwasser Ca(OH)₂ und Ammoniak NH₃ (als Base, in Wasser gelöst).",
+            "Saure Lösungen enthalten einen Überschuss an Oxonium-Ionen H₃O⁺, alkalische Lösungen einen Überschuss an Hydroxid-Ionen OH⁻. Beide leiten den elektrischen Strom, weil sie Ionen enthalten, beide wirken ätzend und färben Indikatoren. Säuren reagieren mit unedlen Metallen zu Wasserstoff und Salz. Laugen fühlen sich seifig an. Mischt man beide, neutralisieren sie sich."
           ],
-          "big": true
+          "fliess": true,
+          "tag": "ergänzt, steht nicht in deinem Heft",
+          "op": "Nennen, erklären"
         },
         {
-          "h": "Protolysen",
+          "h": "Säuren und Basen darstellen",
           "p": [
-            "HCl + H₂O ⇌ Cl⁻ + H₃O⁺",
-            "NH₃ + H₂O ⇌ NH₄⁺ + OH⁻",
-            "Korrespondierende Paare: HCl/Cl⁻, H₃O⁺/H₂O, NH₄⁺/NH₃, H₂O/OH⁻"
+            "Nichtmetalloxid plus Wasser ergibt eine Säure: SO₃ + H₂O → H₂SO₄, SO₂ + H₂O ⇌ H₂SO₃, CO₂ + H₂O ⇌ H₂CO₃. Auch Wasserstoffverbindungen wie HCl bilden mit Wasser Säuren: HCl + H₂O → H₃O⁺ + Cl⁻.",
+            "Metalloxid plus Wasser ergibt eine Lauge: Na₂O + H₂O → 2 NaOH und CaO + H₂O → Ca(OH)₂. Auch unedle Metalle wie Natrium bilden mit Wasser eine Lauge: 2 Na + 2 H₂O → 2 NaOH + H₂. Ammoniak bildet mit Wasser ebenfalls eine alkalische Lösung: NH₃ + H₂O ⇌ NH₄⁺ + OH⁻."
           ],
-          "tag": "aus dem Heft"
+          "fliess": true,
+          "tag": "ergänzt, steht nicht in deinem Heft",
+          "op": "Darstellen, formulieren"
+        },
+        {
+          "h": "Säuren und Basen nach Brönsted",
+          "p": [
+            "Nach Brönsted besteht eine Säure-Base-Reaktion (Protolyse) im Übergang von Protonen H⁺ von einer Säure auf eine Base. Deshalb heißt sie auch Protonenübergangsreaktion. Eine Säure ist ein Protonendonator, eine Base ein Protonenakzeptor. Allgemein: HA + B ⇌ HB⁺ + A⁻.",
+            "Beispiel Chlorwasserstoff mit Wasser: HCl + H₂O ⇌ Cl⁻ + H₃O⁺. HCl gibt das Proton ab und ist die Säure, Wasser nimmt es auf und ist die Base. Aus HCl wird durch Protonenabgabe Cl⁻ (die korrespondierende Base), aus H₂O durch Protonenaufnahme H₃O⁺ (die korrespondierende Säure).",
+            "Beispiel Ammoniak mit Wasser: NH₃ + H₂O ⇌ NH₄⁺ + OH⁻. NH₃ nimmt ein Proton auf und ist die Base, Wasser gibt eines ab und ist die Säure. Die Paare sind NH₃/NH₄⁺ und H₂O/OH⁻.",
+            "Ein korrespondierendes Paar unterscheidet sich immer um genau ein Proton. In der Reaktionsgleichung schreibt man unter jeden Stoff, ob er Säure oder Base ist, und nummeriert die Paare (S₁/B₁ und S₂/B₂)."
+          ],
+          "fliess": true,
+          "tag": "aus deinem Heft und den Blättern",
+          "op": "Formulieren, angeben"
         },
         {
           "h": "Wasser als Ampholyt",
           "p": [
-            "Wasser kann je nach Partner Protonen aufnehmen oder abgeben.",
-            "Als Base: H₂O + H⁺ ⇌ H₃O⁺",
-            "Als Säure: H₂O ⇌ H⁺ + OH⁻"
+            "Ein Ampholyt ist ein Teilchen, das je nach Reaktionspartner als Säure oder als Base reagieren kann. Wassermoleküle sind solche amphoteren Teilchen.",
+            "Als Base nimmt Wasser ein Proton auf: H₂O + H⁺ ⇌ H₃O⁺. Als Säure gibt es eines ab: H₂O ⇌ H⁺ + OH⁻. Mit HCl reagiert Wasser als Base, mit NH₃ als Säure.",
+            "Weil Wasser beides kann, reagieren Wassermoleküle sogar miteinander: 2 H₂O ⇌ H₃O⁺ + OH⁻. Das nennt man Autoprotolyse. Das Gleichgewicht liegt sehr weit links, in reinem Wasser sind nur sehr wenige Ionen."
           ],
-          "tag": "aus dem Heft"
+          "fliess": true,
+          "tag": "aus deinem Heft und den Blättern",
+          "op": "Erläutern"
         },
         {
-          "h": "pH und pOH",
+          "h": "pH, pOH und das Ionenprodukt des Wassers",
           "p": [
-            "pH = −lg c(H₃O⁺), pOH = −lg c(OH⁻)",
-            "K_w = c(H₃O⁺) · c(OH⁻) = 10⁻¹⁴ mol²/L²",
-            "pH + pOH = 14, neutral ist pH 7"
+            "Der pH-Wert gibt an, wie sauer eine Lösung ist: pH = −lg c(H₃O⁺), wobei man die Konzentration ohne Einheit einsetzt. Entsprechend ist pOH = −lg c(OH⁻).",
+            "In reinem Wasser bei 25 °C gilt c(H₃O⁺) = c(OH⁻) = 10⁻⁷ mol/L, also pH = 7. Das Produkt beider Konzentrationen ist konstant: K_w = c(H₃O⁺) · c(OH⁻) = 10⁻¹⁴ mol²/L². Das ist das Ionenprodukt des Wassers. Daraus folgt pH + pOH = 14.",
+            "Die pH-Skala geht von 0 bis 14. Unter 7 ist die Lösung sauer, bei 7 neutral, über 7 alkalisch. Ein pH-Schritt bedeutet einen Faktor 10 in der Konzentration.",
+            "Beispiele: Salzsäure mit c = 1 mol/L hat c(H₃O⁺) = 1 mol/L, also pH = −lg 1 = 0. Bei c(OH⁻) = 0,001 mol/L ist pOH = 3, also pH = 14 − 3 = 11 und c(H₃O⁺) = 10⁻¹¹ mol/L."
           ],
-          "tag": "aus dem Heft"
+          "fliess": true,
+          "tag": "aus deinem Heft und den Blättern",
+          "op": "Definieren, beschreiben, berechnen"
         },
         {
-          "h": "Formeln, Darstellung, Indikatoren",
+          "h": "Indikatoren",
           "p": [
-            "Säuren: HCl, H₂SO₄, HNO₃, CH₃COOH. Laugen: NaOH, KOH, Ca(OH)₂.",
-            "Darstellung: Nichtmetalloxid + Wasser, z. B. SO₃ + H₂O → H₂SO₄. Metalloxid + Wasser, z. B. Na₂O + H₂O → 2 NaOH.",
-            "Indikatoren sind Farbstoffe, die je nach pH die Farbe wechseln. Phenolphthalein: farblos im Sauren, pink im Alkalischen."
+            "Ein Indikator ist ein Farbstoff, der je nach pH-Wert seine Farbe ändert. Meist ist er selbst eine schwache organische Säure oder Base, deren Säureform und Baseform unterschiedlich gefärbt sind. Ändert sich der pH-Wert, wechselt die Farbe in einem bestimmten Umschlagbereich.",
+            "Beispiele: Phenolphthalein ist unterhalb von pH 8,2 farblos und wird im Alkalischen pink. Bromthymolblau ist sauer gelb, neutral grün und alkalisch blau. Lackmus ist sauer rot und alkalisch blau. Der Universalindikator ist eine Mischung mehrerer Indikatoren und zeigt über den ganzen Bereich verschiedene Farben."
           ],
-          "tag": "ergänzt, nicht im Heft"
+          "fliess": true,
+          "tag": "Phenolphthalein aus deiner Titration, Rest ergänzt",
+          "op": "Definieren, beschreiben"
+        },
+        {
+          "h": "Stoffmenge und Konzentration",
+          "p": [
+            "Die Stoffmenge n in mol berechnet man aus der Masse m und der molaren Masse M mit n = m / M. Die Stoffmengenkonzentration ist c = n / V in mol/L. Umgestellt gilt n = c · V.",
+            "Beispiel: 4 g NaOH (M = 40 g/mol) werden in Wasser zu 500 mL Lösung aufgefüllt. Dann ist n = 4 g / 40 g/mol = 0,1 mol und c = 0,1 mol / 0,5 L = 0,2 mol/L. Bei starken Säuren und Laugen gilt, dass die Konzentration der Oxonium- oder Hydroxid-Ionen der Konzentration der Säure oder Lauge entspricht."
+          ],
+          "fliess": true,
+          "tag": "ergänzt, steht nicht in deinem Heft",
+          "op": "Berechnen"
         },
         {
           "h": "Titration",
           "p": [
-            "Eine Maßlösung bekannter Konzentration tropft in die Probe, bis der Indikator umschlägt.",
-            "HCl + NaOH → NaCl + H₂O, Verhältnis 1 : 1",
-            "H₂SO₄ + 2 NaOH → Na₂SO₄ + 2 H₂O, Verhältnis 1 : 2",
-            "n = c · V, dann n(Maßlösung) und n(Probe) über das Verhältnis verknüpfen."
+            "Mit einer Titration bestimmt man die unbekannte Konzentration einer Lösung. Man tropft eine Maßlösung mit bekannter Konzentration aus einer Bürette zur Probelösung, bis der Indikator umschlägt.",
+            "Versuch: 10 mL Natronlauge werden mit 3 Tropfen Phenolphthalein versetzt und sind pink. Man lässt 0,1 molare Salzsäure zutropfen, die Farbe wird immer heller, bis die Lösung farblos wird. Am Umschlag liest man das verbrauchte Volumen ab.",
+            "Deutung: HCl + NaOH → NaCl + H₂O. In Ionenschreibweise: H₃O⁺ + Cl⁻ + Na⁺ + OH⁻ → Na⁺ + Cl⁻ + 2 H₂O, gekürzt H₃O⁺ + OH⁻ → 2 H₂O. Das ist eine Neutralisation. Am Umschlagpunkt ist genau so viel Säure zugegeben, wie Lauge vorhanden war.",
+            "Rechnung: Am Umschlagpunkt gilt n(HCl) / n(NaOH) = Verhältnis aus der Reaktionsgleichung. Hier ist es 1 : 1, also n(HCl) = n(NaOH), das heißt c(HCl) · V(HCl) = c(NaOH) · V(NaOH). Bei Schwefelsäure gilt H₂SO₄ + 2 NaOH → Na₂SO₄ + 2 H₂O, das Verhältnis ist 1 : 2, deshalb ist n(NaOH) = 2 · n(H₂SO₄)."
           ],
-          "tag": "aus dem Heft"
+          "fliess": true,
+          "tag": "aus deinem Heft und den Blättern",
+          "op": "Beschreiben, berechnen"
         }
       ]
     },
@@ -216,63 +440,151 @@
       "name": "Kunststoffe",
       "cards": [
         {
-          "h": "Aufbau",
+          "h": "Aufbau von Kunststoffen",
           "p": [
-            "Kunststoffe bestehen aus Makromolekülen (Polymeren), die aus vielen kleinen Monomeren aufgebaut sind."
+            "Kunststoffe bestehen hauptsächlich aus Kohlenstoff und Wasserstoff, dazu kommen oft Sauerstoff, Stickstoff, Schwefel, Chlor oder Fluor. Sie bestehen aus Polymeren, das sind Kettenmoleküle oder Makromoleküle, die aus vielen kleinen Bausteinen aufgebaut sind. Diese Bausteine heißen Monomere.",
+            "Beispiel: Aus dem Monomer Ethen (CH₂=CH₂) entsteht das Polymer Polyethylen. Dabei öffnen sich die Doppelbindungen, und viele Ethenmoleküle verbinden sich zu einer langen Kette, die man als —CH₂—CH₂—CH₂—CH₂— schreibt. Entsprechend entsteht aus Tetrafluorethen das Polytetrafluorethen (Teflon)."
           ],
-          "big": true
+          "fliess": true,
+          "tag": "aus deinem Heft und den Blättern",
+          "op": "Beschreiben"
         },
         {
-          "h": "Thermoplast, Duroplast, Elastomer",
+          "h": "Thermoplaste, Duroplaste, Elastomere",
           "p": [
-            "Thermoplast: wenig verzweigte Ketten, schwache Kräfte dazwischen, erweicht beim Erwärmen, verformbar.",
-            "Duroplast: dreidimensional vernetzt durch Elektronenpaarbindungen, hart, zersetzt sich bei starker Wärme.",
-            "Elastomer: weitmaschig vernetzt, elastisch, zieht sich nach Verformung zurück."
+            "Thermoplaste bestehen aus linearen oder nur wenig verzweigten Makromolekülen unterschiedlicher Länge. Zwischen den Ketten wirken nur schwache zwischenmolekulare Kräfte. Deshalb erweichen sie beim Erwärmen, schmelzen und lassen sich verformen. Beispiele sind Polyethylen, Polystyrol und PET.",
+            "Duroplaste sind dreidimensional vernetzt, die Ketten sind durch Elektronenpaarbindungen verknüpft. Deshalb schmelzen sie nicht, sind hart und formstabil, und bei zu starker Erwärmung zersetzen und verkohlen sie.",
+            "Elastomere sind weitmaschig vernetzt. Die Ketten sind nur an wenigen Stellen verbunden und können sich dehnen. Sie sind elastisch, nicht dauerhaft verformbar und ziehen sich nach Dehnung wieder zusammen. Beispiel: Gummi."
           ],
-          "tag": "Elastomer Struktur ergänzt"
+          "fliess": true,
+          "tag": "Elastomer Struktur ergänzt",
+          "op": "Vergleichen"
+        },
+        {
+          "h": "Struktur und Eigenschaften",
+          "p": [
+            "Entscheidend ist der Vernetzungsgrad. Ohne Vernetzung lassen sich die Ketten gegeneinander verschieben, das Material wird in der Wärme weich (Thermoplast). Bei vielen Verknüpfungen sind die Ketten fest verankert, das Material ist hart und nicht schmelzbar (Duroplast). Bei wenigen Verknüpfungen bleiben die Ketten beweglich und kehren in ihre Ausgangslage zurück (Elastomer).",
+            "Aus dem Versuch: Polystyrol löst sich in Aceton, aber nicht in Wasser. Polystyrol, Polyethylen und PET schmelzen beim Erwärmen. Der Rührfisch schmilzt nicht und brennt nicht, Latex (Gummi) zieht sich beim Erwärmen zusammen. PE, PET und PS sind brennbar."
+          ],
+          "fliess": true,
+          "tag": "Zusammenhang ergänzt, Versuch aus dem Heft",
+          "op": "Erklären"
         },
         {
           "h": "Radikalische Polymerisation",
           "p": [
-            "Voraussetzung: Monomere mit C=C.",
-            "Start: Initiator (Peroxid oder AIBN) zerfällt homolytisch in Radikale, ein Radikal reagiert mit Ethen.",
-            "Wachstum: Das Radikalende reagiert mit weiteren Monomeren.",
-            "Abbruch: z. B. Rekombination zweier Radikale."
+            "Voraussetzung sind Monomere mit einer Mehrfachbindung, zum Beispiel Ethen. Die Reaktion wird von einem Radikal gestartet. Ein Radikal ist ein Teilchen mit einem ungepaarten Elektron.",
+            "Die Radikale kommen von Initiatoren. Peroxide R–O–O–R zerfallen thermisch in zwei Radikale R–O•, die Bindung wird dabei homolytisch gespalten, jedes Teilchen behält ein Elektron. Azoverbindungen wie AIBN zerfallen in zwei Radikale und Stickstoff: R–N=N–R → 2 R• + N₂.",
+            "1. Kettenstart: Das Radikal greift die Doppelbindung des Monomers an und bildet mit einem Kohlenstoffatom eine neue Bindung. Dabei wird die Doppelbindung zur Einfachbindung, und am anderen Kohlenstoffatom bleibt ein ungepaartes Elektron, also ein neues Radikal.",
+            "2. Kettenwachstum: Dieses Radikal reagiert mit dem nächsten Monomer nach demselben Muster, und so wird die Kette immer länger.",
+            "3. Kettenabbruch: Die Reaktion endet, wenn zwei Radikale sich verbinden (Rekombination). Dann haben beide ihr ungepaartes Elektron verbraucht, und es entsteht das fertige Polymer, zum Beispiel Polyethylen oder Polystyrol. Das Produkt schreibt man in eckigen Klammern mit dem Index n für die Zahl der Wiederholungseinheiten."
           ],
-          "tag": "aus dem Heft"
+          "fliess": true,
+          "tag": "aus deinem Heft und den Blättern",
+          "op": "Erläutern, formulieren"
         },
         {
-          "h": "Beispiele",
+          "h": "Beispiele und Anwendungen",
           "p": [
-            "Polyethylen aus Ethen, Polystyrol aus Styrol, Polypropylen aus Propen, Teflon aus Tetrafluorethen, Plexiglas aus Methacrylsäuremethylester.",
-            "Vulkanisation: Schwefel vernetzt die Kautschukketten, dadurch wird Gummi elastisch."
+            "Polyethylen aus Ethen, Polypropylen (PP) aus Propen, Polystyrol (PS) aus Styrol, Teflon (Polytetrafluorethen) aus Tetrafluorethen, Plexiglas (Polymethylmethacrylat, PMMA) aus Methacrylsäuremethylester.",
+            "Kautschuk: Naturkautschuk entsteht durch Polymerisation von Isopren (2-Methylbuta-1,3-dien) zu cis-1,4-Polyisopren. Styrol-Butadien-Kautschuk (SBR) ist ein Copolymer aus Styrol und Buta-1,3-dien, etwa 77 % Butadien und 23 % Styrol. Er wird für Reifen, Schläuche, Dichtungen, Schuhsohlen und Fußbodenbeläge verwendet.",
+            "Gummi stellt man durch Vulkanisation her. Dabei fügt man Schwefel zu, der die Kautschukmoleküle durch Schwefelbrücken vernetzt. So lässt sich die Elastizität des Gummis beeinflussen: Wenig Schwefel gibt weiches Gummi, viel Schwefel gibt hartes Material. In deinem Heft steht dazu die Frage, wie Kondome aus Kautschuk hergestellt werden. Dort ist die Vulkanisation als Verfahren genannt, bei dem Schwefel die Elastizität beeinflusst."
           ],
-          "tag": "aus dem Heft"
+          "fliess": true,
+          "tag": "aus deinem Heft",
+          "op": "Nennen"
+        },
+        {
+          "h": "Drei Wege zu Makromolekülen",
+          "p": [
+            "Nach dem Reaktionstyp unterscheidet man Polykondensation, Polymerisation und Polyaddition. Die Polymerisation ist eine Kettenreaktion mit Start, Wachstum und Abbruch. Polykondensation und Polyaddition sind Stufenwachstumsreaktionen: Alle Moleküle können miteinander reagieren, und sehr lange Ketten entstehen erst spät."
+          ],
+          "fliess": true,
+          "tag": "aus deinem Buch",
+          "op": "Unterscheiden"
+        },
+        {
+          "h": "Polykondensation",
+          "p": [
+            "Monomere mit mindestens zwei funktionellen Gruppen verknüpfen sich unter Abspaltung eines kleinen Moleküls wie Wasser, Ammoniak oder Chlorwasserstoff. Die Zusammensetzung des Polymers ist deshalb anders als die der Monomere.",
+            "Polyester: Diol und Dicarbonsäure bilden Ester und Wasser. PET entsteht so: n HO–(CH₂)₂–OH + n HOOC–C₆H₄–COOH → –[O–(CH₂)₂–O–CO–C₆H₄–CO]ₙ– + (2n − 1) H₂O. Polyamide: Diamin und Dicarbonsäure, zum Beispiel Hexan-1,6-diamin und Hexandisäure zu Polyamid 6.6. Die Amidgruppe –NH–CO– ist dieselbe Bindung wie die Peptidbindung in Proteinen. Polycarbonate entstehen aus Bisphenol A und Phosgen, Phenoplaste aus Phenol und Methanal, Aminoplaste aus Harnstoff und Methanal."
+          ],
+          "fliess": true,
+          "tag": "aus deinem Buch",
+          "op": "Erläutern"
+        },
+        {
+          "h": "Polymerisation: drei Mechanismen",
+          "p": [
+            "Voraussetzung sind Monomere mit einer Mehrfachbindung. Je nach aktivem Zentrum gibt es drei Mechanismen. Radikalisch: Initiatoren wie Peroxide oder Azoverbindungen bilden Radikale. Elektrophil: Starke Säuren als Initiatoren bilden Carbenium-Ionen. Nucleophil: Starke Basen oder Natrium als Initiatoren bilden Carbanionen. Styrol kann alle drei Wege gehen.",
+            "Die Polymerisation ist eine Sonderform der Addition, die Zusammensetzung des Polymers ist gleich der des Monomers. Bei Buta-1,3-dien bleiben Doppelbindungen in der Kette, die sich später vernetzen lassen. Carbanionen sind relativ stabil, die Kette bleibt länger aktiv, deshalb entstehen Block-Copolymere mit langen Abschnitten gleicher Monomere."
+          ],
+          "fliess": true,
+          "tag": "aus deinem Buch",
+          "op": "Erläutern"
+        },
+        {
+          "h": "Polyaddition",
+          "p": [
+            "Monomere mit zwei verschiedenen funktionellen Gruppen verbinden sich durch Addition, ohne dass etwas abgespalten wird. Beispiel Polyurethan: n HO–R–OH + n O=C=N–R'–N=C=O → –[O–R–O–CO–NH–R'–NH–CO]ₙ–.",
+            "Mechanismus: Das Sauerstoffatom der OH-Gruppe greift das Kohlenstoffatom der Isocyanatgruppe an. Ein Proton wandert zum Stickstoffatom, und es entsteht die Urethangruppe –O–CO–NH–. Je nach Monomeren entstehen thermoplastische, duroplastische oder elastomere Polyurethane, mehrwertige Alkohole vernetzen. Zugesetztes Wasser setzt CO₂ frei und schäumt das Material zu Schaumstoff."
+          ],
+          "fliess": true,
+          "tag": "aus deinem Buch",
+          "op": "Formulieren"
+        },
+        {
+          "h": "Die drei Reaktionstypen im Vergleich",
+          "p": [
+            "Reaktionsart: Polykondensation ist eine Kondensation, Polymerisation und Polyaddition sind Additionen. Monomere: Polykondensation braucht zwei oder mehr funktionelle Gruppen, Polymerisation reaktionsfähige Mehrfachbindungen, Polyaddition Mehrfachbindungen und reaktionsfähige Wasserstoffatome.",
+            "Wachstum: Polymerisation ist eine Kettenreaktion, die anderen beiden sind Stufenwachstum. Zusammensetzung: Beim Polykondensat fehlt das Kondensat, bei Polymerisation und Polyaddition ist sie gleich der der Monomere. Formgebung während der Bildung: bei Polykondensation möglich, bei Polymerisation bedingt, bei Polyaddition sehr gut. Beispiele: Phenoplaste (PF), Polyethylen (PE), Polyurethan (PUR)."
+          ],
+          "fliess": true,
+          "tag": "aus deinem Buch",
+          "op": "Vergleichen"
+        },
+        {
+          "h": "Eigenschaften nach der Struktur",
+          "p": [
+            "Amorphe Polymere haben ungeordnete Ketten. Sie sind glasartig, transparent und werden oberhalb der Glasübergangstemperatur weich. Teilkristalline Polymere haben geordnete kristalline Bereiche zwischen amorphen. Sie haben eine Erweichungstemperatur und eine Schmelztemperatur. Kristalline Bereiche machen das Material hart und fest, amorphe machen es flexibel.",
+            "Die zwischenmolekularen Kräfte bestimmen die Stärke: Van-der-Waals-Kräfte bei Polyethylen, Dipol-Dipol-Kräfte bei PVC, Wasserstoffbrücken bei Polyamid. Beispiel Polyethylen: HDPE ist kaum verzweigt, hat die Dichte 0,95 g/cm³ und über 70 % kristalline Bereiche, es ist fest. LDPE ist verzweigt, hat die Dichte 0,92 g/cm³ und nur etwa 45 % kristalline Bereiche, es ist flexibel."
+          ],
+          "fliess": true,
+          "tag": "aus deinem Buch",
+          "op": "Erklären"
+        },
+        {
+          "h": "Duroplaste und Elastomere genauer",
+          "p": [
+            "Duroplaste lassen sich nach der Formgebung nicht mehr verformen und zersetzen sich erst bei hoher Temperatur. Beispiele sind Phenolharze (Bakelit) und Aminoplaste, Verwendung für Elektrogeräte, Leim und Hartfaserplatten.",
+            "Elastomere haben eine Gebrauchstemperatur oberhalb der Glasübergangstemperatur und sind weitmaschig vernetzt. Die Elastizität beruht auf Entropie: Ungedehnt liegen die Ketten geknäuelt (ungeordnet), beim Dehnen werden sie gestreckt (geordneter). Lässt die Kraft nach, springen sie in den ungeordneten Zustand zurück. Bei der Vulkanisation bildet Schwefel Schwefelbrücken zwischen den Ketten, ihre Menge bestimmt, ob Weich oder Hartgummi entsteht. Zusätze sind Beschleuniger, Pigmente, Weichmacher und Antioxidanzien."
+          ],
+          "fliess": true,
+          "tag": "aus deinem Buch",
+          "op": "Beschreiben"
         }
       ]
     },
     {
       "t": "all",
-      "name": "Roter Faden",
+      "name": "Überblick",
       "cards": [
         {
-          "h": "Roter Faden",
+          "h": "Gleichgewicht und MWG im Überblick",
           "p": [
-            "Im Gleichgewicht laufen Hin und Rückreaktion gleich schnell. Das MWG beschreibt die Lage über K. Ein Zwang verschiebt die Lage, nur Temperatur ändert K."
+            "Umkehrbare Reaktionen führen zu einem dynamischen Gleichgewicht, in dem Hin und Rückreaktion gleich schnell laufen und die Konzentrationen konstant bleiben. Das gilt für Lösungs, Gas und Protolysegleichgewichte.",
+            "Das MWG beschreibt die Lage des Gleichgewichts mit der Konstante K. Ein großes K heißt viel Produkt. K hängt nur von der Temperatur ab. Mit dem MWG berechnet man Konzentrationen und Stoffmengen im Gleichgewicht.",
+            "Das Prinzip vom Zwang sagt voraus, wie sich die Lage ändert: Temperatur (endotherm oder exotherm), Druck (Seite mit weniger Gasteilchen) und Konzentration (der Stoff wird verbraucht oder nachgebildet). Ein Katalysator ändert nur die Geschwindigkeit. Verfahren wie Kontakt und Haber Bosch sind Kompromisse zwischen Lage und Geschwindigkeit."
           ],
-          "big": true
+          "fliess": true
         },
         {
-          "h": "Säuren und Basen",
+          "h": "Säuren, Basen und Kunststoffe im Überblick",
           "p": [
-            "Protolysen sind Gleichgewichte. pH = −lg c(H₃O⁺), pH + pOH = 14. Titration verknüpft Stoffmengen über das Reaktionsverhältnis."
-          ]
-        },
-        {
-          "h": "Kunststoffe",
-          "p": [
-            "Struktur bestimmt Eigenschaft: unvernetzt gleich Thermoplast, eng vernetzt gleich Duroplast, weit vernetzt gleich Elastomer. Polymerisation läuft über Start, Wachstum, Abbruch."
-          ]
+            "Säure-Base-Reaktionen sind Protonenübergänge und damit Gleichgewichte mit korrespondierenden Säure-Base-Paaren. Wasser ist ein Ampholyt. Über pH = −lg c(H₃O⁺) und pH + pOH = 14 rechnet man mit Konzentrationen, bei der Titration verknüpft man Stoffmengen über das Reaktionsverhältnis.",
+            "Kunststoffe sind Makromoleküle aus Monomeren. Der Vernetzungsgrad bestimmt die Eigenschaften: unvernetzt ist ein Thermoplast, eng vernetzt ein Duroplast, weitmaschig vernetzt ein Elastomer. Die radikalische Polymerisation läuft über Kettenstart, Kettenwachstum und Kettenabbruch."
+          ],
+          "fliess": true
         }
       ]
     }
@@ -492,104 +804,212 @@
     {
       "t": "gg",
       "typ": "frage",
-      "begriff": "Wie unterscheiden sich statisches und dynamisches Gleichgewicht?",
-      "erklaerung": "Statisch: Es läuft keine Reaktion mehr. Dynamisch: Hin und Rückreaktion laufen gleich schnell weiter, die Konzentrationen bleiben konstant."
+      "op": "Unterscheiden",
+      "begriff": "Unterscheide statisches und dynamisches Gleichgewicht.",
+      "erklaerung": "Statisch: keine Reaktion, kein Stoffaustausch, nichts ändert sich (Waage). Dynamisch: Hin und Rückreaktion laufen weiter und gleich schnell (v_H = v_R ≠ 0), die Konzentrationen bleiben konstant (Δc = 0)."
     },
     {
       "t": "gg",
       "typ": "frage",
-      "begriff": "Wie weist man Chlorid-Ionen nach? Gleichung?",
-      "erklaerung": "Silbernitratlösung zugeben. Ag⁺(aq) + Cl⁻(aq) → AgCl(s), weißer Niederschlag."
+      "op": "Erklären",
+      "begriff": "Erkläre am Heberexperiment, warum ein Gleichgewicht dynamisch ist.",
+      "erklaerung": "Zwischen zwei Messzylindern wird immer wieder gleich viel Wasser in beide Richtungen gehoben. Die Pegel bleiben nach einiger Zeit gleich, obwohl Wasser transportiert wird. Ebenso bei H₂ + I₂ ⇌ 2 HI: Hin und Rückreaktion laufen weiter, nur die Konzentrationen ändern sich nicht mehr."
     },
     {
       "t": "gg",
       "typ": "frage",
-      "begriff": "Wie weist man CO₂ nach? Gleichung?",
-      "erklaerung": "In Kalkwasser einleiten. Ca(OH)₂ + CO₂ → CaCO₃ + H₂O, weiße Trübung."
+      "op": "Beschreiben",
+      "begriff": "Beschreibe das Lösungsgleichgewicht von Bariumsulfat.",
+      "erklaerung": "BaSO₄(s) ⇌ Ba²⁺(aq) + SO₄²⁻(aq). Von der Kristalloberfläche gehen ständig Ionen in Lösung, gleich viele werden wieder eingebaut. Gesättigte Lösung und Bodensatz bilden ein heterogenes System, die Lage hängt von der Temperatur ab."
     },
     {
       "t": "gg",
       "typ": "frage",
-      "begriff": "Was sagt K_L aus? Beispiel AgCl.",
-      "erklaerung": "K_L ist das MWG des Lösungsgleichgewichts. AgCl ⇌ Ag⁺ + Cl⁻, K_L = 1,8 · 10⁻¹⁰. Sehr klein, also schwerlöslich."
+      "op": "Beschreiben",
+      "begriff": "Beschreibe den Halogenid-Nachweis und stelle die Gleichung für Chlorid auf.",
+      "erklaerung": "Probe mit Salpetersäure ansäuern, Silbernitratlösung zugeben. Chlorid weiß, Bromid cremefarben, Iodid gelb. Ag⁺(aq) + Cl⁻(aq) → AgCl(s)."
+    },
+    {
+      "t": "gg",
+      "typ": "frage",
+      "op": "Beschreiben",
+      "begriff": "Beschreibe den CO₂-Nachweis und stelle die Gleichung auf.",
+      "erklaerung": "Das Gas wird in Kalkwasser geleitet, es entsteht eine weiße Trübung. Ca²⁺ + 2 OH⁻ + CO₂ → CaCO₃(s) + H₂O."
     },
     {
       "t": "mwg",
       "typ": "frage",
-      "begriff": "Wie stellt man das MWG auf? Was gehört nicht hinein?",
-      "erklaerung": "Produkte im Zähler, Edukte im Nenner, Koeffizienten als Exponenten. Feststoffe stehen nicht drin."
+      "op": "Aufstellen",
+      "begriff": "Stelle das MWG für N₂ + 3 H₂ ⇌ 2 NH₃ auf.",
+      "erklaerung": "K_c = c²(NH₃) / (c(N₂) · c³(H₂)). Mit Partialdrücken K_p = p²(NH₃) / (p(N₂) · p³(H₂))."
     },
     {
       "t": "mwg",
       "typ": "frage",
-      "begriff": "Welche Schritte hat eine MWG Rechnung?",
-      "erklaerung": "Gleichung, Anfangswerte, Gleichgewichtswerte, MWG aufstellen, einsetzen, Unbekannte berechnen."
+      "op": "Aufstellen",
+      "begriff": "Stelle das MWG für CO₂ + C ⇌ 2 CO auf. Was fällt auf?",
+      "erklaerung": "K_c = c²(CO) / c(CO₂). Kohlenstoff ist ein Feststoff und steht nicht im MWG."
+    },
+    {
+      "t": "mwg",
+      "typ": "frage",
+      "op": "Erklären",
+      "begriff": "Erkläre, was ein großes und was ein kleines K aussagt.",
+      "erklaerung": "Großes K: Im Gleichgewicht überwiegen die Produkte, die Reaktion läuft weitgehend ab. Kleines K: Es überwiegen die Edukte. K hängt nur von der Temperatur ab."
+    },
+    {
+      "t": "mwg",
+      "typ": "frage",
+      "op": "Berechnen",
+      "begriff": "Berechne K_c, wenn 5 mol Essigsäure und 3 mol Ethanol 2,43 mol Ester bilden.",
+      "erklaerung": "n(Ethanol) = 3 − 2,43 = 0,57 mol, n(Säure) = 5 − 2,43 = 2,57 mol. K_c = 2,43 · 2,43 / (0,57 · 2,57) ≈ 4,03. Das Volumen kürzt sich, weil Δν = 0."
+    },
+    {
+      "t": "mwg",
+      "typ": "frage",
+      "op": "Angeben",
+      "begriff": "Gib die Einheit von K_c an.",
+      "erklaerung": "[K_c] = (mol/L)^Δν mit Δν = Summe der Produktkoeffizienten minus Summe der Eduktkoeffizienten. Bei Δν = 0 gibt es keine Einheit. Beispiel N₂ + 3 H₂ ⇌ 2 NH₃: Δν = −2, also L²/mol²."
     },
     {
       "t": "zwang",
       "typ": "frage",
-      "begriff": "Formuliere das Prinzip vom kleinsten Zwang.",
-      "erklaerung": "Wird auf ein System im Gleichgewicht ein Zwang ausgeübt, weicht es so aus, dass die Wirkung des Zwangs kleiner wird."
+      "op": "Beschreiben",
+      "begriff": "Beschreibe das Prinzip vom kleinsten Zwang.",
+      "erklaerung": "Wird auf ein System im Gleichgewicht ein Zwang ausgeübt, weicht es dem Zwang so aus, dass dessen Wirkung verringert wird."
     },
     {
       "t": "zwang",
       "typ": "frage",
-      "begriff": "Wie wirkt die Temperatur auf ein Gleichgewicht? Beispiel?",
-      "erklaerung": "Erwärmen verschiebt in endotherme, Abkühlen in exotherme Richtung. 2 NO₂ ⇌ N₂O₄ (exotherm): Erwärmen gibt mehr braunes NO₂."
+      "op": "Erläutern",
+      "begriff": "Erläutere den Einfluss der Temperatur am Beispiel 2 NO₂ ⇌ N₂O₄.",
+      "erklaerung": "Die Hinreaktion ist exotherm (ΔH = −59 kJ/mol). Erwärmen verschiebt in die endotherme Richtung, es entsteht mehr braunes NO₂. Abkühlen verschiebt zum farblosen N₂O₄. Nur die Temperatur ändert K."
     },
     {
       "t": "zwang",
       "typ": "frage",
-      "begriff": "Wie wirken Druck und Konzentration?",
-      "erklaerung": "Druck höher: Seite mit weniger Gasteilchen. Konzentration höher: Verschiebung weg vom Stoff. Stoff entfernt: Verschiebung hin zu ihm."
+      "op": "Erläutern",
+      "begriff": "Erläutere den Einfluss von Druck und Konzentration.",
+      "erklaerung": "Druckerhöhung verschiebt zur Seite mit weniger Gasteilchen (hier zu N₂O₄), bei gleicher Teilchenzahl wirkt sie nicht. Zugabe eines Edukts oder Entnahme eines Produkts verschiebt nach rechts, das Umgekehrte nach links. K bleibt dabei gleich."
     },
     {
       "t": "zwang",
       "typ": "frage",
-      "begriff": "Wie wirkt ein Katalysator auf das Gleichgewicht?",
-      "erklaerung": "Er senkt die Aktivierungsenergie für Hin und Rückreaktion. Das Gleichgewicht stellt sich schneller ein, Lage und K bleiben gleich."
+      "op": "Erklären",
+      "begriff": "Erkläre, warum beim Kontaktverfahren O₂ im Überschuss eingesetzt wird.",
+      "erklaerung": "Mehr O₂ ist ein Zwang auf der Eduktseite. Das System weicht aus, indem es O₂ verbraucht und mehr SO₃ bildet. Dadurch steigt der SO₂-Umsatz."
+    },
+    {
+      "t": "zwang",
+      "typ": "frage",
+      "op": "Erklären",
+      "begriff": "Erkläre die Wirkung eines Katalysators auf das Gleichgewicht.",
+      "erklaerung": "Er senkt die Aktivierungsenergie für Hin und Rückreaktion. Das Gleichgewicht stellt sich schneller ein, aber Lage und K bleiben gleich."
     },
     {
       "t": "sb",
       "typ": "frage",
-      "begriff": "Was sind Säure und Base nach Brönsted?",
-      "erklaerung": "Säure: Protonendonator. Base: Protonenakzeptor. Eine Protolyse ist der Protonenübergang HA + B ⇌ HB⁺ + A⁻."
+      "op": "Nennen",
+      "begriff": "Nenne Formeln wichtiger Säuren und Laugen.",
+      "erklaerung": "Säuren: HCl, H₂SO₄, HNO₃, H₃PO₄, CH₃COOH, H₂CO₃. Laugen: NaOH, KOH, Ca(OH)₂ und NH₃(aq)."
     },
     {
       "t": "sb",
       "typ": "frage",
-      "begriff": "Wie erklärt man Wasser als Ampholyt?",
-      "erklaerung": "Wasser kann Protonen aufnehmen (H₂O + H⁺ ⇌ H₃O⁺) und abgeben (H₂O ⇌ H⁺ + OH⁻), je nach Reaktionspartner."
+      "op": "Erklären",
+      "begriff": "Erkläre die Eigenschaften von Säuren und Basen.",
+      "erklaerung": "Saure Lösungen enthalten H₃O⁺, weil Säuren Protonen an Wasser abgeben. Alkalische Lösungen enthalten OH⁻. Die Ionen erklären Leitfähigkeit, Indikatorfarbe und ätzende Wirkung. Säure und Lauge neutralisieren sich."
     },
     {
       "t": "sb",
       "typ": "frage",
-      "begriff": "Definiere pH, pOH und K_w.",
-      "erklaerung": "pH = −lg c(H₃O⁺), pOH = −lg c(OH⁻). K_w = c(H₃O⁺) · c(OH⁻) = 10⁻¹⁴ mol²/L², also pH + pOH = 14."
+      "op": "Formulieren",
+      "begriff": "Formuliere die Protolyse von NH₃ mit Wasser und gib die Paare an.",
+      "erklaerung": "NH₃ + H₂O ⇌ NH₄⁺ + OH⁻. Paare: NH₄⁺/NH₃ und H₂O/OH⁻."
     },
     {
       "t": "sb",
       "typ": "frage",
-      "begriff": "Was ist ein Indikator? Beispiel Phenolphthalein.",
-      "erklaerung": "Ein Farbstoff, der je nach pH die Farbe wechselt. Phenolphthalein ist im Sauren farblos und im Alkalischen pink."
+      "op": "Darstellen",
+      "begriff": "Stelle eine Säure und eine Lauge dar und formuliere die Gleichungen.",
+      "erklaerung": "Säure: Nichtmetalloxid + Wasser, SO₃ + H₂O → H₂SO₄. Lauge: Metalloxid + Wasser, Na₂O + H₂O → 2 NaOH."
+    },
+    {
+      "t": "sb",
+      "typ": "frage",
+      "op": "Erläutern",
+      "begriff": "Erläutere Wasser als Ampholyt.",
+      "erklaerung": "Wasser nimmt Protonen auf oder gibt sie ab. HCl + H₂O ⇌ Cl⁻ + H₃O⁺ (Base), NH₃ + H₂O ⇌ NH₄⁺ + OH⁻ (Säure), 2 H₂O ⇌ H₃O⁺ + OH⁻ (Autoprotolyse)."
+    },
+    {
+      "t": "sb",
+      "typ": "frage",
+      "op": "Definieren",
+      "begriff": "Definiere den Begriff Indikator.",
+      "erklaerung": "Ein Indikator ist ein Stoff, meist ein Farbstoff, der durch seine Farbe den pH-Bereich einer Lösung anzeigt."
+    },
+    {
+      "t": "sb",
+      "typ": "frage",
+      "op": "Definieren",
+      "begriff": "Definiere pH, pOH und das Ionenprodukt des Wassers.",
+      "erklaerung": "pH = −lg c(H₃O⁺), pOH = −lg c(OH⁻). K_w = c(H₃O⁺) · c(OH⁻) = 10⁻¹⁴ mol²/L², daraus pH + pOH = 14."
+    },
+    {
+      "t": "sb",
+      "typ": "frage",
+      "op": "Berechnen",
+      "begriff": "Berechne den pH-Wert, wenn c(OH⁻) = 0,001 mol/L ist.",
+      "erklaerung": "pOH = −lg 0,001 = 3. pH = 14 − 3 = 11."
+    },
+    {
+      "t": "sb",
+      "typ": "frage",
+      "op": "Berechnen",
+      "begriff": "Berechne c(NaOH): 10 mL Natronlauge verbrauchen 13 mL HCl mit c = 0,1 mol/L.",
+      "erklaerung": "n(HCl) = 0,1 mol/L · 0,013 L = 0,0013 mol = n(NaOH), Verhältnis 1 : 1. c(NaOH) = 0,0013 mol / 0,010 L = 0,13 mol/L."
     },
     {
       "t": "kunst",
       "typ": "frage",
+      "op": "Beschreiben",
+      "begriff": "Beschreibe den Aufbau von Makromolekülen.",
+      "erklaerung": "Viele Monomere sind durch Atombindungen zu Ketten verknüpft. Die Zahl der Einheiten ist der Polymerisationsgrad. Die Struktur kann unverzweigt, verzweigt oder vernetzt sein. Homopolymere haben ein Monomer, Copolymere mehrere."
+    },
+    {
+      "t": "kunst",
+      "typ": "frage",
+      "op": "Vergleichen",
       "begriff": "Vergleiche Thermoplast, Duroplast und Elastomer.",
-      "erklaerung": "Thermoplast: wenig verzweigt, erweicht, verformbar. Duroplast: eng vernetzt, hart, zersetzt sich. Elastomer: weitmaschig vernetzt, elastisch."
+      "erklaerung": "Thermoplast: wenig verzweigt, erweicht, verformbar. Duroplast: engmaschig vernetzt, hart, zersetzt sich. Elastomer: weitmaschig vernetzt, elastisch."
     },
     {
       "t": "kunst",
       "typ": "frage",
-      "begriff": "Wie läuft die radikalische Polymerisation ab?",
-      "erklaerung": "Start: Initiator zerfällt in Radikale, Radikal reagiert mit dem Monomer. Wachstum: Radikalende addiert weitere Monomere. Abbruch: z. B. Rekombination zweier Radikale."
+      "op": "Erklären",
+      "begriff": "Erkläre den Zusammenhang zwischen Struktur und Eigenschaften.",
+      "erklaerung": "Schwache Kräfte zwischen unvernetzten Ketten, deshalb weich in der Wärme. Atombindungen zwischen den Ketten bei enger Vernetzung, deshalb hart. Weite Vernetzung lässt Strecken und Zurückspringen zu, deshalb elastisch."
     },
     {
       "t": "kunst",
       "typ": "frage",
-      "begriff": "Was bewirkt die Vulkanisation?",
-      "erklaerung": "Schwefel vernetzt die Kautschukketten, dadurch wird Gummi elastisch."
+      "op": "Unterscheiden",
+      "begriff": "Unterscheide Polymerisation, Polykondensation und Polyaddition.",
+      "erklaerung": "Polymerisation: Kettenreaktion von Monomeren mit Mehrfachbindung, nichts wird abgespalten. Polykondensation: Stufenwachstum, ein kleines Molekül wie Wasser wird abgespalten. Polyaddition: Stufenwachstum durch Addition, nichts wird abgespalten."
+    },
+    {
+      "t": "kunst",
+      "typ": "frage",
+      "op": "Formulieren",
+      "begriff": "Formuliere die Schritte der radikalischen Polymerisation von Ethen.",
+      "erklaerung": "Start: R• + CH₂=CH₂ → R–CH₂–CH₂•. Wachstum: das Radikalende addiert weiteres Ethen. Abbruch: Zwei Radikale verbinden sich."
+    },
+    {
+      "t": "kunst",
+      "typ": "frage",
+      "op": "Aufstellen",
+      "begriff": "Stelle die Gleichung für die Bildung von PET auf.",
+      "erklaerung": "n HO–(CH₂)₂–OH + n HOOC–C₆H₄–COOH → –[O–(CH₂)₂–O–CO–C₆H₄–CO]ₙ– + (2n − 1) H₂O"
     }
   ],
   "klausur": [
@@ -689,29 +1109,64 @@
   ],
   "operatoren": [
     {
-      "name": "Nennen",
+      "name": "Nennen / Angeben",
       "afb": "I",
-      "text": "Ohne Erklärung aufzählen."
+      "text": "Gesuchte Begriffe, Formeln oder Größen ohne Erklärung aufzählen.",
+      "so": "So schreibst du es: Stichworte oder ein kurzer Satz, keine Begründung."
+    },
+    {
+      "name": "Definieren",
+      "afb": "I",
+      "text": "Einen Begriff eindeutig festlegen.",
+      "so": "So schreibst du es: ein genauer Satz mit Oberbegriff und Merkmal. Keine Beispiele nötig."
     },
     {
       "name": "Beschreiben",
       "afb": "I–II",
-      "text": "Sachverhalt oder Ablauf in eigenen Worten wiedergeben."
+      "text": "Sachverhalt, Aufbau oder Ablauf sachlich wiedergeben.",
+      "so": "So schreibst du es: sagen, was man sieht oder was passiert. Nicht begründen."
     },
     {
-      "name": "Berechnen",
+      "name": "Unterscheiden",
       "afb": "II",
-      "text": "Ergebnis mit Rechenweg ermitteln."
+      "text": "Unterschiede herausarbeiten.",
+      "so": "So schreibst du es: beide Seiten nach demselben Kriterium gegenüberstellen."
+    },
+    {
+      "name": "Erklären",
+      "afb": "II",
+      "text": "Einen Sachverhalt auf Ursachen und Gesetzmäßigkeiten zurückführen.",
+      "so": "So schreibst du es: mit weil oder deshalb. Ursache, Regel, Folge."
     },
     {
       "name": "Erläutern",
       "afb": "II",
-      "text": "Mit Beispielen und Begründungen verständlich machen."
+      "text": "Erklären und mit Beispielen veranschaulichen.",
+      "so": "So schreibst du es: Erklärung plus mindestens ein Beispiel mit Gleichung."
+    },
+    {
+      "name": "Aufstellen / Formulieren",
+      "afb": "I–II",
+      "text": "Gleichung oder Gesetz fachgerecht hinschreiben.",
+      "so": "So schreibst du es: richtige Formeln, Koeffizienten, Aggregatzustände und Pfeil."
+    },
+    {
+      "name": "Darstellen",
+      "afb": "II",
+      "text": "Ein Verfahren oder eine Herstellung geordnet wiedergeben.",
+      "so": "So schreibst du es: Ausgangsstoffe, Reaktion, Produkt, mit Gleichung."
+    },
+    {
+      "name": "Berechnen",
+      "afb": "II",
+      "text": "Ein Ergebnis aus gegebenen Werten ermitteln.",
+      "so": "So schreibst du es: Gleichung, Formel, Einsetzen, Ergebnis mit Einheit."
     },
     {
       "name": "Vergleichen",
       "afb": "II",
-      "text": "Gemeinsamkeiten und Unterschiede herausarbeiten."
+      "text": "Gemeinsamkeiten und Unterschiede nach Kriterien herausarbeiten.",
+      "so": "So schreibst du es: Kriterien nennen, je Kriterium vergleichen, am Ende ein Fazit."
     }
   ],
   "rechnen": [
@@ -800,7 +1255,8 @@
         "K_c = n(Ester) · n(Wasser) / (n(Ethanol) · n(Essigsäure))",
         "K_c = 2,43 · 2,43 / (0,57 · 2,57) ≈ 4,03"
       ],
-      "e": "Das Volumen kürzt sich heraus, weil beide Seiten gleich viele Teilchen haben."
+      "e": "Das Volumen kürzt sich heraus, weil beide Seiten gleich viele Teilchen haben.",
+      "lk": true
     },
     {
       "t": "mwg",
@@ -814,7 +1270,81 @@
         "K_c = (0,4 mol/L)² / 0,2 mol/L",
         "K_c = 0,16 / 0,2 mol/L = 0,8 mol/L"
       ],
-      "e": "Der Feststoff Kohlenstoff taucht nicht auf."
+      "e": "Der Feststoff Kohlenstoff taucht nicht auf.",
+      "lk": true
+    },
+    {
+      "t": "sb",
+      "titel": "Konzentration aus der Masse",
+      "aufgabe": "4 g NaOH (M = 40 g/mol) werden zu 500 mL Lösung aufgefüllt. Berechne c(NaOH).",
+      "einheit": "mol/L",
+      "antwort": 0.2,
+      "tol": 0.005,
+      "schritte": [
+        "n = m / M = 4 g / 40 g/mol = 0,1 mol",
+        "V = 500 mL = 0,5 L",
+        "c = n / V = 0,1 mol / 0,5 L = 0,2 mol/L"
+      ],
+      "e": "Erst die Stoffmenge, dann die Konzentration."
+    },
+    {
+      "t": "sb",
+      "titel": "Stoffmenge aus der Masse",
+      "aufgabe": "Wie viel mol sind 9,8 g Schwefelsäure H₂SO₄ (M = 98 g/mol)?",
+      "einheit": "mol",
+      "antwort": 0.1,
+      "tol": 0.005,
+      "schritte": [
+        "n = m / M",
+        "n = 9,8 g / 98 g/mol = 0,1 mol"
+      ],
+      "e": "n = m / M."
+    },
+    {
+      "t": "sb",
+      "titel": "pH einer Natronlauge",
+      "aufgabe": "Natronlauge mit c(NaOH) = 0,01 mol/L. Berechne den pH-Wert.",
+      "einheit": "",
+      "antwort": 12,
+      "tol": 0.05,
+      "schritte": [
+        "NaOH ist eine starke Base: c(OH⁻) = 0,01 mol/L = 10⁻² mol/L",
+        "pOH = −lg c(OH⁻) = 2",
+        "pH = 14 − pOH = 12"
+      ],
+      "e": "Erst pOH, dann pH."
+    },
+    {
+      "t": "mwg",
+      "titel": "K_c mit Konzentrationen",
+      "aufgabe": "Im Gleichgewicht 2 SO₂ + O₂ ⇌ 2 SO₃ gilt c(SO₂) = 0,1 mol/L, c(O₂) = 0,05 mol/L, c(SO₃) = 0,2 mol/L. Berechne K_c.",
+      "einheit": "L/mol",
+      "antwort": 80,
+      "tol": 2,
+      "lk": true,
+      "schritte": [
+        "K_c = c²(SO₃) / (c²(SO₂) · c(O₂))",
+        "K_c = (0,2 mol/L)² / ((0,1 mol/L)² · 0,05 mol/L)",
+        "K_c = 0,04 / 0,0005 L/mol = 80 L/mol"
+      ],
+      "e": "Δν = −1, deshalb die Einheit L/mol."
+    },
+    {
+      "t": "mwg",
+      "titel": "Synthesegas aus dem Buch",
+      "aufgabe": "100 mol CO und 100 mol H₂ liegen vor. Bei 700 K gilt CO + H₂O ⇌ CO₂ + H₂ mit K_p = 10. CO soll zu 90 % entfernt werden. Wie viel mol Wasserdampf n sind nötig?",
+      "einheit": "mol",
+      "antwort": 261,
+      "tol": 2,
+      "lk": true,
+      "schritte": [
+        "Start: CO 100 mol, H₂O n mol, CO₂ 0 mol, H₂ 100 mol",
+        "Gleichgewicht: CO 10 mol, H₂O (n − 90) mol, CO₂ 90 mol, H₂ 190 mol",
+        "Δν = 0, also K_p = K_c = n(CO₂) · n(H₂) / (n(CO) · n(H₂O))",
+        "10 = 90 · 190 / (10 · (n − 90))",
+        "n − 90 = 90 · 190 / (10 · 10) = 171, also n = 261 mol"
+      ],
+      "e": "Aufgabe aus deinem Buch, Seite 137."
     }
   ],
   "gleichungen": [
@@ -1010,6 +1540,70 @@
         }
       ],
       "e": "Hydronium- und Hydroxid-Ionen bilden Wasser."
+    },
+    {
+      "t": "gg",
+      "titel": "Pfeil richtig wählen",
+      "aufgabe": "Welcher Pfeil gehört dazwischen?",
+      "satz": "H₂ + I₂ {0} 2 HI",
+      "luecken": [
+        {
+          "a": "⇌",
+          "falsch": [
+            "→",
+            "←"
+          ]
+        }
+      ],
+      "e": "Die Reaktion ist umkehrbar, deshalb der Doppelpfeil."
+    },
+    {
+      "t": "gg",
+      "titel": "Pfeil richtig wählen",
+      "aufgabe": "Zink löst sich im offenen Gefäß vollständig auf.",
+      "satz": "Zn + 2 HCl {0} ZnCl₂ + H₂",
+      "luecken": [
+        {
+          "a": "→",
+          "falsch": [
+            "⇌",
+            "←"
+          ]
+        }
+      ],
+      "e": "Im offenen Gefäß entweicht H₂, die Reaktion läuft vollständig ab."
+    },
+    {
+      "t": "sb",
+      "titel": "Pfeil richtig wählen",
+      "aufgabe": "Neutralisation",
+      "satz": "HCl + NaOH {0} NaCl + H₂O",
+      "luecken": [
+        {
+          "a": "→",
+          "falsch": [
+            "⇌",
+            "←"
+          ]
+        }
+      ],
+      "e": "Die Neutralisation läuft praktisch vollständig ab."
+    },
+    {
+      "t": "zwang",
+      "titel": "Pfeil richtig wählen",
+      "aufgabe": "Kontaktofen",
+      "satz": "2 SO₂ + O₂ {0} 2 SO₃",
+      "luecken": [
+        {
+          "a": "⇌",
+          "falsch": [
+            "→",
+            "←"
+          ]
+        }
+      ],
+      "e": "Gleichgewichtsreaktion, deshalb Doppelpfeil."
     }
   ],
   "verschiebung": [
@@ -1228,6 +1822,843 @@
       ],
       "a": "gelb",
       "e": "AgCl weiß, AgBr cremefarben, AgI gelb."
+    },
+    {
+      "t": "gg",
+      "q": "Eine Waage mit gleich schweren Gewichten, nichts bewegt sich.",
+      "optionen": [
+        "statisch",
+        "dynamisch"
+      ],
+      "a": "statisch",
+      "e": "Es findet kein Stoffaustausch statt."
+    },
+    {
+      "t": "gg",
+      "q": "Hin und Rückreaktion laufen gleich schnell weiter.",
+      "optionen": [
+        "statisch",
+        "dynamisch"
+      ],
+      "a": "dynamisch",
+      "e": "Das ist das chemische Gleichgewicht."
+    },
+    {
+      "t": "gg",
+      "q": "Beim Heberexperiment bleiben die Pegel gleich, obwohl Wasser transportiert wird.",
+      "optionen": [
+        "statisch",
+        "dynamisch"
+      ],
+      "a": "dynamisch",
+      "e": "Der Stofftransport bleibt bestehen."
+    },
+    {
+      "t": "gg",
+      "q": "Es findet gar kein Stoffaustausch mehr statt.",
+      "optionen": [
+        "statisch",
+        "dynamisch"
+      ],
+      "a": "statisch",
+      "e": "Nichts ändert sich und nichts wird umgesetzt."
+    },
+    {
+      "t": "gg",
+      "q": "Ein Salz mit Bodensatz: Ionen lösen sich und kristallisieren gleichzeitig.",
+      "optionen": [
+        "statisch",
+        "dynamisch"
+      ],
+      "a": "dynamisch",
+      "e": "Lösen und Fällen laufen gleich schnell."
+    }
+  ],
+  "checkliste": [
+    {
+      "t": "gg",
+      "k": "Statische und dynamische Gleichgewichte voneinander unterscheiden und an Beispielen erklären.",
+      "ops": [
+        "Unterscheiden",
+        "Erklären"
+      ],
+      "lk": false,
+      "antwort": [
+        {
+          "op": "Unterscheiden",
+          "text": "Statisch: Es läuft keine Reaktion und kein Stoffaustausch mehr, nichts ändert sich (Beispiel Waage). Dynamisch: Hin und Rückreaktion laufen weiter und gleich schnell, nur die Konzentrationen bleiben konstant."
+        },
+        {
+          "op": "Erklären",
+          "text": "Beim Heberexperiment wird Wasser zwischen zwei Messzylindern hin und her gehoben. Nach einigen Vorgängen bleiben die Pegel gleich, obwohl weiter Wasser transportiert wird. Das ist dynamisch, weil in beide Richtungen gleich viel Wasser fließt. Genauso bei H₂ + I₂ ⇌ 2 HI: Iodwasserstoff zerfällt wieder in H₂ und I₂, deshalb entsteht ein Gleichgewicht. Kennzeichen sind v_H = v_R ≠ 0 und Δc = 0."
+        }
+      ]
+    },
+    {
+      "t": "gg",
+      "k": "Lösungs-GG, Gas-GG und Protolysen als umkehrbare Reaktionen oder Säure-Base-Gleichgewichte beschreiben, erklären und an konkreten Beispielen Reaktionsgleichungen aufstellen.",
+      "ops": [
+        "Beschreiben",
+        "Erklären",
+        "Aufstellen"
+      ],
+      "lk": true,
+      "antwort": [
+        {
+          "op": "Beschreiben",
+          "text": "Lösungs-GG: Ein schwerlösliches Salz steht mit seiner gesättigten Lösung im Gleichgewicht. Gas-GG: Alle Stoffe sind Gase und reagieren hin und zurück. Protolyse: Protonen gehen von einer Säure auf eine Base und zurück."
+        },
+        {
+          "op": "Erklären",
+          "text": "In allen drei Fällen sind Hin und Rückreaktion möglich. Das Gleichgewicht stellt sich ein, wenn beide gleich schnell sind. Beim Lösen gehen gleich viele Ionen in Lösung, wie sich in den Kristall einbauen. Beim Gas-GG zerfällt das Produkt so schnell, wie es entsteht. Bei Protolysen geben die Säure-Base-Paare ständig Protonen ab und nehmen sie wieder auf."
+        },
+        {
+          "op": "Aufstellen",
+          "text": "BaSO₄(s) ⇌ Ba²⁺(aq) + SO₄²⁻(aq). AgCl(s) ⇌ Ag⁺(aq) + Cl⁻(aq). 2 NO₂(g) ⇌ N₂O₄(g). 2 SO₂ + O₂ ⇌ 2 SO₃. HCl + H₂O ⇌ Cl⁻ + H₃O⁺. NH₃ + H₂O ⇌ NH₄⁺ + OH⁻."
+        }
+      ]
+    },
+    {
+      "t": "gg",
+      "k": "Nachweismethoden beschreiben und Reaktionsgleichungen aufstellen (Halogenid-Nachweis, Kohlenstoffdioxid-Nachweis).",
+      "ops": [
+        "Beschreiben",
+        "Aufstellen"
+      ],
+      "lk": false,
+      "antwort": [
+        {
+          "op": "Beschreiben",
+          "text": "Halogenid: Die Probe wird mit Salpetersäure angesäuert und Silbernitratlösung zugegeben. Der Niederschlag ist bei Chlorid weiß, bei Bromid cremefarben, bei Iodid gelb. CO₂: Das Gas wird in Kalkwasser geleitet, es entsteht eine weiße Trübung."
+        },
+        {
+          "op": "Aufstellen",
+          "text": "Ag⁺(aq) + Cl⁻(aq) → AgCl(s), ebenso mit Br⁻ zu AgBr und I⁻ zu AgI. Ca²⁺(aq) + 2 OH⁻(aq) + CO₂(g) → CaCO₃(s) + H₂O(l). Carbonat mit Bariumhydroxid: Ba²⁺(aq) + CO₃²⁻(aq) → BaCO₃(s)."
+        }
+      ]
+    },
+    {
+      "t": "mwg",
+      "k": "Das MWG für ausgewählte Gleichgewichtsreaktionen aufstellen.",
+      "ops": [
+        "Aufstellen"
+      ],
+      "lk": false,
+      "antwort": [
+        {
+          "op": "Aufstellen",
+          "text": "Produktkonzentrationen hoch Koeffizient im Zähler, Eduktkonzentrationen hoch Koeffizient im Nenner. N₂ + 3 H₂ ⇌ 2 NH₃: K_c = c²(NH₃) / (c(N₂) · c³(H₂)). CO₂ + C ⇌ 2 CO: K_c = c²(CO) / c(CO₂), Kohlenstoff ist fest und fehlt. Gase mit Partialdrücken: K_p = p²(SO₃) / (p²(SO₂) · p(O₂)). Lösungsgleichgewicht: K_L = c(Ag⁺) · c(Cl⁻)."
+        }
+      ]
+    },
+    {
+      "t": "mwg",
+      "k": "Gleichgewichtskonstanten (auch Konzentrationen) berechnen.",
+      "ops": [
+        "Berechnen"
+      ],
+      "lk": true,
+      "antwort": [
+        {
+          "op": "Berechnen",
+          "text": "Sechs Schritte: Gleichung, Anfangswerte, Gleichgewichtswerte, MWG, Einsetzen, Rechnen. Beispiel: 5 mol Essigsäure und 3 mol Ethanol, im Gleichgewicht 2,43 mol Ester. Dann n(Ethanol) = 0,57 mol, n(Säure) = 2,57 mol und K_c = 2,43² / (0,57 · 2,57) ≈ 4,03. Bei Δν ≠ 0 mit Konzentrationen c = n / V rechnen, die Einheit ist (mol/L)^Δν. Ist eine Menge gesucht, setzt man n ein und löst die Gleichung, bei n² nur die mögliche Lösung nehmen."
+        }
+      ]
+    },
+    {
+      "t": "zwang",
+      "k": "Die Beeinflussung der Lage eines chemischen Gleichgewichts durch Änderung von Druck, Temperatur und Konzentration erläutern.",
+      "ops": [
+        "Erläutern"
+      ],
+      "lk": false,
+      "antwort": [
+        {
+          "op": "Erläutern",
+          "text": "Temperatur: Erwärmen verschiebt in die endotherme Richtung, Abkühlen in die exotherme. Beispiel 2 NO₂ ⇌ N₂O₄ (ΔH = −59 kJ/mol): Erwärmen gibt mehr braunes NO₂. Druck: Eine Erhöhung verschiebt zur Seite mit weniger Gasteilchen, hier zu N₂O₄. Konzentration: Zugabe eines Edukts oder Entnahme eines Produkts verschiebt nach rechts, das Umgekehrte nach links, Beispiel CO + H₂O ⇌ CO₂ + H₂. Nur die Temperatur ändert K."
+        }
+      ]
+    },
+    {
+      "t": "zwang",
+      "k": "Das Prinzip vom Zwang an ausgewählten Beispielen beschreiben und erklären.",
+      "ops": [
+        "Beschreiben",
+        "Erklären"
+      ],
+      "lk": false,
+      "antwort": [
+        {
+          "op": "Beschreiben",
+          "text": "Wird auf ein System im Gleichgewicht ein Zwang ausgeübt, weicht es so aus, dass die Wirkung des Zwangs verringert wird. Beispiel Kontaktverfahren: O₂ im Überschuss, SO₃ in der Zwischenabsorption entfernen, zwischen den Kontaktschichten auf 420 °C kühlen."
+        },
+        {
+          "op": "Erklären",
+          "text": "O₂ im Überschuss ist ein Zwang auf der Eduktseite, das System verbraucht O₂ und bildet mehr SO₃. Wird SO₃ entfernt, bildet das System es nach. Die Reaktion ist exotherm, tiefe Temperatur begünstigt sie, ist aber zu langsam, deshalb Katalysator V₂O₅ und ein Kompromiss bei 420 bis 440 °C. Haber Bosch: hoher Druck, weil 4 Gasteilchen zu 2 werden, Eisenkatalysator bei etwa 450 °C."
+        }
+      ]
+    },
+    {
+      "t": "sb",
+      "k": "Formeln von Säuren und Laugen nennen.",
+      "ops": [
+        "Nennen"
+      ],
+      "lk": false,
+      "antwort": [
+        {
+          "op": "Nennen",
+          "text": "Säuren: HCl, H₂SO₄, HNO₃, H₃PO₄, CH₃COOH, H₂CO₃. Laugen: NaOH, KOH, Ca(OH)₂ und Ammoniaklösung NH₃(aq)."
+        }
+      ]
+    },
+    {
+      "t": "sb",
+      "k": "Eigenschaften von Säuren und Basen erklären.",
+      "ops": [
+        "Erklären"
+      ],
+      "lk": false,
+      "antwort": [
+        {
+          "op": "Erklären",
+          "text": "Saure Lösungen enthalten H₃O⁺, weil Säuren Protonen an Wasser abgeben. Alkalische Lösungen enthalten OH⁻, weil Basen Protonen aufnehmen oder Hydroxide Ionen freisetzen. Die Ionen erklären die Leitfähigkeit, die Farbe von Indikatoren und die ätzende Wirkung. Säuren lösen unedle Metalle unter Bildung von H₂. Säure und Lauge neutralisieren sich zu Wasser und Salz."
+        }
+      ]
+    },
+    {
+      "t": "sb",
+      "k": "Protonenübergangsreaktionen formulieren und korrespondierende Säure/Basen-Paare nach Brönsted angeben.",
+      "ops": [
+        "Formulieren",
+        "Angeben"
+      ],
+      "lk": false,
+      "antwort": [
+        {
+          "op": "Formulieren",
+          "text": "HA + B ⇌ HB⁺ + A⁻. HCl + H₂O ⇌ Cl⁻ + H₃O⁺. NH₃ + H₂O ⇌ NH₄⁺ + OH⁻."
+        },
+        {
+          "op": "Angeben",
+          "text": "HCl/Cl⁻ und H₃O⁺/H₂O. NH₄⁺/NH₃ und H₂O/OH⁻. Das Paar unterscheidet sich immer um ein Proton."
+        }
+      ]
+    },
+    {
+      "t": "sb",
+      "k": "Säuren und Basen darstellen und Reaktionsgleichungen formulieren.",
+      "ops": [
+        "Darstellen",
+        "Formulieren"
+      ],
+      "lk": false,
+      "antwort": [
+        {
+          "op": "Darstellen",
+          "text": "Säuren entstehen aus Nichtmetalloxid und Wasser, Laugen aus Metalloxid oder unedlem Metall und Wasser."
+        },
+        {
+          "op": "Formulieren",
+          "text": "SO₃ + H₂O → H₂SO₄. CO₂ + H₂O ⇌ H₂CO₃. Na₂O + H₂O → 2 NaOH. CaO + H₂O → Ca(OH)₂. 2 Na + 2 H₂O → 2 NaOH + H₂."
+        }
+      ]
+    },
+    {
+      "t": "sb",
+      "k": "Stoffmengen sowie Konzentrationen berechnen.",
+      "ops": [
+        "Berechnen"
+      ],
+      "lk": false,
+      "antwort": [
+        {
+          "op": "Berechnen",
+          "text": "n = m / M, c = n / V, n = c · V. Beispiel: 4 g NaOH (M = 40 g/mol) in 500 mL: n = 0,1 mol, c = 0,2 mol/L. Titration: Bei 1 : 1 gilt c(NaOH) = c(HCl) · V(HCl) / V(NaOH). Bei H₂SO₄ gilt n(NaOH) = 2 · n(H₂SO₄)."
+        }
+      ]
+    },
+    {
+      "t": "sb",
+      "k": "Das Wassermolekül als amphoteres Teilchen (Ampholyt) mittels Reaktionsgleichung erläutern.",
+      "ops": [
+        "Erläutern"
+      ],
+      "lk": false,
+      "antwort": [
+        {
+          "op": "Erläutern",
+          "text": "Ein Ampholyt kann Protonen aufnehmen und abgeben. Mit HCl ist Wasser eine Base: HCl + H₂O ⇌ Cl⁻ + H₃O⁺. Mit NH₃ ist es eine Säure: NH₃ + H₂O ⇌ NH₄⁺ + OH⁻. Auch mit sich selbst: 2 H₂O ⇌ H₃O⁺ + OH⁻ (Autoprotolyse), K_w = 10⁻¹⁴ mol²/L²."
+        }
+      ]
+    },
+    {
+      "t": "sb",
+      "k": "Indikatoren definieren und beschreiben.",
+      "ops": [
+        "Definieren",
+        "Beschreiben"
+      ],
+      "lk": false,
+      "antwort": [
+        {
+          "op": "Definieren",
+          "text": "Ein Indikator ist ein Stoff, meist ein Farbstoff, der durch seine Farbe den pH-Bereich einer Lösung anzeigt."
+        },
+        {
+          "op": "Beschreiben",
+          "text": "Er ist selbst eine schwache Säure oder Base, deren Säureform und Baseform verschieden gefärbt sind. Im Umschlagbereich wechselt die Farbe. Phenolphthalein ist bis pH 8,2 farblos, darüber pink. Bromthymolblau ist gelb, grün, blau. Der Universalindikator ist eine Mischung mit Farbskala über viele pH-Werte."
+        }
+      ]
+    },
+    {
+      "t": "sb",
+      "k": "Den pH/pOH von Säuren und Basen definieren, beschreiben und berechnen.",
+      "ops": [
+        "Definieren",
+        "Beschreiben",
+        "Berechnen"
+      ],
+      "lk": false,
+      "antwort": [
+        {
+          "op": "Definieren",
+          "text": "pH = −lg c(H₃O⁺) (ohne Einheit eingesetzt), pOH = −lg c(OH⁻)."
+        },
+        {
+          "op": "Beschreiben",
+          "text": "Die Skala geht von 0 bis 14: unter 7 sauer, 7 neutral, über 7 alkalisch. Es gilt pH + pOH = 14, weil K_w = 10⁻¹⁴ mol²/L². Ein pH-Schritt ist ein Faktor 10 in der Konzentration."
+        },
+        {
+          "op": "Berechnen",
+          "text": "Salzsäure 1 mol/L: pH = −lg 1 = 0. c(OH⁻) = 0,001 mol/L: pOH = 3, pH = 14 − 3 = 11, c(H₃O⁺) = 10⁻¹¹ mol/L."
+        }
+      ]
+    },
+    {
+      "t": "kunst",
+      "k": "Thermoplaste, Duroplaste und Elastomere (Klassifikation) miteinander vergleichen.",
+      "ops": [
+        "Vergleichen"
+      ],
+      "lk": false,
+      "antwort": [
+        {
+          "op": "Vergleichen",
+          "text": "Struktur: Thermoplaste sind unvernetzt oder wenig verzweigt, Duroplaste engmaschig, Elastomere weitmaschig vernetzt. Wärme: Thermoplaste erweichen und schmelzen, Duroplaste bleiben fest und zersetzen sich, Elastomere bleiben elastisch. Verformbarkeit: Thermoplaste sind verformbar, Duroplaste nicht, Elastomere nur elastisch. Gemeinsam: Alle bestehen aus Makromolekülen."
+        }
+      ]
+    },
+    {
+      "t": "kunst",
+      "k": "Den Aufbau von Makromolekülen beschreiben.",
+      "ops": [
+        "Beschreiben"
+      ],
+      "lk": false,
+      "antwort": [
+        {
+          "op": "Beschreiben",
+          "text": "Makromoleküle (Polymere) bestehen aus vielen gleichen oder verschiedenen Monomeren, die durch Atombindungen verknüpft sind. Die Zahl der Monomereinheiten ist der Polymerisationsgrad. Die Struktur kann unverzweigt, verzweigt oder vernetzt sein. Homopolymere haben ein Monomer, Copolymere mehrere. Beispiel: Aus Ethen entsteht die Kette –(CH₂–CH₂)ₙ–."
+        }
+      ]
+    },
+    {
+      "t": "kunst",
+      "k": "Reaktionsgleichungen sowie den Mechanismus zur Verknüpfung von Monomeren zu Makromolekülen (Polymerisation, Polykondensation, Polyaddition) aufstellen, erläutern und formulieren.",
+      "ops": [
+        "Aufstellen",
+        "Erläutern",
+        "Formulieren"
+      ],
+      "lk": false,
+      "antwort": [
+        {
+          "op": "Aufstellen",
+          "text": "Polymerisation: n CH₂=CH₂ → –(CH₂–CH₂)ₙ–. Polykondensation (PET): n HO–(CH₂)₂–OH + n HOOC–C₆H₄–COOH → –[O–(CH₂)₂–O–CO–C₆H₄–CO]ₙ– + (2n − 1) H₂O. Polyaddition (Polyurethan): n HO–R–OH + n O=C=N–R'–N=C=O → –[O–R–O–CO–NH–R'–NH–CO]ₙ–."
+        },
+        {
+          "op": "Erläutern",
+          "text": "Polymerisation ist eine Kettenreaktion von Monomeren mit Mehrfachbindung: Start, Wachstum, Abbruch. Polykondensation ist ein Stufenwachstum: Monomere mit mindestens zwei funktionellen Gruppen verknüpfen sich unter Abspaltung eines kleinen Moleküls wie Wasser. Polyaddition ist ebenfalls ein Stufenwachstum, aber ohne Abspaltung: Diol und Diisocyanat addieren sich."
+        },
+        {
+          "op": "Formulieren",
+          "text": "Radikalische Polymerisation von Ethen. Start: R• + CH₂=CH₂ → R–CH₂–CH₂•. Wachstum: R–CH₂–CH₂• + CH₂=CH₂ → R–CH₂–CH₂–CH₂–CH₂•. Abbruch: Zwei Radikale verbinden sich, R–(CH₂)ₘ• + •(CH₂)ₖ–R → R–(CH₂)ₘ₊ₖ–R."
+        }
+      ]
+    },
+    {
+      "t": "kunst",
+      "k": "Den Zusammenhang zwischen der Struktur und den Eigenschaften erklären.",
+      "ops": [
+        "Erklären"
+      ],
+      "lk": false,
+      "antwort": [
+        {
+          "op": "Erklären",
+          "text": "Zwischen unvernetzten Ketten wirken nur schwache Kräfte (Van-der-Waals, Dipol-Dipol, Wasserstoffbrücken), deshalb erweicht ein Thermoplast bei Wärme. Bei engmaschiger Vernetzung sind die Ketten durch Atombindungen fixiert, deshalb ist ein Duroplast hart und nicht schmelzbar. Bei weitmaschiger Vernetzung können sich die Ketten strecken und springen zurück, deshalb ist ein Elastomer elastisch. Kristalline Bereiche machen fest, amorphe flexibel (HDPE gegen LDPE)."
+        }
+      ]
+    }
+  ],
+  "mwgbau": [
+    {
+      "t": "mwg",
+      "titel": "Ammoniaksynthese",
+      "kopf": "N₂ + 3 H₂ ⇌ 2 NH₃",
+      "satz": "K_c = {0} / ({1})",
+      "luecken": [
+        {
+          "a": "c²(NH₃)",
+          "falsch": [
+            "c(NH₃)",
+            "2 c(NH₃)"
+          ]
+        },
+        {
+          "a": "c(N₂) · c³(H₂)",
+          "falsch": [
+            "c(N₂) · c(H₂)",
+            "c(N₂) + 3 c(H₂)"
+          ]
+        }
+      ],
+      "e": "Der Koeffizient 2 wird zum Exponenten, im Nenner steht 3 als Exponent von H₂."
+    },
+    {
+      "t": "mwg",
+      "titel": "Boudouard-Gleichgewicht",
+      "kopf": "CO₂ + C ⇌ 2 CO",
+      "satz": "K_c = {0} / {1}",
+      "luecken": [
+        {
+          "a": "c²(CO)",
+          "falsch": [
+            "c(CO)",
+            "2 c(CO)"
+          ]
+        },
+        {
+          "a": "c(CO₂)",
+          "falsch": [
+            "c(CO₂) · c(C)",
+            "c(C)"
+          ]
+        }
+      ],
+      "e": "Kohlenstoff ist fest und fehlt im MWG."
+    },
+    {
+      "t": "mwg",
+      "titel": "Iodwasserstoff",
+      "kopf": "H₂ + I₂ ⇌ 2 HI",
+      "satz": "K_c = {0} / ({1})",
+      "luecken": [
+        {
+          "a": "c²(HI)",
+          "falsch": [
+            "c(HI)",
+            "2 c(HI)"
+          ]
+        },
+        {
+          "a": "c(H₂) · c(I₂)",
+          "falsch": [
+            "c(H₂) + c(I₂)",
+            "c²(H₂) · c(I₂)"
+          ]
+        }
+      ],
+      "e": "Δν = 0, deshalb hat K_c keine Einheit."
+    },
+    {
+      "t": "mwg",
+      "titel": "Kontaktverfahren mit Partialdrücken",
+      "kopf": "2 SO₂ + O₂ ⇌ 2 SO₃",
+      "satz": "K_p = {0} / ({1})",
+      "luecken": [
+        {
+          "a": "p²(SO₃)",
+          "falsch": [
+            "p(SO₃)",
+            "2 p(SO₃)"
+          ]
+        },
+        {
+          "a": "p²(SO₂) · p(O₂)",
+          "falsch": [
+            "p(SO₂) · p(O₂)",
+            "p²(SO₂) · p²(O₂)"
+          ]
+        }
+      ],
+      "e": "Bei Gasen nimmt man Partialdrücke. [K_p] = kPa⁻¹."
+    },
+    {
+      "t": "mwg",
+      "titel": "Distickstofftetraoxid",
+      "kopf": "N₂O₄ ⇌ 2 NO₂",
+      "satz": "K_c = {0} / {1}",
+      "luecken": [
+        {
+          "a": "c²(NO₂)",
+          "falsch": [
+            "c(NO₂)",
+            "2 c(NO₂)"
+          ]
+        },
+        {
+          "a": "c(N₂O₄)",
+          "falsch": [
+            "c²(N₂O₄)",
+            "c(N₂O₄) · c(NO₂)"
+          ]
+        }
+      ],
+      "e": "Aus der kinetischen Herleitung des Buchs: K_c = k_H / k_R."
+    },
+    {
+      "t": "mwg",
+      "titel": "Methan und Wasserdampf",
+      "kopf": "CH₄ + H₂O ⇌ CO + 3 H₂ (alle gasförmig)",
+      "satz": "K_p = {0} / ({1})",
+      "luecken": [
+        {
+          "a": "p(CO) · p³(H₂)",
+          "falsch": [
+            "p(CO) · p(H₂)",
+            "p(CO) + 3 p(H₂)"
+          ]
+        },
+        {
+          "a": "p(CH₄) · p(H₂O)",
+          "falsch": [
+            "p(CH₄) + p(H₂O)",
+            "p(CH₄) · p²(H₂O)"
+          ]
+        }
+      ],
+      "e": "Δν = 4 − 2 = 2, die Einheit ist kPa².",
+      "lk": true
+    },
+    {
+      "t": "gg",
+      "titel": "Löslichkeitsprodukt",
+      "kopf": "AgCl(s) ⇌ Ag⁺(aq) + Cl⁻(aq)",
+      "satz": "K_L = {0}",
+      "luecken": [
+        {
+          "a": "c(Ag⁺) · c(Cl⁻)",
+          "falsch": [
+            "c(AgCl)",
+            "c(Ag⁺) / c(Cl⁻)"
+          ]
+        }
+      ],
+      "e": "Der Feststoff steht nicht im MWG.",
+      "lk": true
+    }
+  ],
+  "paare": [
+    {
+      "t": "sb",
+      "titel": "Paar finden",
+      "aufgabe": "Welches ist die korrespondierende Base?",
+      "satz": "H₂SO₄ / {0}",
+      "luecken": [
+        {
+          "a": "HSO₄⁻",
+          "falsch": [
+            "SO₄²⁻",
+            "H₃O⁺"
+          ]
+        }
+      ],
+      "e": "Säure minus ein Proton gleich korrespondierende Base."
+    },
+    {
+      "t": "sb",
+      "titel": "Paar finden",
+      "aufgabe": "Welches ist die korrespondierende Säure?",
+      "satz": "{0} / NH₃",
+      "luecken": [
+        {
+          "a": "NH₄⁺",
+          "falsch": [
+            "NH₂⁻",
+            "OH⁻"
+          ]
+        }
+      ],
+      "e": "Base plus ein Proton gleich korrespondierende Säure."
+    },
+    {
+      "t": "sb",
+      "titel": "Protolyse von Hydrogencarbonat",
+      "satz": "HCO₃⁻ + H₂O ⇌ {0} + H₃O⁺",
+      "luecken": [
+        {
+          "a": "CO₃²⁻",
+          "falsch": [
+            "H₂CO₃",
+            "OH⁻"
+          ]
+        }
+      ],
+      "e": "HCO₃⁻ gibt hier ein Proton an Wasser ab."
+    },
+    {
+      "t": "sb",
+      "titel": "Essigsäure in Wasser",
+      "satz": "CH₃COOH + H₂O ⇌ {0} + {1}",
+      "luecken": [
+        {
+          "a": "CH₃COO⁻",
+          "falsch": [
+            "CH₃COOH₂⁺",
+            "OH⁻"
+          ]
+        },
+        {
+          "a": "H₃O⁺",
+          "falsch": [
+            "OH⁻",
+            "H₂"
+          ]
+        }
+      ],
+      "e": "Essigsäure gibt ein Proton ab, Wasser nimmt es auf."
+    },
+    {
+      "t": "sb",
+      "titel": "Paare nummerieren",
+      "aufgabe": "Säure 1, Base 1, Base 2, Säure 2",
+      "satz": "HCl / {0} und {1} / H₂O",
+      "luecken": [
+        {
+          "a": "Cl⁻",
+          "falsch": [
+            "OH⁻",
+            "H₂O"
+          ]
+        },
+        {
+          "a": "H₃O⁺",
+          "falsch": [
+            "OH⁻",
+            "H₂"
+          ]
+        }
+      ],
+      "e": "Die Paare sind HCl/Cl⁻ und H₃O⁺/H₂O."
+    },
+    {
+      "t": "sb",
+      "titel": "Paar zu Hydroxid",
+      "satz": "{0} / OH⁻",
+      "luecken": [
+        {
+          "a": "H₂O",
+          "falsch": [
+            "H₃O⁺",
+            "O²⁻"
+          ]
+        }
+      ],
+      "e": "Wasser gibt ein Proton ab und wird zu OH⁻."
+    },
+    {
+      "t": "sb",
+      "titel": "Paar zu Oxonium",
+      "satz": "H₃O⁺ / {0}",
+      "luecken": [
+        {
+          "a": "H₂O",
+          "falsch": [
+            "OH⁻",
+            "H₂"
+          ]
+        }
+      ],
+      "e": "H₃O⁺ gibt ein Proton ab und wird zu H₂O."
+    }
+  ],
+  "ordnen": [
+    {
+      "t": "kunst",
+      "titel": "Radikalische Polymerisation von Ethen",
+      "schritte": [
+        "Der Initiator zerfällt homolytisch in zwei Radikale.",
+        "Ein Radikal addiert sich an die Doppelbindung eines Ethenmoleküls.",
+        "Am anderen Kohlenstoffatom bleibt ein ungepaartes Elektron, es entsteht ein neues Radikal.",
+        "Das Radikalende reagiert mit weiteren Ethenmolekülen, die Kette wächst.",
+        "Zwei Radikale verbinden sich, die Kette bricht ab.",
+        "Es ist Polyethylen entstanden."
+      ],
+      "e": "Start, Wachstum, Abbruch."
+    },
+    {
+      "t": "mwg",
+      "titel": "Rechnen mit dem MWG",
+      "schritte": [
+        "Reaktionsgleichung aufstellen",
+        "Anfangswerte aufschreiben",
+        "Werte im Gleichgewicht bestimmen",
+        "MWG aufstellen",
+        "Werte in das MWG einsetzen",
+        "Unbekannte Größe berechnen"
+      ],
+      "e": "Das sind die sechs Schritte aus dem Buch."
+    },
+    {
+      "t": "zwang",
+      "titel": "Kontaktverfahren",
+      "schritte": [
+        "Schwefel verbrennt zu Schwefeldioxid.",
+        "Das Gas wird auf etwa 420 °C gekühlt.",
+        "SO₂ wird am Katalysator mit O₂ zu SO₃ oxidiert.",
+        "Nach der dritten Kontaktschicht wird SO₃ im Zwischenabsorber entfernt.",
+        "Das restliche SO₂ geht über eine vierte Kontaktschicht.",
+        "Im Endabsorber wird das SO₃ in Schwefelsäure gelöst."
+      ],
+      "e": "Doppelkontaktverfahren."
+    },
+    {
+      "t": "sb",
+      "titel": "Titration von Natronlauge",
+      "schritte": [
+        "Natronlauge mit der Pipette in den Erlenmeyerkolben geben.",
+        "Phenolphthalein zugeben, die Lösung wird pink.",
+        "Bürette mit Salzsäure bekannter Konzentration füllen.",
+        "Salzsäure zutropfen und dabei schwenken.",
+        "Beim Umschlag nach farblos aufhören und das Volumen ablesen.",
+        "Die Konzentration über n = c · V berechnen."
+      ]
+    },
+    {
+      "t": "gg",
+      "titel": "Einstellung eines Gleichgewichts",
+      "schritte": [
+        "Am Anfang laufen nur die Hinreaktion.",
+        "Produkte sind entstanden, die Rückreaktion setzt ein.",
+        "Die Hinreaktion wird langsamer, die Rückreaktion schneller.",
+        "Beide Geschwindigkeiten sind gleich groß.",
+        "Die Konzentrationen bleiben konstant."
+      ],
+      "e": "Dann ist das dynamische Gleichgewicht erreicht."
+    },
+    {
+      "t": "kunst",
+      "titel": "Bildung von Polyurethan",
+      "schritte": [
+        "Das Sauerstoffatom der OH-Gruppe greift das Kohlenstoffatom der Isocyanatgruppe an.",
+        "Ein Proton wandert zum Stickstoffatom.",
+        "Es entsteht die Urethangruppe.",
+        "Die Endgruppen reagieren weiter, die Kette wächst stufenweise."
+      ],
+      "e": "Polyaddition: Nichts wird abgespalten."
+    }
+  ],
+  "reaktionstyp": [
+    {
+      "t": "kunst",
+      "q": "Ethen reagiert mit einem Peroxid als Initiator zu Polyethylen.",
+      "optionen": [
+        "Polymerisation",
+        "Polykondensation",
+        "Polyaddition"
+      ],
+      "a": "Polymerisation",
+      "e": "Monomer mit C=C, Kettenreaktion mit Start, Wachstum und Abbruch."
+    },
+    {
+      "t": "kunst",
+      "q": "Ethan-1,2-diol und Terephthalsäure bilden PET, dabei entsteht Wasser.",
+      "optionen": [
+        "Polymerisation",
+        "Polykondensation",
+        "Polyaddition"
+      ],
+      "a": "Polykondensation",
+      "e": "Es wird ein kleines Molekül (Wasser) abgespalten."
+    },
+    {
+      "t": "kunst",
+      "q": "Ein Diol und ein Diisocyanat bilden ein Polyurethan, nichts wird abgespalten.",
+      "optionen": [
+        "Polymerisation",
+        "Polykondensation",
+        "Polyaddition"
+      ],
+      "a": "Polyaddition",
+      "e": "Stufenwachstum durch Addition ohne Abspaltung."
+    },
+    {
+      "t": "kunst",
+      "q": "Hexan-1,6-diamin und Hexandisäure bilden Polyamid 6.6.",
+      "optionen": [
+        "Polymerisation",
+        "Polykondensation",
+        "Polyaddition"
+      ],
+      "a": "Polykondensation",
+      "e": "Es entsteht Wasser, die Amidgruppe verknüpft die Monomere."
+    },
+    {
+      "t": "kunst",
+      "q": "Styrol reagiert mit AIBN zu Polystyrol.",
+      "optionen": [
+        "Polymerisation",
+        "Polykondensation",
+        "Polyaddition"
+      ],
+      "a": "Polymerisation",
+      "e": "AIBN liefert Radikale für die Kettenreaktion."
+    },
+    {
+      "t": "kunst",
+      "q": "Bisphenol A und Phosgen bilden Polycarbonat, dabei entsteht Chlorwasserstoff.",
+      "optionen": [
+        "Polymerisation",
+        "Polykondensation",
+        "Polyaddition"
+      ],
+      "a": "Polykondensation",
+      "e": "Chlorwasserstoff ist das abgespaltene Kondensat."
+    },
+    {
+      "t": "kunst",
+      "q": "Welche Reaktion verläuft als Kettenreaktion mit Start, Wachstum und Abbruch?",
+      "optionen": [
+        "Polymerisation",
+        "Polykondensation",
+        "Polyaddition"
+      ],
+      "a": "Polymerisation",
+      "e": "Die anderen beiden sind Stufenwachstumsreaktionen."
+    },
+    {
+      "t": "kunst",
+      "q": "Phenol und Methanal bilden ein Phenolharz unter Abspaltung von Wasser.",
+      "optionen": [
+        "Polymerisation",
+        "Polykondensation",
+        "Polyaddition"
+      ],
+      "a": "Polykondensation",
+      "e": "Phenoplaste sind Polykondensate."
+    },
+    {
+      "t": "kunst",
+      "q": "Welche Reaktion liefert ein Polymer mit der gleichen Zusammensetzung wie die Monomere und ist ein Stufenwachstum?",
+      "optionen": [
+        "Polymerisation",
+        "Polykondensation",
+        "Polyaddition"
+      ],
+      "a": "Polyaddition",
+      "e": "Bei der Polyaddition gibt es kein Kondensat."
     }
   ]
 }
